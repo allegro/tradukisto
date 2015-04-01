@@ -1,0 +1,10 @@
+# gradle config
+.gradle
+
+# project binaries
+/build
+/out
+/classes
+
+# sonar
+sonar-project.properties

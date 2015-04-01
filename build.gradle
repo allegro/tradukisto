@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'maven-publish'
+    id 'idea'
+    id 'checkstyle'
+    id 'jacoco'
+    id 'pmd'
+    id 'pl.allegro.tech.build.axion-release' version '1.2.3'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.7
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.3"
+}
+
+dependencies {
+    compile "com.google.guava:guava:18.0"
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
+
+jacocoTestReport {
+    reports {
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+scmVersion {
+    tag {
+        prefix = 'tradukisto'
+    }
+}
+
+project.version = scmVersion.version
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'pl.allegro.utils'
+            from components.java
+        }
+    }
+}
