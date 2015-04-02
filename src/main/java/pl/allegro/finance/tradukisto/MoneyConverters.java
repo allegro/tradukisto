@@ -1,11 +1,11 @@
-package pl.allegro.utils.tradukisto;
+package pl.allegro.finance.tradukisto;
 
-import pl.allegro.utils.tradukisto.internal.BigDecimalToStringConverter;
+import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 
 import java.math.BigDecimal;
 
 import static com.google.common.base.Verify.verifyNotNull;
-import static pl.allegro.utils.tradukisto.internal.languages.polish.PolishContainer.polishContainer;
+import static pl.allegro.finance.tradukisto.internal.languages.polish.PolishContainer.polishContainer;
 
 public enum MoneyConverters {
 

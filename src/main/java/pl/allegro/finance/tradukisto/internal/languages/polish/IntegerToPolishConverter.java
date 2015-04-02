@@ -1,9 +1,9 @@
-package pl.allegro.utils.tradukisto.internal.languages.polish;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
-import pl.allegro.utils.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.utils.tradukisto.internal.NumberChunking;
+import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.NumberChunking;
 
 import java.util.ArrayList;
 import java.util.Iterator;

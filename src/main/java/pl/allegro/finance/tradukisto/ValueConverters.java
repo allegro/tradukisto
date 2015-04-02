@@ -1,13 +1,13 @@
-package pl.allegro.utils.tradukisto;
+package pl.allegro.finance.tradukisto;
 
-import pl.allegro.utils.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.languages.polish.PolishContainer;
 
 import static com.google.common.base.Verify.verifyNotNull;
-import static pl.allegro.utils.tradukisto.internal.languages.polish.PolishContainer.polishContainer;
 
 public enum ValueConverters {
 
-    POLISH_INTEGER(polishContainer().getNumbersConverter());
+    POLISH_INTEGER(PolishContainer.polishContainer().getNumbersConverter());
 
     private IntegerToStringConverter converter;
 

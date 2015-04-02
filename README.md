@@ -22,6 +22,20 @@ Supported languages
 Usage
 -----
 
+Add `tradukisto` as dependency:
+
+```
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'pl.allegro.finance:tradukisto:0.1.0'
+}
+```
+
+and use it:
+
 ```java
 ValueConverter converter = ValueConverters.POLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);

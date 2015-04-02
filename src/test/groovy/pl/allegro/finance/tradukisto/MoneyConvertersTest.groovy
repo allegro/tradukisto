@@ -1,4 +1,4 @@
-package pl.allegro.utils.tradukisto
+package pl.allegro.finance.tradukisto
 
 import com.google.common.base.VerifyException
 import spock.lang.Specification

@@ -1,8 +1,8 @@
-package pl.allegro.utils.tradukisto.internal.languages.polish;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import spock.lang.Specification
 
-import static pl.allegro.utils.tradukisto.internal.languages.polish.PolishContainer.polishContainer
+import static PolishContainer.polishContainer
 
 class BigDecimalToPolishBankingMoneyValueConverterTest extends Specification {
 

@@ -1,4 +1,4 @@
-package pl.allegro.utils.tradukisto.internal.languages.polish;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import com.google.common.collect.ImmutableMap;
 

@@ -1,4 +1,4 @@
-package pl.allegro.utils.tradukisto.internal;
+package pl.allegro.finance.tradukisto.internal;
 
 import com.google.common.math.IntMath;
 

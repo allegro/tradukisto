@@ -1,7 +1,7 @@
-package pl.allegro.utils.tradukisto.internal.languages.polish;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
-import pl.allegro.utils.tradukisto.internal.BigDecimalToStringConverter;
-import pl.allegro.utils.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
+import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 
 import java.math.BigDecimal;
 

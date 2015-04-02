@@ -1,13 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.1"
+    }
+}
+
 plugins {
     id 'java'
     id 'groovy'
-    id 'maven-publish'
     id 'idea'
     id 'checkstyle'
     id 'jacoco'
     id 'pmd'
     id 'pl.allegro.tech.build.axion-release' version '1.2.3'
+    id "com.bmuschko.nexus" version "2.3.1"
 }
+
+apply plugin: 'io.codearte.nexus-staging'
+
+scmVersion {
+    tag {
+        prefix = 'tradukisto'
+    }
+}
+
+project.version = scmVersion.version
+project.group = "pl.allegro.finance"
 
 repositories {
     mavenCentral()
@@ -40,19 +60,35 @@ test {
     }
 }
 
-scmVersion {
-    tag {
-        prefix = 'tradukisto'
-    }
+nexusStaging {
+    packageGroup = "pl.allegro"
 }
 
-project.version = scmVersion.version
+modifyPom {
+    project {
+        name 'Tradukisto'
+        description 'Small java library created to convert numbers to their word representations'
+        url 'https://github.com/allegro/tradukisto'
+        inceptionYear '2015'
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'pl.allegro.utils'
-            from components.java
+        scm {
+            url 'https://github.com/allegro/tradukisto'
+            connection 'scm:git@github.com:allegro/tradukisto.git'
+            developerConnection 'scm:git@github.com:allegro/tradukisto.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            }
+        }
+
+        developers {
+            developer {
+                id 'dorians'
+                name 'Dorian Sarnowski'
+            }
         }
     }
 }
