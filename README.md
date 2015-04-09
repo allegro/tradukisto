@@ -1,6 +1,8 @@
 Tradukisto
 ==========
 
+[![Build Status](https://travis-ci.org/allegro/tradukisto.svg?branch=master)](https://travis-ci.org/allegro/tradukisto)
+
 Tradukisto is a Java library created to convert numbers to their word representations. The only language currently 
 supported is Polish.
 
