@@ -5,7 +5,7 @@ import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 import java.math.BigDecimal;
 
 import static com.google.common.base.Verify.verifyNotNull;
-import static pl.allegro.finance.tradukisto.internal.languages.polish.PolishContainer.polishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 
 public enum MoneyConverters {
 
@@ -13,7 +13,7 @@ public enum MoneyConverters {
 
     private BigDecimalToStringConverter converter;
 
-    private MoneyConverters(BigDecimalToStringConverter converter) {
+    MoneyConverters(BigDecimalToStringConverter converter) {
         this.converter = converter;
     }
 

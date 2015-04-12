@@ -1,5 +1,6 @@
-package pl.allegro.finance.tradukisto.internal
+package pl.allegro.finance.tradukisto.internal.support
 
+import pl.allegro.finance.tradukisto.internal.support.NumberChunking
 import spock.lang.Specification
 
 class NumberChunkingTest extends Specification {

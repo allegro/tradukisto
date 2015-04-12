@@ -1,17 +1,17 @@
 package pl.allegro.finance.tradukisto;
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.languages.polish.PolishContainer;
 
 import static com.google.common.base.Verify.verifyNotNull;
+import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 
 public enum ValueConverters {
 
-    POLISH_INTEGER(PolishContainer.polishContainer().getNumbersConverter());
+    POLISH_INTEGER(polishContainer().getNumbersConverter());
 
     private IntegerToStringConverter converter;
 
-    private ValueConverters(IntegerToStringConverter converter) {
+    ValueConverters(IntegerToStringConverter converter) {
         this.converter = converter;
     }
 
