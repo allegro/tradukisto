@@ -1,8 +1,8 @@
-package pl.allegro.finance.tradukisto.internal.languages.values;
+package pl.allegro.finance.tradukisto.internal.languages.czech;
 
 import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
-import pl.allegro.finance.tradukisto.internal.support.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -54,12 +54,12 @@ public class CzechValues implements BaseValues {
     }
 
     @Override
-    public List<PluralForms> pluralForms() {
+    public List<? extends PluralForms> pluralForms() {
         return Arrays.asList(
-                new PluralForms("", "", ""),
-                new PluralForms("tisíc", "tisíce", "tisíc"),
-                new PluralForms("milion", "miliony", "milionů"),
-                new PluralForms("miliarda", "miliardy", "miliard"));
+                new CzechPluralForms("", "", ""),
+                new CzechPluralForms("tisíc", "tisíce", "tisíc"),
+                new CzechPluralForms("milion", "miliony", "milionů"),
+                new CzechPluralForms("miliarda", "miliardy", "miliard"));
     }
 
     @Override

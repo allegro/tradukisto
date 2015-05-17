@@ -37,7 +37,7 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
         checkArgument(valueLessThatIntMax(value),
                 "can't transform numbers greater than Integer.MAX_VALUE for value %f", value);
 
-        checkArgument(valueGreatThanOrEquallToZero(value),
+        checkArgument(valueGreatThanOrEqualToZero(value),
                 "can't transform numbers less than zero for value %f", value);
     }
 
@@ -45,7 +45,7 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
         return value.compareTo(new BigDecimal(Integer.MAX_VALUE).add(BigDecimal.ONE)) == -1;
     }
 
-    private boolean valueGreatThanOrEquallToZero(BigDecimal value) {
+    private boolean valueGreatThanOrEqualToZero(BigDecimal value) {
         return value.signum() >= 0;
     }
 }

@@ -1,7 +1,7 @@
 package pl.allegro.finance.tradukisto.internal.converters
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
-import pl.allegro.finance.tradukisto.internal.languages.values.PolishValues
+import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues
 import spock.lang.Specification
 
 class IntegerToWordsConverterTest extends Specification {

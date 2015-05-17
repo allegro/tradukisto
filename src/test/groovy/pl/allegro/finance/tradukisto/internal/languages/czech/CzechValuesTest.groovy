@@ -1,4 +1,4 @@
-package pl.allegro.finance.tradukisto.internal.languages.values
+package pl.allegro.finance.tradukisto.internal.languages.czech
 
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -78,23 +78,27 @@ public class CzechValuesTest extends Specification {
 
         1_000         | "jeden tisíc"
         2_000         | "dva tisíce"
+        3_000         | "tři tisíce"
+        4_000         | "čtyři tisíce"
         5_000         | "pět tisíc"
         7_634         | "sedm tisíc šest set třicet čtyři"
-        24_190        | "dvacet čtyři tisíce sto devadesát"
-        653_000       | "šest set padesát tři tisíce"
-        123_454       | "sto dvacet tři tisíce čtyři sta padesát čtyři"
+        11_000        | "jedenáct tisíc"
+        15_000        | "patnáct tisíc"
+        24_190        | "dvacet čtyři tisíc sto devadesát"
+        653_000       | "šest set padesát tři tisíc"
+        123_454       | "sto dvacet tři tisíc čtyři sta padesát čtyři"
         700_000       | "sedm set tisíc"
         999_999       | "devět set devadesát devět tisíc devět set devadesát devět"
 
         1_000_000     | "jeden milion"
         2_000_000     | "dva miliony"
         5_000_000     | "pět milionů"
-        23_437_219    | "dvacet tři miliony čtyři sta třicet sedm tisíc dvě stě devatenáct"
+        23_437_219    | "dvacet tři milionů čtyři sta třicet sedm tisíc dvě stě devatenáct"
         100_000_000   | "sto milionů"
-        123_456_789   | "sto dvacet tři miliony čtyři sta padesát šest tisíc sedm set osmdesát devět"
+        123_456_789   | "sto dvacet tři milionů čtyři sta padesát šest tisíc sedm set osmdesát devět"
 
         1_000_000_000 | "jedna miliarda"
-        2_147_483_647 | "dvě miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíce šest set čtyřicet sedm"
+        2_147_483_647 | "dva miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíc šest set čtyřicet sedm"
     }
 
     def "should convert any value in range of 0-999 in Czech"() {

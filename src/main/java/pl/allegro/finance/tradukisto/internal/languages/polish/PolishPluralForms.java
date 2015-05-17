@@ -1,19 +1,21 @@
-package pl.allegro.finance.tradukisto.internal.support;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import com.google.common.collect.Range;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
-public class PluralForms {
+public class PolishPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
     private final String genitivePluralForm;
 
-    public PluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+    public PolishPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genitivePluralForm = genitivePluralForm;
     }
 
+    @Override
     public String getFor(Integer value) {
         if (value == 1) {
             return singularForm;

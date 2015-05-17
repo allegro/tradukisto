@@ -1,8 +1,8 @@
-package pl.allegro.finance.tradukisto.internal.languages.values;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
-import pl.allegro.finance.tradukisto.internal.support.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -54,12 +54,12 @@ public class PolishValues implements BaseValues {
     }
 
     @Override
-    public List<PluralForms> pluralForms() {
+    public List<? extends PluralForms> pluralForms() {
         return Arrays.asList(
-                new PluralForms("", "", ""),
-                new PluralForms("tysiąc", "tysiące", "tysięcy"),
-                new PluralForms("milion", "miliony", "milionów"),
-                new PluralForms("miliard", "miliardy", "miliardów"));
+                new PolishPluralForms("", "", ""),
+                new PolishPluralForms("tysiąc", "tysiące", "tysięcy"),
+                new PolishPluralForms("milion", "miliony", "milionów"),
+                new PolishPluralForms("miliard", "miliardy", "miliardów"));
     }
 
     @Override

@@ -3,7 +3,7 @@ package pl.allegro.finance.tradukisto.internal.converters;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.support.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.support.NumberChunking;
 
 import java.util.ArrayList;
@@ -17,10 +17,10 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
     private final NumberChunking numberChunking = new NumberChunking();
 
     private final IntegerToStringConverter hundredsToWordsConverter;
-    private final List<PluralForms> pluralForms;
+    private final List<? extends PluralForms> pluralForms;
 
     public IntegerToWordsConverter(IntegerToStringConverter hundredsToWordsConverter,
-                                   List<PluralForms> pluralForms) {
+                                   List<? extends PluralForms> pluralForms) {
         this.hundredsToWordsConverter = hundredsToWordsConverter;
         this.pluralForms = pluralForms;
     }
@@ -30,12 +30,12 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
         checkArgument(value >= 0, "can't convert negative numbers for value %d", value);
 
         List<Integer> valueChunks = numberChunking.chunk(value);
-        List<PluralForms> formsToUse = Lists.reverse(pluralForms.subList(0, valueChunks.size()));
+        List<? extends PluralForms> formsToUse = Lists.reverse(pluralForms.subList(0, valueChunks.size()));
 
         return joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator());
     }
 
-    private String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<PluralForms> formsToUse) {
+    private String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<? extends PluralForms> formsToUse) {
         List<String> result = new ArrayList<>();
 
         while (chunks.hasNext() && formsToUse.hasNext()) {

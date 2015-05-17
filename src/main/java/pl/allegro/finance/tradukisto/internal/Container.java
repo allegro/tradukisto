@@ -3,8 +3,8 @@ package pl.allegro.finance.tradukisto.internal;
 import pl.allegro.finance.tradukisto.internal.converters.BigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.converters.HundredsToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.values.CzechValues;
-import pl.allegro.finance.tradukisto.internal.languages.values.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
+import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 
 public class Container {
 
