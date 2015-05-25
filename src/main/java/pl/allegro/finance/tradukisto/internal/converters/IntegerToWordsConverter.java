@@ -40,7 +40,7 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
 
         while (chunks.hasNext() && formsToUse.hasNext()) {
             Integer currentChunkValue = chunks.next();
-            String currentForm = formsToUse.next().getFor(currentChunkValue);
+            String currentForm = formsToUse.next().formFor(currentChunkValue);
 
             if (currentChunkValue > 0) {
                 result.add(hundredsToWordsConverter.asWords(currentChunkValue));

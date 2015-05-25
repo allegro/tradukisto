@@ -9,13 +9,13 @@ class PolishPluralFormsTest extends Specification {
 
     def "should provide value for singular form"() {
         expect:
-        pluralForms.getFor(1) == "tysiąc"
+        pluralForms.formFor(1) == "tysiąc"
     }
 
     @Unroll
     def "should provide value for plural form: #value"() {
         expect:
-        pluralForms.getFor(value) == "tysiące"
+        pluralForms.formFor(value) == "tysiące"
 
         where:
         value << (2..4) + (22..24) + (32..34) + (172..174) + (1732..1734)
@@ -24,7 +24,7 @@ class PolishPluralFormsTest extends Specification {
     @Unroll
     def "should provide value for genitive plural form: #value"() {
         expect:
-        pluralForms.getFor(value) == "tysięcy"
+        pluralForms.formFor(value) == "tysięcy"
 
         where:
         value << [0] + (5..21) + (25..31) + (175..181) + (1735..1741)

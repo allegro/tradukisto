@@ -7,7 +7,7 @@ public class CzechPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
-    private String genitivePluralForm;
+    private final String genitivePluralForm;
 
     public CzechPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
         this.singularForm = singularForm;
@@ -16,7 +16,7 @@ public class CzechPluralForms implements PluralForms {
     }
 
     @Override
-    public String getFor(Integer value) {
+    public String formFor(Integer value) {
         if (value == 1) {
             return singularForm;
         } else if (Range.closed(2, 4).contains(value)) {

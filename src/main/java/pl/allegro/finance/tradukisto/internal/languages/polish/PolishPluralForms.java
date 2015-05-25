@@ -16,7 +16,7 @@ public class PolishPluralForms implements PluralForms {
     }
 
     @Override
-    public String getFor(Integer value) {
+    public String formFor(Integer value) {
         if (value == 1) {
             return singularForm;
         } else if (usePluralForm(value)) {
