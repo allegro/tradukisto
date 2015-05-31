@@ -2,6 +2,7 @@ Tradukisto
 ==========
 
 [![Build Status](https://travis-ci.org/allegro/tradukisto.svg?branch=master)](https://travis-ci.org/allegro/tradukisto)
+[![Coverage Status](https://coveralls.io/repos/allegro/tradukisto/badge.svg?branch=master)](https://coveralls.io/r/allegro/tradukisto?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto)
 
 Tradukisto is a Java library created to convert numbers to their word representations. The only language currently 
@@ -43,14 +44,14 @@ and use it:
 ValueConverter converter = ValueConverters.POLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);
 
-assertEquals(valueAsWords, "jeden tysiąc dwieście trzydzieści cztery");
+assertEquals("jeden tysiąc dwieście trzydzieści cztery", valueAsWords);
 ```
 
 ```java
 MoneyConverter converter = MoneyConverters.POLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
-assertEquals(moneyAsWords, "jeden tysiąc dwieście trzydzieści cztery PLN 56/100");
+assertEquals("jeden tysiąc dwieście trzydzieści cztery PLN 56/100", moneyAsWords);
 ```
 
 Tradukisto can handle only values with no more than two digits after the decimal point. Otherwise

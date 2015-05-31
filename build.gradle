@@ -16,6 +16,7 @@ plugins {
     id 'pmd'
     id 'pl.allegro.tech.build.axion-release' version '1.2.3'
     id "com.bmuschko.nexus" version "2.3.1"
+    id 'com.github.kt3k.coveralls' version '2.3.1'
 }
 
 apply plugin: 'io.codearte.nexus-staging'
@@ -39,8 +40,15 @@ compileJava {
     options.encoding = "UTF-8"
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.3"
+    gradleVersion = "2.4"
 }
 
 dependencies {
