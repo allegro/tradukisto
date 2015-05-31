@@ -1,19 +1,19 @@
 package pl.allegro.finance.tradukisto.internal.converters
-
-import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
+import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter
+import pl.allegro.finance.tradukisto.internal.languages.GenderType
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues
 import spock.lang.Specification
 
 class IntegerToWordsConverterTest extends Specification {
 
-    def hundredsToWordsConverter = Stub(IntegerToStringConverter)
+    def hundredsToWordsConverter = Stub(GenderAwareIntegerToStringConverter)
     def converter = new IntegerToWordsConverter(hundredsToWordsConverter, new PolishValues().pluralForms())
 
     def setup() {
-        hundredsToWordsConverter.asWords(0) >> "zero"
-        hundredsToWordsConverter.asWords(1) >> "jeden"
-        hundredsToWordsConverter.asWords(2) >> "dwa"
-        hundredsToWordsConverter.asWords(3) >> "trzy"
+        hundredsToWordsConverter.asWords(0, GenderType.NON_APPLICABLE) >> "zero"
+        hundredsToWordsConverter.asWords(1, GenderType.NON_APPLICABLE) >> "jeden"
+        hundredsToWordsConverter.asWords(2, GenderType.NON_APPLICABLE) >> "dwa"
+        hundredsToWordsConverter.asWords(3, GenderType.NON_APPLICABLE) >> "trzy"
     }
 
     def "should convert 0"() {
@@ -33,7 +33,7 @@ class IntegerToWordsConverterTest extends Specification {
 
     def "should throw IllegalArgumentException when hundredsToWordsConverter can't convert given value"() {
         given:
-        hundredsToWordsConverter.asWords(4) >> { throw new IllegalArgumentException() }
+        hundredsToWordsConverter.asWords(4, GenderType.NON_APPLICABLE) >> { throw new IllegalArgumentException() }
 
         when:
         converter.asWords(1002004)

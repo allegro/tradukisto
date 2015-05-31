@@ -84,6 +84,7 @@ public class CzechValuesTest extends Specification {
         7_634         | "sedm tisíc šest set třicet čtyři"
         11_000        | "jedenáct tisíc"
         15_000        | "patnáct tisíc"
+        21_000        | "dvacet jeden tisíc"
         24_190        | "dvacet čtyři tisíc sto devadesát"
         653_000       | "šest set padesát tři tisíc"
         123_454       | "sto dvacet tři tisíc čtyři sta padesát čtyři"
@@ -96,6 +97,7 @@ public class CzechValuesTest extends Specification {
         23_437_219    | "dvacet tři milionů čtyři sta třicet sedm tisíc dvě stě devatenáct"
         100_000_000   | "sto milionů"
         123_456_789   | "sto dvacet tři milionů čtyři sta padesát šest tisíc sedm set osmdesát devět"
+        322_089_890   | "tři sta dvacet dva milionů osmdesát devět tisíc osm set devadesát"
 
         1_000_000_000 | "jedna miliarda"
         2_147_483_647 | "dva miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíc šest set čtyřicet sedm"

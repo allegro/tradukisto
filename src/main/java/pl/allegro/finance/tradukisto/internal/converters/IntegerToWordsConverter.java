@@ -1,7 +1,7 @@
 package pl.allegro.finance.tradukisto.internal.converters;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.Lists;
+import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.support.NumberChunking;
@@ -11,15 +11,16 @@ import java.util.Iterator;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.collect.Lists.reverse;
 
 public class IntegerToWordsConverter implements IntegerToStringConverter {
 
     private final NumberChunking numberChunking = new NumberChunking();
 
-    private final IntegerToStringConverter hundredsToWordsConverter;
+    private final GenderAwareIntegerToStringConverter hundredsToWordsConverter;
     private final List<? extends PluralForms> pluralForms;
 
-    public IntegerToWordsConverter(IntegerToStringConverter hundredsToWordsConverter,
+    public IntegerToWordsConverter(GenderAwareIntegerToStringConverter hundredsToWordsConverter,
                                    List<? extends PluralForms> pluralForms) {
         this.hundredsToWordsConverter = hundredsToWordsConverter;
         this.pluralForms = pluralForms;
@@ -30,7 +31,7 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
         checkArgument(value >= 0, "can't convert negative numbers for value %d", value);
 
         List<Integer> valueChunks = numberChunking.chunk(value);
-        List<? extends PluralForms> formsToUse = Lists.reverse(pluralForms.subList(0, valueChunks.size()));
+        List<? extends PluralForms> formsToUse = reverse(pluralForms.subList(0, valueChunks.size()));
 
         return joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator());
     }
@@ -40,11 +41,11 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
 
         while (chunks.hasNext() && formsToUse.hasNext()) {
             Integer currentChunkValue = chunks.next();
-            String currentForm = formsToUse.next().formFor(currentChunkValue);
+            PluralForms currentForms = formsToUse.next();
 
             if (currentChunkValue > 0) {
-                result.add(hundredsToWordsConverter.asWords(currentChunkValue));
-                result.add(currentForm);
+                result.add(hundredsToWordsConverter.asWords(currentChunkValue, currentForms.genderType()));
+                result.add(currentForms.formFor(currentChunkValue));
             }
         }
 
@@ -53,7 +54,7 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
 
     private String joinParts(List<String> result) {
         if (result.size() == 0) {
-            return hundredsToWordsConverter.asWords(0);
+            return hundredsToWordsConverter.asWords(0, pluralForms.get(0).genderType());
         }
 
         return Joiner.on(" ").join(result).trim();

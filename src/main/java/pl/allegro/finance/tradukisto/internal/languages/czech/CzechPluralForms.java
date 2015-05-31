@@ -1,6 +1,7 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech;
 
 import com.google.common.collect.Range;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 public class CzechPluralForms implements PluralForms {
@@ -9,10 +10,14 @@ public class CzechPluralForms implements PluralForms {
     private final String pluralForm;
     private final String genitivePluralForm;
 
-    public CzechPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+    private final GenderType genderType;
+
+    public CzechPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genitivePluralForm = genitivePluralForm;
+
+        this.genderType = genderType;
     }
 
     @Override
@@ -24,5 +29,10 @@ public class CzechPluralForms implements PluralForms {
         }
 
         return genitivePluralForm;
+    }
+
+    @Override
+    public GenderType genderType() {
+        return this.genderType;
     }
 }

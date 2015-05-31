@@ -1,6 +1,7 @@
 package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import com.google.common.collect.Range;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 public class PolishPluralForms implements PluralForms {
@@ -27,5 +28,10 @@ public class PolishPluralForms implements PluralForms {
 
     private boolean usePluralForm(Integer value) {
         return Range.closed(2, 4).contains(value % 10) && !Range.closed(12, 14).contains(value % 100);
+    }
+
+    @Override
+    public GenderType genderType() {
+        return GenderType.NON_APPLICABLE;
     }
 }

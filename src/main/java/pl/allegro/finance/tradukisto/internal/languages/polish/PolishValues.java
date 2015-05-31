@@ -1,18 +1,20 @@
 package pl.allegro.finance.tradukisto.internal.languages.polish;
 
-import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
+import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+
 public class PolishValues implements BaseValues {
 
     @Override
-    public Map<Integer, String> baseNumbers() {
-        return ImmutableMap.<Integer, String>builder()
+    public Map<Integer, GenderForms> baseNumbers() {
+        return baseNumbersBuilder()
                 .put(0, "zero")
                 .put(1, "jeden")
                 .put(2, "dwa")

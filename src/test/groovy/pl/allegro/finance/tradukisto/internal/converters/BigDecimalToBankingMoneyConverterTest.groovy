@@ -1,5 +1,4 @@
 package pl.allegro.finance.tradukisto.internal.converters
-
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
 import spock.lang.Specification
 

@@ -1,11 +1,12 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech
 
+import pl.allegro.finance.tradukisto.internal.languages.GenderType
 import spock.lang.Specification
 import spock.lang.Unroll
 
 class CzechPluralFormsTest extends Specification {
 
-    def pluralForms = new CzechPluralForms("milion", "miliony", "milionů")
+    def pluralForms = new CzechPluralForms("milion", "miliony", "milionů", GenderType.NON_APPLICABLE)
 
     def "should provide value for singular form"() {
         expect:

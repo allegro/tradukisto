@@ -1,20 +1,24 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech;
 
-import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
+import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
+
 public class CzechValues implements BaseValues {
 
     @Override
-    public Map<Integer, String> baseNumbers() {
-        return ImmutableMap.<Integer, String>builder()
+    public Map<Integer, GenderForms> baseNumbers() {
+        return baseNumbersBuilder()
                 .put(0, "nula")
-                .put(1, "jedna")
+                .put(1, genderForms("jeden", "jedna", "jedno"))
                 .put(2, "dva")
                 .put(3, "tři")
                 .put(4, "čtyři")
@@ -56,10 +60,10 @@ public class CzechValues implements BaseValues {
     @Override
     public List<? extends PluralForms> pluralForms() {
         return Arrays.asList(
-                new CzechPluralForms("", "", ""),
-                new CzechPluralForms("tisíc", "tisíce", "tisíc"),
-                new CzechPluralForms("milion", "miliony", "milionů"),
-                new CzechPluralForms("miliarda", "miliardy", "miliard"));
+                new CzechPluralForms("", "", "", GenderType.FEMININE),
+                new CzechPluralForms("tisíc", "tisíce", "tisíc", GenderType.MASCULINE),
+                new CzechPluralForms("milion", "miliony", "milionů", GenderType.MASCULINE),
+                new CzechPluralForms("miliarda", "miliardy", "miliard", GenderType.FEMININE));
     }
 
     @Override
