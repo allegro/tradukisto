@@ -7,6 +7,8 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
 import java.util.Map;
 
+import static java.lang.String.format;
+
 public class HundredsToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;
@@ -25,18 +27,18 @@ public class HundredsToWordsConverter implements GenderAwareIntegerToStringConve
             return threeDigitsNumberAsString(value, genderType);
         }
 
-        throw new IllegalArgumentException(String.format("Can't convert %d", value));
+        throw new IllegalArgumentException(format("Can't convert %d", value));
     }
 
     private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
         Integer units = value % 10;
         Integer tens = value - units;
-        return String.format("%s %s", asWords(tens, genderType), asWords(units, genderType));
+        return format("%s %s", asWords(tens, genderType), asWords(units, genderType));
     }
 
     private String threeDigitsNumberAsString(Integer value, GenderType genderType) {
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
-        return String.format("%s %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
+        return format("%s %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
     }
 }

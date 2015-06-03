@@ -6,6 +6,7 @@ import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import java.math.BigDecimal;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import static java.lang.String.format;
 
 public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
 
@@ -27,7 +28,7 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
         Integer units = value.intValue();
         Integer subunits = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
 
-        return String.format(FORMAT, converter.asWords(units), currencySymbol, subunits);
+        return format(FORMAT, converter.asWords(units), currencySymbol, subunits);
     }
 
     private void validate(BigDecimal value) {
