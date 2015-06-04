@@ -4,6 +4,7 @@ import com.google.common.base.VerifyException
 import spock.lang.Specification
 
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 
 class ValueConvertersTest extends Specification {
@@ -16,6 +17,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in Czech"() {
         expect:
         CZECH_INTEGER.asWords(1_234) == "jeden tisíc dvě stě třicet čtyři"
+    }
+
+    def "should convert numbers in English"() {
+        expect:
+        ENGLISH_INTEGER.asWords(1_234) == "one thousand two hundred thirty-four"
     }
 
     def "should throw exception when null given"() {

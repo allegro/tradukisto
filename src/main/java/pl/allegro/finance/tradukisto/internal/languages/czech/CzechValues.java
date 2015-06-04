@@ -69,4 +69,9 @@ public class CzechValues implements BaseValues {
     public String currency() {
         return "Kč";
     }
+
+    @Override
+    public char twoDigitsNumberSeparator() {
+        return ' ';
+    }
 }

@@ -6,6 +6,7 @@ import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 
 public class Container {
@@ -29,12 +30,16 @@ public class Container {
         return new Container(integerConverter, bigDecimalBankingMoneyValueConverter);
     }
 
-    private final IntegerToStringConverter integerConverter;
+    public static Container englishContainer() {
+        return new Container(new EnglishValues());
+    }
 
+    private final IntegerToStringConverter integerConverter;
     private final BigDecimalToStringConverter bigDecimalConverter;
 
     public Container(BaseValues baseValues) {
-        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(baseValues.baseNumbers());
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(baseValues.baseNumbers(),
+                baseValues.twoDigitsNumberSeparator());
 
         integerConverter = new IntegerToWordsConverter(
                 hundredsToStringConverter,

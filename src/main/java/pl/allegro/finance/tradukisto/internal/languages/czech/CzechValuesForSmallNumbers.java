@@ -32,4 +32,9 @@ public class CzechValuesForSmallNumbers implements BaseValues {
     public String currency() {
         return originalValues.currency();
     }
+
+    @Override
+    public char twoDigitsNumberSeparator() {
+        return ' ';
+    }
 }
