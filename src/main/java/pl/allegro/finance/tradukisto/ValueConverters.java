@@ -3,11 +3,13 @@ package pl.allegro.finance.tradukisto;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 
 import static com.google.common.base.Verify.verifyNotNull;
+import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 
 public enum ValueConverters {
 
-    POLISH_INTEGER(polishContainer().getNumbersConverter());
+    POLISH_INTEGER(polishContainer().getNumbersConverter()),
+    CZECH_INTEGER(czechContainer().getNumbersConverter());
 
     private IntegerToStringConverter converter;
 
