@@ -32,6 +32,6 @@ public class PolishPluralForms implements PluralForms {
 
     @Override
     public GenderType genderType() {
-        return GenderType.NON_APPLICABLE;
+        return GenderType.MASCULINE;
     }
 }
