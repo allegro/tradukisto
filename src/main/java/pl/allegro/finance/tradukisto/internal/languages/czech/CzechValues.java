@@ -19,7 +19,7 @@ public class CzechValues implements BaseValues {
         return baseNumbersBuilder()
                 .put(0, "nula")
                 .put(1, genderForms("jeden", "jedna", "jedno"))
-                .put(2, "dva")
+                .put(2, genderForms("dva", "dvě", "dvě"))
                 .put(3, "tři")
                 .put(4, "čtyři")
                 .put(5, "pět")
@@ -60,7 +60,6 @@ public class CzechValues implements BaseValues {
     @Override
     public List<? extends PluralForms> pluralForms() {
         return Arrays.asList(
-                new CzechPluralForms("", "", "", GenderType.FEMININE),
                 new CzechPluralForms("tisíc", "tisíce", "tisíc", GenderType.MASCULINE),
                 new CzechPluralForms("milion", "miliony", "milionů", GenderType.MASCULINE),
                 new CzechPluralForms("miliarda", "miliardy", "miliard", GenderType.FEMININE));

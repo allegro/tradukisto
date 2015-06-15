@@ -100,7 +100,7 @@ public class CzechValuesTest extends Specification {
         322_089_890   | "tři sta dvacet dva milionů osmdesát devět tisíc osm set devadesát"
 
         1_000_000_000 | "jedna miliarda"
-        2_147_483_647 | "dva miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíc šest set čtyřicet sedm"
+        2_147_483_647 | "dvě miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíc šest set čtyřicet sedm"
     }
 
     def "should convert any value in range of 0-999 in Czech"() {
