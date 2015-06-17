@@ -15,7 +15,7 @@ public enum MoneyConverters {
 
     private BigDecimalToStringConverter converter;
 
-    MoneyConverters(BigDecimalToStringConverter converter) {
+    private MoneyConverters(BigDecimalToStringConverter converter) {
         this.converter = converter;
     }
 

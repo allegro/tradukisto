@@ -18,10 +18,10 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
     private final NumberChunking numberChunking = new NumberChunking();
 
     private final GenderAwareIntegerToStringConverter hundredsToWordsConverter;
-    private final List<? extends PluralForms> pluralForms;
+    private final List<PluralForms> pluralForms;
 
     public IntegerToWordsConverter(GenderAwareIntegerToStringConverter hundredsToWordsConverter,
-                                   List<? extends PluralForms> pluralForms) {
+                                   List<PluralForms> pluralForms) {
         this.hundredsToWordsConverter = hundredsToWordsConverter;
         this.pluralForms = pluralForms;
     }
@@ -31,12 +31,12 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
         checkArgument(value >= 0, "can't convert negative numbers for value %d", value);
 
         List<Integer> valueChunks = numberChunking.chunk(value);
-        List<? extends PluralForms> formsToUse = reverse(pluralForms.subList(0, valueChunks.size()));
+        List<PluralForms> formsToUse = reverse(pluralForms.subList(0, valueChunks.size()));
 
         return joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator());
     }
 
-    private String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<? extends PluralForms> formsToUse) {
+    private String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<PluralForms> formsToUse) {
         List<String> result = new ArrayList<>();
 
         while (chunks.hasNext() && formsToUse.hasNext()) {

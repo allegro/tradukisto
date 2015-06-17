@@ -5,10 +5,10 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Arrays.asList;
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForm;
 
 public class CzechValuesForSmallNumbers implements BaseValues {
@@ -24,9 +24,8 @@ public class CzechValuesForSmallNumbers implements BaseValues {
     }
 
     @Override
-    public List<? extends PluralForms> pluralForms() {
-        return asList(
-                new CzechPluralForms("", "", "", GenderType.NON_APPLICABLE));
+    public List<PluralForms> pluralForms() {
+        return Arrays.<PluralForms>asList(new CzechPluralForms());
     }
 
     @Override

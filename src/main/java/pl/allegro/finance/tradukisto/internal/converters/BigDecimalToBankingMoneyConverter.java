@@ -33,20 +33,20 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
 
     private void validate(BigDecimal value) {
         checkArgument(value.scale() <= MAXIMAL_DECIMAL_PLACES_COUNT,
-                "can't transform more than %s decimal places for value %f", MAXIMAL_DECIMAL_PLACES_COUNT, value);
+                "can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value);
 
         checkArgument(valueLessThatIntMax(value),
-                "can't transform numbers greater than Integer.MAX_VALUE for value %f", value);
+                "can't transform numbers greater than Integer.MAX_VALUE for value %s", value);
 
-        checkArgument(valueGreatThanOrEqualToZero(value),
-                "can't transform numbers less than zero for value %f", value);
+        checkArgument(valueGreaterThanOrEqualToZero(value),
+                "can't transform negative numbers for value %s", value);
     }
 
     private boolean valueLessThatIntMax(BigDecimal value) {
         return value.compareTo(new BigDecimal(Integer.MAX_VALUE).add(BigDecimal.ONE)) == -1;
     }
 
-    private boolean valueGreatThanOrEqualToZero(BigDecimal value) {
+    private boolean valueGreaterThanOrEqualToZero(BigDecimal value) {
         return value.signum() >= 0;
     }
 }

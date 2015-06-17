@@ -20,6 +20,10 @@ public class CzechPluralForms implements PluralForms {
         this.genderType = genderType;
     }
 
+    public CzechPluralForms() {
+        this("", "", "", GenderType.NON_APPLICABLE);
+    }
+
     @Override
     public String formFor(Integer value) {
         if (value == 1) {

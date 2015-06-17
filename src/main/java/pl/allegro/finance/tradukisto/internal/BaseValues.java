@@ -10,7 +10,7 @@ public interface BaseValues {
 
     Map<Integer, GenderForms> baseNumbers();
 
-    List<? extends PluralForms> pluralForms();
+    List<PluralForms> pluralForms();
 
     String currency();
 }
