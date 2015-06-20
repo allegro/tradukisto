@@ -61,7 +61,7 @@ public class EnglishValues implements BaseValues {
                 new EnglishPluralForms(""),
                 new EnglishPluralForms("thousand"),
                 new EnglishPluralForms("million"),
-                new EnglishPluralForms("bilion"));
+                new EnglishPluralForms("billion"));
     }
 
     @Override
