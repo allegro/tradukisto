@@ -7,6 +7,9 @@ import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWord
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
+import pl.allegro.finance.tradukisto.internal.languages.german.GermanHundredsToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 
 public class Container {
@@ -32,6 +35,21 @@ public class Container {
 
     public static Container englishContainer() {
         return new Container(new EnglishValues());
+    }
+
+    public static Container germanContainer() {
+
+        GermanHundredsToWordsConverter germanHundredsToWordsConverter = new GermanHundredsToWordsConverter(new GermanValues().baseNumbers());
+
+        IntegerToStringConverter converter = new GermanIntegerToWordsConverter(
+                new IntegerToWordsConverter(germanHundredsToWordsConverter, new GermanValues().pluralForms()),
+                germanHundredsToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter,
+                new GermanValues().currency());
+
+        return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
 
     private final IntegerToStringConverter integerConverter;

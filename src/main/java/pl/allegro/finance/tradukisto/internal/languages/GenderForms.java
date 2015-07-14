@@ -14,6 +14,10 @@ public class GenderForms {
         return new GenderForms(masculineForm, feminineForm, neuterForm);
     }
 
+    public static GenderForms genderForms(String masculineForm, String feminineForm, String neuterForm, String nonApplicableForm) {
+        return new GenderForms(masculineForm, feminineForm, neuterForm, nonApplicableForm);
+    }
+
     public static GenderForms genderForm(String nonApplicableForm) {
         return new GenderForms(nonApplicableForm);
     }
@@ -26,6 +30,15 @@ public class GenderForms {
                 .build();
     }
 
+    public GenderForms(String masculineForm, String feminineForm, String neuterForm, String nonApplicableForm) {
+        this.forms = ImmutableMap.<GenderType, String>builder()
+                .put(GenderType.MASCULINE, masculineForm)
+                .put(GenderType.FEMININE, feminineForm)
+                .put(GenderType.NEUTER, neuterForm)
+                .put(GenderType.NON_APPLICABLE, nonApplicableForm)
+                .build();
+    }
+
     public GenderForms(String nonApplicableForm) {
         this.forms = ImmutableMap.<GenderType, String>builder()
                 .put(GenderType.MASCULINE, nonApplicableForm)
@@ -33,6 +46,10 @@ public class GenderForms {
                 .put(GenderType.NEUTER, nonApplicableForm)
                 .put(GenderType.NON_APPLICABLE, nonApplicableForm)
                 .build();
+    }
+
+    public String form() {
+        return formFor(GenderType.NON_APPLICABLE);
     }
 
     public String formFor(GenderType gender) {
