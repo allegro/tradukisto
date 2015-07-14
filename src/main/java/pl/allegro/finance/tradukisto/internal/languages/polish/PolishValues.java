@@ -68,4 +68,9 @@ public class PolishValues implements BaseValues {
     public String currency() {
         return "PLN";
     }
+
+    @Override
+    public char twoDigitsNumberSeparator() {
+        return ' ';
+    }
 }

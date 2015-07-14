@@ -5,25 +5,25 @@ import spock.lang.Specification
 class BigDecimalToBankingMoneyConverterTest extends Specification {
 
     def integerToStringConverter = Stub(IntegerToStringConverter)
-    def converter = new BigDecimalToBankingMoneyConverter(integerToStringConverter, "PLN")
+    def converter = new BigDecimalToBankingMoneyConverter(integerToStringConverter, "£")
 
     def "setup"() {
-        integerToStringConverter.asWords(123) >> "sto dwadzieścia trzy"
+        integerToStringConverter.asWords(123) >> "one hundred twenty-three"
     }
 
     def "should convert whole numbers"() {
         expect:
-        converter.asWords(123) == "sto dwadzieścia trzy PLN 00/100"
+        converter.asWords(123) == "one hundred twenty-three £ 00/100"
     }
 
     def "should convert value with one digit after decimal point"() {
         expect:
-        converter.asWords(123.4) == "sto dwadzieścia trzy PLN 40/100"
+        converter.asWords(123.4) == "one hundred twenty-three £ 40/100"
     }
 
     def "should convert value with two digits after decimal point"() {
         expect:
-        converter.asWords(123.4) == "sto dwadzieścia trzy PLN 40/100"
+        converter.asWords(123.4) == "one hundred twenty-three £ 40/100"
     }
 
     def "should not support thousands part of value"() {

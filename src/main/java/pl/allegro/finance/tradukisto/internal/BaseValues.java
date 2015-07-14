@@ -13,4 +13,6 @@ public interface BaseValues {
     List<PluralForms> pluralForms();
 
     String currency();
+
+    char twoDigitsNumberSeparator();
 }
