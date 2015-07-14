@@ -17,4 +17,4 @@ Added support for:
 
 Added support for:
 
-  - Czech
+  - English
