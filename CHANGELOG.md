@@ -12,3 +12,9 @@ First release. Added support for:
 Added support for:
 
   - Czech
+  
+## 0.3.0 (2015-07-14)
+
+Added support for:
+
+  - Czech
