@@ -8,11 +8,16 @@ import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
 public class Container {
 
     public static Container polishContainer() {
         return new Container(new PolishValues());
+    }
+
+    public static Container russianContainer() {
+        return new Container(new RussianValues());
     }
 
     public static Container czechContainer() {
