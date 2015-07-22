@@ -12,7 +12,7 @@ class MoneyConvertersTest extends Specification {
 
     def "should convert money in Russian"() {
         expect:
-        RUSSIAN_BANKING_MONEY_VALUE.asWords(1_234.56) == "одна тысяча двести тридцать четыре ₽ 56/100"
+        RUSSIAN_BANKING_MONEY_VALUE.asWords(1_234.56) == "одна тысяча двести тридцать четыре руб. 56/100"
     }
 
     def "should convert money in Polish"() {

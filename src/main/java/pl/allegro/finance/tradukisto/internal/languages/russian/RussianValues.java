@@ -69,7 +69,7 @@ public class RussianValues implements BaseValues {
 
     @Override
     public String currency() {
-        return "\u20BD";
+        return "руб.";
     }
 
     @Override
