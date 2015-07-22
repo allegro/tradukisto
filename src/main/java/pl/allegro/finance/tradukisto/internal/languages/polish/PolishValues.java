@@ -3,6 +3,7 @@ package pl.allegro.finance.tradukisto.internal.languages.polish;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SlavonicPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,10 +59,10 @@ public class PolishValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
-                new PolishPluralForms("", "", ""),
-                new PolishPluralForms("tysiąc", "tysiące", "tysięcy"),
-                new PolishPluralForms("milion", "miliony", "milionów"),
-                new PolishPluralForms("miliard", "miliardy", "miliardów"));
+                new SlavonicPluralForms("", "", ""),
+                new SlavonicPluralForms("tysiąc", "tysiące", "tysięcy"),
+                new SlavonicPluralForms("milion", "miliony", "milionów"),
+                new SlavonicPluralForms("miliard", "miliardy", "miliardów"));
     }
 
     @Override

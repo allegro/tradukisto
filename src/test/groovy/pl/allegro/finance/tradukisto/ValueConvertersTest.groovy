@@ -6,8 +6,14 @@ import spock.lang.Specification
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 
 class ValueConvertersTest extends Specification {
+
+    def "should convert numbers in Russian"() {
+        expect:
+        RUSSIAN_INTEGER.asWords(1_234) == "одна тысяча двести тридцать четыре"
+    }
 
     def "should convert numbers in Polish"() {
         expect:

@@ -1,19 +1,25 @@
-package pl.allegro.finance.tradukisto.internal.languages.polish;
+package pl.allegro.finance.tradukisto.internal.languages;
 
 import com.google.common.collect.Range;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
-public class PolishPluralForms implements PluralForms {
+public class SlavonicPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
     private final String genitivePluralForm;
 
-    public PolishPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+    private final GenderType genderType;
+
+    public SlavonicPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+        this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
+    }
+
+    public SlavonicPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genitivePluralForm = genitivePluralForm;
+
+        this.genderType = genderType;
     }
 
     @Override
@@ -32,6 +38,6 @@ public class PolishPluralForms implements PluralForms {
 
     @Override
     public GenderType genderType() {
-        return GenderType.MASCULINE;
+        return genderType;
     }
 }
