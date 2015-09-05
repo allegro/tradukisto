@@ -18,3 +18,13 @@ Added support for:
 Added support for:
 
   - English
+  
+## 0.4.0 (2015-07-22)
+
+Added support for:
+
+  - Russian
+
+## 0.4.1 (2015-07-22)
+
+Fixed currency symbol for Russian
