@@ -11,11 +11,16 @@ import pl.allegro.finance.tradukisto.internal.languages.german.GermanHundredsToW
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
 public class Container {
 
     public static Container polishContainer() {
         return new Container(new PolishValues());
+    }
+
+    public static Container russianContainer() {
+        return new Container(new RussianValues());
     }
 
     public static Container czechContainer() {

@@ -20,8 +20,10 @@ Features
 Supported languages
 -------------------
 
+* English
 * Polish
 * Czech
+* Russian
 
 Usage
 -----
@@ -34,24 +36,24 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:0.2.0'
+    compile 'pl.allegro.finance:tradukisto:0.4.1'
 }
 ```
 
 and use it:
 
 ```java
-ValueConverter converter = ValueConverters.POLISH_INTEGER;
+ValueConverter converter = ValueConverters.ENGLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);
 
-assertEquals("jeden tysiąc dwieście trzydzieści cztery", valueAsWords);
+assertEquals("one thousand two hundred thirty-four", valueAsWords);
 ```
 
 ```java
-MoneyConverter converter = MoneyConverters.POLISH_BANKING_MONEY_VALUE;
+MoneyConverter converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
-assertEquals("jeden tysiąc dwieście trzydzieści cztery PLN 56/100", moneyAsWords);
+assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
 ```
 
 Tradukisto can handle only values with no more than two digits after the decimal point. Otherwise

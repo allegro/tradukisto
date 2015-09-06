@@ -1,11 +1,11 @@
-package pl.allegro.finance.tradukisto.internal.languages.polish
+package pl.allegro.finance.tradukisto.internal.languages
 
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class PolishPluralFormsTest extends Specification {
+class SlavonicPluralFormsTest extends Specification {
 
-    def pluralForms = new PolishPluralForms("tysiąc", "tysiące", "tysięcy")
+    def pluralForms = new SlavonicPluralForms("tysiąc", "tysiące", "tysięcy", GenderType.NON_APPLICABLE)
 
     def "should provide value for singular form"() {
         expect:

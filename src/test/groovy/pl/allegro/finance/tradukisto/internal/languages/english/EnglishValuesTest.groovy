@@ -98,8 +98,8 @@ public class EnglishValuesTest extends Specification {
         123_456_789   | "one hundred twenty-three million four hundred fifty-six thousand seven hundred eighty-nine"
         322_089_890   | "three hundred twenty-two million eighty-nine thousand eight hundred ninety"
 
-        1_000_000_000 | "one bilion"
-        2_147_483_647 | "two bilion one hundred forty-seven million four hundred eighty-three thousand six hundred " +
+        1_000_000_000 | "one billion"
+        2_147_483_647 | "two billion one hundred forty-seven million four hundred eighty-three thousand six hundred " +
                 "forty-seven"
     }
 
