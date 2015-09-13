@@ -48,10 +48,6 @@ public class GenderForms {
                 .build();
     }
 
-    public String form() {
-        return formFor(GenderType.NON_APPLICABLE);
-    }
-
     public String formFor(GenderType gender) {
         validate(gender);
         return forms.get(gender);
