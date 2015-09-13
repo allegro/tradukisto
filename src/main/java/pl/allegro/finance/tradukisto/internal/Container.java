@@ -44,7 +44,7 @@ public class Container {
 
     public static Container germanContainer() {
 
-        BaseValues values = new GermanValues();
+        GermanValues values = new GermanValues();
 
         GermanHundredsToWordsConverter germanHundredsToWordsConverter = new GermanHundredsToWordsConverter(
                 values.baseNumbers());

@@ -6,7 +6,6 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,11 +21,6 @@ public class CzechValuesForSmallNumbers implements BaseValues {
         baseNumbers.put(1, genderForm(baseNumbers.get(1).formFor(GenderType.FEMININE)));
         baseNumbers.put(2, genderForm(baseNumbers.get(2).formFor(GenderType.MASCULINE)));
         return baseNumbers;
-    }
-
-    @Override
-    public Map<Integer, String> exceptions() {
-        return new HashMap<>();
     }
 
     @Override

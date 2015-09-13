@@ -32,6 +32,10 @@ public class GermanIntegerToWordsConverter implements IntegerToStringConverter {
         Integer bigNumber = value / 1000000;
         Integer smallNumber = value % 1000000;
 
+        return processNumbers(bigNumber, smallNumber);
+    }
+
+    private String processNumbers(Integer bigNumber, Integer smallNumber) {
         List<String> result = new ArrayList<>();
 
         if (bigNumber > 0) {

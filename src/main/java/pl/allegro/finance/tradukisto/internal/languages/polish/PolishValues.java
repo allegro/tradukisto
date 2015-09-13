@@ -6,7 +6,6 @@ import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.SlavonicPluralForms;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,11 +54,6 @@ public class PolishValues implements BaseValues {
                 .put(800, "osiemset")
                 .put(900, "dziewięćset")
                 .build();
-    }
-
-    @Override
-    public Map<Integer, String> exceptions() {
-        return new HashMap<>();
     }
 
     @Override

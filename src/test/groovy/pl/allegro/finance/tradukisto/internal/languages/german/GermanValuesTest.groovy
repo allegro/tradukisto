@@ -104,16 +104,6 @@ public class GermanValuesTest extends Specification {
         2147483647 | "zwei Milliarden einhundertsiebenundvierzig Millionen vierhundertdreiundachtzigtausendsechshundertsiebenundvierzig"
     }
 
-    def "should convert milliard in German"() {
-        expect:
-        converter.asWords(value) == words
-
-        where:
-        value      | words
-        1000000    | "eine Million"
-        2000000    | "zwei Millionen"
-    }
-
     def "should convert any value in range of 0-999 in German"() {
         when:
         def words = converter.asWords(value)

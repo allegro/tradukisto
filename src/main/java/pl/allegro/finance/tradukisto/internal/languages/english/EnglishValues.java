@@ -5,7 +5,6 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -54,11 +53,6 @@ public class EnglishValues implements BaseValues {
                 .put(800, "eight hundred")
                 .put(900, "nine hundred")
                 .build();
-    }
-
-    @Override
-    public Map<Integer, String> exceptions() {
-        return new HashMap<>();
     }
 
     @Override

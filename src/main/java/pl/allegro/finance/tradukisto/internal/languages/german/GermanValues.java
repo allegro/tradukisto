@@ -58,7 +58,6 @@ public class GermanValues implements BaseValues {
                 .build();
     }
 
-    @Override
     public Map<Integer, String> exceptions() {
         return ImmutableMap.<Integer, String>builder().put(1, "eins").build();
     }
