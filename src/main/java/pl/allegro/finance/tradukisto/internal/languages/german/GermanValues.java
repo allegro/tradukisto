@@ -1,7 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.german;
 
 import com.google.common.collect.ImmutableMap;
-import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
@@ -13,9 +12,8 @@ import java.util.Map;
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
-public class GermanValues implements BaseValues {
+public class GermanValues {
 
-    @Override
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
                 .put(0, "null")
@@ -62,20 +60,13 @@ public class GermanValues implements BaseValues {
         return ImmutableMap.<Integer, String>builder().put(1, "eins").build();
     }
 
-    @Override
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
                 new GermanPluralForms("Million", "Millionen", GenderType.FEMININE),
                 new GermanPluralForms("Milliarde", "Milliarden", GenderType.FEMININE));
     }
 
-    @Override
     public String currency() {
         return "€";
-    }
-
-    @Override
-    public char twoDigitsNumberSeparator() {
-        return ' ';
     }
 }

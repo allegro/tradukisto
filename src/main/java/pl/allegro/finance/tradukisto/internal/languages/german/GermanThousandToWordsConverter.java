@@ -9,11 +9,11 @@ import java.util.Map;
 
 import static java.lang.String.format;
 
-public class GermanHundredsToWordsConverter implements GenderAwareIntegerToStringConverter {
+public class GermanThousandToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;
 
-    public GermanHundredsToWordsConverter(Map<Integer, GenderForms> baseValues) {
+    public GermanThousandToWordsConverter(Map<Integer, GenderForms> baseValues) {
         this.baseValues = baseValues;
     }
 
