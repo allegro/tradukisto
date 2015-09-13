@@ -6,6 +6,7 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +56,11 @@ public class CzechValues implements BaseValues {
                 .put(800, "osm set")
                 .put(900, "devět set")
                 .build();
+    }
+
+    @Override
+    public Map<Integer, String> exceptions() {
+        return new HashMap<>();
     }
 
     @Override

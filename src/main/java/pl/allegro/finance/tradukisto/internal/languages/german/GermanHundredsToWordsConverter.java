@@ -20,7 +20,7 @@ public class GermanHundredsToWordsConverter implements GenderAwareIntegerToStrin
     @Override
     public String asWords(Integer value, GenderType genderType) {
         if (baseValues.containsKey(value)) {
-            return baseValues.get(value).form();
+            return baseValues.get(value).formFor(genderType);
         } else if (Range.closed(21, 99).contains(value)) {
             return twoDigitsNumberAsString(value, genderType);
         } else if (Range.closed(101, 999).contains(value)) {

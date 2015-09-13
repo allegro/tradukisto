@@ -7,6 +7,7 @@ import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.SlavonicPluralForms;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,11 @@ public class RussianValues implements BaseValues {
                 .put(800, "восемьсот")
                 .put(900, "девятьсот")
                 .build();
+    }
+
+    @Override
+    public Map<Integer, String> exceptions() {
+        return new HashMap<>();
     }
 
     @Override

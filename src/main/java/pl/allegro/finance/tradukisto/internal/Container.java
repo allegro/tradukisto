@@ -44,15 +44,17 @@ public class Container {
 
     public static Container germanContainer() {
 
-        GermanHundredsToWordsConverter germanHundredsToWordsConverter = new GermanHundredsToWordsConverter(new GermanValues().baseNumbers());
+        BaseValues values = new GermanValues();
+
+        GermanHundredsToWordsConverter germanHundredsToWordsConverter = new GermanHundredsToWordsConverter(
+                values.baseNumbers());
 
         IntegerToStringConverter converter = new GermanIntegerToWordsConverter(
-                new IntegerToWordsConverter(germanHundredsToWordsConverter, new GermanValues().pluralForms()),
+                new IntegerToWordsConverter(germanHundredsToWordsConverter, values.pluralForms()), values.exceptions(),
                 germanHundredsToWordsConverter);
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter,
-                new GermanValues().currency());
+                converter, values.currency());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }

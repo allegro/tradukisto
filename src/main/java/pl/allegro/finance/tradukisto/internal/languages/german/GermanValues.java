@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.german;
 
+import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
@@ -55,6 +56,11 @@ public class GermanValues implements BaseValues {
                 .put(800, "achthundert")
                 .put(900, "neunhundert")
                 .build();
+    }
+
+    @Override
+    public Map<Integer, String> exceptions() {
+        return ImmutableMap.<Integer, String>builder().put(1, "eins").build();
     }
 
     @Override
