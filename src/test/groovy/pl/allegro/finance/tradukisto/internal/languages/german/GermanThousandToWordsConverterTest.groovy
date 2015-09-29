@@ -28,7 +28,7 @@ class GermanThousandToWordsConverterTest extends Specification {
         def converter = new GermanThousandToWordsConverter([600: genderForm("sechshundert"), 60: genderForm("sechzig"), 6: genderForm("sechs")])
 
         expect:
-        converter.asWords(666, GenderType.NON_APPLICABLE) =="sechshundertsechsundsechzig"
+        converter.asWords(666, GenderType.NON_APPLICABLE) == "sechshundertsechsundsechzig"
     }
 
     def "should convert more that three digits number"() {
@@ -36,7 +36,7 @@ class GermanThousandToWordsConverterTest extends Specification {
         def converter = new GermanThousandToWordsConverter([600: genderForm("sechshundert"), 60: genderForm("sechzig"), 6: genderForm("sechs")])
 
         expect:
-        converter.asWords(66666, GenderType.NON_APPLICABLE) =="sechsundsechzigtausendsechshundertsechsundsechzig"
+        converter.asWords(66666, GenderType.NON_APPLICABLE) == "sechsundsechzigtausendsechshundertsechsundsechzig"
     }
 
     def "should throw IllegalArgumentException when given number is not supported"() {
