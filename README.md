@@ -24,6 +24,7 @@ Supported languages
 * Polish
 * Czech
 * Russian
+* German
 
 Usage
 -----
@@ -36,7 +37,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:0.4.1'
+    compile 'pl.allegro.finance:tradukisto:0.5.0'
 }
 ```
 

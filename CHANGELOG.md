@@ -28,3 +28,10 @@ Added support for:
 ## 0.4.1 (2015-07-22)
 
 Fixed currency symbol for Russian
+
+## 0.5.0 (2015-09-29)
+
+Added support for:
+
+  - German
+
