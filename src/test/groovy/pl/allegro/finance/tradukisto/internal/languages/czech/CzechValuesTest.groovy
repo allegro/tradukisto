@@ -18,7 +18,7 @@ public class CzechValuesTest extends Specification {
         value         | words
         0             | "nula"
         1             | "jedna"
-        2             | "dva"
+        2             | "dvě"
         3             | "tři"
         4             | "čtyři"
         5             | "pět"
