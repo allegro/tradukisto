@@ -29,7 +29,8 @@ public class Container {
         Container containerForSmallNumbers = new Container(new CzechValuesForSmallNumbers());
 
         IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(
-                containerForBigNumbers.getNumbersConverter(), containerForSmallNumbers.getNumbersConverter()
+                containerForBigNumbers.getNumbersConverter(), containerForSmallNumbers.getNumbersConverter(),
+                czechValues.exceptions()
         );
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
                 integerConverter,

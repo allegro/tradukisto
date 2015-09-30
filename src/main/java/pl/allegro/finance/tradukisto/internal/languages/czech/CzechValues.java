@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech;
 
+import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
@@ -73,5 +74,9 @@ public class CzechValues implements BaseValues {
     @Override
     public char twoDigitsNumberSeparator() {
         return ' ';
+    }
+
+    public Map<Integer, String> exceptions() {
+        return ImmutableMap.<Integer, String>builder().put(2, "dvě").build();
     }
 }
