@@ -35,3 +35,7 @@ Added support for:
 
   - German
 
+## 0.5.1 (2015-09-30)
+
+Fixed incorrect translation of "2" for Czech
+
