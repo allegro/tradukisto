@@ -17,7 +17,7 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
 
     private final NumberChunking numberChunking = new NumberChunking();
 
-    private final GenderAwareIntegerToStringConverter hundredsToWordsConverter;
+    protected final GenderAwareIntegerToStringConverter hundredsToWordsConverter;
     private final List<PluralForms> pluralForms;
 
     public IntegerToWordsConverter(GenderAwareIntegerToStringConverter hundredsToWordsConverter,
@@ -36,7 +36,7 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
         return joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator());
     }
 
-    private String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<PluralForms> formsToUse) {
+    protected String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<PluralForms> formsToUse) {
         List<String> result = new ArrayList<>();
 
         while (chunks.hasNext() && formsToUse.hasNext()) {
@@ -52,7 +52,7 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
         return joinParts(result);
     }
 
-    private String joinParts(List<String> result) {
+    protected String joinParts(List<String> result) {
         if (result.size() == 0) {
             return hundredsToWordsConverter.asWords(0, pluralForms.get(0).genderType());
         }

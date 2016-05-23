@@ -7,10 +7,14 @@ import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWord
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
-import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverterAdapter;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
 public class Container {
@@ -53,6 +57,22 @@ public class Container {
         IntegerToStringConverter converter = new GermanIntegerToWordsConverter(
                 new IntegerToWordsConverter(germanThousandToWordsConverter, values.pluralForms()), values.exceptions(),
                 germanThousandToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container portugueseContainer() {
+        PortugueseValues values = new PortugueseValues();
+
+        PortugueseThousandToWordsConverter portugueseThousandToWordsConverter = new PortugueseThousandToWordsConverter(
+                values.baseNumbers());
+
+        IntegerToStringConverter converter = new PortugueseIntegerToWordsConverter(
+                new PortugueseIntegerToWordsConverterAdapter(portugueseThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+                portugueseThousandToWordsConverter);
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
                 converter, values.currency());
