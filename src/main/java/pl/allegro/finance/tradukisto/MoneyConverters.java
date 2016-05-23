@@ -9,10 +9,12 @@ import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.portugueseContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 
 public enum MoneyConverters {
 
+    PORTUGUESE_BANKING_MONEY_VALUE(portugueseContainer().getBankingMoneyConverter()),
     GERMAN_BANKING_MONEY_VALUE(germanContainer().getBankingMoneyConverter()),
     RUSSIAN_BANKING_MONEY_VALUE(russianContainer().getBankingMoneyConverter()),
     POLISH_BANKING_MONEY_VALUE(polishContainer().getBankingMoneyConverter()),
