@@ -12,6 +12,7 @@ import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWo
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
 
 public class Container {
 
@@ -58,6 +59,10 @@ public class Container {
                 converter, values.currency());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+    
+    public static Container spanishContainer() {
+        return new Container(new SpanishValues());
     }
 
     private final IntegerToStringConverter integerConverter;
