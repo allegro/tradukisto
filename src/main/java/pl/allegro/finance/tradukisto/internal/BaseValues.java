@@ -14,5 +14,5 @@ public interface BaseValues {
 
     String currency();
 
-    char twoDigitsNumberSeparator();
+    String twoDigitsNumberSeparator();
 }

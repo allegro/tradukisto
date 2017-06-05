@@ -9,6 +9,8 @@ import java.util.Map;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SimplePluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SlavonicPluralForms;
 
 public class SpanishValues implements BaseValues {
 
@@ -45,7 +47,7 @@ public class SpanishValues implements BaseValues {
                 .put(90, "noventa")
                 .put(100, "cien")
                 .put(200, "doscientos")
-                .put(300, "trecientos")
+                .put(300, "trescientos")
                 .put(400, "cuatrocientos")
                 .put(500, "quinientos")
                 .put(600, "seiscientos")
@@ -58,10 +60,10 @@ public class SpanishValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
-                new SpanishPluralForms(""),
-                new SpanishPluralForms("mil"),
-                new SpanishPluralForms("millon"),
-                new SpanishPluralForms("billon"));
+                new SimplePluralForms(""),
+                new SimplePluralForms("mil"),
+                new SlavonicPluralForms("millon", "millones", "millones"),
+                new SimplePluralForms("billon"));
     }
 
     @Override
@@ -70,7 +72,7 @@ public class SpanishValues implements BaseValues {
     }
 
     @Override
-    public char twoDigitsNumberSeparator() {
-        return '-';
+    public String twoDigitsNumberSeparator() {
+        return " y ";
     }
 }

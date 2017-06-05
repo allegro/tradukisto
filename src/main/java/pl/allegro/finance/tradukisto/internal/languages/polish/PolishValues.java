@@ -71,7 +71,7 @@ public class PolishValues implements BaseValues {
     }
 
     @Override
-    public char twoDigitsNumberSeparator() {
-        return ' ';
+    public String twoDigitsNumberSeparator() {
+        return " ";
     }
 }

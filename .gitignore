@@ -8,3 +8,6 @@
 
 # sonar
 sonar-project.properties
+
+# idea
+.idea

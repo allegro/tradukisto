@@ -1,9 +1,10 @@
-package pl.allegro.finance.tradukisto.internal.languages.english
+package pl.allegro.finance.tradukisto.internal.languages
+
 import spock.lang.Specification
 
-class EnglishPluralFormsTest extends Specification {
+class SimplePluralFormsTest extends Specification {
 
-    def pluralForms = new EnglishPluralForms("thousand")
+    def pluralForms = new SimplePluralForms("thousand")
 
     def "should provide value for singular form"() {
         expect:

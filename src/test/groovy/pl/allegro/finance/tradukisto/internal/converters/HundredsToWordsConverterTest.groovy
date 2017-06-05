@@ -7,7 +7,7 @@ import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.gende
 
 class HundredsToWordsConverterTest extends Specification {
 
-    char separator = '-'
+    String separator = "-"
 
     def "should convert value from list of base values"() {
         given:

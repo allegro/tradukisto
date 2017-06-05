@@ -3,6 +3,7 @@ package pl.allegro.finance.tradukisto.internal.languages.english;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SimplePluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,10 +59,10 @@ public class EnglishValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
-                new EnglishPluralForms(""),
-                new EnglishPluralForms("thousand"),
-                new EnglishPluralForms("million"),
-                new EnglishPluralForms("billion"));
+                new SimplePluralForms(""),
+                new SimplePluralForms("thousand"),
+                new SimplePluralForms("million"),
+                new SimplePluralForms("billion"));
     }
 
     @Override
@@ -70,7 +71,7 @@ public class EnglishValues implements BaseValues {
     }
 
     @Override
-    public char twoDigitsNumberSeparator() {
-        return '-';
+    public String twoDigitsNumberSeparator() {
+        return "-";
     }
 }

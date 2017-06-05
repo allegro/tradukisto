@@ -34,7 +34,7 @@ public class CzechValuesForSmallNumbers implements BaseValues {
     }
 
     @Override
-    public char twoDigitsNumberSeparator() {
-        return ' ';
+    public String twoDigitsNumberSeparator() {
+        return " ";
     }
 }

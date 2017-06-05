@@ -72,8 +72,8 @@ public class CzechValues implements BaseValues {
     }
 
     @Override
-    public char twoDigitsNumberSeparator() {
-        return ' ';
+    public String twoDigitsNumberSeparator() {
+        return " ";
     }
 
     public Map<Integer, String> exceptions() {
