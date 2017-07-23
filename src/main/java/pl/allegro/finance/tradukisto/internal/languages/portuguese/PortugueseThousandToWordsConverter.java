@@ -13,6 +13,8 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 public class PortugueseThousandToWordsConverter implements IntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;
+    private static final boolean HAS_NEXT_VALUE = true;
+    private static final boolean HAS_NOT_NEXT_VALUE = false;
     private static final int HUNDRED = 100;
     private Map<Integer, String[]> exceptions;
     private GenderType genderType = GenderType.NON_APPLICABLE;
@@ -65,33 +67,33 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
         Integer other = value % 1000;
 
         if (isOneThousand(thousands)) {
-            return getOneThousandFormatted(other);
+            return getOneThousandAsWords(other);
         }
 
-        return getThousandsFormatted(thousands, other);
+        return getThousandsAsWords(thousands, other);
     }
 
-    private String getThousandsFormatted(Integer thousands, Integer other) {
-        if (anythingComesAfter(other)) {
+    private String getThousandsAsWords(Integer thousands, Integer other) {
+        if (nothingComesAfter(other)) {
              return format("%s mil", asWords(thousands));
         }
         if (other == HUNDRED) {
-            return format("%s mil e cem", asWords(thousands, false));
+            return format("%s mil e %s", asWords(thousands, HAS_NOT_NEXT_VALUE), asWords(other, HAS_NOT_NEXT_VALUE));
         }
-        return format("%s mil %s", asWords(thousands), asWords(other, true));
+        return format("%s mil %s", asWords(thousands), asWords(other, HAS_NEXT_VALUE));
     }
 
-    private String getOneThousandFormatted(Integer other) {
-        if (anythingComesAfter(other)) {
+    private String getOneThousandAsWords(Integer other) {
+        if (nothingComesAfter(other)) {
             return "mil";
         }
         if (other == HUNDRED) {
-            return format("mil e %s", asWords(other, false));
+            return format("mil e %s", asWords(other, HAS_NOT_NEXT_VALUE));
         }
-        return format("mil %s", asWords(other, true));
+        return format("mil %s", asWords(other, HAS_NEXT_VALUE));
     }
 
-    private boolean anythingComesAfter(Integer other) {
+    private boolean nothingComesAfter(Integer other) {
         return other == 0;
     }
 
