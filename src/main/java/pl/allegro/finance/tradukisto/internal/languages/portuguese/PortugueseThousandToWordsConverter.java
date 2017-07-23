@@ -7,6 +7,7 @@ import java.util.Map;
 import com.google.common.collect.Range;
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
@@ -16,11 +17,11 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private static final boolean HAS_NEXT_VALUE = true;
     private static final boolean HAS_NOT_NEXT_VALUE = false;
     private static final int HUNDRED = 100;
-    private Map<Integer, String[]> exceptions;
+    private Map<Integer, MultiFormNumber> exceptions;
     private GenderType genderType = GenderType.NON_APPLICABLE;
 
     public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
-            Map<Integer, String[]> exceptions) {
+            Map<Integer, MultiFormNumber> exceptions) {
         this.baseValues = baseValues;
         this.exceptions = exceptions;
     }
@@ -35,9 +36,9 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
             return baseValues.get(value).formFor(genderType);
         } else if (exceptions.containsKey(value)) {
             if (hasNextNumber) {
-                return exceptions.get(value)[1];
+                return exceptions.get(value).getRegularForm();
             }
-            return exceptions.get(value)[0];
+            return exceptions.get(value).getAloneForm();
         } else if (Range.closed(21, 99).contains(value)) {
             return twoDigitsNumberAsString(value);
         } else if (Range.closed(101, 999).contains(value)) {

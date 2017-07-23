@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
@@ -54,9 +55,9 @@ public class BrazilianPortugueseValues  {
                 .build();
     }
 
-    public Map<Integer, String[]> exceptions() {
-        return ImmutableMap.<Integer, String[]>builder()
-                .put(100, new String[]{"cem", "cento"})
+    public Map<Integer, MultiFormNumber> exceptions() {
+        return ImmutableMap.<Integer, MultiFormNumber>builder()
+                .put(100, new MultiFormNumber("cem", "cento"))
                 .build();
     }
 
