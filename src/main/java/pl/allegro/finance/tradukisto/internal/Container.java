@@ -64,7 +64,7 @@ public class Container {
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
 
-    public static Container portugueseContainer() {
+    public static Container brazilianPortugueseContainer() {
         BrazilianPortugueseValues values = new BrazilianPortugueseValues();
 
         PortugueseThousandToWordsConverter portugueseThousandToWordsConverter = new PortugueseThousandToWordsConverter(

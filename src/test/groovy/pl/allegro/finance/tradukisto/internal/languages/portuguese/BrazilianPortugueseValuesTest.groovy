@@ -3,14 +3,14 @@ package pl.allegro.finance.tradukisto.internal.languages.portuguese
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static pl.allegro.finance.tradukisto.internal.Container.portugueseContainer
+import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer
 
-public class PortugueseValuesTest extends Specification {
+public class BrazilianPortugueseValuesTest extends Specification {
 
-    static converter = portugueseContainer().getNumbersConverter()
+    static converter = brazilianPortugueseContainer().getNumbersConverter()
 
     @Unroll
-    def "should convert #value to '#words' in Portuguese"() {
+    def "should convert #value to '#words' in Brazilian Portuguese"() {
         expect:
         converter.asWords(value) == words
 
@@ -110,7 +110,7 @@ public class PortugueseValuesTest extends Specification {
         2147483647 | "dois bilhões cento e quarenta e sete milhões quatrocentos e oitenta e três mil seiscentos e quarenta e sete"
     }
 
-    def "should convert any value in range of 0-999 in Portuguese"() {
+    def "should convert any value in range of 0-999 in Brazilian Portuguese"() {
         when:
         def words = converter.asWords(value)
 

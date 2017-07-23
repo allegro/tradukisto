@@ -6,15 +6,15 @@ import spock.lang.Specification
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.PORTUGUESE_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 
 class ValueConvertersTest extends Specification {
 
-    def "should convert numbers in Portuguese"() {
+    def "should convert numbers in Brazilian Portuguese"() {
         expect:
-        PORTUGUESE_INTEGER.asWords(1_234) == "mil duzentos e trinta e quatro"
+        BRAZILIAN_PORTUGUESE_INTEGER.asWords(1_234) == "mil duzentos e trinta e quatro"
     }	
 
     def "should convert numbers in German"() {

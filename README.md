@@ -25,7 +25,7 @@ Supported languages
 * Czech
 * Russian
 * German
-* Portuguese
+* Brazilian Portuguese
 
 Usage
 -----

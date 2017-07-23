@@ -6,13 +6,13 @@ import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.portugueseContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 
 public enum ValueConverters {
 
-    PORTUGUESE_INTEGER(portugueseContainer().getNumbersConverter()),
+    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getNumbersConverter()),
     GERMAN_INTEGER(germanContainer().getNumbersConverter()),
     POLISH_INTEGER(polishContainer().getNumbersConverter()),
     RUSSIAN_INTEGER(russianContainer().getNumbersConverter()),
