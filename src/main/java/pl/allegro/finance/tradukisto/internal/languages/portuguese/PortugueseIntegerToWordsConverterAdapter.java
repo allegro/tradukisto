@@ -5,15 +5,16 @@ import java.util.Iterator;
 import java.util.List;
 
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 public class PortugueseIntegerToWordsConverterAdapter extends IntegerToWordsConverter {
-
-    public PortugueseIntegerToWordsConverterAdapter(GenderAwareIntegerToStringConverter hundredsToWordsConverter,
+	
+    public PortugueseIntegerToWordsConverterAdapter(IntegerToStringConverter hundredsToWordsConverter,
              List<PluralForms> pluralForms) {
-        super(hundredsToWordsConverter, pluralForms);
+    	super(hundredsToWordsConverter, pluralForms);
     }
 
     @Override
@@ -29,9 +30,9 @@ public class PortugueseIntegerToWordsConverterAdapter extends IntegerToWordsConv
                 Integer hundreds = currentChunkValue - tensWithUnits;
 
                 if (hundreds == 100 && tensWithUnits == 0) {
-                    result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NEUTER));
+                    result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NON_APPLICABLE));
                 } else {
-                    result.add(hundredsToWordsConverter.asWords(currentChunkValue, currentForms.genderType()));
+                    result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NON_APPLICABLE));
                 }
                 result.add(currentForms.formFor(currentChunkValue));
             }

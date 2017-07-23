@@ -8,12 +8,9 @@ public class PortuguesePluralForms implements PluralForms {
     private final String singularForm;
     private final String pluralForm;
 
-    private final GenderType genderType;
-
-    public PortuguesePluralForms(String singularForm, String pluralForm, GenderType genderType) {
+    public PortuguesePluralForms(String singularForm, String pluralForm) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
-        this.genderType = genderType;
     }
 
     @Override
@@ -23,6 +20,6 @@ public class PortuguesePluralForms implements PluralForms {
 
     @Override
     public GenderType genderType() {
-        return genderType;
+        return GenderType.NON_APPLICABLE;
     }
 }

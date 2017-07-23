@@ -13,7 +13,7 @@ import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import com.google.common.collect.ImmutableMap;
 
-public class PortugueseValues  {
+public class BrazilianPortugueseValues  {
 
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
@@ -45,7 +45,6 @@ public class PortugueseValues  {
                 .put(70, "setenta")
                 .put(80, "oitenta")
                 .put(90, "noventa")
-                .put(100, genderForms("cento", "cento", "cem", "cento"))
                 .put(200, "duzentos")
                 .put(300, "trezentos")
                 .put(400, "quatrocentos")
@@ -57,14 +56,16 @@ public class PortugueseValues  {
                 .build();
     }
 
-    public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(100, "cem").build();
+    public Map<Integer, String[]> exceptions() {
+        return ImmutableMap.<Integer, String[]>builder()
+        		.put(100, new String[]{"cem", "cento"})
+        		.build();
     }
 
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
-                new PortuguesePluralForms("milhão", "milhões", GenderType.NON_APPLICABLE),
-                new PortuguesePluralForms("bilhão", "bilhões", GenderType.NON_APPLICABLE));
+                new PortuguesePluralForms("milhão", "milhões"),
+                new PortuguesePluralForms("bilhão", "bilhões"));
     }
 
     public String currency() {

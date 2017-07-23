@@ -9,42 +9,42 @@ class PortugueseThousandToWordsConverterTest extends Specification {
 
     def "should convert value from list of base values"() {
         given:
-        def converter = new PortugueseThousandToWordsConverter([1: genderForm("um")])
+        def converter = new PortugueseThousandToWordsConverter([1: genderForm("um")], [:])
 
         expect:
-        converter.asWords(1, GenderType.NON_APPLICABLE) == "um"
+        converter.asWords(1) == "um"
     }
 
     def "should convert two digits number"() {
         given:
-        def converter = new PortugueseThousandToWordsConverter([20: genderForm("vinte"), 1: genderForm("um")])
+        def converter = new PortugueseThousandToWordsConverter([20: genderForm("vinte"), 1: genderForm("um")], [:])
 
         expect:
-        converter.asWords(21, GenderType.NON_APPLICABLE) == "vinte e um"
+        converter.asWords(21) == "vinte e um"
     }
 
     def "should convert three digits number"() {
         given:
-        def converter = new PortugueseThousandToWordsConverter([600: genderForm("seiscentos"), 60: genderForm("sessenta"), 6: genderForm("seis")])
+        def converter = new PortugueseThousandToWordsConverter([600: genderForm("seiscentos"), 60: genderForm("sessenta"), 6: genderForm("seis")], [:])
 
         expect:
-        converter.asWords(666, GenderType.NON_APPLICABLE) == "seiscentos e sessenta e seis"
+        converter.asWords(666) == "seiscentos e sessenta e seis"
     }
 
     def "should convert more that three digits number"() {
         given:
-        def converter = new PortugueseThousandToWordsConverter([600: genderForm("seiscentos"), 60: genderForm("sessenta"), 6: genderForm("seis")])
+        def converter = new PortugueseThousandToWordsConverter([600: genderForm("seiscentos"), 60: genderForm("sessenta"), 6: genderForm("seis")], [:])
 
         expect:
-        converter.asWords(66666, GenderType.NON_APPLICABLE) == "sessenta e seis mil seiscentos e sessenta e seis"
+        converter.asWords(66666) == "sessenta e seis mil seiscentos e sessenta e seis"
     }
 
     def "should throw IllegalArgumentException when given number is not supported"() {
         given:
-        def converter = new PortugueseThousandToWordsConverter([1: genderForm("um")])
+        def converter = new PortugueseThousandToWordsConverter([1: genderForm("um")], [:])
 
         when:
-        converter.asWords(2, GenderType.NON_APPLICABLE)
+        converter.asWords(2)
 
         then:
         def exception = thrown(IllegalArgumentException)

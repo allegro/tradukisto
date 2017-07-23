@@ -14,7 +14,7 @@ import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseThousandToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseValues;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
 public class Container {
@@ -65,10 +65,10 @@ public class Container {
     }
 
     public static Container portugueseContainer() {
-        PortugueseValues values = new PortugueseValues();
+        BrazilianPortugueseValues values = new BrazilianPortugueseValues();
 
         PortugueseThousandToWordsConverter portugueseThousandToWordsConverter = new PortugueseThousandToWordsConverter(
-                values.baseNumbers());
+                values.baseNumbers(), values.exceptions());
 
         IntegerToStringConverter converter = new PortugueseIntegerToWordsConverter(
                 new PortugueseIntegerToWordsConverterAdapter(portugueseThousandToWordsConverter, values.pluralForms()), values.exceptions(),

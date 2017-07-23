@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 class PortuguesePluralFormsTest extends Specification {
 
-    def pluralForms = new PortuguesePluralForms("milhão", "milhões", GenderType.NON_APPLICABLE)
+    def pluralForms = new PortuguesePluralForms("milhão", "milhões")
 
     def "should provide value for singular form"() {
         expect:

@@ -4,77 +4,92 @@ import static java.lang.String.format;
 
 import java.util.Map;
 
-import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
+import com.google.common.collect.Range;
+
+import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
-import com.google.common.collect.Range;
-
-public class PortugueseThousandToWordsConverter implements GenderAwareIntegerToStringConverter {
+public class PortugueseThousandToWordsConverter implements IntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;
     private static final int HUNDRED = 100;
+    private Map<Integer, String[]> exceptions;
+    private GenderType genderType = GenderType.NON_APPLICABLE;
 
-    public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues) {
+    public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
+    		Map<Integer, String[]> exceptions) {
         this.baseValues = baseValues;
+        this.exceptions = exceptions;
     }
 
     @Override
-    public String asWords(Integer value, GenderType genderType) {
-        if (baseValues.containsKey(value)) {
+    public String asWords(Integer value) {
+        return asWords(value, false);
+    }
+    
+    private String asWords(Integer value, boolean hasNextNumber) {
+    	if (baseValues.containsKey(value)) {
             return baseValues.get(value).formFor(genderType);
-        } else if (Range.closed(21, 99).contains(value)) {
-            return twoDigitsNumberAsString(value, genderType);
+        } if (exceptions.containsKey(value)) {
+        	if(hasNextNumber) {
+        		return exceptions.get(value)[1];
+        	} 
+            return exceptions.get(value)[0];
+        }  
+    	else if (Range.closed(21, 99).contains(value)) {
+            return twoDigitsNumberAsString(value);
         } else if (Range.closed(101, 999).contains(value)) {
-            return threeDigitsNumberAsString(value, genderType);
+            return threeDigitsNumberAsString(value);
         } else if (Range.closed(1000, 999999).contains(value)) {
-            return thousandsAsString(value, genderType);
+            return thousandsAsString(value);
         }
 
         throw new IllegalArgumentException(format("Can't convert %d", value));
     }
 
-    private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
+    private String twoDigitsNumberAsString(Integer value) {
         Integer units = value % 10;
         Integer tens = value - units;
-        return format("%s e %s", asWords(tens, genderType), asWords(units, genderType));
+        return format("%s e %s", asWords(tens), asWords(units));
     }
 
-    private String threeDigitsNumberAsString(Integer value, GenderType genderType) {
+    private String threeDigitsNumberAsString(Integer value) {
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
-        return format("%s e %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
+        boolean hasNextNumber = tensWithUnits != 0;
+        return format("%s e %s", asWords(hundreds, hasNextNumber), asWords(tensWithUnits));
     }
 
-    private String thousandsAsString(Integer value, GenderType genderType) {
+    private String thousandsAsString(Integer value) {
         Integer thousands = value / 1000;
         Integer other = value % 1000;
 
         if (isOneThousand(thousands)) {
-            return getOneThousandFormatted(other, genderType);
+            return getOneThousandFormatted(other);
         }
 
-        return getThousandsFormatted(thousands, other, genderType);
+        return getThousandsFormatted(thousands, other);
     }
 
-    private String getThousandsFormatted(Integer thousands, Integer other, GenderType genderType) {
+    private String getThousandsFormatted(Integer thousands, Integer other) {
         if (anythingComesAfter(other)) {
-             return format("%s mil", asWords(thousands, GenderType.NEUTER));
+             return format("%s mil", asWords(thousands));
         }
         if (other == HUNDRED) {
-            return format("%s mil e %s", asWords(thousands, genderType), asWords(other, GenderType.NEUTER));
+            return format("%s mil e cem", asWords(thousands, false));
         }
-        return format("%s mil %s", asWords(thousands, genderType), asWords(other, genderType));
+        return format("%s mil %s", asWords(thousands), asWords(other, true));
     }
 
-    private String getOneThousandFormatted(Integer other, GenderType genderType) {
+    private String getOneThousandFormatted(Integer other) {
         if (anythingComesAfter(other)) {
             return "mil";
         }
         if (other == HUNDRED) {
-            return format("mil e %s", asWords(other, GenderType.NEUTER));
+            return format("mil e %s", asWords(other, false));
         }
-        return format("mil %s", asWords(other, genderType));
+        return format("mil %s", asWords(other, true));
     }
 
     private boolean anythingComesAfter(Integer other) {
