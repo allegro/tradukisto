@@ -6,9 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 import com.google.common.collect.ImmutableMap;
@@ -58,8 +56,8 @@ public class BrazilianPortugueseValues  {
 
     public Map<Integer, String[]> exceptions() {
         return ImmutableMap.<Integer, String[]>builder()
-        		.put(100, new String[]{"cem", "cento"})
-        		.build();
+                .put(100, new String[]{"cem", "cento"})
+                .build();
     }
 
     public List<PluralForms> pluralForms() {

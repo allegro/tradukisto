@@ -6,9 +6,7 @@ import java.util.Map;
 
 import com.google.common.base.Joiner;
 
-import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
 public class PortugueseIntegerToWordsConverter implements IntegerToStringConverter {
 

@@ -18,7 +18,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private GenderType genderType = GenderType.NON_APPLICABLE;
 
     public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
-    		Map<Integer, String[]> exceptions) {
+            Map<Integer, String[]> exceptions) {
         this.baseValues = baseValues;
         this.exceptions = exceptions;
     }
@@ -27,17 +27,16 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     public String asWords(Integer value) {
         return asWords(value, false);
     }
-    
+
     private String asWords(Integer value, boolean hasNextNumber) {
-    	if (baseValues.containsKey(value)) {
+        if (baseValues.containsKey(value)) {
             return baseValues.get(value).formFor(genderType);
-        } if (exceptions.containsKey(value)) {
-        	if(hasNextNumber) {
-        		return exceptions.get(value)[1];
-        	} 
+        } else if (exceptions.containsKey(value)) {
+            if (hasNextNumber) {
+                return exceptions.get(value)[1];
+            }
             return exceptions.get(value)[0];
-        }  
-    	else if (Range.closed(21, 99).contains(value)) {
+        } else if (Range.closed(21, 99).contains(value)) {
             return twoDigitsNumberAsString(value);
         } else if (Range.closed(101, 999).contains(value)) {
             return threeDigitsNumberAsString(value);

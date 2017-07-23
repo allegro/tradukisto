@@ -26,18 +26,17 @@ public class IntegerToWordsConverter implements IntegerToStringConverter {
         this.hundredsToWordsConverter = hundredsToWordsConverter;
         this.pluralForms = pluralForms;
     }
-    
+
     public IntegerToWordsConverter(final IntegerToStringConverter hundredsToWordsConverter,
             List<PluralForms> pluralForms) {
-		this.hundredsToWordsConverter = new GenderAwareIntegerToStringConverter() {
-			
-			@Override
-			public String asWords(Integer value, GenderType genderType) {
-				return hundredsToWordsConverter.asWords(value);
-			}
-		};
-		this.pluralForms = pluralForms;
-	}
+        this.hundredsToWordsConverter = new GenderAwareIntegerToStringConverter() {
+            @Override
+            public String asWords(Integer value, GenderType genderType) {
+                return hundredsToWordsConverter.asWords(value);
+            }
+        };
+        this.pluralForms = pluralForms;
+    }
 
     @Override
     public String asWords(Integer value) {
