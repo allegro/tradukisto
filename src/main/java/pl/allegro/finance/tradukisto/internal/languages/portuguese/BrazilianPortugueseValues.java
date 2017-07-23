@@ -9,6 +9,7 @@ import java.util.Map;
 import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -63,8 +64,8 @@ public class BrazilianPortugueseValues  {
 
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
-                new PortuguesePluralForms("milhão", "milhões"),
-                new PortuguesePluralForms("bilhão", "bilhões"));
+                new RegularPluralForms("milhão", "milhões"),
+                new RegularPluralForms("bilhão", "bilhões"));
     }
 
     public String currency() {
