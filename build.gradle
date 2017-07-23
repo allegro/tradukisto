@@ -1,8 +1,6 @@
 buildscript {
     repositories {
-        jcenter {
-            url "http://jcenter.bintray.com/"
-        }
+        mavenCentral()
     }
     dependencies {
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.1"
@@ -33,9 +31,7 @@ project.version = scmVersion.version
 project.group = "pl.allegro.finance"
 
 repositories {
-    jcenter {
-        url "http://jcenter.bintray.com/"
-    }
+    mavenCentral()
 }
 
 sourceCompatibility = 1.7
@@ -52,7 +48,7 @@ jacocoTestReport {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.7"
+    gradleVersion = "2.12"
 }
 
 dependencies {
