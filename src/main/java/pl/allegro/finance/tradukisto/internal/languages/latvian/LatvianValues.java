@@ -62,7 +62,7 @@ public class LatvianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.<PluralForms>asList(
-                new LatvianPluralForms("", "", GenderType.FEMININE),
+                new LatvianPluralForms("", "", GenderType.MASCULINE),
                 new LatvianPluralForms("tūkstotis", "tūkstoši", GenderType.MASCULINE),
                 new LatvianPluralForms("miljons", "miljoni", GenderType.MASCULINE),
                 new LatvianPluralForms("miljards", "miljardi", GenderType.MASCULINE));
