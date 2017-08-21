@@ -4,13 +4,11 @@ import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
-import pl.allegro.finance.tradukisto.internal.languages.SlavonicPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static com.google.common.collect.ImmutableList.of;
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
