@@ -10,6 +10,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 
 public enum MoneyConverters {
 
@@ -17,7 +18,8 @@ public enum MoneyConverters {
     RUSSIAN_BANKING_MONEY_VALUE(russianContainer().getBankingMoneyConverter()),
     POLISH_BANKING_MONEY_VALUE(polishContainer().getBankingMoneyConverter()),
     CZECH_BANKING_MONEY_VALUE(czechContainer().getBankingMoneyConverter()),
-    ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter());
+    ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter()),
+    LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter());
 
     private BigDecimalToStringConverter converter;
 
