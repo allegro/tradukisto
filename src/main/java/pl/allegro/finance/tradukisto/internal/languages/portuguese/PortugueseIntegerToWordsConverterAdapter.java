@@ -25,14 +25,7 @@ public class PortugueseIntegerToWordsConverterAdapter extends IntegerToWordsConv
             PluralForms currentForms = formsToUse.next();
 
             if (currentChunkValue > 0) {
-                Integer tensWithUnits = currentChunkValue % 100;
-                Integer hundreds = currentChunkValue - tensWithUnits;
-
-                if (hundreds == 100 && tensWithUnits == 0) {
-                    result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NON_APPLICABLE));
-                } else {
-                    result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NON_APPLICABLE));
-                }
+                result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NON_APPLICABLE));
                 result.add(currentForms.formFor(currentChunkValue));
             }
         }
