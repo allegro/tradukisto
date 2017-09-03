@@ -14,7 +14,7 @@ plugins {
     id 'checkstyle'
     id 'jacoco'
     id 'pmd'
-    id 'pl.allegro.tech.build.axion-release' version '1.3.2'
+    id 'pl.allegro.tech.build.axion-release' version '1.7.1'
     id "com.bmuschko.nexus" version "2.3.1"
     id 'com.github.kt3k.coveralls' version '2.3.1'
 }
@@ -48,7 +48,7 @@ jacocoTestReport {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.7"
+    gradleVersion = "2.12"
 }
 
 dependencies {

@@ -1,10 +1,8 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech;
 
-import com.google.common.base.Joiner;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.NumberProcessor;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class CzechIntegerToWordsConverter implements IntegerToStringConverter {
@@ -30,24 +28,6 @@ public class CzechIntegerToWordsConverter implements IntegerToStringConverter {
         Integer bigNumber = value / 1000;
         Integer smallNumber = value % 1000;
 
-        List<String> result = new ArrayList<>();
-
-        if (bigNumber > 0) {
-            result.add(bigNumbersConverter.asWords(bigNumber));
-        }
-
-        if (smallNumber > 0) {
-            result.add(smallNumbersConverter.asWords(smallNumber));
-        }
-
-        return mergeResult(result);
-    }
-
-    private String mergeResult(List<String> result) {
-        if (result.isEmpty()) {
-            return smallNumbersConverter.asWords(0);
-        }
-
-        return Joiner.on(" ").join(result);
+        return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber);
     }
 }
