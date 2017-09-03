@@ -40,25 +40,21 @@ compileJava {
     options.encoding = "UTF-8"
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-}
-
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.12"
+    gradleVersion = "4.1"
 }
 
 dependencies {
     compile "com.google.guava:guava:18.0"
-    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+    testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
 }
 
 jacocoTestReport {
     reports {
-        html.destination "${buildDir}/jacocoHtml"
+        html.destination new File("${buildDir}/jacocoHtml")
+
+        xml.enabled = true
+        html.enabled = true
     }
 }
 

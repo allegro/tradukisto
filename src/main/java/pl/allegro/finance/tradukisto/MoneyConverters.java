@@ -23,7 +23,7 @@ public enum MoneyConverters {
 
     private BigDecimalToStringConverter converter;
 
-    private MoneyConverters(BigDecimalToStringConverter converter) {
+    MoneyConverters(BigDecimalToStringConverter converter) {
         this.converter = converter;
     }
 
