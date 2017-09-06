@@ -19,7 +19,7 @@ public enum ValueConverters {
     CZECH_INTEGER(czechContainer().getNumbersConverter()),
     ENGLISH_INTEGER(englishContainer().getNumbersConverter());
 
-    private IntegerToStringConverter converter;
+    private final IntegerToStringConverter converter;
 
     ValueConverters(IntegerToStringConverter converter) {
         this.converter = converter;

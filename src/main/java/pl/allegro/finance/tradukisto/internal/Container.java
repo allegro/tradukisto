@@ -17,7 +17,7 @@ import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseTho
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
-public class Container {
+public final class Container {
 
     public static Container polishContainer() {
         return new Container(new PolishValues());
@@ -83,7 +83,7 @@ public class Container {
     private final IntegerToStringConverter integerConverter;
     private final BigDecimalToStringConverter bigDecimalConverter;
 
-    public Container(BaseValues baseValues) {
+    private Container(BaseValues baseValues) {
         HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(baseValues.baseNumbers(),
                 baseValues.twoDigitsNumberSeparator());
 
@@ -95,8 +95,8 @@ public class Container {
                 baseValues.currency());
     }
 
-    public Container(IntegerToStringConverter integerConverter,
-                     BigDecimalToStringConverter bigDecimalConverter) {
+    private Container(IntegerToStringConverter integerConverter,
+                      BigDecimalToStringConverter bigDecimalConverter) {
         this.integerConverter = integerConverter;
         this.bigDecimalConverter = bigDecimalConverter;
     }

@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer
 
-public class RussianValuesTest extends Specification {
+class RussianValuesTest extends Specification {
 
     static converter = russianContainer().getNumbersConverter()
 

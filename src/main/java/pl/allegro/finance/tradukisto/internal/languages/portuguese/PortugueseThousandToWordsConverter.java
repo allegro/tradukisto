@@ -13,12 +13,13 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
 public class PortugueseThousandToWordsConverter implements IntegerToStringConverter {
 
-    private final Map<Integer, GenderForms> baseValues;
     private static final boolean HAS_NEXT_VALUE = true;
     private static final boolean HAS_NOT_NEXT_VALUE = false;
     private static final int HUNDRED = 100;
-    private Map<Integer, MultiFormNumber> exceptions;
-    private GenderType genderType = GenderType.NON_APPLICABLE;
+
+    private final Map<Integer, GenderForms> baseValues;
+    private final Map<Integer, MultiFormNumber> exceptions;
+    private final GenderType genderType = GenderType.NON_APPLICABLE;
 
     public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
             Map<Integer, MultiFormNumber> exceptions) {

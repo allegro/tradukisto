@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer
 
-public class BrazilianPortugueseValuesTest extends Specification {
+class BrazilianPortugueseValuesTest extends Specification {
 
     static converter = brazilianPortugueseContainer().getNumbersConverter()
 

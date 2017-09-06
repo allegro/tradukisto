@@ -57,7 +57,7 @@ public class EnglishValues implements BaseValues {
 
     @Override
     public List<PluralForms> pluralForms() {
-        return Arrays.<PluralForms>asList(
+        return Arrays.asList(
                 new EnglishPluralForms(""),
                 new EnglishPluralForms("thousand"),
                 new EnglishPluralForms("million"),

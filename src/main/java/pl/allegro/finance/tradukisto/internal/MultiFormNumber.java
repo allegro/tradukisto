@@ -2,8 +2,8 @@ package pl.allegro.finance.tradukisto.internal;
 
 public class MultiFormNumber {
 
-    private String aloneForm;
-    private String regularForm;
+    private final String aloneForm;
+    private final String regularForm;
 
     public MultiFormNumber(String aloneForm, String regularForm) {
         this.aloneForm = aloneForm;

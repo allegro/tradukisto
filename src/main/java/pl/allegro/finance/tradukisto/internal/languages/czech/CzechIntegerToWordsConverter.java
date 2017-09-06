@@ -9,7 +9,7 @@ public class CzechIntegerToWordsConverter implements IntegerToStringConverter {
 
     private final IntegerToStringConverter bigNumbersConverter;
     private final IntegerToStringConverter smallNumbersConverter;
-    private Map<Integer, String> exceptions;
+    private final Map<Integer, String> exceptions;
 
     public CzechIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
                                         IntegerToStringConverter smallNumbersConverter,

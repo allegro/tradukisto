@@ -1,10 +1,11 @@
 package pl.allegro.finance.tradukisto.internal.languages.english
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer
 
-public class EnglishValuesTest extends Specification {
+class EnglishValuesTest extends Specification {
 
     static converter = englishContainer().getNumbersConverter()
 

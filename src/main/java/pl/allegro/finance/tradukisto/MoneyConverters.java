@@ -21,7 +21,7 @@ public enum MoneyConverters {
     CZECH_BANKING_MONEY_VALUE(czechContainer().getBankingMoneyConverter()),
     ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter());
 
-    private BigDecimalToStringConverter converter;
+    private final BigDecimalToStringConverter converter;
 
     MoneyConverters(BigDecimalToStringConverter converter) {
         this.converter = converter;

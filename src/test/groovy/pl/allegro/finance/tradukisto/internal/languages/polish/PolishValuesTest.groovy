@@ -1,10 +1,11 @@
 package pl.allegro.finance.tradukisto.internal.languages.polish
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer
 
-public class PolishValuesTest extends Specification {
+class PolishValuesTest extends Specification {
 
     static converter = polishContainer().getNumbersConverter()
 

@@ -7,7 +7,7 @@ import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverte
 
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForm
 
-public class ToStringConverterTest extends Specification {
+class ToStringConverterTest extends Specification {
 
     static converter = new ToStringConverter()
     static integerToStringConverter = new PortugueseThousandToWordsConverter([1: genderForm("um")], [:])

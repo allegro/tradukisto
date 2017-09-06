@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer
 
-public class GermanValuesTest extends Specification {
+class GermanValuesTest extends Specification {
 
     static converter = germanContainer().getNumbersConverter()
 
