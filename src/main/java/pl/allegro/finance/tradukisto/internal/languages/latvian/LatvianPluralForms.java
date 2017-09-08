@@ -22,11 +22,15 @@ public class LatvianPluralForms implements PluralForms {
 
     @Override
     public String formFor(Integer value) {
-        if (value == 1) {
+        if (useSingular(value)) {
             return singularForm;
         } else {
             return pluralForm;
         }
+    }
+
+    private boolean useSingular(Integer value) {
+        return value == 1 || (value % 100 != 11 && value % 10 == 1);
     }
 
 
