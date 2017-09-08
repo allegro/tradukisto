@@ -11,11 +11,14 @@ import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWo
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseThousandToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
+import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
+import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
 
 public final class Container {
 
@@ -39,6 +42,18 @@ public final class Container {
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
                 integerConverter,
                 czechValues.currency());
+
+        return new Container(integerConverter, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container slovakContainer() {
+        SlovakValues slovakValues = new SlovakValues();
+        Container containerForBigNumbers = new Container(slovakValues);
+        Container containerForSmallNumbers = new Container(new SlovakValuesForSmallNumbers());
+
+        IntegerToStringConverter integerConverter = new SlovakIntegerToWordsConverter(containerForBigNumbers.getNumbersConverter(),
+                containerForSmallNumbers.getNumbersConverter(), slovakValues.exceptions());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter, slovakValues.currency());
 
         return new Container(integerConverter, bigDecimalBankingMoneyValueConverter);
     }
