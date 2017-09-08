@@ -23,6 +23,7 @@ Supported languages
 * English
 * Polish
 * Czech
+* Slovak
 * Russian
 * German
 * Brazilian Portuguese
