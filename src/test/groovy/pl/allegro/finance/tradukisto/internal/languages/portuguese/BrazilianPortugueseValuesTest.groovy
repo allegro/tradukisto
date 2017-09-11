@@ -109,16 +109,4 @@ class BrazilianPortugueseValuesTest extends Specification {
         2001001100 | "dois bilhões um milhão mil e cem"
         2147483647 | "dois bilhões cento e quarenta e sete milhões quatrocentos e oitenta e três mil seiscentos e quarenta e sete"
     }
-
-    def "should convert any value in range of 0-999 in Brazilian Portuguese"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
-    }
 }

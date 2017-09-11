@@ -31,5 +31,4 @@ public class PortugueseIntegerToWordsConverter implements IntegerToStringConvert
 
         return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber);
     }
-
 }

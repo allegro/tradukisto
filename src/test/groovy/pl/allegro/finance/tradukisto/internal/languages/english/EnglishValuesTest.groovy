@@ -103,16 +103,4 @@ class EnglishValuesTest extends Specification {
         2_147_483_647 | "two billion one hundred forty-seven million four hundred eighty-three thousand six hundred " +
                 "forty-seven"
     }
-
-    def "should convert any value in range of 0-999 in Czech"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
-    }
 }
