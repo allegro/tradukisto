@@ -10,11 +10,12 @@ import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
+import pl.allegro.finance.tradukisto.internal.languages.persian.PersianValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseThousandToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
 public final class Container {
@@ -79,6 +80,22 @@ public final class Container {
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
+    
+    public static Container persianContainer()
+    {
+        PersianValues persianValues = new PersianValues();
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(persianValues.baseNumbers(),
+                persianValues.twoDigitsNumberSeparator());
+
+        pl.allegro.finance.tradukisto.internal.languages.persian.IntegerToWordsConverter integerConverter = 
+                new pl.allegro.finance.tradukisto.internal.languages.persian.IntegerToWordsConverter(
+                hundredsToStringConverter, persianValues.pluralForms());
+
+        return new Container(integerConverter,
+                new pl.allegro.finance.tradukisto.internal.languages.persian.BigDecimalToBankingMoneyConverter(integerConverter,
+                        persianValues.currency()));
+    }
+
 
     private final IntegerToStringConverter integerConverter;
     private final BigDecimalToStringConverter bigDecimalConverter;
