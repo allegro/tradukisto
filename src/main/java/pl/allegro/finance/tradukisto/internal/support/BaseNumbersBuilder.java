@@ -9,7 +9,7 @@ import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.gende
 
 public class BaseNumbersBuilder {
 
-    private Map<Integer, GenderForms> result = new HashMap<>();
+    private final Map<Integer, GenderForms> result = new HashMap<>();
 
     public static BaseNumbersBuilder baseNumbersBuilder() {
         return new BaseNumbersBuilder();

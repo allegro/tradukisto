@@ -25,7 +25,7 @@ public class CzechValuesForSmallNumbers implements BaseValues {
 
     @Override
     public List<PluralForms> pluralForms() {
-        return Arrays.<PluralForms>asList(new CzechPluralForms());
+        return Arrays.asList(new CzechPluralForms());
     }
 
     @Override

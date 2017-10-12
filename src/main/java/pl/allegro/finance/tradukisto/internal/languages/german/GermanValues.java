@@ -1,16 +1,18 @@
 package pl.allegro.finance.tradukisto.internal.languages.german;
 
-import com.google.common.collect.ImmutableMap;
-import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
-import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import com.google.common.collect.ImmutableMap;
+
+import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
 public class GermanValues {
 
@@ -61,9 +63,9 @@ public class GermanValues {
     }
 
     public List<PluralForms> pluralForms() {
-        return Arrays.<PluralForms>asList(
-                new GermanPluralForms("Million", "Millionen", GenderType.FEMININE),
-                new GermanPluralForms("Milliarde", "Milliarden", GenderType.FEMININE));
+        return Arrays.asList(
+                new RegularPluralForms("Million", "Millionen", GenderType.FEMININE),
+                new RegularPluralForms("Milliarde", "Milliarden", GenderType.FEMININE));
     }
 
     public String currency() {

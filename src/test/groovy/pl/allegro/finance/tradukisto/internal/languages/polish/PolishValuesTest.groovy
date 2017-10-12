@@ -1,10 +1,11 @@
 package pl.allegro.finance.tradukisto.internal.languages.polish
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer
 
-public class PolishValuesTest extends Specification {
+class PolishValuesTest extends Specification {
 
     static converter = polishContainer().getNumbersConverter()
 
@@ -96,17 +97,5 @@ public class PolishValuesTest extends Specification {
         1_000_000_000     | "jeden miliard"
         Integer.MAX_VALUE | "dwa miliardy sto czterdzieści siedem milionów czterysta osiemdziesiąt trzy tysiące " +
                 "sześćset czterdzieści siedem"
-    }
-
-    def "should convert any value in range of 0-999 in Polish"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
     }
 }

@@ -1,10 +1,11 @@
 package pl.allegro.finance.tradukisto.internal.languages.english
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer
 
-public class EnglishValuesTest extends Specification {
+class EnglishValuesTest extends Specification {
 
     static converter = englishContainer().getNumbersConverter()
 
@@ -101,17 +102,5 @@ public class EnglishValuesTest extends Specification {
         1_000_000_000 | "one billion"
         2_147_483_647 | "two billion one hundred forty-seven million four hundred eighty-three thousand six hundred " +
                 "forty-seven"
-    }
-
-    def "should convert any value in range of 0-999 in Czech"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
     }
 }

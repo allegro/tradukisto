@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer
 
-public class RussianValuesTest extends Specification {
+class RussianValuesTest extends Specification {
 
     static converter = russianContainer().getNumbersConverter()
 
@@ -90,17 +90,5 @@ public class RussianValuesTest extends Specification {
         123_456_789   | "сто двадцать три миллиона четыреста пятьдесят шесть тысяч семьсот восемьдесят девять"
         1_000_000_000 | "один миллиард"
         2_147_483_647 | "два миллиарда сто сорок семь миллионов четыреста восемьдесят три тысячи шестьсот сорок семь"
-    }
-
-    def "should convert any value in range of 0-999 in Russian"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
     }
 }

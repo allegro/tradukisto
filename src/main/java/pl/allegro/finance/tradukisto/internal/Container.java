@@ -7,14 +7,18 @@ import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWord
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
-import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
 import pl.allegro.finance.tradukisto.internal.languages.latvian.LatvianValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverterAdapter;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 
-public class Container {
+public final class Container {
 
     public static Container polishContainer() {
         return new Container(new PolishValues());
@@ -65,10 +69,26 @@ public class Container {
         return new Container(new LatvianValues());
     }
 
+    public static Container brazilianPortugueseContainer() {
+        BrazilianPortugueseValues values = new BrazilianPortugueseValues();
+
+        PortugueseThousandToWordsConverter portugueseThousandToWordsConverter = new PortugueseThousandToWordsConverter(
+                values.baseNumbers(), values.exceptions());
+
+        IntegerToStringConverter converter = new PortugueseIntegerToWordsConverter(
+                new PortugueseIntegerToWordsConverterAdapter(portugueseThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+                portugueseThousandToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+
     private final IntegerToStringConverter integerConverter;
     private final BigDecimalToStringConverter bigDecimalConverter;
 
-    public Container(BaseValues baseValues) {
+    private Container(BaseValues baseValues) {
         HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(baseValues.baseNumbers(),
                 baseValues.twoDigitsNumberSeparator());
 
@@ -80,8 +100,8 @@ public class Container {
                 baseValues.currency());
     }
 
-    public Container(IntegerToStringConverter integerConverter,
-                     BigDecimalToStringConverter bigDecimalConverter) {
+    private Container(IntegerToStringConverter integerConverter,
+                      BigDecimalToStringConverter bigDecimalConverter) {
         this.integerConverter = integerConverter;
         this.bigDecimalConverter = bigDecimalConverter;
     }
