@@ -12,7 +12,7 @@ import static java.lang.String.format;
 public class HundredsToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;
-    private char twoDigitsNumberSeparator;
+    private final char twoDigitsNumberSeparator;
 
     public HundredsToWordsConverter(Map<Integer, GenderForms> baseValues, char twoDigitsNumberSeparator) {
         this.baseValues = baseValues;

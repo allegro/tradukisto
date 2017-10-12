@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer
 
-public class CzechValuesTest extends Specification {
+class CzechValuesTest extends Specification {
 
     static converter = czechContainer().getNumbersConverter()
 
@@ -101,17 +101,5 @@ public class CzechValuesTest extends Specification {
 
         1_000_000_000 | "jedna miliarda"
         2_147_483_647 | "dvě miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíc šest set čtyřicet sedm"
-    }
-
-    def "should convert any value in range of 0-999 in Czech"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
     }
 }

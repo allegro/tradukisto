@@ -1,19 +1,21 @@
-package pl.allegro.finance.tradukisto.internal.languages.german;
+package pl.allegro.finance.tradukisto.internal.languages;
 
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
-
-public class GermanPluralForms implements PluralForms {
+public class RegularPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
-
     private final GenderType genderType;
 
-    public GermanPluralForms(String singularForm, String pluralForm, GenderType genderType) {
+    public RegularPluralForms(String singularForm, String pluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genderType = genderType;
+    }
+
+    public RegularPluralForms(String singularForm, String pluralForm) {
+        this.singularForm = singularForm;
+        this.pluralForm = pluralForm;
+        this.genderType = GenderType.NON_APPLICABLE;
     }
 
     @Override

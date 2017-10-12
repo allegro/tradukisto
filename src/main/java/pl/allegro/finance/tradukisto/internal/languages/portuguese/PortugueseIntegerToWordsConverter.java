@@ -1,20 +1,20 @@
-package pl.allegro.finance.tradukisto.internal.languages.german;
-
-import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.NumberProcessor;
+package pl.allegro.finance.tradukisto.internal.languages.portuguese;
 
 import java.util.Map;
 
-public class GermanIntegerToWordsConverter implements IntegerToStringConverter {
+import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
+import pl.allegro.finance.tradukisto.internal.NumberProcessor;
+
+public class PortugueseIntegerToWordsConverter implements IntegerToStringConverter {
 
     private final IntegerToStringConverter bigNumbersConverter;
-    private final Map<Integer, String> exceptions;
-    private final GenderAwareIntegerToStringConverter smallNumbersConverter;
+    private final Map<Integer, MultiFormNumber> exceptions;
+    private final IntegerToStringConverter smallNumbersConverter;
 
-    public GermanIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                         Map<Integer, String> exceptions,
-                                         GenderAwareIntegerToStringConverter smallNumbersConverter) {
+    public PortugueseIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
+                                         Map<Integer, MultiFormNumber> exceptions,
+                                         IntegerToStringConverter smallNumbersConverter) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.exceptions = exceptions;
         this.smallNumbersConverter = smallNumbersConverter;
@@ -23,7 +23,7 @@ public class GermanIntegerToWordsConverter implements IntegerToStringConverter {
     @Override
     public String asWords(Integer value) {
         if (exceptions.containsKey(value)) {
-            return exceptions.get(value);
+            return exceptions.get(value).getAloneForm();
         }
 
         Integer bigNumber = value / 1000000;
@@ -31,5 +31,4 @@ public class GermanIntegerToWordsConverter implements IntegerToStringConverter {
 
         return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber);
     }
-
 }

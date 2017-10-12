@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer
 
-public class GermanValuesTest extends Specification {
+class GermanValuesTest extends Specification {
 
     static converter = germanContainer().getNumbersConverter()
 
@@ -102,17 +102,5 @@ public class GermanValuesTest extends Specification {
 
         1000000000 | "eine Milliarde"
         2147483647 | "zwei Milliarden einhundertsiebenundvierzig Millionen vierhundertdreiundachtzigtausendsechshundertsiebenundvierzig"
-    }
-
-    def "should convert any value in range of 0-999 in German"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
     }
 }

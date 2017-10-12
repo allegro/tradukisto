@@ -7,6 +7,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.*;
 
 public enum ValueConverters {
 
+    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getNumbersConverter()),
     GERMAN_INTEGER(germanContainer().getNumbersConverter()),
     POLISH_INTEGER(polishContainer().getNumbersConverter()),
     RUSSIAN_INTEGER(russianContainer().getNumbersConverter()),
@@ -14,7 +15,7 @@ public enum ValueConverters {
     ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
     LATVIAN_INTEGER(latvianContainer().getNumbersConverter());
 
-    private IntegerToStringConverter converter;
+    private final IntegerToStringConverter converter;
 
     ValueConverters(IntegerToStringConverter converter) {
         this.converter = converter;
