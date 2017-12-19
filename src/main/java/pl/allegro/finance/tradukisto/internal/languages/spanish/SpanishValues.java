@@ -68,7 +68,7 @@ public class SpanishValues  {
 
     public Map<Integer, MultiFormNumber> exceptions() {
         return ImmutableMap.<Integer, MultiFormNumber>builder()
-        		.put(100, new MultiFormNumber("cien", "ciento"))
+                .put(100, new MultiFormNumber("cien", "ciento"))
                 .build();
     }
 

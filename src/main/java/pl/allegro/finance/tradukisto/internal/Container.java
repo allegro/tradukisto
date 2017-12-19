@@ -83,7 +83,7 @@ public final class Container {
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
-    
+
     public static Container spanishContainer() {
         SpanishValues values = new SpanishValues();
 

@@ -20,6 +20,7 @@ plugins {
 }
 
 apply plugin: 'io.codearte.nexus-staging'
+apply plugin: 'java'
 
 scmVersion {
     tag {
@@ -47,6 +48,7 @@ task wrapper(type: Wrapper) {
 dependencies {
     compile "com.google.guava:guava:18.0"
     testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
+    testCompile "junit:junit:4.12"
 }
 
 jacocoTestReport {
