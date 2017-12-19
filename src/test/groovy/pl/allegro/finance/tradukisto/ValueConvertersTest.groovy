@@ -43,7 +43,7 @@ class ValueConvertersTest extends Specification {
         ENGLISH_INTEGER.asWords(1_234) == "one thousand two hundred thirty-four"
     }
     
-    def "should convert numbers in English"() {
+    def "should convert numbers in Spanish"() {
         expect:
         SPANISH_INTEGER.asWords(1_234) == "mil doscientos treinta y cuatro"
     }
