@@ -12,10 +12,6 @@ public class RussianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
-    public RussianPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
-        this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
-    }
-
     public RussianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;

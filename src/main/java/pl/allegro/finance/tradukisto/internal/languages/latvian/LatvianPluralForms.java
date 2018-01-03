@@ -10,10 +10,6 @@ public class LatvianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
-    public LatvianPluralForms(String singularForm, String pluralForm) {
-        this(singularForm, pluralForm, GenderType.NON_APPLICABLE);
-    }
-
     public LatvianPluralForms(String singularForm, String pluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
