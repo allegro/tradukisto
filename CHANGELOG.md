@@ -27,7 +27,7 @@ Added support for:
 
 ## 0.4.1 (2015-07-22)
 
-Fixed currency symbol for Russian
+Fixed currency symbol for Russian language
 
 ## 0.5.0 (2015-09-29)
 
@@ -37,5 +37,14 @@ Added support for:
 
 ## 0.5.1 (2015-09-30)
 
-Fixed incorrect translation of "2" for Czech
+Fixed incorrect translation of "2" for Czech language
 
+## 1.0.0 (2017-09-06)
+
+Migrate to Java 8. Added support for:
+
+  - Brazilian Portuguese
+
+## 1.0.1 (2018-02-02)
+
+Fixed incorrect translations for Russian language
