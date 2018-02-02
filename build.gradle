@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.1"
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
     }
 }
 
@@ -14,9 +14,9 @@ plugins {
     id 'checkstyle'
     id 'jacoco'
     id 'pmd'
-    id 'pl.allegro.tech.build.axion-release' version '1.7.1'
+    id 'pl.allegro.tech.build.axion-release' version '1.8.3'
     id "com.bmuschko.nexus" version "2.3.1"
-    id 'com.github.kt3k.coveralls' version '2.8.1'
+    id 'com.github.kt3k.coveralls' version '2.8.2'
 }
 
 apply plugin: 'io.codearte.nexus-staging'
@@ -41,11 +41,11 @@ compileJava {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "4.1"
+    gradleVersion = "4.5"
 }
 
 dependencies {
-    compile "com.google.guava:guava:18.0"
+    compile "com.google.guava:guava:23.0"
     testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
 }
 

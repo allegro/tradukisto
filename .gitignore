@@ -11,3 +11,4 @@ sonar-project.properties
 
 # idea
 .idea
+*.iml
