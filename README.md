@@ -45,14 +45,14 @@ dependencies {
 and use it:
 
 ```java
-ValueConverter converter = ValueConverters.ENGLISH_INTEGER;
+ValueConverters converter = ValueConverters.ENGLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);
 
 assertEquals("one thousand two hundred thirty-four", valueAsWords);
 ```
 
 ```java
-MoneyConverter converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
+MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
 assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
