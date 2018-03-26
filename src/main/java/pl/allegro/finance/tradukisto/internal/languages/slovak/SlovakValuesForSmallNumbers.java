@@ -4,11 +4,14 @@ import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.czech.CzechPluralForms;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Collections.singletonList;
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForm;
 
 public class SlovakValuesForSmallNumbers implements BaseValues {
@@ -25,7 +28,7 @@ public class SlovakValuesForSmallNumbers implements BaseValues {
 
     @Override
     public List<PluralForms> pluralForms() {
-        return Arrays.asList(new SlovakPluralForms());
+        return singletonList(new CzechPluralForms());
     }
 
     @Override
