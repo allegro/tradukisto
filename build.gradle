@@ -96,3 +96,7 @@ modifyPom {
         }
     }
 }
+
+checkstyle {
+    toolVersion = "5.9"
+}
