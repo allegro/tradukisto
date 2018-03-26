@@ -59,7 +59,7 @@ public class RussianValues implements BaseValues {
 
     @Override
     public List<PluralForms> pluralForms() {
-        return Arrays.<PluralForms>asList(
+        return Arrays.asList(
                 new RussianPluralForms("", "", "", GenderType.MASCULINE),
                 new RussianPluralForms("тысяча", "тысячи", "тысяч", GenderType.FEMININE),
                 new RussianPluralForms("миллион", "миллиона", "миллионов", GenderType.MASCULINE),

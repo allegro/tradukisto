@@ -38,21 +38,21 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.0.0'
+    compile 'pl.allegro.finance:tradukisto:1.0.1'
 }
 ```
 
 and use it:
 
 ```java
-ValueConverter converter = ValueConverters.ENGLISH_INTEGER;
+ValueConverters converter = ValueConverters.ENGLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);
 
 assertEquals("one thousand two hundred thirty-four", valueAsWords);
 ```
 
 ```java
-MoneyConverter converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
+MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
 assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
@@ -66,7 +66,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2017 Allegro Group
+Copyright 2015-2018 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
