@@ -20,6 +20,7 @@ public enum ValueConverters {
     CZECH_INTEGER(czechContainer().getNumbersConverter()),
     ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
     SLOVAK_INTEGER(slovakContainer().getNumbersConverter());
+    LATVIAN_INTEGER(latvianContainer().getNumbersConverter());
 
     private final IntegerToStringConverter converter;
 

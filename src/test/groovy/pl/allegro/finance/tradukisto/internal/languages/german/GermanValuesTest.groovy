@@ -103,16 +103,4 @@ class GermanValuesTest extends Specification {
         1000000000 | "eine Milliarde"
         2147483647 | "zwei Milliarden einhundertsiebenundvierzig Millionen vierhundertdreiundachtzigtausendsechshundertsiebenundvierzig"
     }
-
-    def "should convert any value in range of 0-999 in German"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
-    }
 }

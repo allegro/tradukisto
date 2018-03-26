@@ -98,16 +98,4 @@ class PolishValuesTest extends Specification {
         Integer.MAX_VALUE | "dwa miliardy sto czterdzieści siedem milionów czterysta osiemdziesiąt trzy tysiące " +
                 "sześćset czterdzieści siedem"
     }
-
-    def "should convert any value in range of 0-999 in Polish"() {
-        when:
-        def words = converter.asWords(value)
-
-        then:
-        notThrown(IllegalArgumentException)
-        words.length() > 0
-
-        where:
-        value << (0..999)
-    }
 }

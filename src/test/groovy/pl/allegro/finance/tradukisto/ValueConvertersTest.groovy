@@ -9,6 +9,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
 
 class ValueConvertersTest extends Specification {
 
@@ -40,6 +41,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in English"() {
         expect:
         ENGLISH_INTEGER.asWords(1_234) == "one thousand two hundred thirty-four"
+    }
+
+    def "should convert numbers in Latvian"() {
+        expect:
+        LATVIAN_INTEGER.asWords(1_234) == "viens tūkstotis divi simti trīsdesmit četri"
     }
 
     def "should throw exception when null given"() {
