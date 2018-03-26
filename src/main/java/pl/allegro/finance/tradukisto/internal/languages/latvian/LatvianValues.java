@@ -14,8 +14,6 @@ import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.
 
 public class LatvianValues implements BaseValues {
 
-
-
     @Override
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
@@ -61,7 +59,7 @@ public class LatvianValues implements BaseValues {
 
     @Override
     public List<PluralForms> pluralForms() {
-        return Arrays.<PluralForms>asList(
+        return Arrays.asList(
                 new LatvianPluralForms("", "", GenderType.MASCULINE),
                 new LatvianPluralForms("tūkstotis", "tūkstoši", GenderType.MASCULINE),
                 new LatvianPluralForms("miljons", "miljoni", GenderType.MASCULINE),

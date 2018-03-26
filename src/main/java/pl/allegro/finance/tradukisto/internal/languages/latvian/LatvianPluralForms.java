@@ -10,7 +10,7 @@ public class LatvianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
-    public LatvianPluralForms(String singularForm, String pluralForm, GenderType genderType) {
+    LatvianPluralForms(String singularForm, String pluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genderType = genderType;

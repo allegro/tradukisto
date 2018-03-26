@@ -10,7 +10,7 @@ class LatvianValuesTest extends Specification {
 	static converter = latvianContainer().getNumbersConverter()
 
 	@Unroll
-	def "should convert #value to '#words' in English"() {
+	def "should convert #value to '#words' in Latvian"() {
 		expect:
 		converter.asWords(value) == words
 
