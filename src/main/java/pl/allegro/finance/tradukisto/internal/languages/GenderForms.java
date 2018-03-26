@@ -22,6 +22,7 @@ public class GenderForms {
         return new GenderForms(nonApplicableForm);
     }
 
+
     public GenderForms(String masculineForm, String feminineForm, String neuterForm) {
         this.forms = ImmutableMap.<GenderType, String>builder()
                 .put(GenderType.MASCULINE, masculineForm)
