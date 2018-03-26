@@ -9,5 +9,6 @@
 # sonar
 sonar-project.properties
 
-# idea
+# intellij
 .idea
+*.iml

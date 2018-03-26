@@ -8,6 +8,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.spanishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 
@@ -20,6 +21,7 @@ public enum ValueConverters {
     CZECH_INTEGER(czechContainer().getNumbersConverter()),
     ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
     SPANISH_INTEGER(spanishContainer().getNumbersConverter());
+    LATVIAN_INTEGER(latvianContainer().getNumbersConverter());
 
     private final IntegerToStringConverter converter;
 

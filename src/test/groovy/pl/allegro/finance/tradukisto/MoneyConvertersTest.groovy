@@ -6,6 +6,7 @@ import spock.lang.Specification
 import static pl.allegro.finance.tradukisto.MoneyConverters.CZECH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ENGLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.GERMAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.LATVIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.POLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.RUSSIAN_BANKING_MONEY_VALUE
@@ -36,6 +37,11 @@ class MoneyConvertersTest extends Specification {
     def "should convert money in Czech"() {
         expect:
         CZECH_BANKING_MONEY_VALUE.asWords(1_234.56) == "jeden tisíc dvě stě třicet čtyři Kč 56/100"
+    }
+
+    def "should convert money in Latvain"() {
+        expect:
+        LATVIAN_BANKING_MONEY_VALUE.asWords(1_234.56) == "viens tūkstotis divi simti trīsdesmit četri EUR 56/100"
     }
 
     def "should convert money in English"() {
