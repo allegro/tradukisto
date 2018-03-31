@@ -13,6 +13,7 @@ import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.czech.CzechPluralForms;
 
 public class SlovakValues implements BaseValues {
 
@@ -62,9 +63,9 @@ public class SlovakValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlovakPluralForms("tisíc", "tisíce", "tisíc", GenderType.MASCULINE),
-                new SlovakPluralForms("milión", "milióny", "miliónov", GenderType.MASCULINE),
-                new SlovakPluralForms("miliarda", "miliardy", "miliard", GenderType.FEMININE));
+                new CzechPluralForms("tisíc", "tisíce", "tisíc", GenderType.MASCULINE),
+                new CzechPluralForms("milión", "milióny", "miliónov", GenderType.MASCULINE),
+                new CzechPluralForms("miliarda", "miliardy", "miliard", GenderType.FEMININE));
     }
 
     @Override
