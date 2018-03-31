@@ -48,3 +48,9 @@ Migrate to Java 8. Added support for:
 ## 1.0.1 (2018-02-02)
 
 Fixed incorrect translations for Russian language
+
+## 1.1.0 (2018-03-26)
+
+Added support for:
+
+  - Latvian
