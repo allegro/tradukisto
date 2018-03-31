@@ -53,7 +53,8 @@ public final class Container {
 
         IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(containerForBigNumbers.getNumbersConverter(),
                 containerForSmallNumbers.getNumbersConverter(), slovakValues.exceptions());
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter, slovakValues.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter, 
+                slovakValues.currency());
 
         return new Container(integerConverter, bigDecimalBankingMoneyValueConverter);
     }
