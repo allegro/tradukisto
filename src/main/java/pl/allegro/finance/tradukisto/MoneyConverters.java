@@ -22,7 +22,7 @@ public enum MoneyConverters {
     POLISH_BANKING_MONEY_VALUE(polishContainer().getBankingMoneyConverter()),
     CZECH_BANKING_MONEY_VALUE(czechContainer().getBankingMoneyConverter()),
     ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter()),
-    SLOVAK_BANKING_MONEY_VALUE(slovakContainer().getBankingMoneyConverter());
+    SLOVAK_BANKING_MONEY_VALUE(slovakContainer().getBankingMoneyConverter()),
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
