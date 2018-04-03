@@ -54,3 +54,9 @@ Fixed incorrect translations for Russian language
 Added support for:
 
   - Latvian
+
+## 1.2.0 (2018-03-31)
+
+Added support for:
+
+  - Slovak
