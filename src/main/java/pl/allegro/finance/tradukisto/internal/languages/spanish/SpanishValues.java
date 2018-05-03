@@ -16,22 +16,25 @@
  *******************************************************************************/
 package pl.allegro.finance.tradukisto.internal.languages.spanish;
 
-import pl.allegro.finance.tradukisto.internal.BaseValues;
-import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
-import pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder;
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class SpanishValues implements BaseValues {
+import com.google.common.collect.ImmutableMap;
 
-    @Override
+import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
+import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
+
+public class SpanishValues {
+
     public Map<Integer, GenderForms> baseNumbers() {
-        return BaseNumbersBuilder.baseNumbersBuilder()
-                .put(0, "")
-                .put(1, GenderForms.genderForms("un", "una", "un", "un"))
+        return baseNumbersBuilder()
+                .put(0, "cero")
+                .put(1, "uno")
                 .put(2, "dos")
                 .put(3, "tres")
                 .put(4, "cuatro")
@@ -46,17 +49,17 @@ public class SpanishValues implements BaseValues {
                 .put(13, "trece")
                 .put(14, "catorce")
                 .put(15, "quince")
-                .put(16, "dieciseis")
+                .put(16, "dieciséis")
                 .put(17, "diecisiete")
                 .put(18, "dieciocho")
                 .put(19, "diecinueve")
                 .put(20, "veinte")
                 .put(21, "veintiuno")
-                .put(22, "veintidos")
-                .put(23, "veintitres")
+                .put(22, "veintidós")
+                .put(23, "veintitrés")
                 .put(24, "veinticuatro")
                 .put(25, "veinticinco")
-                .put(26, "veintiseis")
+                .put(26, "veintiséis")
                 .put(27, "veintisiete")
                 .put(28, "veintiocho")
                 .put(29, "veintinueve")
@@ -67,34 +70,31 @@ public class SpanishValues implements BaseValues {
                 .put(70, "setenta")
                 .put(80, "ochenta")
                 .put(90, "noventa")
-                .put(100, "ciento")
                 .put(200, "doscientos")
-                .put(300, "trecientos")
+                .put(300, "trescientos")
                 .put(400, "cuatrocientos")
                 .put(500, "quinientos")
                 .put(600, "seiscientos")
                 .put(700, "setecientos")
                 .put(800, "ochocientos")
                 .put(900, "novecientos")
+                .put(1000000, "un millón")
                 .build();
     }
 
-    @Override
+    public Map<Integer, MultiFormNumber> exceptions() {
+        return ImmutableMap.<Integer, MultiFormNumber>builder()
+                .put(100, new MultiFormNumber("cien", "ciento"))
+                .build();
+    }
+
     public List<PluralForms> pluralForms() {
-        return Arrays.<PluralForms>asList(
-                new SpanishPluralForms(""),
-                new SpanishPluralForms("mil"),
-                new SpanishPluralForms("millones"),
-                new SpanishPluralForms("billones"));
+        return Arrays.asList(
+                new RegularPluralForms("millón", "millones"));
     }
 
-    @Override
     public String currency() {
-        return "S/.";
+        return "€";
     }
 
-    @Override
-    public char twoDigitsNumberSeparator() {
-        return 'y';
-    }
 }

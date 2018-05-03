@@ -19,6 +19,9 @@ import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseTho
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
 
 public final class Container {
@@ -54,7 +57,7 @@ public final class Container {
 
         IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(containerForBigNumbers.getNumbersConverter(),
                 containerForSmallNumbers.getNumbersConverter(), slovakValues.exceptions());
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter, 
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter,
                 slovakValues.currency());
 
         return new Container(integerConverter, bigDecimalBankingMoneyValueConverter);
@@ -102,7 +105,19 @@ public final class Container {
     }
 
     public static Container spanishContainer() {
-        return new Container(new SpanishValues());
+        SpanishValues values = new SpanishValues();
+
+        SpanishThousandToWordsConverter spanishThousandToWordsConverter = new SpanishThousandToWordsConverter(
+                values.baseNumbers(), values.exceptions());
+
+        IntegerToStringConverter converter = new SpanishIntegerToWordsConverter(
+                new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
+                values.exceptions(), spanishThousandToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
 
     private final IntegerToStringConverter integerConverter;
