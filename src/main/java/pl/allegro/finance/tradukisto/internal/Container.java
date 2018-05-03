@@ -19,6 +19,7 @@ import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseTho
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
 
 public final class Container {
 
@@ -98,6 +99,10 @@ public final class Container {
                 converter, values.currency());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container spanishContainer() {
+        return new Container(new SpanishValues());
     }
 
     private final IntegerToStringConverter integerConverter;
