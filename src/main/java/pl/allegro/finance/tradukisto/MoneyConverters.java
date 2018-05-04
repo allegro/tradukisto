@@ -38,4 +38,9 @@ public enum MoneyConverters {
 
         return converter.asWords(value);
     }
+
+    public static BigDecimalToStringConverter customSpanishContainer(String currency) {
+        return spanishContainer(currency).getBankingMoneyConverter();
+    }
+
 }

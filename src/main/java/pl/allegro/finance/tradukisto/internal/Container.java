@@ -104,8 +104,15 @@ public final class Container {
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
 
-    public static Container spanishContainer() {
+    public static Container spanishContainer(String... currency) {
         SpanishValues values = new SpanishValues();
+
+        String defaultCurrency = null;
+        if (currency != null && currency.length == 1) {
+            defaultCurrency = currency[0];
+        } else {
+            defaultCurrency = values.currency();
+        }
 
         SpanishThousandToWordsConverter spanishThousandToWordsConverter = new SpanishThousandToWordsConverter(
                 values.baseNumbers(), values.exceptions());
@@ -115,7 +122,7 @@ public final class Container {
                 values.exceptions(), spanishThousandToWordsConverter);
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+                converter, defaultCurrency);
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
