@@ -10,6 +10,7 @@ import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
+import pl.allegro.finance.tradukisto.internal.languages.kazakh.KazakhValues;
 import pl.allegro.finance.tradukisto.internal.languages.latvian.LatvianValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
@@ -53,7 +54,7 @@ public final class Container {
 
         IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(containerForBigNumbers.getNumbersConverter(),
                 containerForSmallNumbers.getNumbersConverter(), slovakValues.exceptions());
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter, 
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter,
                 slovakValues.currency());
 
         return new Container(integerConverter, bigDecimalBankingMoneyValueConverter);
@@ -98,6 +99,11 @@ public final class Container {
                 converter, values.currency());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container kazakhContainer() {
+        KazakhValues kazakhValues = new KazakhValues();
+        return new Container(kazakhValues);
     }
 
     private final IntegerToStringConverter integerConverter;

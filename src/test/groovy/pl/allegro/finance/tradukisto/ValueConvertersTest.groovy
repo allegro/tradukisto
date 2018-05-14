@@ -7,6 +7,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
@@ -16,7 +17,7 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in Brazilian Portuguese"() {
         expect:
         BRAZILIAN_PORTUGUESE_INTEGER.asWords(1_234) == "mil duzentos e trinta e quatro"
-    }	
+    }
 
     def "should convert numbers in German"() {
         expect:
@@ -46,6 +47,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in Latvian"() {
         expect:
         LATVIAN_INTEGER.asWords(1_234) == "viens tūkstotis divi simti trīsdesmit četri"
+    }
+
+    def "should convert numbers in Kazakh"() {
+        expect:
+        KAZAKH_INTEGER.asWords(1_234) == "бір мың екі жүз отыз төрт"
     }
 
     def "should throw exception when null given"() {

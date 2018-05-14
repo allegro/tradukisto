@@ -28,6 +28,7 @@ Supported languages
 * German
 * Brazilian Portuguese
 * Latvian
+* Kazakh
 
 Usage
 -----
