@@ -60,3 +60,9 @@ Added support for:
 Added support for:
 
   - Slovak
+
+## 1.3.0 (2018-05-14)
+
+Added support for:
+
+  - Kazakh
