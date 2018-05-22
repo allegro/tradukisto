@@ -20,6 +20,10 @@ import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseTho
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
 
 public final class Container {
 
@@ -104,6 +108,29 @@ public final class Container {
     public static Container kazakhContainer() {
         KazakhValues kazakhValues = new KazakhValues();
         return new Container(kazakhValues);
+    }
+  
+    public static Container spanishContainer(String... currency) {
+        SpanishValues values = new SpanishValues();
+
+        String defaultCurrency = null;
+        if (currency != null && currency.length == 1) {
+            defaultCurrency = currency[0];
+        } else {
+            defaultCurrency = values.currency();
+        }
+
+        SpanishThousandToWordsConverter spanishThousandToWordsConverter = new SpanishThousandToWordsConverter(
+                values.baseNumbers(), values.exceptions());
+
+        IntegerToStringConverter converter = new SpanishIntegerToWordsConverter(
+                new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
+                values.exceptions(), spanishThousandToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, defaultCurrency);
+
+        return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }
 
     private final IntegerToStringConverter integerConverter;
