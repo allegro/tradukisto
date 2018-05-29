@@ -20,6 +20,7 @@ import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseTho
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.ukrainian.UkrainianValues;
 
 public final class Container {
 
@@ -29,6 +30,10 @@ public final class Container {
 
     public static Container russianContainer() {
         return new Container(new RussianValues());
+    }
+
+    public static Container ukrainianContainer() {
+        return new Container(new UkrainianValues());
     }
 
     public static Container czechContainer() {
