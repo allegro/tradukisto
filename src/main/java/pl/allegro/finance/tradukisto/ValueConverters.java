@@ -10,20 +10,22 @@ import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 
 public enum ValueConverters {
 
     BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getNumbersConverter()),
+    ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
     GERMAN_INTEGER(germanContainer().getNumbersConverter()),
     POLISH_INTEGER(polishContainer().getNumbersConverter()),
     RUSSIAN_INTEGER(russianContainer().getNumbersConverter()),
     CZECH_INTEGER(czechContainer().getNumbersConverter()),
-    ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
     SLOVAK_INTEGER(slovakContainer().getNumbersConverter()),
     LATVIAN_INTEGER(latvianContainer().getNumbersConverter()),
-    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter());
+    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter()),
+    UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter());
 
     private final IntegerToStringConverter converter;
 
