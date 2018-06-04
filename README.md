@@ -20,15 +20,16 @@ Features
 Supported languages
 -------------------
 
-* English
-* Polish
-* Czech
-* Slovak
-* Russian
-* German
 * Brazilian Portuguese
-* Latvian
+* Czech
+* English
+* German
 * Kazakh
+* Latvian
+* Polish
+* Russian
+* Slovak
+* Ukrainian
 
 Usage
 -----
@@ -41,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.3.0'
+    compile 'pl.allegro.finance:tradukisto:1.4.0'
 }
 ```
 

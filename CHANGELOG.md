@@ -66,3 +66,9 @@ Added support for:
 Added support for:
 
   - Kazakh
+
+## 1.4.0 (2018-06-04)
+
+Added support for:
+
+  - Ukrainian
