@@ -10,6 +10,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 
 import java.math.BigDecimal;
 
@@ -18,14 +19,15 @@ import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 public enum MoneyConverters {
 
     BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE(brazilianPortugueseContainer().getBankingMoneyConverter()),
+    ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter()),
     GERMAN_BANKING_MONEY_VALUE(germanContainer().getBankingMoneyConverter()),
     RUSSIAN_BANKING_MONEY_VALUE(russianContainer().getBankingMoneyConverter()),
     POLISH_BANKING_MONEY_VALUE(polishContainer().getBankingMoneyConverter()),
     CZECH_BANKING_MONEY_VALUE(czechContainer().getBankingMoneyConverter()),
-    ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter()),
     SLOVAK_BANKING_MONEY_VALUE(slovakContainer().getBankingMoneyConverter()),
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter()),
-    KAZAKH_BANKING_MONEY_VALUE(kazakhContainer().getBankingMoneyConverter());
+    KAZAKH_BANKING_MONEY_VALUE(kazakhContainer().getBankingMoneyConverter()),
+    UKRAINIAN_BANKING_MONEY_VALUE(ukrainianContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 

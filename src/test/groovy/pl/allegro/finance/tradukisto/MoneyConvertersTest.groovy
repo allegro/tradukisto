@@ -12,6 +12,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.POLISH_BANKING_MONEY
 import static pl.allegro.finance.tradukisto.MoneyConverters.BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.RUSSIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.SLOVAK_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.UKRAINIAN_BANKING_MONEY_VALUE
 
 class MoneyConvertersTest extends Specification {
 
@@ -58,6 +59,11 @@ class MoneyConvertersTest extends Specification {
     def "should convert money in Kazakh"() {
         expect:
         KAZAKH_BANKING_MONEY_VALUE.asWords(1_234.56) == "бір мың екі жүз отыз төрт KZT 56/100"
+    }
+
+    def "should convert money in Ukrainian"() {
+        expect:
+        UKRAINIAN_BANKING_MONEY_VALUE.asWords(1_234.56) == "одна тисяча двісті тридцять чотири ₴ 56/100"
     }
 
     def "should throw exception when null given"() {
