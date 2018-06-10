@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.4.0'
+    compile 'pl.allegro.finance:tradukisto:1.4.1'
 }
 ```
 
