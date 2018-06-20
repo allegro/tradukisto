@@ -27,7 +27,7 @@ public enum MoneyConverters {
     SLOVAK_BANKING_MONEY_VALUE(slovakContainer().getBankingMoneyConverter()),
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter()),
     KAZAKH_BANKING_MONEY_VALUE(kazakhContainer().getBankingMoneyConverter()),
-    SPANISH_MONEY_VALUE(spanishContainer().getBankingMoneyConverter());
+    SPANISH_BANKING_MONEY_VALUE(spanishContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 
