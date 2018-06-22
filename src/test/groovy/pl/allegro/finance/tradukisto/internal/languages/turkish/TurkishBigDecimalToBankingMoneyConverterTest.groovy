@@ -25,7 +25,7 @@ class TurkishBigDecimalToBankingMoneyConverterTest extends Specification {
 
     def "should convert value with one digit after decimal point"() {
         expect:
-        converter.asWords(123.4) == "YüzYirmiÜçTLKırkKr."
+        converter.asWords(123.4) == "YüzYirmiÜçTL,KırkKr."
     }
 
     def "should not support thousands part of value"() {

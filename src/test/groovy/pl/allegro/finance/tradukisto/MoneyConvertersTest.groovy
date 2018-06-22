@@ -77,6 +77,6 @@ class MoneyConvertersTest extends Specification {
 
     def "should convert money in Turkish"() {
         expect:
-        TURKISH_BANKING_MONEY_VALUE.asWords(1_23.4) == "YüzYirmiÜçTLKırkKr."
+        TURKISH_BANKING_MONEY_VALUE.asWords(1_23.4) == "YüzYirmiÜçTL,KırkKr."
     }
 }
