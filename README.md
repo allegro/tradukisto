@@ -30,6 +30,7 @@ Supported languages
 * Russian
 * Slovak
 * Ukrainian
+* Turkish
 
 Usage
 -----
