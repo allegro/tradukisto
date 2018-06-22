@@ -20,6 +20,10 @@ import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseTho
 import pl.allegro.finance.tradukisto.internal.languages.russian.RussianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishBigDecimalToBankingMoneyConverter;
+import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishValues;
 import pl.allegro.finance.tradukisto.internal.languages.ukrainian.UkrainianValues;
 
 public final class Container {
@@ -102,6 +106,17 @@ public final class Container {
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
                 converter, values.currency());
+
+        return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container turkishContainer() {
+        TurkishValues values = new TurkishValues();
+
+        TurkishThousandToWordsConverter smallNumbersConverter = new TurkishThousandToWordsConverter(values.baseNumbers());
+        IntegerToWordsConverter bigNumbersConverter = new IntegerToWordsConverter(smallNumbersConverter, values.pluralForms());
+        IntegerToStringConverter converter = new TurkishIntegerToWordsConverter(bigNumbersConverter, values.exceptions(),smallNumbersConverter);
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new TurkishBigDecimalToBankingMoneyConverter(converter, values.currency(),values.subunitSymbol());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }

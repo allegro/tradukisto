@@ -13,6 +13,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.BRAZILIAN_PORTUGUESE
 import static pl.allegro.finance.tradukisto.MoneyConverters.RUSSIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.SLOVAK_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.UKRAINIAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.TURKISH_BANKING_MONEY_VALUE
 
 class MoneyConvertersTest extends Specification {
 
@@ -72,5 +73,10 @@ class MoneyConvertersTest extends Specification {
 
         then:
         thrown(VerifyException)
+    }
+
+    def "should convert money in Turkish"() {
+        expect:
+        TURKISH_BANKING_MONEY_VALUE.asWords(1_23.4) == "YüzYirmiÜçTLKırkKr."
     }
 }
