@@ -75,12 +75,15 @@ public final class Container {
 
         FrenchValues values = new FrenchValues();
 
-        HundredsToWordsConverter hundredsToWordsConverter = new HundredsToWordsConverter(values.baseNumbers(), values.twoDigitsNumberSeparator());
-        IntegerToWordsConverter frenchIntegerToWordsConverter = new IntegerToWordsConverter(hundredsToWordsConverter, values.pluralForms());
-        IntegerToStringConverter converter = new FrenchIntegerToWordsConverter(frenchIntegerToWordsConverter, values.exceptions(), values.pluralForms());
+        HundredsToWordsConverter hundredsToWordsConverter =
+                new HundredsToWordsConverter(values.baseNumbers(), values.twoDigitsNumberSeparator());
+        IntegerToWordsConverter frenchIntegerToWordsConverter =
+                new IntegerToWordsConverter(hundredsToWordsConverter, values.pluralForms());
+        IntegerToStringConverter converter =
+                new FrenchIntegerToWordsConverter(frenchIntegerToWordsConverter, values.exceptions(), values.pluralForms());
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+                new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }

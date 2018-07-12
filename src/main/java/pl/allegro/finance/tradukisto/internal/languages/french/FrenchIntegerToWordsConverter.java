@@ -11,7 +11,12 @@ public class FrenchIntegerToWordsConverter extends IntegerToWordsConverter {
 
     private final Map<Integer, String> exceptions;
 
-    public FrenchIntegerToWordsConverter(IntegerToStringConverter integerToStringConverter,Map<Integer, String> exceptions, List<PluralForms> pluralForms) {
+    public FrenchIntegerToWordsConverter(
+            IntegerToStringConverter integerToStringConverter,
+            Map<Integer, String> exceptions,
+            List<PluralForms> pluralForms
+    ) {
+
         super(integerToStringConverter, pluralForms);
         this.exceptions = exceptions;
     }

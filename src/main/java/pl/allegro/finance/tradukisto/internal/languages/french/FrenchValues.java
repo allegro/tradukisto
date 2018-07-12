@@ -6,7 +6,6 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
-import pl.allegro.finance.tradukisto.internal.languages.english.EnglishPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
