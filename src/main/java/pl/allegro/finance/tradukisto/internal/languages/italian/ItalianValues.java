@@ -1,22 +1,20 @@
 package pl.allegro.finance.tradukisto.internal.languages.italian;
 
-import com.google.common.collect.ImmutableMap;
-
-import pl.allegro.finance.tradukisto.internal.BaseValues;
-import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
-import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import com.google.common.collect.ImmutableMap;
 
-public class ItalianValues implements BaseValues {
+import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
-    @Override
+public class ItalianValues {
+
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
                 .put(0, "zero")
@@ -72,31 +70,24 @@ public class ItalianValues implements BaseValues {
                 .put(700, "settecento")
                 .put(800, "ottocento")
                 .put(900, "novecento")
-                .put(1000000, "unmilione")
-                .put(1000000000, "unmiliardo")
                 .build();
     }
 
-    @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new RegularPluralForms("", "", GenderType.MASCULINE),
-                new RegularPluralForms("mille", "mila", GenderType.MASCULINE),
                 new RegularPluralForms("milione", "milioni", GenderType.MASCULINE),
                 new RegularPluralForms("miliardo", "miliardi", GenderType.MASCULINE));
     }
 
-    @Override
     public String currency() {
         return "€";
     }
 
-    @Override
     public char twoDigitsNumberSeparator() {
         return ' ';
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(1000, "mille").build();
+        return ImmutableMap.<Integer, String>builder().put(1000, "mille").put(1000000, "unmilione").put(1000000000, "unmiliardo").build();
     }
 }
