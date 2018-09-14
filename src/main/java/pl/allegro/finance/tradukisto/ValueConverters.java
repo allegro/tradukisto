@@ -5,6 +5,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugue
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.italianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
@@ -20,6 +21,7 @@ public enum ValueConverters {
     ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
     GERMAN_INTEGER(germanContainer().getNumbersConverter()),
     RUSSIAN_INTEGER(russianContainer().getNumbersConverter()),
+    ITALIAN_INTEGER(italianContainer().getNumbersConverter()),
     POLISH_INTEGER(polishContainer().getNumbersConverter()),
     CZECH_INTEGER(czechContainer().getNumbersConverter()),
     SLOVAK_INTEGER(slovakContainer().getNumbersConverter()),

@@ -10,6 +10,7 @@ import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
+import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianValues;
 import pl.allegro.finance.tradukisto.internal.languages.kazakh.KazakhValues;
 import pl.allegro.finance.tradukisto.internal.languages.latvian.LatvianValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
@@ -84,6 +85,10 @@ public final class Container {
                 converter, values.currency());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container italianContainer() {
+        return new Container(new ItalianValues());
     }
 
     public static Container latvianContainer() {
