@@ -29,7 +29,7 @@ public class ItalianThousandToWordsConverter implements GenderAwareIntegerToStri
             return thousandsAsString(value, genderType);
         }
 
-        throw new IllegalArgumentException(format("Can't convert %d", value));
+        throw new IllegalArgumentException("Can't convert " + value);
     }
 
     private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
