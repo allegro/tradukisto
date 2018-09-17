@@ -6,6 +6,7 @@ import spock.lang.Specification
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
@@ -22,6 +23,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in German"() {
         expect:
         GERMAN_INTEGER.asWords(1_234) == "eintausendzweihundertvierunddreißig"
+    }
+
+    def "should convert numbers in Italian"() {
+        expect:
+        ITALIAN_INTEGER.asWords(1_234) == "milleduecentotrentaquattro"
     }
 
     def "should convert numbers in Russian"() {

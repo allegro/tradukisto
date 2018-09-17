@@ -50,10 +50,30 @@ public class ItalianThousandToWordsConverter implements GenderAwareIntegerToStri
         Integer thousands = value / 1000;
         Integer other = value % 1000;
 
+        if (isOneThousand(thousands)) {
+            return getOneThousandAsWords(other, genderType);
+        }
+
+        return getThousandsAsWords(thousands, other, genderType);
+    }
+
+    private String getThousandsAsWords(Integer thousands, Integer other, GenderType genderType) {
         if (other == 0) {
             return format("%smila", asWords(thousands, genderType));
         }
         return format("%smila%s", asWords(thousands, genderType), asWords(other, genderType));
+    }
+
+    private String getOneThousandAsWords(Integer other, GenderType genderType) {
+        return format("mille%s", asWords(other, genderType));
+    }
+
+    private boolean nothingComesAfter(Integer other) {
+        return other == 0;
+    }
+
+    private boolean isOneThousand(Integer thousands) {
+        return thousands == 1;
     }
 
 }

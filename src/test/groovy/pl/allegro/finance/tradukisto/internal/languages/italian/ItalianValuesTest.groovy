@@ -77,6 +77,7 @@ class ItalianValuesTest extends Specification {
         999        | "novecentonovantanove"
 
         1000       | "mille"
+        1234       | "milleduecentotrentaquattro"
         2000       | "duemila"
         3000       | "tremila"
         4000       | "quattromila"
@@ -93,14 +94,18 @@ class ItalianValuesTest extends Specification {
         999999     | "novecentonovantanovemilanovecentonovantanove"
 
         1000000    | "unmilione"
+        1001234    | "unmilionemilleduecentotrentaquattro"
         2000000    | "duemilioni"
         5000000    | "cinquemilioni"
+        5012000    | "cinquemilionidodicimila"
         23437219   | "ventitremilioniquattrocentotrentasettemiladuecentodiciannove"
         100000000  | "centomilioni"
+        100001200  | "centomilionimilleduecento"
         123456789  | "centoventitremilioniquattrocentocinquantaseimilasettecentoottantanove"
         322089890  | "trecentoventiduemilioniottantanovemilaottocentonovanta"
 
         1000000000 | "unmiliardo"
+        1000001234 | "unmiliardomilleduecentotrentaquattro"
         2147483647 | "duemiliardicentoquarantasettemilioniquattrocentoottantatremilaseicentoquarantasette"
     }
 }
