@@ -68,10 +68,6 @@ public class ItalianThousandToWordsConverter implements GenderAwareIntegerToStri
         return format("mille%s", asWords(other, genderType));
     }
 
-    private boolean nothingComesAfter(Integer other) {
-        return other == 0;
-    }
-
     private boolean isOneThousand(Integer thousands) {
         return thousands == 1;
     }

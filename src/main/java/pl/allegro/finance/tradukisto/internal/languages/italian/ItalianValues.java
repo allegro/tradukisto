@@ -83,10 +83,6 @@ public class ItalianValues {
         return "€";
     }
 
-    public char twoDigitsNumberSeparator() {
-        return ' ';
-    }
-
     public Map<Integer, String> exceptions() {
         return ImmutableMap.<Integer, String>builder().put(1, "uno").put(1000, "mille").put(1000000, "unmilione").put(1000000000, "unmiliardo").build();
     }
