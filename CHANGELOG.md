@@ -76,3 +76,10 @@ Added support for:
 ## 1.4.1 (2018-06-06)
 
 Added missing Ukrainian banking money value.
+
+## 1.5.0 (2018-09-18)
+
+Added support for:
+
+  - French
+
