@@ -24,6 +24,7 @@ Supported languages
 * Czech
 * English
 * German
+* Italian
 * Kazakh
 * Latvian
 * Polish
