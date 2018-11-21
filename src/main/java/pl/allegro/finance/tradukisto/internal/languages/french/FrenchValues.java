@@ -82,6 +82,7 @@ public class FrenchValues implements BaseValues {
                 .put(700, "sept cent")
                 .put(800, "huit cent")
                 .put(900, "neuf cent")
+                .put(1000, "mille")
                 .build();
     }
 
