@@ -54,9 +54,6 @@ public class FrenchIntegerToWordsConverter extends IntegerToWordsConverter {
     }
 
     private String getOneThousandAsWords(Integer other) {
-        if (nothingComesAfter(other)) {
-            return "mille";
-        }
         return format("mille %s", asWords(other));
     }
 
