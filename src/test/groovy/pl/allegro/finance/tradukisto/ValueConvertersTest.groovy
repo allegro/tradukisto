@@ -11,6 +11,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
 
 class ValueConvertersTest extends Specification {
 
@@ -52,6 +53,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in Kazakh"() {
         expect:
         KAZAKH_INTEGER.asWords(1_234) == "бір мың екі жүз отыз төрт"
+    }
+
+    def "should convert numbers in French"() {
+        expect:
+        FRENCH_INTEGER.asWords(1_234) == "mille deux cent trente-quatre"
     }
 
     def "should throw exception when null given"() {
