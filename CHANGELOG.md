@@ -83,3 +83,12 @@ Added support for:
 
   - French
 
+## 1.6.0 (2019-01-02)
+
+Added support for:
+
+  - Serbian (latin)
+  
+Fixed:
+
+  - Incorrect translations for French language
