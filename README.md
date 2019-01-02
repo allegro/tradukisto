@@ -31,6 +31,7 @@ Supported languages
 * Russian
 * Slovak
 * Ukrainian
+* Serbian (latin)
 
 Usage
 -----
