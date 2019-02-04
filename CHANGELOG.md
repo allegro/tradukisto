@@ -92,3 +92,10 @@ Added support for:
 Fixed:
 
   - Incorrect translations for French language
+
+## 1.7.0 (2019-02-04)
+
+Added support for:
+
+  - Italian
+
