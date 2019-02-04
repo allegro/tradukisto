@@ -25,6 +25,7 @@ Supported languages
 * English
 * French
 * German
+* Italian
 * Kazakh
 * Latvian
 * Polish
