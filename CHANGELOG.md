@@ -99,3 +99,8 @@ Added support for:
 
   - Italian
 
+## 1.7.1 (2019-02-07)
+
+Fixed:
+
+  - Missing French banking money value
