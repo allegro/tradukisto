@@ -1,22 +1,23 @@
 package pl.allegro.finance.tradukisto;
 
+import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
+
+import java.math.BigDecimal;
+
 import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.italianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
-
-import java.math.BigDecimal;
-
-import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
+import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 
 public enum MoneyConverters {
 
@@ -31,7 +32,8 @@ public enum MoneyConverters {
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter()),
     KAZAKH_BANKING_MONEY_VALUE(kazakhContainer().getBankingMoneyConverter()),
     UKRAINIAN_BANKING_MONEY_VALUE(ukrainianContainer().getBankingMoneyConverter()),
-    SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter());
+    SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
+    FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 
