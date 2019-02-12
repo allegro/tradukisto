@@ -3,17 +3,7 @@ package pl.allegro.finance.tradukisto
 import com.google.common.base.VerifyException
 import spock.lang.Specification
 
-import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.*
 
 class ValueConvertersTest extends Specification {
 

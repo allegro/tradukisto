@@ -1,22 +1,9 @@
 package pl.allegro.finance.tradukisto;
 
-import static com.google.common.base.Verify.verifyNotNull;
-import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.italianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.*;
-
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+
+import static com.google.common.base.Verify.verifyNotNull;
+import static pl.allegro.finance.tradukisto.internal.Container.*;
 
 public enum ValueConverters {
 
