@@ -76,3 +76,31 @@ Added support for:
 ## 1.4.1 (2018-06-06)
 
 Added missing Ukrainian banking money value.
+
+## 1.5.0 (2018-09-18)
+
+Added support for:
+
+  - French
+
+## 1.6.0 (2019-01-02)
+
+Added support for:
+
+  - Serbian (latin)
+  
+Fixed:
+
+  - Incorrect translations for French language
+
+## 1.7.0 (2019-02-04)
+
+Added support for:
+
+  - Italian
+
+## 1.7.1 (2019-02-07)
+
+Fixed:
+
+  - Missing French banking money value

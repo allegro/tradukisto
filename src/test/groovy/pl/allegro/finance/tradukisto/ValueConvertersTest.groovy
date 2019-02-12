@@ -6,11 +6,13 @@ import spock.lang.Specification
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 
 class ValueConvertersTest extends Specification {
@@ -23,6 +25,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in German"() {
         expect:
         GERMAN_INTEGER.asWords(1_234) == "eintausendzweihundertvierunddreißig"
+    }
+
+    def "should convert numbers in Italian"() {
+        expect:
+        ITALIAN_INTEGER.asWords(1_234) == "milleduecentotrentaquattro"
     }
 
     def "should convert numbers in Russian"() {
@@ -58,6 +65,11 @@ class ValueConvertersTest extends Specification {
     def "should convert numbers in Turkish"() {
         expect:
         TURKISH_INTEGER.asWords(1_234) == "BinİkiYüzOtuzDört"
+    }
+
+    def "should convert numbers in French"() {
+        expect:
+        FRENCH_INTEGER.asWords(1_234) == "mille deux cent trente-quatre"
     }
 
     def "should throw exception when null given"() {
