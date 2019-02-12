@@ -115,8 +115,10 @@ public final class Container {
 
         TurkishThousandToWordsConverter smallNumbersConverter = new TurkishThousandToWordsConverter(values.baseNumbers());
         IntegerToWordsConverter bigNumbersConverter = new IntegerToWordsConverter(smallNumbersConverter, values.pluralForms());
-        IntegerToStringConverter converter = new TurkishIntegerToWordsConverter(bigNumbersConverter, values.exceptions(),smallNumbersConverter);
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new TurkishBigDecimalToBankingMoneyConverter(converter, values.currency(),values.subunitSymbol());
+        IntegerToStringConverter converter = new TurkishIntegerToWordsConverter(bigNumbersConverter,
+                values.exceptions(), smallNumbersConverter);
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+                new TurkishBigDecimalToBankingMoneyConverter(converter, values.currency(), values.subunitSymbol());
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }

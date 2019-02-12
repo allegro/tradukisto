@@ -17,7 +17,7 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
     private final String currencySymbol;
     private final String subunitSymbol;
 
-    public TurkishBigDecimalToBankingMoneyConverter(IntegerToStringConverter converter, String currencySymbol,String subunitSymbol) {
+    public TurkishBigDecimalToBankingMoneyConverter(IntegerToStringConverter converter, String currencySymbol, String subunitSymbol) {
         this.converter = converter;
         this.currencySymbol = currencySymbol;
         this.subunitSymbol = subunitSymbol;
@@ -31,13 +31,13 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
         Integer subunits = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
 
         String tempSubunitSymbol = subunitSymbol;
-        String tempSubUnitWords = SUBUNIT_SEPERATOR+converter.asWords(subunits);
-        if(subunits <= 0){
+        String tempSubUnitWords = SUBUNIT_SEPERATOR + converter.asWords(subunits);
+        if (subunits <= 0) {
             tempSubunitSymbol = "";
             tempSubUnitWords = "";
         }
 
-        return format(FORMAT, converter.asWords(units), currencySymbol, tempSubUnitWords,tempSubunitSymbol);
+        return format(FORMAT, converter.asWords(units), currencySymbol, tempSubUnitWords, tempSubunitSymbol);
     }
 
     private void validate(BigDecimal value) {

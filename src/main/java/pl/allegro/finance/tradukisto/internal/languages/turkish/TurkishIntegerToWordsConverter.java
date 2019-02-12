@@ -29,7 +29,7 @@ public class TurkishIntegerToWordsConverter implements IntegerToStringConverter 
         Integer bigNumber = value / 1000000;
         Integer smallNumber = value % 1000000;
 
-        return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber).replaceAll(" ","");
+        return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber).replaceAll(" ", "");
     }
 
 }

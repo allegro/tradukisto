@@ -2,8 +2,6 @@ package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
 import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
