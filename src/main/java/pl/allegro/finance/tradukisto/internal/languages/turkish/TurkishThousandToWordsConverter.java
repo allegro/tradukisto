@@ -30,7 +30,7 @@ public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStri
         } else if (Range.closed(1001, 1999).contains(value)) {
             return oneThousandsAsString(value, genderType);
         } else if (Range.closed(2000, 999999).contains(value)) {
-            return thousandsAsString(value, genderType);
+            return greaterThanOneThousandsAsString(value, genderType);
         }
 
         throw new IllegalArgumentException(format("Can't convert %d", value));
@@ -48,7 +48,7 @@ public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStri
         return format("%s%s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
     }
 
-    private String thousandsAsString(Integer value, GenderType genderType) {
+    private String greaterThanOneThousandsAsString(Integer value, GenderType genderType) {
         Integer thousands = value / 1000;
         Integer other = value % 1000;
 
@@ -59,12 +59,7 @@ public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStri
     }
 
     private String oneThousandsAsString(Integer value, GenderType genderType) {
-        Integer thousands = value / 1000;
         Integer other = value % 1000;
-
-        if (other == 0) {
-            return format("%sBin", asWords(thousands, genderType));
-        }
         return format("Bin%s", asWords(other, genderType));
     }
 }

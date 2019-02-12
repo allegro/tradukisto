@@ -1,7 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
 import com.google.common.collect.ImmutableMap;
-import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
@@ -11,9 +10,8 @@ import java.util.Map;
 
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
-public class TurkishValues implements BaseValues {
+public class TurkishValues {
 
-    @Override
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
                 .put(0, "Sıfır")
@@ -56,25 +54,18 @@ public class TurkishValues implements BaseValues {
                 .build();
     }
 
-    @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
                 new TurkishPluralForms("Milyon"),
                 new TurkishPluralForms("Milyar"));
     }
 
-    @Override
     public String currency() {
         return "TL";
     }
 
     public String subunitSymbol() {
         return "Kr.";
-    }
-
-    @Override
-    public char twoDigitsNumberSeparator() {
-        return Character.MIN_VALUE;
     }
 
     public Map<Integer, String> exceptions() {

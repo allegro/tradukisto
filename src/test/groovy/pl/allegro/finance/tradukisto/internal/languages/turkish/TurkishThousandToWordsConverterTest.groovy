@@ -32,6 +32,22 @@ class TurkishThousandToWordsConverterTest extends Specification {
         converter.asWords(666, GenderType.NON_APPLICABLE) == "AltıYüzAltmışAltı"
     }
 
+    def "should convert four digits numbers"() {
+        given:
+        def converter = new TurkishThousandToWordsConverter([1000: genderForm("Bin"),200: genderForm("İkiYüz"),50: genderForm("Elli"),4: genderForm("Dört")])
+
+        expect:
+        converter.asWords(1254, GenderType.NON_APPLICABLE) == "BinİkiYüzElliDört"
+    }
+
+    def "should convert four digits number that one thousand"() {
+        given:
+        def converter = new TurkishThousandToWordsConverter([1000: genderForm("Bin")])
+
+        expect:
+        converter.asWords(1000, GenderType.NON_APPLICABLE) == "Bin"
+    }
+
     def "should convert more that three digits number"() {
         given:
         def converter = new TurkishThousandToWordsConverter([600: genderForm("AltıYüz"), 60: genderForm("Altmış"), 6: genderForm("Altı")])
