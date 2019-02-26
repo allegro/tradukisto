@@ -28,7 +28,7 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
         validate(value);
 
         Integer units = value.intValue();
-        Integer subunits = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
+        int subunits = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
 
         String tempSubunitSymbol = subunitSymbol;
         String tempSubUnitWords = SUBUNIT_SEPERATOR + converter.asWords(subunits);
@@ -44,14 +44,14 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
         checkArgument(value.scale() <= MAXIMAL_DECIMAL_PLACES_COUNT,
                 "can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value);
 
-        checkArgument(valueLessThatIntMax(value),
+        checkArgument(valueLessThanIntMax(value),
                 "can't transform numbers greater than Integer.MAX_VALUE for value %s", value);
 
         checkArgument(valueGreaterThanOrEqualToZero(value),
                 "can't transform negative numbers for value %s", value);
     }
 
-    private boolean valueLessThatIntMax(BigDecimal value) {
+    private boolean valueLessThanIntMax(BigDecimal value) {
         return value.compareTo(new BigDecimal(Integer.MAX_VALUE).add(BigDecimal.ONE)) == -1;
     }
 
