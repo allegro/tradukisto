@@ -13,18 +13,15 @@ import static java.lang.String.format;
  */
 public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
     private static final String SUBUNIT_SEPARATOR = ",";
-    private static final String WORD_SEPARATOR = " ";
     private static final String FORMAT = "%s%s%s%s";
     private static final int MAXIMAL_DECIMAL_PLACES_COUNT = 2;
 
     private final IntegerToStringConverter converter;
-    private final String currencySymbol;
-    private final String subunitSymbol;
+    private final TurkishValues turkishValues;
 
-    public TurkishBigDecimalToBankingMoneyConverter(IntegerToStringConverter converter, String currencySymbol, String subunitSymbol) {
+    public TurkishBigDecimalToBankingMoneyConverter(IntegerToStringConverter converter, TurkishValues turkishValues) {
         this.converter = converter;
-        this.currencySymbol = currencySymbol;
-        this.subunitSymbol = subunitSymbol;
+        this.turkishValues = turkishValues;
     }
 
     @Override
@@ -34,15 +31,15 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
         Integer units = value.intValue();
         int subunits = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
 
-        String tempSubunitSymbol = subunitSymbol;
+        String tempSubunitSymbol = turkishValues.subunitSymbol();
         String tempSubUnitWords = SUBUNIT_SEPARATOR + converter.asWords(subunits);
         if (subunits <= 0) {
             tempSubunitSymbol = "";
             tempSubUnitWords = "";
         }
 
-        String formattedValue = format(FORMAT, converter.asWords(units), currencySymbol, tempSubUnitWords, tempSubunitSymbol);
-        String convertedToMoneyTypeValue = formattedValue.replaceAll(WORD_SEPARATOR, "");
+        String formattedValue = format(FORMAT, converter.asWords(units), turkishValues.currency(), tempSubUnitWords, tempSubunitSymbol);
+        String convertedToMoneyTypeValue = formattedValue.replace(Character.toString(turkishValues.twoDigitsNumberSeparator()), "");
         return convertedToMoneyTypeValue;
     }
 

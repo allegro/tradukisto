@@ -156,12 +156,12 @@ public final class Container {
     public static Container turkishContainer() {
         TurkishValues values = new TurkishValues();
 
-        TurkishSmallNumbersToWordsConverter smallNumbersConverter = new TurkishSmallNumbersToWordsConverter(values.baseNumbers());
+        TurkishSmallNumbersToWordsConverter smallNumbersConverter = new TurkishSmallNumbersToWordsConverter(values);
         IntegerToWordsConverter bigNumbersConverter = new IntegerToWordsConverter(smallNumbersConverter, values.pluralForms());
         IntegerToStringConverter converter =
                 new TurkishIntegerToWordsConverter(bigNumbersConverter, smallNumbersConverter);
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
-                new TurkishBigDecimalToBankingMoneyConverter(converter, values.currency(), values.subunitSymbol());
+                new TurkishBigDecimalToBankingMoneyConverter(converter, values);
 
         return new Container(converter, bigDecimalBankingMoneyValueConverter);
     }

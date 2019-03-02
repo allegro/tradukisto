@@ -2,31 +2,30 @@ package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
 import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-
-import java.util.Map;
 
 import static java.lang.String.format;
 
 /**
  * @author Dilaver Demirel
- *
+ * <p>
  * Small numbers are between 0 and 999.999
  * Big numbers are greater than 999.999
  */
 public class TurkishSmallNumbersToWordsConverter implements GenderAwareIntegerToStringConverter {
 
-    private final Map<Integer, GenderForms> baseValues;
+    private final TurkishValues turkishValues;
+    private final char separator;
 
-    public TurkishSmallNumbersToWordsConverter(Map<Integer, GenderForms> baseValues) {
-        this.baseValues = baseValues;
+    public TurkishSmallNumbersToWordsConverter(TurkishValues turkishValues) {
+        this.turkishValues = turkishValues;
+        separator = turkishValues.twoDigitsNumberSeparator();
     }
 
     @Override
     public String asWords(Integer value, GenderType genderType) {
-        if (baseValues.containsKey(value)) {
-            return baseValues.get(value).formFor(genderType);
+        if (turkishValues.baseNumbers().containsKey(value)) {
+            return turkishValues.baseNumbers().get(value).formFor(genderType);
         } else if (Range.closed(21, 99).contains(value)) {
             return twoDigitsNumberAsString(value, genderType);
         } else if (Range.closed(101, 999).contains(value)) {
@@ -45,13 +44,13 @@ public class TurkishSmallNumbersToWordsConverter implements GenderAwareIntegerTo
     private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
         Integer units = value % 10;
         Integer tens = value - units;
-        return format("%s %s", asWords(tens, genderType), asWords(units, genderType));
+        return format("%s" + separator + "%s", asWords(tens, genderType), asWords(units, genderType));
     }
 
     private String threeDigitsNumberAsString(Integer value, GenderType genderType) {
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
-        return format("%s %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
+        return format("%s" + separator + "%s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
     }
 
     private String greaterThanOneThousandsAsString(Integer value, GenderType genderType) {
@@ -59,13 +58,14 @@ public class TurkishSmallNumbersToWordsConverter implements GenderAwareIntegerTo
         Integer other = value % 1000;
 
         if (other == 0) {
-            return format("%s Bin", asWords(thousands, genderType));
+            return format("%s" + separator + "Bin", asWords(thousands, genderType));
         }
-        return format("%s Bin %s", asWords(thousands, genderType), asWords(other, genderType));
+        return format("%s" + separator + "Bin" + separator + "%s", asWords(thousands, genderType),
+                asWords(other, genderType));
     }
 
     private String oneThousandsAsString(Integer value, GenderType genderType) {
         Integer other = value % 1000;
-        return format("Bin %s", asWords(other, genderType));
+        return format("Bin" + separator + "%s", asWords(other, genderType));
     }
 }

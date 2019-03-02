@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
+import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
@@ -9,7 +10,7 @@ import java.util.Map;
 
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
-public class TurkishValues {
+public class TurkishValues implements BaseValues {
 
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
@@ -61,6 +62,11 @@ public class TurkishValues {
 
     public String currency() {
         return "TL";
+    }
+
+    @Override
+    public char twoDigitsNumberSeparator() {
+        return ' ';
     }
 
     public String subunitSymbol() {
