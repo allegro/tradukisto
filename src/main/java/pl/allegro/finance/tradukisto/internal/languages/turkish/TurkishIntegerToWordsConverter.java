@@ -5,15 +5,14 @@ import pl.allegro.finance.tradukisto.internal.NumberProcessor;
 
 /**
  * @author Dilaver Demirel
- * @date 21.06.2018
  */
 public class TurkishIntegerToWordsConverter implements IntegerToStringConverter {
 
     private final IntegerToStringConverter bigNumbersConverter;
-    private final TurkishThousandToWordsConverter smallNumbersConverter;
+    private final TurkishSmallNumbersToWordsConverter smallNumbersConverter;
 
     public TurkishIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                          TurkishThousandToWordsConverter smallNumbersConverter) {
+                                          TurkishSmallNumbersToWordsConverter smallNumbersConverter) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.smallNumbersConverter = smallNumbersConverter;
     }
@@ -23,7 +22,7 @@ public class TurkishIntegerToWordsConverter implements IntegerToStringConverter 
         Integer bigNumber = value / 1000000;
         Integer smallNumber = value % 1000000;
 
-        return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber).replaceAll(" ", "");
+        return new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber);
     }
 
 }

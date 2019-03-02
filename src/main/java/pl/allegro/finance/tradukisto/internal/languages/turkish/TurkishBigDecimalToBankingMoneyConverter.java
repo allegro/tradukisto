@@ -10,10 +10,10 @@ import static java.lang.String.format;
 
 /**
  * @author Dilaver Demirel
- * @date 21.06.2018
  */
 public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
     private static final String SUBUNIT_SEPARATOR = ",";
+    private static final String WORD_SEPARATOR = " ";
     private static final String FORMAT = "%s%s%s%s";
     private static final int MAXIMAL_DECIMAL_PLACES_COUNT = 2;
 
@@ -41,7 +41,9 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
             tempSubUnitWords = "";
         }
 
-        return format(FORMAT, converter.asWords(units), currencySymbol, tempSubUnitWords, tempSubunitSymbol);
+        String formattedValue = format(FORMAT, converter.asWords(units), currencySymbol, tempSubUnitWords, tempSubunitSymbol);
+        String convertedToMoneyTypeValue = formattedValue.replaceAll(WORD_SEPARATOR, "");
+        return convertedToMoneyTypeValue;
     }
 
     private void validate(BigDecimal value) {

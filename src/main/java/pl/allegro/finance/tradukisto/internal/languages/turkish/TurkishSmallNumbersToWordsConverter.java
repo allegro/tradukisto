@@ -11,13 +11,15 @@ import static java.lang.String.format;
 
 /**
  * @author Dilaver Demirel
- * @date 21.06.2018
+ *
+ * Small numbers are between 0 and 999.999
+ * Big numbers are greater than 999.999
  */
-public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStringConverter {
+public class TurkishSmallNumbersToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;
 
-    public TurkishThousandToWordsConverter(Map<Integer, GenderForms> baseValues) {
+    public TurkishSmallNumbersToWordsConverter(Map<Integer, GenderForms> baseValues) {
         this.baseValues = baseValues;
     }
 
@@ -43,13 +45,13 @@ public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStri
     private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
         Integer units = value % 10;
         Integer tens = value - units;
-        return format("%s%s", asWords(tens, genderType), asWords(units, genderType));
+        return format("%s %s", asWords(tens, genderType), asWords(units, genderType));
     }
 
     private String threeDigitsNumberAsString(Integer value, GenderType genderType) {
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
-        return format("%s%s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
+        return format("%s %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
     }
 
     private String greaterThanOneThousandsAsString(Integer value, GenderType genderType) {
@@ -57,13 +59,13 @@ public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStri
         Integer other = value % 1000;
 
         if (other == 0) {
-            return format("%sBin", asWords(thousands, genderType));
+            return format("%s Bin", asWords(thousands, genderType));
         }
-        return format("%sBin%s", asWords(thousands, genderType), asWords(other, genderType));
+        return format("%s Bin %s", asWords(thousands, genderType), asWords(other, genderType));
     }
 
     private String oneThousandsAsString(Integer value, GenderType genderType) {
         Integer other = value % 1000;
-        return format("Bin%s", asWords(other, genderType));
+        return format("Bin %s", asWords(other, genderType));
     }
 }

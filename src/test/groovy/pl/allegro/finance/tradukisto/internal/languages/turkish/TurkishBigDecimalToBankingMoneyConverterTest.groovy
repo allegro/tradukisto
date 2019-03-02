@@ -1,21 +1,13 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish
 
 
-import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter
 import spock.lang.Specification
+
+import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer
 
 class TurkishBigDecimalToBankingMoneyConverterTest extends Specification {
 
-    def integerToStringConverter = null
-    def converter = null
-
-    def "setup"() {
-        TurkishValues values = new TurkishValues()
-        TurkishThousandToWordsConverter smallNumbersConverter = new TurkishThousandToWordsConverter(values.baseNumbers())
-        IntegerToWordsConverter bigNumbersConverter = new IntegerToWordsConverter(smallNumbersConverter, values.pluralForms())
-        integerToStringConverter = new TurkishIntegerToWordsConverter(bigNumbersConverter, smallNumbersConverter)
-        converter = new TurkishBigDecimalToBankingMoneyConverter(integerToStringConverter, "TL", "Kr.")
-    }
+    static converter = turkishContainer().getBankingMoneyConverter()
 
     def "should convert whole numbers"() {
         expect:

@@ -5,7 +5,6 @@ import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 /**
  * @author Dilaver Demirel
- * @date 21.06.2018
  */
 public class TurkishPluralForms implements PluralForms {
 
