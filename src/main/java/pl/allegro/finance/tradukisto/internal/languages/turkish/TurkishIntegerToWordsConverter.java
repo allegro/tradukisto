@@ -1,31 +1,25 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
-import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.NumberProcessor;
 
-import java.util.Map;
-
+/**
+ * @author Dilaver Demirel
+ * @date 21.06.2018
+ */
 public class TurkishIntegerToWordsConverter implements IntegerToStringConverter {
 
     private final IntegerToStringConverter bigNumbersConverter;
-    private final Map<Integer, String> exceptions;
-    private final GenderAwareIntegerToStringConverter smallNumbersConverter;
+    private final TurkishThousandToWordsConverter smallNumbersConverter;
 
     public TurkishIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                          Map<Integer, String> exceptions,
-                                          GenderAwareIntegerToStringConverter smallNumbersConverter) {
+                                          TurkishThousandToWordsConverter smallNumbersConverter) {
         this.bigNumbersConverter = bigNumbersConverter;
-        this.exceptions = exceptions;
         this.smallNumbersConverter = smallNumbersConverter;
     }
 
     @Override
     public String asWords(Integer value) {
-        if (exceptions.containsKey(value)) {
-            return exceptions.get(value);
-        }
-
         Integer bigNumber = value / 1000000;
         Integer smallNumber = value % 1000000;
 

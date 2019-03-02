@@ -9,6 +9,10 @@ import java.util.Map;
 
 import static java.lang.String.format;
 
+/**
+ * @author Dilaver Demirel
+ * @date 21.06.2018
+ */
 public class TurkishThousandToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;

@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish
 
-import pl.allegro.finance.tradukisto.internal.languages.english.EnglishPluralForms
 import spock.lang.Specification
 
 class TurkishPluralFormsTest extends Specification {

@@ -13,7 +13,7 @@ class TurkishBigDecimalToBankingMoneyConverterTest extends Specification {
         TurkishValues values = new TurkishValues()
         TurkishThousandToWordsConverter smallNumbersConverter = new TurkishThousandToWordsConverter(values.baseNumbers())
         IntegerToWordsConverter bigNumbersConverter = new IntegerToWordsConverter(smallNumbersConverter, values.pluralForms())
-        integerToStringConverter = new TurkishIntegerToWordsConverter(bigNumbersConverter, values.exceptions(), smallNumbersConverter)
+        integerToStringConverter = new TurkishIntegerToWordsConverter(bigNumbersConverter, smallNumbersConverter)
         converter = new TurkishBigDecimalToBankingMoneyConverter(integerToStringConverter, "TL", "Kr.")
     }
 

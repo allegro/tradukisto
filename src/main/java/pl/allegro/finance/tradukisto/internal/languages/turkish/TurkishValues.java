@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
-import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
@@ -66,9 +65,5 @@ public class TurkishValues {
 
     public String subunitSymbol() {
         return "Kr.";
-    }
-
-    public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(1, "Bir").build();
     }
 }

@@ -8,8 +8,12 @@ import java.math.BigDecimal;
 import static com.google.common.base.Preconditions.checkArgument;
 import static java.lang.String.format;
 
+/**
+ * @author Dilaver Demirel
+ * @date 21.06.2018
+ */
 public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
-    private static final String SUBUNIT_SEPERATOR = ",";
+    private static final String SUBUNIT_SEPARATOR = ",";
     private static final String FORMAT = "%s%s%s%s";
     private static final int MAXIMAL_DECIMAL_PLACES_COUNT = 2;
 
@@ -31,7 +35,7 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
         int subunits = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
 
         String tempSubunitSymbol = subunitSymbol;
-        String tempSubUnitWords = SUBUNIT_SEPERATOR + converter.asWords(subunits);
+        String tempSubUnitWords = SUBUNIT_SEPARATOR + converter.asWords(subunits);
         if (subunits <= 0) {
             tempSubunitSymbol = "";
             tempSubUnitWords = "";
