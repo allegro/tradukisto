@@ -17,6 +17,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 
 public enum MoneyConverters {
@@ -32,6 +33,7 @@ public enum MoneyConverters {
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter()),
     KAZAKH_BANKING_MONEY_VALUE(kazakhContainer().getBankingMoneyConverter()),
     UKRAINIAN_BANKING_MONEY_VALUE(ukrainianContainer().getBankingMoneyConverter()),
+    TURKISH_BANKING_MONEY_VALUE(turkishContainer().getBankingMoneyConverter()),
     SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
     FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter());
 

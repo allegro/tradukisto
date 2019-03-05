@@ -33,6 +33,7 @@ Supported languages
 * Slovak
 * Ukrainian
 * Serbian (latin)
+* Turkish
 
 Usage
 -----
