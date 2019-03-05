@@ -104,3 +104,9 @@ Added support for:
 Fixed:
 
   - Missing French banking money value
+
+## 1.8.0 (2019-03-05)
+
+Added support for:
+
+  - Turkish
