@@ -82,7 +82,7 @@ class MoneyConvertersTest extends Specification {
 
     def "should convert numbers in French"() {
         expect:
-        FRENCH_BANKING_MONEY_VALUE.asWords(1_234.56) == "mille deux cent trente-quatre € 56/100"
+        FRENCH_BANKING_MONEY_VALUE.asWords(1_234.56) == "mille-deux-cent-trente-quatre € 56/100"
     }
 
     def "should throw exception when null given"() {
