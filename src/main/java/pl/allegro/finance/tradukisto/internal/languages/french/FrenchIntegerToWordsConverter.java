@@ -48,13 +48,13 @@ public class FrenchIntegerToWordsConverter extends IntegerToWordsConverter {
 
     private String getThousandsAsWords(Integer thousands, Integer other) {
         if (nothingComesAfter(other)) {
-            return format("%s mille", asWords(thousands));
+            return format("%s-mille", asWords(thousands));
         }
-        return format("%s mille %s", asWords(thousands), asWords(other));
+        return format("%s-mille-%s", asWords(thousands), asWords(other));
     }
 
     private String getOneThousandAsWords(Integer other) {
-        return format("mille %s", asWords(other));
+        return format("mille-%s", asWords(other));
     }
 
     private boolean nothingComesAfter(Integer other) {

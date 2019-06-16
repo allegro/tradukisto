@@ -39,10 +39,15 @@ public class FrenchValues implements BaseValues {
                 .put(18, "dix-huit")
                 .put(19, "dix-neuf")
                 .put(20, "vingt")
+                .put(21, "vingt-et-un")
                 .put(30, "trente")
+                .put(31, "trente-et-un")
                 .put(40, "quarante")
+                .put(41, "quarante-et-un")
                 .put(50, "cinquante")
+                .put(51, "cinquante-et-un")
                 .put(60, "soixante")
+                .put(61, "soixante-et-un")
                 .put(70, "soixante-dix")
                 .put(71, "soixante-et-onze")
                 .put(72, "soixante-douze")
@@ -90,7 +95,8 @@ public class FrenchValues implements BaseValues {
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
                 new RegularPluralForms("", "", GenderType.MASCULINE),
-                new RegularPluralForms("mille", "mille" , GenderType.MASCULINE),
+                new RegularPluralForms("cent", "cents", GenderType.MASCULINE),
+                new RegularPluralForms("mille", "mille", GenderType.MASCULINE),
                 new RegularPluralForms("million", "millions", GenderType.MASCULINE),
                 new RegularPluralForms("milliard", "milliards", GenderType.MASCULINE)
         );
