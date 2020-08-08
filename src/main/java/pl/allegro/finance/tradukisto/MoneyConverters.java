@@ -37,7 +37,7 @@ public enum MoneyConverters {
     TURKISH_BANKING_MONEY_VALUE(turkishContainer().getBankingMoneyConverter()),
     SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
     FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter()),
-	HEBREW_BANKING_MONEY_VALUE(hebrewContainer().getBankingMoneyConverter());
+    HEBREW_BANKING_MONEY_VALUE(hebrewContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 

@@ -22,20 +22,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContaine
 public enum ValueConverters {
 
     BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getNumbersConverter()),
-    ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
-    GERMAN_INTEGER(germanContainer().getNumbersConverter()),
-    RUSSIAN_INTEGER(russianContainer().getNumbersConverter()),
-    ITALIAN_INTEGER(italianContainer().getNumbersConverter()),
-    POLISH_INTEGER(polishContainer().getNumbersConverter()),
-    CZECH_INTEGER(czechContainer().getNumbersConverter()),
-    SLOVAK_INTEGER(slovakContainer().getNumbersConverter()),
-    LATVIAN_INTEGER(latvianContainer().getNumbersConverter()),
-    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter()),
-    UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter()),
-    SERBIAN_INTEGER(serbianContainer().getNumbersConverter()),
-    FRENCH_INTEGER(frenchContainer().getNumbersConverter()),
-    HEBREW_INTEGER(hebrewContainer().getNumbersConverter()),
-    TURKISH_INTEGER(turkishContainer().getNumbersConverter());
+    ENGLISH_INTEGER(englishContainer().getNumbersConverter()), GERMAN_INTEGER(germanContainer().getNumbersConverter()),
+    RUSSIAN_INTEGER(russianContainer().getNumbersConverter()), ITALIAN_INTEGER(italianContainer().getNumbersConverter()),
+    POLISH_INTEGER(polishContainer().getNumbersConverter()), CZECH_INTEGER(czechContainer().getNumbersConverter()),
+    SLOVAK_INTEGER(slovakContainer().getNumbersConverter()), LATVIAN_INTEGER(latvianContainer().getNumbersConverter()),
+    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter()), UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter()),
+    SERBIAN_INTEGER(serbianContainer().getNumbersConverter()), FRENCH_INTEGER(frenchContainer().getNumbersConverter()),
+    HEBREW_INTEGER(hebrewContainer().getNumbersConverter()), TURKISH_INTEGER(turkishContainer().getNumbersConverter());
 
     private final IntegerToStringConverter converter;
 
