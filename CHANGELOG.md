@@ -95,7 +95,7 @@ Fixed:
 
 ## 1.7.0 (2019-02-04)
 
-Added support for:
+Added support for:19
 
   - Italian
 
@@ -110,3 +110,10 @@ Fixed:
 Added support for:
 
   - Turkish
+
+## 1.8.1 (2020-08-08)
+
+Added support for:
+
+  - Hebrew
+  
