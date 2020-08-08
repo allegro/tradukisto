@@ -111,9 +111,30 @@ Added support for:
 
   - Turkish
 
-## 1.8.1 (2020-08-08)
+### 1.8.1 (2020-08-08)
 
-Added support for:
+* adds Hebrew language support
+* suggested promotion of minor version to  __1.8.1__
 
-  - Hebrew
-  
+##### What does this implement/fix
+ 
+* adds package `pl.allegro.finance.tradukisto.internal.languages.hebrew`;
+* adds class `pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewBigDecimalToBankingMoneyConverter`
+* adds class `pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewHundredsToWordsConverter`
+* adds class `pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewIntegerToWordsConverter`
+* adds class `pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewValues`
+* modifies enum `pl.allegro.finance.tradukisto.MoneyConverters` - adds member `HEBREW_BANKING_MONEY_VALUE`
+* modifies enum `pl.allegro.finance.tradukisto.ValueConverters` - adds member `HEBREW_INTEGER`
+* modifies class `pl.allegro.finance.tradukisto.internal.Container` - adds method `hebrewContainer()`
+
+##### What does this test?
+
+* adds package `pl.allegro.finance.tradukisto.internal.languages.hebrew`
+* adds class  `pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewBigDecimalToBankingMoneyConverterTest`
+* adds class `pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewIntegerToStringConverterTest`
+
+##### Additional Comments
+
+* adds the line `apply plugin: "eclipse"` to __build.gradle__ for eclipse plugin support
+* modifies `.gitignore` to ignore eclipse files `.project` and `.classpath` and directory `.settings`
+
