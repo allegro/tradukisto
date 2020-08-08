@@ -70,5 +70,25 @@ class HebrewBigDecimalToBankingMoneyConverterTest extends Specification {
         1234.566   | "\u05d0\u05dc\u05e3 \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05e9\u05dc\u05d5\u05e9\u05d9\u05dd \u05d5\u05d0\u05e8\u05d1\u05e2\u05d4 \u20aa \u05d5\u05d7\u05de\u05d9\u05e9\u05d9\u05dd \u05d5\u05e9\u05e9 \u05d0\u05d2\u05d5\u05e8\u05d5\u05ea"
         1234.56666 | "\u05d0\u05dc\u05e3 \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05e9\u05dc\u05d5\u05e9\u05d9\u05dd \u05d5\u05d0\u05e8\u05d1\u05e2\u05d4 \u20aa \u05d5\u05d7\u05de\u05d9\u05e9\u05d9\u05dd \u05d5\u05e9\u05e9 \u05d0\u05d2\u05d5\u05e8\u05d5\u05ea"
     }
+    
+    @Unroll
+    def "should throw exception when value is grater than INTEGER.MAX_VALUE"() {
+        when:
+        converter.asWords(new BigDecimal(Integer.MAX_VALUE).add(BigDecimal.ONE))
+
+        then:
+        def exception = thrown(IllegalArgumentException)
+        exception.message == "can't transform numbers greater than Integer.MAX_VALUE for value 2147483648.00"
+    }
+    
+    @Unroll
+    def "should throw exception when value is negative"() {
+        when:
+        converter.asWords(new BigDecimal(-1))
+
+        then:
+        def exception = thrown(IllegalArgumentException)
+        exception.message == "can't transform negative numbers for value -1.00"
+    }
 }
 

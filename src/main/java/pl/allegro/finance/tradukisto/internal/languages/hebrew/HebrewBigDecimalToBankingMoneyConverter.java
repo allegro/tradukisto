@@ -35,7 +35,6 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
  */
 public class HebrewBigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
     private final String prefix, suffix, currency;
-    private static final int MAX_DECIMAL_PLACES = 2;
 
     private final HebrewIntegerToWordsConverter converter;
 
@@ -56,13 +55,13 @@ public class HebrewBigDecimalToBankingMoneyConverter implements BigDecimalToStri
         if (decimal <= 0) {
             return format("%s %s", currency, asWord(units, GenderType.MASCULINE));
         }
-        return format("%s %s %s%s %s", asWord(units, GenderType.MASCULINE), currency, prefix,
-                asWord(decimal, GenderType.FEMININE), suffix);
+        return format("%s %s %s%s %s", asWord(units, GenderType.MASCULINE), currency, prefix, asWord(decimal, GenderType.FEMININE),
+                suffix);
     }
 
     private void validate(BigDecimal value) {
-        checkArgument(value.scale() <= MAX_DECIMAL_PLACES, "can't transform more than %s decimal places for value %s",
-                MAX_DECIMAL_PLACES, value);
+        // checkArgument(value.scale() <= MAX_DECIMAL_PLACES, "can't transform more than
+        // %s decimal places for value %s",MAX_DECIMAL_PLACES, value);
         checkArgument(valueLessThanIntMax(value), "can't transform numbers greater than Integer.MAX_VALUE for value %s", value);
         checkArgument(valueGreaterThanOrEqualToZero(value), "can't transform negative numbers for value %s", value);
     }

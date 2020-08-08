@@ -83,4 +83,8 @@ public class HebrewHundredsToWordsConverter implements GenderAwareIntegerToStrin
         }
         return String.format("%s %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
     }
+
+    protected Map<Integer, GenderForms> baseNumbers() {
+        return baseNumbers;
+    }
 }

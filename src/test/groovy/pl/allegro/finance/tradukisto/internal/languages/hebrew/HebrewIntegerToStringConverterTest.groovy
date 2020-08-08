@@ -16,6 +16,7 @@
 package pl.allegro.finance.tradukisto.internal.languages.hebrew
 
 import pl.allegro.finance.tradukisto.ValueConverters
+import pl.allegro.finance.tradukisto.internal.Container
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -28,8 +29,9 @@ import spock.lang.Unroll
  */
 class HebrewIntegerToStringConverterTest extends Specification {
 
-    static converter = ValueConverters.HEBREW_INTEGER;
-
+    static conversionValues = new HebrewValues();
+    static converter = new HebrewIntegerToWordsConverter(new HebrewHundredsToWordsConverter(conversionValues),conversionValues);
+    
     @Unroll
     def "should convert single digits #value to '#words' in Hebrew"() {
         expect:
@@ -228,6 +230,18 @@ class HebrewIntegerToStringConverterTest extends Specification {
         2009010001 | "\u05e9\u05e0\u05d9 \u05de\u05d9\u05dc\u05d9\u05d0\u05e8\u05d3 \u05ea\u05e9\u05e2\u05d4 \u05de\u05d9\u05dc\u05d9\u05d5\u05df \u05e2\u05e9\u05e8\u05ea \u05d0\u05dc\u05e4\u05d9\u05dd \u05d5\u05d0\u05d7\u05ea"
         2020202020 | "\u05e9\u05e0\u05d9 \u05de\u05d9\u05dc\u05d9\u05d0\u05e8\u05d3 \u05e2\u05e9\u05e8\u05d9\u05dd \u05de\u05d9\u05dc\u05d9\u05d5\u05df \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05d5\u05b9\u05e9\u05e0\u05d9\u05d9\u05dd \u05d0\u05dc\u05e3 \u05d5\u05e2\u05e9\u05e8\u05d9\u05dd"
         2147483647 | "\u05e9\u05e0\u05d9 \u05de\u05d9\u05dc\u05d9\u05d0\u05e8\u05d3 \u05de\u05d0\u05d4 \u05d0\u05e8\u05d1\u05e2\u05d9\u05dd \u05d5\u05e9\u05d1\u05e2\u05d4 \u05de\u05d9\u05dc\u05d9\u05d5\u05df \u05d0\u05e8\u05d1\u05e2 \u05de\u05d0\u05d5\u05ea \u05e9\u05de\u05d5\u05e0\u05d9\u05dd \u05d5\u05e9\u05dc\u05d5\u05e9\u05d4 \u05d0\u05dc\u05e3 \u05e9\u05e9 \u05de\u05d0\u05d5\u05ea \u05d0\u05e8\u05d1\u05e2\u05d9\u05dd \u05d5\u05e9\u05d1\u05e2"
+    }
+    
+    @Unroll
+    def "should throw exception when missing value in base numbers"() {
+        when:
+        converter.hundredsToWordsConverter().baseNumbers().remove(1);
+        converter.asWords(1)
+
+        then:
+        def exception = thrown(IllegalArgumentException)
+        exception.message == "Can't convert 1"
+
     }
 }
 

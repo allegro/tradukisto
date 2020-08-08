@@ -172,4 +172,8 @@ public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
     protected HebrewValues hebrewValues() {
         return hebrewValues;
     }
+
+    protected HebrewHundredsToWordsConverter hundredsToWordsConverter() {
+        return (HebrewHundredsToWordsConverter) this.hundredsToWordsConverter;
+    }
 }
