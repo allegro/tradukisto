@@ -23,16 +23,6 @@ import java.math.BigDecimal;
 import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
-/**
- * The class HebrewBigDecimalToBankingMoneyConverter converts monetary values to
- * hebrew words
- *
- * @apiNote values are rounded down to 2 decimal places
- * @author <a href="mailto:tnsilver@gmail.com">T.N.Silverman</a>
- * @version 1.8.1
- * @since 1.8.1
- *
- */
 public class HebrewBigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
     private final String prefix, suffix, currency;
 
@@ -48,20 +38,17 @@ public class HebrewBigDecimalToBankingMoneyConverter implements BigDecimalToStri
 
     @Override
     public String asWords(BigDecimal value) {
-        BigDecimal scaled = value.setScale(2, BigDecimal.ROUND_DOWN);
-        validate(scaled);
-        Integer units = scaled.intValue();
-        int decimal = scaled.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
+        validate(value);
+        Integer units = value.intValue();
+        int decimal = value.remainder(BigDecimal.ONE).multiply(new BigDecimal(100)).intValue();
         if (decimal <= 0) {
             return format("%s %s", currency, asWord(units, GenderType.MASCULINE));
         }
-        return format("%s %s %s%s %s", asWord(units, GenderType.MASCULINE), currency, prefix, asWord(decimal, GenderType.FEMININE),
-                suffix);
+        return format("%s %s %s%s %s", asWord(units, GenderType.MASCULINE), currency, prefix, asWord(decimal, GenderType.FEMININE), suffix);
     }
 
     private void validate(BigDecimal value) {
-        // checkArgument(value.scale() <= MAX_DECIMAL_PLACES, "can't transform more than
-        // %s decimal places for value %s",MAX_DECIMAL_PLACES, value);
+        checkArgument(value.scale() <= 2, "can't transform more than %s decimal places for value %s", 2, value);
         checkArgument(valueLessThanIntMax(value), "can't transform numbers greater than Integer.MAX_VALUE for value %s", value);
         checkArgument(valueGreaterThanOrEqualToZero(value), "can't transform negative numbers for value %s", value);
     }

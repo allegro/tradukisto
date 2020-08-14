@@ -26,15 +26,6 @@ import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
-/**
- * The class HebrewIntegerToWordsConverter is a hebrew specialization of
- * IntegerToWordsConverter
- *
- * @author <a href="mailto:tnsilver@gmail.com">T.N.Silverman</a>
- * @version 1.8.1
- * @since 1.8.1
- *
- */
 public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
 
     private final HebrewValues hebrewValues;
@@ -75,19 +66,13 @@ public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
         if (Range.closed(1000000000, Integer.MAX_VALUE).contains(value)) {
             return billionsAsString(value);
         }
-        // System.out.printf("HebrewIntegerToWordsConverter.asWords() SUPER value:
-        // %s%n", value);
         return super.asWords(value);
     }
 
     private String thousandAsString(Integer value) {
-        // System.out.printf("HebrewIntegerToWordsConverter.thousandAsString() SINGLE
-        // THOUSANDS value: %s%n", value);
         Integer thousands = value / thousand;
         Integer remain = value % thousand;
         String word = baseNumbers.get(thousands * thousand).formFor(GenderType.MASCULINE);
-        // System.out.printf("HebrewIntegerToWordsConverter.thousandAsString() VALUE: %s
-        // THOUSANDS: %s REMAIN: %s%n", value, thousands, remain);
         if (nothingComesAfter(remain)) {
             return word;
         }
@@ -98,13 +83,9 @@ public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
     }
 
     private String thousandsAsString(Integer value) {
-        // System.out.printf("HebrewIntegerToWordsConverter.thousandsAsString() MULTI
-        // THOUSANDS value: %s%n", value);
         Integer thousands = value / thousand;
         Integer remain = value % thousand;
         String word = hundredsToWordsConverter.asWords(thousands, GenderType.MASCULINE);
-        // System.out.printf("HebrewIntegerToWordsConverter.thousandsAsString()
-        // THOUSANDS: %s REMAIN: %s THO_WORD: %s%n", thousands, remain,word);
         if (nothingComesAfter(remain)) {
             return format("%s %s", word, wordForThousand);
         }
@@ -115,13 +96,9 @@ public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
     }
 
     private String millionAsString(Integer value) {
-        // System.out.printf("HebrewIntegerToWordsConverter.millionAsString() SINGLE
-        // MILLION value: %s%n", value);
         Integer millions = value / million;
         Integer remain = value % million;
         String word = baseNumbers.get(millions * million).formFor(GenderType.MASCULINE);
-        // System.out.printf("HebrewIntegerToWordsConverter.millionAsString() MILLIONS:
-        // %s REMAIN: %s WORD: %s%n", millions, remain, word);
         if (nothingComesAfter(remain)) {
             return word;
         }
@@ -132,15 +109,9 @@ public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
     }
 
     private String millionsAsString(Integer value) {
-        // hebrewValues.pluralForms().add(new RegularPluralForms("", "",
-        // GenderType.MASCULINE));
-        // System.out.printf("HebrewIntegerToWordsConverter.millionsAsString() MULTI
-        // MILLION value: %s%n", value);
         Integer millions = value / million;
         Integer remain = value % million;
         String word = hundredsToWordsConverter.asWords(millions, GenderType.MASCULINE);
-        // System.out.printf("HebrewIntegerToWordsConverter.millionsAsString() MILLIONS:
-        // %s REMAIN: %s WORD: %s%n", millions, remain, word);
         if (nothingComesAfter(remain)) {
             return format("%s %s", word, wordForMillion);
         }
@@ -151,8 +122,6 @@ public class HebrewIntegerToWordsConverter extends IntegerToWordsConverter {
     }
 
     private String billionsAsString(Integer value) {
-        // System.out.printf("HebrewIntegerToWordsConverter.billionsAsString() BILLIONS
-        // value: %s%n", value);
         Integer billions = value / billion;
         Integer remain = value % billion;
         String word = baseNumbers.get(billions * billion).formFor(GenderType.MASCULINE);

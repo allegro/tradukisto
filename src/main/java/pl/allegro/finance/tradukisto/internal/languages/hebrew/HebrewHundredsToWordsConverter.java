@@ -25,15 +25,6 @@ import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverte
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
-/**
- * The class HebrewHundredsToWordsConverter is a Hebrew langauge specific
- * implementation of {@link GenderAwareIntegerToStringConverter}
- *
- * @author <a href="mailto:tnsilver@gmail.com">T.N.Silverman</a>
- * @version 1.8.1
- * @since 1.8.1
- *
- */
 public class HebrewHundredsToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseNumbers;
@@ -48,8 +39,6 @@ public class HebrewHundredsToWordsConverter implements GenderAwareIntegerToStrin
 
     @Override
     public String asWords(Integer value, GenderType genderType) {
-        // System.out.printf("HebrewHundredsToWordsConverter.asWords() %s,%d%n",
-        // genderType, value);
         if (baseNumbers.containsKey(value)) {
             return baseNumbers.get(value).formFor(genderType);
         } else if (Range.closed(10, 99).contains(value)) {
@@ -61,22 +50,14 @@ public class HebrewHundredsToWordsConverter implements GenderAwareIntegerToStrin
     }
 
     private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
-        // System.out.printf("HebrewHundredsToWordsConverter.twoDigitsNumberAsString()
-        // %s,%d%n", genderType, value);
         Integer units = value % ten;
         Integer tens = value - units;
-        // System.out.printf("HebrewHundredsToWordsConverter.twoDigitsNumberAsString()
-        // TENS %s UNITS %d%n", tens, units);
         return format("%s %s%s", asWords(tens, genderType), twoDigitsNumberSeparator, asWords(units, genderType));
     }
 
     private String threeDigitsNumberAsString(Integer value, GenderType genderType) {
-        // System.out.printf("HebrewHundredsToWordsConverter.threeDigitsNumberAsString()
-        // %s,%d%n", genderType, value);
         Integer tensWithUnits = value % hundred;
         Integer hundreds = value - tensWithUnits;
-        // System.out.printf("HebrewHundredsToWordsConverter.threeDigitsNumberAsString()
-        // HUNDREDS %s TENS WITH UNITS %d%n", hundreds,tensWithUnits);
         if (tensWithUnits % ten == 0 || Range.closed(1, 19).contains(tensWithUnits)) {
             return String
                     .format("%s %s%s", asWords(hundreds, genderType), twoDigitsNumberSeparator, asWords(tensWithUnits, genderType));

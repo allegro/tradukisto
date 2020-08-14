@@ -29,15 +29,6 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
-/**
- * The class HebrewValues is a Hebrew language implementation of
- * {@link BaseValues}
- *
- * @author <a href="mailto:tnsilver@gmail.com">T.N.Silverman</a>
- * @version 1.8.1
- * @since 1.8.1
- *
- */
 public class HebrewValues implements BaseValues {
 
     private List<PluralForms> pluralForms;
@@ -212,10 +203,4 @@ public class HebrewValues implements BaseValues {
     public String decimalSuffix() {
         return "\u05d0\u05d2\u05d5\u05e8\u05d5\u05ea";
     }
-
-    /*
-     * public static void main(String[] args) { MoneyConverters converter =
-     * MoneyConverters.HEBREW_BANKING_MONEY_VALUE;
-     * System.out.println(converter.asWords(new BigDecimal("1.57"))); }
-     */
 }

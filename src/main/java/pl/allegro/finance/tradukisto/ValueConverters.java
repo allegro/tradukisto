@@ -8,7 +8,6 @@ import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.hebrewContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.italianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
@@ -18,17 +17,25 @@ import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.hebrewContainer;
 
 public enum ValueConverters {
 
     BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getNumbersConverter()),
-    ENGLISH_INTEGER(englishContainer().getNumbersConverter()), GERMAN_INTEGER(germanContainer().getNumbersConverter()),
-    RUSSIAN_INTEGER(russianContainer().getNumbersConverter()), ITALIAN_INTEGER(italianContainer().getNumbersConverter()),
-    POLISH_INTEGER(polishContainer().getNumbersConverter()), CZECH_INTEGER(czechContainer().getNumbersConverter()),
-    SLOVAK_INTEGER(slovakContainer().getNumbersConverter()), LATVIAN_INTEGER(latvianContainer().getNumbersConverter()),
-    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter()), UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter()),
-    SERBIAN_INTEGER(serbianContainer().getNumbersConverter()), FRENCH_INTEGER(frenchContainer().getNumbersConverter()),
-    HEBREW_INTEGER(hebrewContainer().getNumbersConverter()), TURKISH_INTEGER(turkishContainer().getNumbersConverter());
+    ENGLISH_INTEGER(englishContainer().getNumbersConverter()),
+    GERMAN_INTEGER(germanContainer().getNumbersConverter()),
+    RUSSIAN_INTEGER(russianContainer().getNumbersConverter()),
+    ITALIAN_INTEGER(italianContainer().getNumbersConverter()),
+    POLISH_INTEGER(polishContainer().getNumbersConverter()),
+    CZECH_INTEGER(czechContainer().getNumbersConverter()),
+    SLOVAK_INTEGER(slovakContainer().getNumbersConverter()),
+    LATVIAN_INTEGER(latvianContainer().getNumbersConverter()),
+    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter()),
+    UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter()),
+    SERBIAN_INTEGER(serbianContainer().getNumbersConverter()),
+    FRENCH_INTEGER(frenchContainer().getNumbersConverter()),
+    TURKISH_INTEGER(turkishContainer().getNumbersConverter()),
+    HEBREW_INTEGER(hebrewContainer().getNumbersConverter());
 
     private final IntegerToStringConverter converter;
 

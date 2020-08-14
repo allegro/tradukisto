@@ -20,7 +20,7 @@ plugins {
 }
 
 apply plugin: 'io.codearte.nexus-staging'
-apply plugin: "eclipse"
+apply plugin: 'eclipse'
 
 scmVersion {
     tag {
