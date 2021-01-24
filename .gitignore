@@ -2,6 +2,7 @@
 .gradle
 
 # project binaries
+/bin
 /build
 /out
 /classes
