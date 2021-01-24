@@ -2,9 +2,13 @@
 .gradle
 
 # project binaries
+/bin
 /build
 /out
 /classes
+/.settings
+.project
+.classpath
 
 # sonar
 sonar-project.properties
