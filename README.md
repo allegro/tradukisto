@@ -34,6 +34,7 @@ Supported languages
 * Ukrainian
 * Serbian (latin)
 * Turkish
+* Kyrgyz
 
 Usage
 -----
