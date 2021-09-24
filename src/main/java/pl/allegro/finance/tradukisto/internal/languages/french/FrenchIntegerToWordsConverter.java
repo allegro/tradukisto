@@ -26,7 +26,9 @@ public class FrenchIntegerToWordsConverter extends IntegerToWordsConverter {
 
     @Override
     public String asWords(Integer value) {
-        if (exceptions.containsKey(value)) {
+        if (Range.closed(200, 999).contains(value) && value % 100 == 0) {
+            return exceptions.get(value);
+        } else if (exceptions.containsKey(value)) {
             return exceptions.get(value);
         }
         if (Range.closed(1000, 999999).contains(value)) {
