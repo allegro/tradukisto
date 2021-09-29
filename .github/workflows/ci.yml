@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java: [ '8', '11', '17' ]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: gradle/wrapper-validation-action@v1
+
+      - name: Set up ${{ matrix.Java }}
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          cache: 'gradle'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Test with Gradle
+        run: ./gradlew --no-daemon --continue check
+
+      - name: Jacoco
+        if: matrix.Java == '17'
+        run: ./gradlew jacocoTestReport
+
+      - name: Upload coverage to Codecov
+        if: matrix.Java == '17'
+        uses: codecov/codecov-action@v1
