@@ -110,3 +110,9 @@ Fixed:
 Added support for:
 
   - Turkish
+
+## 1.9.0 (2021-09-29)
+
+Migrated builds to GitHub Actions. Added support for:
+
+  - American English ($ instead of £ currency symbol)
