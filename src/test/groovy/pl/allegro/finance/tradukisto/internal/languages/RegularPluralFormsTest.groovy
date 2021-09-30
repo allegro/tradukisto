@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages
 
-import pl.allegro.finance.tradukisto.internal.languages.GenderType
 import spock.lang.Specification
 
 class RegularPluralFormsTest extends Specification {
