@@ -3,6 +3,7 @@ package pl.allegro.finance.tradukisto
 import com.google.common.base.VerifyException
 import spock.lang.Specification
 
+import static pl.allegro.finance.tradukisto.MoneyConverters.AMERICAN_ENGLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.CZECH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ENGLISH_BANKING_MONEY_VALUE
@@ -61,9 +62,14 @@ class MoneyConvertersTest extends Specification {
         LATVIAN_BANKING_MONEY_VALUE.asWords(1_234.56) == "viens tūkstotis divi simti trīsdesmit četri EUR 56/100"
     }
 
-    def "should convert money in English"() {
+    def "should convert money in British English"() {
         expect:
         ENGLISH_BANKING_MONEY_VALUE.asWords(1_234.56) == "one thousand two hundred thirty-four £ 56/100"
+    }
+
+    def "should convert money in American English"() {
+        expect:
+        AMERICAN_ENGLISH_BANKING_MONEY_VALUE.asWords(1_234.56) == "one thousand two hundred thirty-four \$ 56/100"
     }
 
     def "should convert money in Kazakh"() {

@@ -6,6 +6,7 @@ import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.english.AmericanEnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.french.FrenchIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.french.FrenchValues;
@@ -82,6 +83,10 @@ public final class Container {
 
     public static Container englishContainer() {
         return new Container(new EnglishValues());
+    }
+
+    public static Container americanEnglishContainer() {
+        return new Container(new AmericanEnglishValues());
     }
 
     public static Container frenchContainer() {
