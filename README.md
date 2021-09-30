@@ -74,7 +74,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2019 Allegro Group
+Copyright 2015-2021 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
