@@ -2,7 +2,7 @@ Tradukisto
 ==========
 
 [![Build Status](https://travis-ci.org/allegro/tradukisto.svg?branch=master)](https://travis-ci.org/allegro/tradukisto)
-[![Coverage Status](https://coveralls.io/repos/allegro/tradukisto/badge.svg?branch=master)](https://coveralls.io/r/allegro/tradukisto?branch=master)
+[![codecov](https://codecov.io/gh/allegro/tradukisto/branch/master/graph/badge.svg?token=YO4NcWxDCI)](https://codecov.io/gh/allegro/tradukisto)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto)
 
 Tradukisto is a library for Java 8+ created to convert numbers to their word representations.
@@ -25,6 +25,7 @@ Supported languages
 * English
 * French
 * German
+* Italian
 * Kazakh
 * Latvian
 * Polish
@@ -32,6 +33,7 @@ Supported languages
 * Slovak
 * Ukrainian
 * Serbian (latin)
+* Turkish
 
 Usage
 -----
@@ -44,7 +46,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.5.0'
+    compile 'pl.allegro.finance:tradukisto:1.8.0'
 }
 ```
 
@@ -72,7 +74,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2018 Allegro Group
+Copyright 2015-2019 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -83,3 +83,36 @@ Added support for:
 
   - French
 
+## 1.6.0 (2019-01-02)
+
+Added support for:
+
+  - Serbian (latin)
+  
+Fixed:
+
+  - Incorrect translations for French language
+
+## 1.7.0 (2019-02-04)
+
+Added support for:
+
+  - Italian
+
+## 1.7.1 (2019-02-07)
+
+Fixed:
+
+  - Missing French banking money value
+
+## 1.8.0 (2019-03-05)
+
+Added support for:
+
+  - Turkish
+
+## 1.9.0 (2021-09-29)
+
+Migrated builds to GitHub Actions. Added support for:
+
+  - American English ($ instead of £ currency symbol)
