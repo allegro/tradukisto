@@ -48,8 +48,10 @@ class FrenchValuesTest extends Specification {
         90            | "quatre-vingt-dix"
 
         21            | "vingt-et-un"
-        37            | "trente-sept"
+        22            | "vingt-deux"
         31            | "trente-et-un"
+        32            | "trente-deux"
+        37            | "trente-sept"
         41            | "quarante-et-un"
         43            | "quarante-trois"
         51            | "cinquante-et-un"
