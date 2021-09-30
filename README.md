@@ -2,14 +2,14 @@ Tradukisto
 ==========
 
 [![Build Status](https://travis-ci.org/allegro/tradukisto.svg?branch=master)](https://travis-ci.org/allegro/tradukisto)
-[![Coverage Status](https://coveralls.io/repos/allegro/tradukisto/badge.svg?branch=master)](https://coveralls.io/r/allegro/tradukisto?branch=master)
+[![codecov](https://codecov.io/gh/allegro/tradukisto/branch/master/graph/badge.svg?token=YO4NcWxDCI)](https://codecov.io/gh/allegro/tradukisto)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto)
 
 Tradukisto is a library for Java 8+ created to convert numbers to their word representations.
 
-The main motivation behind its creation was lack of a production ready tool which provides numbers conversion for the 
-Polish language. There are many single classes, but we felt there is definitely space for something well tested and
-ready to use in production without copy pasting someone else's code.
+The main motivation behind its creation was lack of a production-ready tool providing number conversion for
+Polish language. There are many individual classes, but we felt there is definitely space for something well tested and
+ready to use in production without copy-pasting someone else's code.
 
 Features
 --------
@@ -20,12 +20,20 @@ Features
 Supported languages
 -------------------
 
-* English
-* Polish
-* Czech
-* Russian
-* German
 * Brazilian Portuguese
+* Czech
+* English
+* French
+* German
+* Italian
+* Kazakh
+* Latvian
+* Polish
+* Russian
+* Slovak
+* Ukrainian
+* Serbian (latin)
+* Turkish
 
 Usage
 -----
@@ -38,21 +46,21 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.0.0'
+    compile 'pl.allegro.finance:tradukisto:1.8.0'
 }
 ```
 
 and use it:
 
 ```java
-ValueConverter converter = ValueConverters.ENGLISH_INTEGER;
+ValueConverters converter = ValueConverters.ENGLISH_INTEGER;
 String valueAsWords = converter.asWords(1_234);
 
 assertEquals("one thousand two hundred thirty-four", valueAsWords);
 ```
 
 ```java
-MoneyConverter converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
+MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
 assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
@@ -66,7 +74,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2017 Allegro Group
+Copyright 2015-2019 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
