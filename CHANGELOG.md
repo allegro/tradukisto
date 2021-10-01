@@ -116,3 +116,9 @@ Added support for:
 Migrated builds to GitHub Actions. Added support for:
 
   - American English ($ instead of £ currency symbol)
+
+## 1.9.1 (2021-10-01)
+
+Fixed:
+
+  - French translation bugs
