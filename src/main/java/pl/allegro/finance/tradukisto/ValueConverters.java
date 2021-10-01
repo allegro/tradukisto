@@ -34,7 +34,7 @@ public enum ValueConverters {
     UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter()),
     SERBIAN_INTEGER(serbianContainer().getNumbersConverter()),
     SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getNumbersConverter()),
-    FRENCH_INTEGER(frenchContainer().getNumbersConverter());
+    FRENCH_INTEGER(frenchContainer().getNumbersConverter()),
     TURKISH_INTEGER(turkishContainer().getNumbersConverter());
 
     private final IntegerToStringConverter converter;

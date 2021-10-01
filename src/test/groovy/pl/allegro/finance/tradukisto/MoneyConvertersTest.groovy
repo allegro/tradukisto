@@ -15,11 +15,10 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.LATVIAN_BANKING_MONE
 import static pl.allegro.finance.tradukisto.MoneyConverters.POLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.RUSSIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.SERBIAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.SERBIAN_CYRILLIC_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.SLOVAK_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.TURKISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.UKRAINIAN_BANKING_MONEY_VALUE
-import static pl.allegro.finance.tradukisto.MoneyConverters.SERBIAN_BANKING_MONEY_VALUE
-import static pl.allegro.finance.tradukisto.MoneyConverters.SERBIAN_CYRILLIC_BANKING_MONEY_VALUE
 
 class MoneyConvertersTest extends Specification {
 

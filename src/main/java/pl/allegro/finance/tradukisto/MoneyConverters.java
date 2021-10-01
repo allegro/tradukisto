@@ -36,9 +36,9 @@ public enum MoneyConverters {
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter()),
     KAZAKH_BANKING_MONEY_VALUE(kazakhContainer().getBankingMoneyConverter()),
     UKRAINIAN_BANKING_MONEY_VALUE(ukrainianContainer().getBankingMoneyConverter()),
-    SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
-    SERBIAN_CYRILLIC_BANKING_MONEY_VALUE(serbianCyrillicContainer().getBankingMoneyConverter());
     TURKISH_BANKING_MONEY_VALUE(turkishContainer().getBankingMoneyConverter()),
+    SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
+    SERBIAN_CYRILLIC_BANKING_MONEY_VALUE(serbianCyrillicContainer().getBankingMoneyConverter()),
     FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
