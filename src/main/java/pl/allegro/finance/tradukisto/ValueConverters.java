@@ -13,6 +13,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.serbianCyrillicContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
@@ -32,6 +33,7 @@ public enum ValueConverters {
     KAZAKH_INTEGER(kazakhContainer().getNumbersConverter()),
     UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter()),
     SERBIAN_INTEGER(serbianContainer().getNumbersConverter()),
+    SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getNumbersConverter()),
     FRENCH_INTEGER(frenchContainer().getNumbersConverter()),
     TURKISH_INTEGER(turkishContainer().getNumbersConverter());
 
