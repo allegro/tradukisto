@@ -33,6 +33,7 @@ Supported languages
 * Slovak
 * Ukrainian
 * Serbian (latin)
+* Serbian (cyrillic)
 * Turkish
 * Kyrgyz
 
@@ -47,7 +48,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.8.0'
+    compile 'pl.allegro.finance:tradukisto:1.10.0'
 }
 ```
 
@@ -75,7 +76,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2019 Allegro Group
+Copyright 2015-2021 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

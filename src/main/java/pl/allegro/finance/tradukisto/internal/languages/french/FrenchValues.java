@@ -39,10 +39,15 @@ public class FrenchValues implements BaseValues {
                 .put(18, "dix-huit")
                 .put(19, "dix-neuf")
                 .put(20, "vingt")
+                .put(21, "vingt-et-un")
                 .put(30, "trente")
+                .put(31, "trente-et-un")
                 .put(40, "quarante")
+                .put(41, "quarante-et-un")
                 .put(50, "cinquante")
+                .put(51, "cinquante-et-un")
                 .put(60, "soixante")
+                .put(61, "soixante-et-un")
                 .put(70, "soixante-dix")
                 .put(71, "soixante-et-onze")
                 .put(72, "soixante-douze")
@@ -107,7 +112,16 @@ public class FrenchValues implements BaseValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(1000, "mille").build();
+        return ImmutableMap.<Integer, String>builder()
+                                .put(200, "deux cents")
+                                .put(300, "trois cents")
+                                .put(400, "quatre cents")
+                                .put(500, "cinq cents")
+                                .put(600, "six cents")
+                                .put(700, "sept cents")
+                                .put(800, "huit cents")
+                                .put(900, "neuf cents")
+                                .put(1000, "mille").build();
     }
 }
 
