@@ -122,3 +122,13 @@ Migrated builds to GitHub Actions. Added support for:
 Fixed:
 
   - French translation bugs
+
+## 1.10.0 (2021-10-02)
+
+Added support for:
+
+  - Serbian (cyrillic)
+  
+Fixed:
+
+  - Incorrect translations for Serbian language (latin)
