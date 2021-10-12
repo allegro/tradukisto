@@ -54,6 +54,7 @@ test {
 publishing {
     publications {
         sonatype(MavenPublication) { publication ->
+            artifact jar
             artifact sourcesJar
             artifact javadocJar
             pom {
