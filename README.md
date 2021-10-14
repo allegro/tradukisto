@@ -35,6 +35,7 @@ Supported languages
 * Serbian (latin)
 * Serbian (cyrillic)
 * Turkish
+* Kyrgyz
 
 Usage
 -----

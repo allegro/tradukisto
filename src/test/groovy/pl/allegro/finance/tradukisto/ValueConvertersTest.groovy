@@ -69,4 +69,9 @@ class ValueConvertersTest extends Specification {
         then:
         thrown(VerifyException)
     }
+
+    def "should convert number in Kyrgyz"() {
+        expect:
+        KYRGYZ_INTEGER.asWords(1_234) == "бир миң эки жүз отуз төрт"
+    }
 }

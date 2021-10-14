@@ -11,6 +11,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.FRENCH_BANKING_MONEY
 import static pl.allegro.finance.tradukisto.MoneyConverters.GERMAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ITALIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.KAZAKH_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.KYRGYZ_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.LATVIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.POLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.RUSSIAN_BANKING_MONEY_VALUE
@@ -108,5 +109,10 @@ class MoneyConvertersTest extends Specification {
     def "should convert money in Turkish"() {
         expect:
         TURKISH_BANKING_MONEY_VALUE.asWords(1_23.4) == "YüzYirmiÜçTL,KırkKr."
+    }
+
+    def "should convert money in Kyrgyz"() {
+        expect:
+        KYRGYZ_BANKING_MONEY_VALUE.asWords(1_234.56) == "бир миң эки жүз отуз төрт KGS 56/100"
     }
 }
