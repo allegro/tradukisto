@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.german
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.germanContainer
 
 class GermanValuesTest extends Specification {
 
-    static converter = germanContainer().getNumbersConverter()
+    static intConverter = germanContainer().getIntegerConverter()
+    static longConverter = germanContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in German"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value      | words
@@ -102,5 +104,28 @@ class GermanValuesTest extends Specification {
 
         1000000000 | "eine Milliarde"
         2147483647 | "zwei Milliarden einhundertsiebenundvierzig Millionen vierhundertdreiundachtzigtausendsechshundertsiebenundvierzig"
+    }
+
+    @Ignore("Needs German long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in German"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

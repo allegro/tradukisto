@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.latvian
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer
 
 class LatvianValuesTest extends Specification {
 
-	static converter = latvianContainer().getNumbersConverter()
+	static intConverter = latvianContainer().getIntegerConverter()
+	static longConverter = latvianContainer().getLongConverter()
 
 	@Unroll
 	def "should convert #value to '#words' in Latvian"() {
 		expect:
-		converter.asWords(value) == words
+		intConverter.asWords(value) == words
 
 		where:
 		value         | words
@@ -112,7 +114,7 @@ class LatvianValuesTest extends Specification {
 
 	def "should convert any value in range of 0-999 in Latvian"() {
 		when:
-		def words = converter.asWords(value)
+		def words = intConverter.asWords(value)
 
 		then:
 		notThrown(IllegalArgumentException)
@@ -120,5 +122,28 @@ class LatvianValuesTest extends Specification {
 
 		where:
 		value << (0..999)
+	}
+
+	@Ignore("Needs Latvian long converter and values for trillion, quadrillion, quintillion")
+	@Unroll
+	def "should convert long #value to '#words' in Latvian"() {
+		expect:
+		longConverter.asWords(value) == words
+
+		where:
+		value                     | words
+		5_000_000_000             | ""
+
+		1_000_000_000_000         | ""
+		2_000_000_000_000         | ""
+		5_000_000_000_000         | ""
+
+		1_000_000_000_000_000     | ""
+		2_000_000_000_000_000     | ""
+		5_000_000_000_000_000     | ""
+
+		1_000_000_000_000_000_000 | ""
+		2_000_000_000_000_000_000 | ""
+		Long.MAX_VALUE            | ""
 	}
 }

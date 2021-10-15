@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.serbian
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer
 
 class SerbianValuesTest extends Specification {
 
-    static converter = serbianContainer().getNumbersConverter()
+    static intConverter = serbianContainer().getIntegerConverter()
+    static longConverter = serbianContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Serbian"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value                     | words
@@ -118,5 +120,28 @@ class SerbianValuesTest extends Specification {
         1_000_000_000             | "jedna milijarda"
         2_141_123_731             | "dve milijarde sto četrdeset jedan milion sto dvadeset tri hiljade sedamsto trideset jedan"
         Integer.MAX_VALUE         | "dve milijarde sto četrdeset sedam miliona četiristo osamdeset tri hiljade šeststo četrdeset sedam"
+    }
+
+    @Ignore("Needs Serbian long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Serbian"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.french
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer
 
 class FrenchValuesTest extends Specification {
 
-    static converter = frenchContainer().getNumbersConverter()
+    static intConverter = frenchContainer().getIntegerConverter()
+    static longConverter = frenchContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in French"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -108,5 +110,28 @@ class FrenchValuesTest extends Specification {
         1_000_000_000 | "un milliard"
         2_147_483_647 | "deux milliards cent quarante-sept millions quatre cent quatre-vingt-trois mille six cent " +
                 "quarante-sept"
+    }
+
+    @Ignore("Needs French long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in French"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

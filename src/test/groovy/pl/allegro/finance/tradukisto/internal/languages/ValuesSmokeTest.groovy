@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages
 
+import pl.allegro.finance.tradukisto.LongValueConverters
 import pl.allegro.finance.tradukisto.ValueConverters
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -14,6 +15,6 @@ class ValuesSmokeTest extends Specification {
         }
 
         where:
-        converter << ValueConverters.values()
+        converter << ValueConverters.values() + LongValueConverters.values()
     }
 }

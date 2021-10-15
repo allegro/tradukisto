@@ -17,5 +17,4 @@ class ToStringConverterTest extends Specification {
         expect:
         converter.toGenderAwareInteger(integerToStringConverter) instanceof GenderAwareIntegerToStringConverter
     }
-
 }
