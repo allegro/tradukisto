@@ -19,6 +19,8 @@ import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.getByLanguageCodeOrDefault
+import static pl.allegro.finance.tradukisto.ValueConverters.getByLocaleOrDefault
 
 class ValueConvertersTest extends Specification {
 
@@ -46,7 +48,7 @@ class ValueConvertersTest extends Specification {
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
     }
 
-    def "should throw exception when null given"() {
+    def "should throw exception when null value given"() {
         when:
         converter.asWords(null)
 
@@ -55,5 +57,102 @@ class ValueConvertersTest extends Specification {
 
         where:
         converter << ValueConverters.values()
+    }
+
+    @Unroll
+    def "should return #converter for locale #locale"() {
+        expect:
+        getByLocaleOrDefault(locale, null) == converter
+
+        where:
+        locale                                                           || converter
+        new Locale("pt-br")                                              || BRAZILIAN_PORTUGUESE_INTEGER
+        new Locale("pt")                                                 || BRAZILIAN_PORTUGUESE_INTEGER
+        new Locale("cs")                                                 || CZECH_INTEGER
+        Locale.ENGLISH                                                   || ENGLISH_INTEGER
+        Locale.US                                                        || ENGLISH_INTEGER
+        Locale.FRENCH                                                    || FRENCH_INTEGER
+        new Locale("it")                                                 || ITALIAN_INTEGER
+        Locale.ITALIAN                                                   || ITALIAN_INTEGER
+        new Locale("de")                                                 || GERMAN_INTEGER
+        Locale.GERMANY                                                   || GERMAN_INTEGER
+        new Locale("kk")                                                 || KAZAKH_INTEGER
+        new Locale("lv")                                                 || LATVIAN_INTEGER
+        new Locale("pl")                                                 || POLISH_INTEGER
+        new Locale("ru")                                                 || RUSSIAN_INTEGER
+        new Locale.Builder().setLanguage("sr").setScript("Cyrl").build() || SERBIAN_CYRILLIC_INTEGER
+        new Locale("sr")                                                 || SERBIAN_INTEGER
+        new Locale.Builder().setLanguage("sr").setScript("Latn").build() || SERBIAN_INTEGER
+        new Locale("sk")                                                 || SLOVAK_INTEGER
+        new Locale("tr")                                                 || TURKISH_INTEGER
+        new Locale("uk")                                                 || UKRAINIAN_INTEGER
+    }
+
+    def "should return supplied default converter when locale is unknown"() {
+        given:
+        def defaultConverter = FRENCH_INTEGER
+        def unknownLocale = new Locale("zh")
+
+        expect:
+        getByLocaleOrDefault(unknownLocale, defaultConverter) == defaultConverter
+    }
+
+    def "should throw exception when null locale given"() {
+        when:
+        getByLocaleOrDefault(null, null)
+
+        then:
+        thrown(VerifyException)
+    }
+
+    @Unroll
+    def "should return #converter for language code #languageCode"() {
+        expect:
+        getByLanguageCodeOrDefault(languageCode, null) == converter
+
+        where:
+        languageCode || converter
+        "pt-br"      || BRAZILIAN_PORTUGUESE_INTEGER
+        "pt"         || BRAZILIAN_PORTUGUESE_INTEGER
+        "cs"         || CZECH_INTEGER
+        "en"         || ENGLISH_INTEGER
+        "fr"         || FRENCH_INTEGER
+        "it"         || ITALIAN_INTEGER
+        "de"         || GERMAN_INTEGER
+        "kk"         || KAZAKH_INTEGER
+        "lv"         || LATVIAN_INTEGER
+        "pl"         || POLISH_INTEGER
+        "ru"         || RUSSIAN_INTEGER
+        "sr__#Cyrl"  || SERBIAN_CYRILLIC_INTEGER
+        "sr"         || SERBIAN_INTEGER
+        "sr__#Latn"  || SERBIAN_INTEGER
+        "sk"         || SLOVAK_INTEGER
+        "tr"         || TURKISH_INTEGER
+        "uk"         || UKRAINIAN_INTEGER
+    }
+
+    def "should return supplied default converter when languageCode is unknown"() {
+        given:
+        def defaultConverter = FRENCH_INTEGER
+        def unknownLanguageCode = "zh"
+
+        expect:
+        getByLanguageCodeOrDefault(unknownLanguageCode, defaultConverter) == defaultConverter
+    }
+
+    def "should throw exception when null language code given"() {
+        when:
+        getByLanguageCodeOrDefault(null, null)
+
+        then:
+        thrown(VerifyException)
+    }
+
+    def "should throw exception when empty language code given"() {
+        when:
+        getByLocaleOrDefault(new Locale(""), null)
+
+        then:
+        thrown(VerifyException)
     }
 }

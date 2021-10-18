@@ -1,7 +1,14 @@
 package pl.allegro.finance.tradukisto;
 
+import com.google.common.base.Strings;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+
+import static com.google.common.base.Verify.verify;
 import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
@@ -21,31 +28,68 @@ import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContaine
 
 public enum ValueConverters {
 
-    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getIntegerConverter()),
-    CZECH_INTEGER(czechContainer().getIntegerConverter()),
-    ENGLISH_INTEGER(englishContainer().getIntegerConverter()),
-    FRENCH_INTEGER(frenchContainer().getIntegerConverter()),
-    GERMAN_INTEGER(germanContainer().getIntegerConverter()),
-    ITALIAN_INTEGER(italianContainer().getIntegerConverter()),
-    KAZAKH_INTEGER(kazakhContainer().getIntegerConverter()),
-    LATVIAN_INTEGER(latvianContainer().getIntegerConverter()),
-    POLISH_INTEGER(polishContainer().getIntegerConverter()),
-    RUSSIAN_INTEGER(russianContainer().getIntegerConverter()),
-    SERBIAN_INTEGER(serbianContainer().getIntegerConverter()),
-    SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getIntegerConverter()),
-    SLOVAK_INTEGER(slovakContainer().getIntegerConverter()),
-    TURKISH_INTEGER(turkishContainer().getIntegerConverter()),
-    UKRAINIAN_INTEGER(ukrainianContainer().getIntegerConverter());
+    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getIntegerConverter(), Arrays.asList("pt", "pt-br")),
+    ENGLISH_INTEGER(englishContainer().getIntegerConverter(), "en"),
+    GERMAN_INTEGER(germanContainer().getIntegerConverter(), "de"),
+    RUSSIAN_INTEGER(russianContainer().getIntegerConverter(), "ru"),
+    ITALIAN_INTEGER(italianContainer().getIntegerConverter(), "it"),
+    POLISH_INTEGER(polishContainer().getIntegerConverter(), "pl"),
+    CZECH_INTEGER(czechContainer().getIntegerConverter(), "cs"),
+    SLOVAK_INTEGER(slovakContainer().getIntegerConverter(), "sk"),
+    LATVIAN_INTEGER(latvianContainer().getIntegerConverter(), "lv"),
+    KAZAKH_INTEGER(kazakhContainer().getIntegerConverter(), "kk"),
+    UKRAINIAN_INTEGER(ukrainianContainer().getIntegerConverter(), "uk"),
+    SERBIAN_INTEGER(serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
+    SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
+    FRENCH_INTEGER(frenchContainer().getIntegerConverter(), "fr"),
+    TURKISH_INTEGER(turkishContainer().getIntegerConverter(), "tr");
 
     private final IntegerToStringConverter converter;
+    private final List<String> languageCodes;
 
-    ValueConverters(IntegerToStringConverter converter) {
+    ValueConverters(IntegerToStringConverter converter, String languageCodes) {
+        this(converter, Collections.singletonList(languageCodes));
+    }
+
+    ValueConverters(IntegerToStringConverter converter, List<String> languageCodes) {
         this.converter = converter;
+        this.languageCodes = languageCodes;
     }
 
     public String asWords(Integer value) {
         verifyNotNull(value);
 
         return converter.asWords(value);
+    }
+
+    public static ValueConverters getByLocaleOrDefault(Locale locale, ValueConverters defaultConverter) {
+        verifyNotNull(locale);
+
+        String languageCode;
+        if (hasSpecifiedScript(locale)) {
+            languageCode = getLanguageCodeFor(locale.getLanguage(), locale.getScript());
+        } else {
+            languageCode = locale.getLanguage();
+        }
+
+        return getByLanguageCodeOrDefault(languageCode, defaultConverter);
+    }
+
+    public static ValueConverters getByLanguageCodeOrDefault(String languageCode, ValueConverters defaultConverter) {
+        verifyNotNull(languageCode);
+        verify(!languageCode.isEmpty());
+
+        return Arrays.stream(values())
+                .filter(it -> it.languageCodes.contains(languageCode))
+                .findFirst()
+                .orElse(defaultConverter);
+    }
+
+    private static boolean hasSpecifiedScript(Locale locale) {
+        return !Strings.isNullOrEmpty(locale.getScript());
+    }
+
+    private static String getLanguageCodeFor(String language, String script) {
+        return new Locale.Builder().setLanguage(language).setScript(script).build().toString();
     }
 }
