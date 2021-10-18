@@ -132,3 +132,13 @@ Added support for:
 Fixed:
 
   - Incorrect translations for Serbian language (latin)
+
+## 1.10.1 (2021-10-12)
+
+Fixed:
+
+  - Release workflow now publishes .jar files to Maven Central (.jar files missing for versions 1.9.0, 1.9.1, 1.10.0)
+
+## 1.10.2 (2021-10-18)
+
+Added methods for getting value converters based on locale or language tag
