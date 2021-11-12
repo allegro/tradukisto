@@ -9,6 +9,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.CZECH_BANKING_MONEY_
 import static pl.allegro.finance.tradukisto.MoneyConverters.ENGLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.FRENCH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.GERMAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.HEBREW_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ITALIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.KAZAKH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.LATVIAN_BANKING_MONEY_VALUE
@@ -92,9 +93,14 @@ class MoneyConvertersTest extends Specification {
         SERBIAN_CYRILLIC_BANKING_MONEY_VALUE.asWords(1_234.56) == "једна хиљада двеста тридесет четири РСД 56/100"
     }
 
-    def "should convert numbers in French"() {
+    def "should convert money in French"() {
         expect:
         FRENCH_BANKING_MONEY_VALUE.asWords(1_234.56) == "mille deux cent trente-quatre € 56/100"
+    }
+
+    def "should convert money in Hebrew"() {
+        expect:
+        HEBREW_BANKING_MONEY_VALUE.asWords(1_234.56) == "\u05d0\u05dc\u05e3 \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05e9\u05dc\u05d5\u05e9\u05d9\u05dd \u05d5\u05d0\u05e8\u05d1\u05e2\u05d4 \u20aa \u05d5\u05d7\u05de\u05d9\u05e9\u05d9\u05dd \u05d5\u05e9\u05e9 \u05d0\u05d2\u05d5\u05e8\u05d5\u05ea"
     }
 
     def "should throw exception when null given"() {

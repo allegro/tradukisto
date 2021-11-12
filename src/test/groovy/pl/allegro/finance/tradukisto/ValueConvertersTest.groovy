@@ -82,6 +82,11 @@ class ValueConvertersTest extends Specification {
         TURKISH_INTEGER.asWords(1_234) == "Bin İki Yüz Otuz Dört"
     }
 
+    def "should convert numbers in Hebrew"() {
+        expect:
+        HEBREW_INTEGER.asWords(1_234) == "\u05d0\u05dc\u05e3 \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05e9\u05dc\u05d5\u05e9\u05d9\u05dd \u05d5\u05d0\u05e8\u05d1\u05e2"
+    }
+
     def "should throw exception when null given"() {
         when:
         POLISH_INTEGER.asWords(null)
@@ -173,6 +178,13 @@ class ValueConvertersTest extends Specification {
     def "getByLocaleOrDefault for Turkish"() {
         expect:
         getByLocaleOrDefault(new Locale("tr"), null).asWords(1_234) == "Bin İki Yüz Otuz Dört"
+    }
+
+    def "getByLocaleOrDefault for Hebrew"() {
+        expect:
+        getByLocaleOrDefault(new Locale("he"), null).asWords(1_234) == "\u05d0\u05dc\u05e3 \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05e9\u05dc\u05d5\u05e9\u05d9\u05dd \u05d5\u05d0\u05e8\u05d1\u05e2"
+        and:
+        getByLocaleOrDefault(new Locale("iw"), null).asWords(1_234) == "\u05d0\u05dc\u05e3 \u05de\u05d0\u05ea\u05d9\u05d9\u05dd \u05e9\u05dc\u05d5\u05e9\u05d9\u05dd \u05d5\u05d0\u05e8\u05d1\u05e2"
     }
 
     def "getByLocaleOrDefault: should throw exception when null given"() {
