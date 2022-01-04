@@ -57,7 +57,7 @@ public class ItalianValues {
                 .put(78, "settantotto")
                 .put(80, "ottanta")
                 .put(81, "ottantuno")
-                .put(68, "ottantotto")
+                .put(88, "ottantotto")
                 .put(90, "novanta")
                 .put(91, "novantuno")
                 .put(98, "novantotto")
