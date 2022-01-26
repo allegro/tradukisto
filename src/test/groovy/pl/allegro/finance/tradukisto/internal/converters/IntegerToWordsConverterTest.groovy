@@ -40,4 +40,12 @@ class IntegerToWordsConverterTest extends Specification {
         then:
         thrown(IllegalArgumentException)
     }
+
+    def "should throw IllegalArgumentException when value is negative"() {
+        when:
+        converter.asWords(-1)
+
+        then:
+        thrown(IllegalArgumentException)
+    }
 }
