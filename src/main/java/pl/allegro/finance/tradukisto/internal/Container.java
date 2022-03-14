@@ -13,6 +13,10 @@ import pl.allegro.finance.tradukisto.internal.languages.french.FrenchValues;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
+import pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewBigDecimalToBankingMoneyConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewHundredsToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hebrew.HebrewValues;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianValues;
@@ -179,6 +183,16 @@ public final class Container {
     public static Container kazakhContainer() {
         KazakhValues kazakhValues = new KazakhValues();
         return new Container(kazakhValues);
+    }
+
+    public static Container hebrewContainer() {
+        HebrewValues conversionValues = new HebrewValues();
+        HebrewValues monetaryValues = new HebrewValues();
+        HebrewHundredsToWordsConverter hundredsConverter = new HebrewHundredsToWordsConverter(conversionValues);
+        HebrewIntegerToWordsConverter intConverter = new HebrewIntegerToWordsConverter(hundredsConverter, conversionValues);
+        HebrewIntegerToWordsConverter decimaConverter = new HebrewIntegerToWordsConverter(hundredsConverter, monetaryValues);
+        BigDecimalToStringConverter monetaryConverter = new HebrewBigDecimalToBankingMoneyConverter(decimaConverter, monetaryValues);
+        return new Container(intConverter, monetaryConverter);
     }
 
     private final IntegerToStringConverter integerConverter;
