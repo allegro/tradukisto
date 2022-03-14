@@ -54,9 +54,7 @@ test {
 publishing {
     publications {
         sonatype(MavenPublication) { publication ->
-            artifact jar
-            artifact sourcesJar
-            artifact javadocJar
+            from(components.findByName("java"))
             pom {
                 name = 'Tradukisto'
                 description = 'Small java library created to convert numbers to their word representations'
