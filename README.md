@@ -47,7 +47,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.10.2'
+    compile 'pl.allegro.finance:tradukisto:1.10.4'
 }
 ```
 
@@ -75,7 +75,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2021 Allegro Group
+Copyright 2015-2022 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
