@@ -62,9 +62,12 @@ assertEquals("one thousand two hundred thirty-four", valueAsWords);
 
 ```java
 MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
-String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
+String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
+
+String moneyAsWordsWithCurrency = converter.asWords(new BigDecimal("1234.56", "EUR"));
+assertEquals("one thousand two hundred thirty-four EUR 56/100", moneyAsWordsWithCurrency);
 ```
 
 Tradukisto can handle only values with no more than two digits after the decimal point. Otherwise
