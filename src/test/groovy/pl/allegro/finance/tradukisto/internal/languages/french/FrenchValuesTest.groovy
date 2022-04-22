@@ -94,7 +94,7 @@ class FrenchValuesTest extends Specification {
         24_190        | "vingt-quatre mille cent quatre-vingt-dix"
         653_000       | "six cent cinquante-trois mille"
         123_454       | "cent vingt-trois mille quatre cent cinquante-quatre"
-        700_000       | "sept cents mille"
+        700_000       | "sept cent mille"
         999_999       | "neuf cent quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf"
 
         1_000_000     | "un million"
@@ -107,6 +107,6 @@ class FrenchValuesTest extends Specification {
 
         1_000_000_000 | "un milliard"
         2_147_483_647 | "deux milliards cent quarante-sept millions quatre cent quatre-vingt-trois mille six cent " +
-                "quarante-sept"
+                "quarante-sept" 
     }
 }
