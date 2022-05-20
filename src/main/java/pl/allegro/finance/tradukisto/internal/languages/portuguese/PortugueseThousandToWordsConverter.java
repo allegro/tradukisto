@@ -1,15 +1,14 @@
 package pl.allegro.finance.tradukisto.internal.languages.portuguese;
 
-import static java.lang.String.format;
-
-import java.util.Map;
-
 import com.google.common.collect.Range;
-
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
+
+import java.util.Map;
+
+import static java.lang.String.format;
 
 public class PortugueseThousandToWordsConverter implements IntegerToStringConverter {
 
@@ -22,7 +21,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private final GenderType genderType = GenderType.NON_APPLICABLE;
 
     public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
-            Map<Integer, MultiFormNumber> exceptions) {
+                                              Map<Integer, MultiFormNumber> exceptions) {
         this.baseValues = baseValues;
         this.exceptions = exceptions;
     }
@@ -60,8 +59,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private String threeDigitsNumberAsString(Integer value) {
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
-        boolean hasNextNumber = tensWithUnits != 0;
-        return format("%s e %s", asWords(hundreds, hasNextNumber), asWords(tensWithUnits));
+        return format("%s e %s", asWords(hundreds, true), asWords(tensWithUnits));
     }
 
     private String thousandsAsString(Integer value) {
@@ -77,7 +75,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
 
     private String getThousandsAsWords(Integer thousands, Integer other) {
         if (nothingComesAfter(other)) {
-             return format("%s mil", asWords(thousands));
+            return format("%s mil", asWords(thousands));
         }
         if (other == HUNDRED) {
             return format("%s mil e %s", asWords(thousands, HAS_NOT_NEXT_VALUE), asWords(other, HAS_NOT_NEXT_VALUE));

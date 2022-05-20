@@ -23,6 +23,11 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
 
     @Override
     public String asWords(BigDecimal value) {
+        return asWords(value, currencySymbol);
+    }
+
+    @Override
+    public String asWords(BigDecimal value, String currencySymbol) {
         validate(value);
 
         Integer units = value.intValue();

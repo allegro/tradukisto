@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages.portuguese
 
-import pl.allegro.finance.tradukisto.internal.languages.GenderType
 import spock.lang.Specification
 
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForm

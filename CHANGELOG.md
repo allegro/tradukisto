@@ -142,3 +142,24 @@ Fixed:
 ## 1.10.2 (2021-10-18)
 
 Added methods for getting value converters based on locale or language tag
+
+## 1.10.3 (2022-01-31)
+
+Fixed:
+
+  - missing number 88 in Italian values
+  - added check for number remapping
+
+## 1.10.4 (2022-03-14)
+
+Fixed:
+
+  - published jars now contain `com.google.guava` dependency (bug present since version 1.9.0)
+
+## 1.10.5 (2022-03-18)
+
+Added method for using money converters with a custom currency string
+
+## 1.10.6 (2022-03-28)
+
+Upgraded `com.google.guava:guava` dependency version from `23.0` to `25.0-jre`

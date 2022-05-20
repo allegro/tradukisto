@@ -34,7 +34,7 @@ compileJava {
 }
 
 dependencies {
-    implementation "com.google.guava:guava:23.0"
+    implementation "com.google.guava:guava:25.0-jre"
     testImplementation "org.spockframework:spock-core:1.1-groovy-2.4"
 }
 
@@ -54,9 +54,7 @@ test {
 publishing {
     publications {
         sonatype(MavenPublication) { publication ->
-            artifact jar
-            artifact sourcesJar
-            artifact javadocJar
+            from(components.findByName("java"))
             pom {
                 name = 'Tradukisto'
                 description = 'Small java library created to convert numbers to their word representations'

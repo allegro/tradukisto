@@ -48,7 +48,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.10.2'
+    compile 'pl.allegro.finance:tradukisto:1.10.6'
 }
 ```
 
@@ -70,9 +70,12 @@ assertEquals("one quintillion", valueAsWords);
 
 ```java
 MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
-String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 
+String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
+
+String moneyAsWordsWithCurrency = converter.asWords(new BigDecimal("1234.56", "EUR"));
+assertEquals("one thousand two hundred thirty-four EUR 56/100", moneyAsWordsWithCurrency);
 ```
 
 Tradukisto can handle only values with no more than two digits after the decimal point. Otherwise
@@ -83,7 +86,7 @@ method to ensure that given value has appropriate precision.
 License
 -------
 
-Copyright 2015-2021 Allegro Group
+Copyright 2015-2022 Allegro Group
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

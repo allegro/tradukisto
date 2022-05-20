@@ -26,6 +26,11 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
 
     @Override
     public String asWords(BigDecimal value) {
+        return asWords(value, turkishValues.currency());
+    }
+
+    @Override
+    public String asWords(BigDecimal value, String currencySymbol) {
         validate(value);
 
         Integer units = value.intValue();
@@ -38,9 +43,8 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
             tempSubUnitWords = "";
         }
 
-        String formattedValue = format(FORMAT, converter.asWords(units), turkishValues.currency(), tempSubUnitWords, tempSubunitSymbol);
-        String convertedToMoneyTypeValue = formattedValue.replace(Character.toString(turkishValues.twoDigitsNumberSeparator()), "");
-        return convertedToMoneyTypeValue;
+        String formattedValue = format(FORMAT, converter.asWords(units), currencySymbol, tempSubUnitWords, tempSubunitSymbol);
+        return formattedValue.replace(Character.toString(turkishValues.twoDigitsNumberSeparator()), "");
     }
 
     private void validate(BigDecimal value) {

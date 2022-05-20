@@ -58,4 +58,17 @@ class MoneyConvertersTest extends Specification {
         where:
         converter << MoneyConverters.values()
     }
+
+    def "should convert value with currency symbol provided"() {
+        expect:
+        POLISH_BANKING_MONEY_VALUE.asWords(1_234.56, "EUR") == "jeden tysiąc dwieście trzydzieści cztery EUR 56/100"
+    }
+
+    def "should throw exception when null currency given"() {
+        when:
+        POLISH_BANKING_MONEY_VALUE.asWords(1_234.56, null)
+
+        then:
+        thrown(VerifyException)
+    }
 }

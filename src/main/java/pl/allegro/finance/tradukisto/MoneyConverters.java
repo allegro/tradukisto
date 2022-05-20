@@ -52,4 +52,11 @@ public enum MoneyConverters {
 
         return converter.asWords(value);
     }
+
+    public String asWords(BigDecimal value, String currencySymbol) {
+        verifyNotNull(value);
+        verifyNotNull(currencySymbol);
+
+        return converter.asWords(value, currencySymbol);
+    }
 }
