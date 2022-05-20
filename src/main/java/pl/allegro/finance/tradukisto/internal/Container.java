@@ -195,7 +195,7 @@ public final class Container {
         integerConverter = numberToWordsConverter;
         longConverter = numberToWordsConverter;
         bigDecimalConverter = new BigDecimalToBankingMoneyConverter(
-                this.integerConverter,
+                integerConverter,
                 baseValues.currency());
     }
 

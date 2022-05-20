@@ -3,7 +3,7 @@ package pl.allegro.finance.tradukisto.internal.languages.czech
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
 import spock.lang.Specification
 
-class CzechNumberToWordsConverterTest extends Specification {
+class CzechIntegerToWordsConverterTest extends Specification {
 
     def smallNumbersConverter = Stub(IntegerToStringConverter)
     def bigNumbersConverter = Stub(IntegerToStringConverter)
