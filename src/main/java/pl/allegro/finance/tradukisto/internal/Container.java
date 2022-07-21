@@ -63,7 +63,7 @@ public final class Container {
         IntegerToStringConverter integerToStringConverter = new BulgarianIntegerToWordsConverter(
                 hundredsToStringConverter,
                 bulgarianValues.pluralForms(),
-                bulgarianValues.thousandException());
+                bulgarianValues.oneThousandException());
 
         BigDecimalToStringConverter bigDecimalConverter = new BigDecimalToBankingMoneyConverter(
                 integerToStringConverter,

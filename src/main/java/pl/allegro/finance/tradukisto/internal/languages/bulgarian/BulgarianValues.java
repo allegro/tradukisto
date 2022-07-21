@@ -75,7 +75,7 @@ public class BulgarianValues implements BaseValues {
         return ' ';
     }
 
-    public String thousandException() {
+    public String oneThousandException() {
         return "хиляда";
     }
 }

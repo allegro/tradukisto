@@ -12,54 +12,36 @@ import static java.lang.String.format;
 
 public class BulgarianIntegerToWordsConverter extends IntegerToWordsConverter {
 
-    private final NumberChunking numberChunking = new NumberChunking();
-    private final List<PluralForms> pluralForms;
-    private final String thousand;
+    private final String oneThousand;
 
-    private static final String MERGE_PATTER = "%s %s";
-    private static final int THOUSAND = 1000;
+    private static final String MERGE_PATTERN = "%s %s";
+    private static final int ONE_THOUSAND = 1000;
     private static final int TWO_THOUSAND = 2000;
 
-    public BulgarianIntegerToWordsConverter(HundredsToWordsConverter hundredsToStringConverter, List<PluralForms> pluralForms, String thousand) {
+    public BulgarianIntegerToWordsConverter(HundredsToWordsConverter hundredsToStringConverter, List<PluralForms> pluralForms, String oneThousand) {
         super(hundredsToStringConverter, pluralForms);
-        this.pluralForms = pluralForms;
-        this.thousand = thousand;
+        this.oneThousand = oneThousand;
     }
 
     @Override
     public String asWords(Integer value) {
-        if (checkForOneThousand(value)) {
-            return thousand;
+        if (value == ONE_THOUSAND) {
+            return oneThousand;
         }
 
-        String prefix = null;
-        if (checkForThousandRange(value)) {
-            prefix = thousand;
-            value = getSmallerNumbersThenThousand(value);
-        }
-
-        List<Integer> valueChunks = numberChunking.chunk(value);
-        List<PluralForms> formsToUse = reverse(pluralForms.subList(0, valueChunks.size()));
-
-        String result;
-        if (prefix == null) {
-            result = joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator());
+        if (isBetweenOneThousandAndTwoThousand(value)) {
+            int remainder = getNumbersSmallerThanOneThousand(value);
+            return format(MERGE_PATTERN, oneThousand, super.asWords(remainder));
         } else {
-            result = format(MERGE_PATTER, prefix, joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator()));
+            return super.asWords(value);
         }
-
-        return result;
     }
 
-    private boolean checkForThousandRange(Integer value) {
-        return value >= THOUSAND && value < TWO_THOUSAND;
+    private boolean isBetweenOneThousandAndTwoThousand(Integer value) {
+        return value >= ONE_THOUSAND && value < TWO_THOUSAND;
     }
 
-    private boolean checkForOneThousand(Integer value) {
-        return value == THOUSAND;
-    }
-
-    private Integer getSmallerNumbersThenThousand(Integer values) {
-        return values % THOUSAND;
+    private Integer getNumbersSmallerThanOneThousand(Integer values) {
+        return values % ONE_THOUSAND;
     }
 }
