@@ -27,6 +27,11 @@ class ValueConvertersTest extends Specification {
         RUSSIAN_INTEGER.asWords(1_234) == "одна тысяча двести тридцать четыре"
     }
 
+    def "should convert numbers in Bulgarian"() {
+        expect:
+        BULGARIAN_INTEGER.asWords(1_234) == "хиляда двеста тридесет четири"
+    }
+
     def "should convert numbers in Italian"() {
         expect:
         ITALIAN_INTEGER.asWords(1_234) == "milleduecentotrentaquattro"
@@ -113,6 +118,11 @@ class ValueConvertersTest extends Specification {
     def "getByLocaleOrDefault for Russian"() {
         expect:
         getByLocaleOrDefault(new Locale("ru"), null).asWords(1_234) == "одна тысяча двести тридцать четыре"
+    }
+
+    def "getByLocaleOrDefault for Bulgarian"() {
+        expect:
+        getByLocaleOrDefault(new Locale("bg"), null).asWords(1_234) == "хиляда двеста тридесет четири"
     }
 
     def "getByLocaleOrDefault for Italian"() {
