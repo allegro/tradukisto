@@ -21,6 +21,7 @@ Supported languages
 -------------------
 
 * Brazilian Portuguese
+* Bulgarian
 * Czech
 * English
 * French
@@ -47,7 +48,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.finance:tradukisto:1.10.6'
+    compile 'pl.allegro.finance:tradukisto:1.11.0'
 }
 ```
 
