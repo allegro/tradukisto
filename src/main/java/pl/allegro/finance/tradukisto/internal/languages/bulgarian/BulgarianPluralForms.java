@@ -24,4 +24,5 @@ public class BulgarianPluralForms extends SlavonicPluralForms {
 
     private boolean useSingular(Integer value) {
         return value == 1 || (value % 100 != 11 && value % 10 == 1);
-    }}
+    }
+}
