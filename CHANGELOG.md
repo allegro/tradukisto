@@ -163,3 +163,9 @@ Added method for using money converters with a custom currency string
 ## 1.10.6 (2022-03-28)
 
 Upgraded `com.google.guava:guava` dependency version from `23.0` to `25.0-jre`
+
+## 1.11.0 (2022-07-22)
+
+Added support for:
+
+  - Bulgarian
