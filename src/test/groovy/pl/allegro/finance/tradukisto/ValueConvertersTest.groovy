@@ -5,6 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.BULGARIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
@@ -32,6 +33,7 @@ class ValueConvertersTest extends Specification {
         where:
         language               | converter                    || number
         "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_INTEGER || "mil duzentos e trinta e quatro"
+        "Bulgarian"            | BULGARIAN_INTEGER            || "хиляда двеста тридесет четири"
         "Czech"                | CZECH_INTEGER                || "jeden tisíc dvě stě třicet čtyři"
         "English"              | ENGLISH_INTEGER              || "one thousand two hundred thirty-four"
         "French"               | FRENCH_INTEGER               || "mille deux cent trente-quatre"
@@ -68,6 +70,7 @@ class ValueConvertersTest extends Specification {
         locale                                                           || converter
         new Locale("pt-br")                                              || BRAZILIAN_PORTUGUESE_INTEGER
         new Locale("pt")                                                 || BRAZILIAN_PORTUGUESE_INTEGER
+        new Locale("bg")                                                 || BULGARIAN_INTEGER
         new Locale("cs")                                                 || CZECH_INTEGER
         Locale.ENGLISH                                                   || ENGLISH_INTEGER
         Locale.US                                                        || ENGLISH_INTEGER
@@ -114,6 +117,7 @@ class ValueConvertersTest extends Specification {
         languageCode || converter
         "pt-br"      || BRAZILIAN_PORTUGUESE_INTEGER
         "pt"         || BRAZILIAN_PORTUGUESE_INTEGER
+        "bg"         || BULGARIAN_INTEGER
         "cs"         || CZECH_INTEGER
         "en"         || ENGLISH_INTEGER
         "fr"         || FRENCH_INTEGER

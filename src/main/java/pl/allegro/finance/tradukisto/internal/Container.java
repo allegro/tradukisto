@@ -3,6 +3,8 @@ package pl.allegro.finance.tradukisto.internal;
 import pl.allegro.finance.tradukisto.internal.converters.BigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.converters.HundredsToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
@@ -50,6 +52,24 @@ public final class Container {
 
     public static Container serbianCyrillicContainer() {
         return new Container(new SerbianCyrillicValues());
+    }
+
+    public static Container bulgarianContainer() {
+        BulgarianValues bulgarianValues = new BulgarianValues();
+
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(bulgarianValues.baseNumbers(),
+                bulgarianValues.twoDigitsNumberSeparator());
+
+        IntegerToStringConverter integerToStringConverter = new BulgarianIntegerToWordsConverter(
+                hundredsToStringConverter,
+                bulgarianValues.pluralForms(),
+                bulgarianValues.oneThousandException());
+
+        BigDecimalToStringConverter bigDecimalConverter = new BigDecimalToBankingMoneyConverter(
+                integerToStringConverter,
+                bulgarianValues.currency());
+
+        return new Container(integerToStringConverter, null, bigDecimalConverter);
     }
 
     public static Container ukrainianContainer() {
