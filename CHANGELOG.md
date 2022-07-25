@@ -169,3 +169,10 @@ Upgraded `com.google.guava:guava` dependency version from `23.0` to `25.0-jre`
 Added support for:
 
   - Bulgarian
+
+## 1.12.0 (2022-07-25)
+
+Added long converters for:
+
+  - English
+  - Polish
