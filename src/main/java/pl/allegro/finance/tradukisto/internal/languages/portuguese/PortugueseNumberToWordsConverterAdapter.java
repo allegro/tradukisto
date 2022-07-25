@@ -5,14 +5,14 @@ import java.util.Iterator;
 import java.util.List;
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
-public class PortugueseIntegerToWordsConverterAdapter extends IntegerToWordsConverter {
+public class PortugueseNumberToWordsConverterAdapter extends NumberToWordsConverter {
 
-    public PortugueseIntegerToWordsConverterAdapter(IntegerToStringConverter hundredsToWordsConverter,
-             List<PluralForms> pluralForms) {
+    public PortugueseNumberToWordsConverterAdapter(IntegerToStringConverter hundredsToWordsConverter,
+                                                   List<PluralForms> pluralForms) {
          super(hundredsToWordsConverter, pluralForms);
     }
 

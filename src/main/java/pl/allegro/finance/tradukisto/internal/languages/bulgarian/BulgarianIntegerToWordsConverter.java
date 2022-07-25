@@ -1,16 +1,14 @@
 package pl.allegro.finance.tradukisto.internal.languages.bulgarian;
 
 import pl.allegro.finance.tradukisto.internal.converters.HundredsToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
-import pl.allegro.finance.tradukisto.internal.support.NumberChunking;
 
 import java.util.List;
 
-import static com.google.common.collect.Lists.reverse;
 import static java.lang.String.format;
 
-public class BulgarianIntegerToWordsConverter extends IntegerToWordsConverter {
+public class BulgarianIntegerToWordsConverter extends NumberToWordsConverter {
 
     private final String oneThousand;
 

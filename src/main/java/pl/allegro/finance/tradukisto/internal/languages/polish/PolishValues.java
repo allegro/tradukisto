@@ -62,7 +62,10 @@ public class PolishValues implements BaseValues {
                 new SlavonicPluralForms("", "", ""),
                 new SlavonicPluralForms("tysiąc", "tysiące", "tysięcy"),
                 new SlavonicPluralForms("milion", "miliony", "milionów"),
-                new SlavonicPluralForms("miliard", "miliardy", "miliardów"));
+                new SlavonicPluralForms("miliard", "miliardy", "miliardów"),
+                new SlavonicPluralForms("bilion", "biliony", "bilionów"),
+                new SlavonicPluralForms("biliard", "biliardy", "biliardów"),
+                new SlavonicPluralForms("trylion", "tryliony", "trylionów"));
     }
 
     @Override

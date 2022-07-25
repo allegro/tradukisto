@@ -15,6 +15,7 @@ Features
 --------
 
 * Converts `Integer` to `String` with numerical representation support.
+* Converts `Long` to `String` with numerical representation support.
 * Converts `BigDecimal` to `String` with money representation support.
 
 Supported languages
@@ -55,10 +56,17 @@ dependencies {
 and use it:
 
 ```java
-ValueConverters converter = ValueConverters.ENGLISH_INTEGER;
-String valueAsWords = converter.asWords(1_234);
+ValueConverters intConverter = ValueConverters.ENGLISH_INTEGER;
+String valueAsWords = intConverter.asWords(1_234);
 
 assertEquals("one thousand two hundred thirty-four", valueAsWords);
+```
+
+```java
+LongValueConverters longConverter = LongValueConverters.ENGLISH_LONG;
+String valueAsWords = converter.asWords(1_000_000_000_000_000_000);
+
+assertEquals("one quintillion", valueAsWords);
 ```
 
 ```java

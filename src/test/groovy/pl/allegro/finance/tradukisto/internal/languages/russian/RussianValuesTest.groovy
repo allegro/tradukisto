@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.russian
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.russianContainer
 
 class RussianValuesTest extends Specification {
 
-    static converter = russianContainer().getNumbersConverter()
+    static intConverter = russianContainer().getIntegerConverter()
+    static longConverter = russianContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Russian"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -90,5 +92,28 @@ class RussianValuesTest extends Specification {
         123_456_789   | "сто двадцать три миллиона четыреста пятьдесят шесть тысяч семьсот восемьдесят девять"
         1_000_000_000 | "один миллиард"
         2_147_483_647 | "два миллиарда сто сорок семь миллионов четыреста восемьдесят три тысячи шестьсот сорок семь"
+    }
+
+    @Ignore("Needs Russian long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Russian"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

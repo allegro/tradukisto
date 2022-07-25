@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.slovak
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer
 
 class SlovakValuesTest extends Specification {
 
-    static converter = slovakContainer().getNumbersConverter()
+    static intConverter = slovakContainer().getIntegerConverter()
+    static longConverter = slovakContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Slovak"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -105,7 +107,7 @@ class SlovakValuesTest extends Specification {
 
     def "should convert any value in range of 0-999 in Slovak"() {
         when:
-        def words = converter.asWords(value)
+        def words = intConverter.asWords(value)
 
         then:
         notThrown(IllegalArgumentException)
@@ -113,5 +115,28 @@ class SlovakValuesTest extends Specification {
 
         where:
         value << (0..999)
+    }
+
+    @Ignore("Needs Slovak long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Slovak"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

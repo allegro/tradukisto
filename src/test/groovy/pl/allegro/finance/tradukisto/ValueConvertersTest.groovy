@@ -2,216 +2,161 @@ package pl.allegro.finance.tradukisto
 
 import com.google.common.base.VerifyException
 import spock.lang.Specification
+import spock.lang.Unroll
 
-import static pl.allegro.finance.tradukisto.ValueConverters.*
+import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.BULGARIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_CYRILLIC_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.getByLanguageCodeOrDefault
+import static pl.allegro.finance.tradukisto.ValueConverters.getByLocaleOrDefault
 
 class ValueConvertersTest extends Specification {
 
-    def "should convert numbers in Brazilian Portuguese"() {
+    @Unroll
+    def "should convert numbers in #language"() {
         expect:
-        BRAZILIAN_PORTUGUESE_INTEGER.asWords(1_234) == "mil duzentos e trinta e quatro"
+        converter.asWords(1_234) == number
+
+        where:
+        language               | converter                    || number
+        "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_INTEGER || "mil duzentos e trinta e quatro"
+        "Bulgarian"            | BULGARIAN_INTEGER            || "хиляда двеста тридесет четири"
+        "Czech"                | CZECH_INTEGER                || "jeden tisíc dvě stě třicet čtyři"
+        "English"              | ENGLISH_INTEGER              || "one thousand two hundred thirty-four"
+        "French"               | FRENCH_INTEGER               || "mille deux cent trente-quatre"
+        "German"               | GERMAN_INTEGER               || "eintausendzweihundertvierunddreißig"
+        "Italian"              | ITALIAN_INTEGER              || "milleduecentotrentaquattro"
+        "Kazakh"               | KAZAKH_INTEGER               || "бір мың екі жүз отыз төрт"
+        "Latvian"              | LATVIAN_INTEGER              || "viens tūkstotis divi simti trīsdesmit četri"
+        "Polish"               | POLISH_INTEGER               || "jeden tysiąc dwieście trzydzieści cztery"
+        "Serbian Cyrillic"     | SERBIAN_CYRILLIC_INTEGER     || "једна хиљада двеста тридесет четири"
+        "Serbian Latin"        | SERBIAN_INTEGER              || "jedna hiljada dvesta trideset četiri"
+        "Slovak"               | SLOVAK_INTEGER               || "jeden tisíc dvesto tridsať štyri"
+        "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
+        "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
+        "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
     }
 
-    def "should convert numbers in English"() {
-        expect:
-        ENGLISH_INTEGER.asWords(1_234) == "one thousand two hundred thirty-four"
-    }
-
-    def "should convert numbers in German"() {
-        expect:
-        GERMAN_INTEGER.asWords(1_234) == "eintausendzweihundertvierunddreißig"
-    }
-
-    def "should convert numbers in Russian"() {
-        expect:
-        RUSSIAN_INTEGER.asWords(1_234) == "одна тысяча двести тридцать четыре"
-    }
-
-    def "should convert numbers in Bulgarian"() {
-        expect:
-        BULGARIAN_INTEGER.asWords(1_234) == "хиляда двеста тридесет четири"
-    }
-
-    def "should convert numbers in Italian"() {
-        expect:
-        ITALIAN_INTEGER.asWords(1_234) == "milleduecentotrentaquattro"
-    }
-
-    def "should convert numbers in Polish"() {
-        expect:
-        POLISH_INTEGER.asWords(1_234) == "jeden tysiąc dwieście trzydzieści cztery"
-    }
-
-    def "should convert numbers in Czech"() {
-        expect:
-        CZECH_INTEGER.asWords(1_234) == "jeden tisíc dvě stě třicet čtyři"
-    }
-
-    def "should convert numbers in Slovak"() {
-        expect:
-        SLOVAK_INTEGER.asWords(1_234) == "jeden tisíc dvesto tridsať štyri"
-    }
-
-    def "should convert numbers in Latvian"() {
-        expect:
-        LATVIAN_INTEGER.asWords(1_234) == "viens tūkstotis divi simti trīsdesmit četri"
-    }
-
-    def "should convert numbers in Kazakh"() {
-        expect:
-        KAZAKH_INTEGER.asWords(1_234) == "бір мың екі жүз отыз төрт"
-    }
-
-    def "should convert numbers in Ukrainian"() {
-        expect:
-        UKRAINIAN_INTEGER.asWords(1_234) == "одна тисяча двісті тридцять чотири"
-    }
-
-    def "should convert numbers in Serbian"() {
-        expect:
-        SERBIAN_INTEGER.asWords(1_234) == "jedna hiljada dvesta trideset četiri"
-    }
-
-    def "should convert numbers in Serbian Cyrillic"() {
-        expect:
-        SERBIAN_CYRILLIC_INTEGER.asWords(1_234) == "једна хиљада двеста тридесет четири"
-    }
-
-    def "should convert numbers in French"() {
-        expect:
-        FRENCH_INTEGER.asWords(1_234) == "mille deux cent trente-quatre"
-    }
-
-    def "should convert numbers in Turkish"() {
-        expect:
-        TURKISH_INTEGER.asWords(1_234) == "Bin İki Yüz Otuz Dört"
-    }
-
-    def "should throw exception when null given"() {
+    def "should throw exception when null value given"() {
         when:
-        POLISH_INTEGER.asWords(null)
+        converter.asWords(null)
+
+        then:
+        thrown(VerifyException)
+
+        where:
+        converter << ValueConverters.values()
+    }
+
+    @Unroll
+    def "should return #converter for locale #locale"() {
+        expect:
+        getByLocaleOrDefault(locale, null) == converter
+
+        where:
+        locale                                                           || converter
+        new Locale("pt-br")                                              || BRAZILIAN_PORTUGUESE_INTEGER
+        new Locale("pt")                                                 || BRAZILIAN_PORTUGUESE_INTEGER
+        new Locale("bg")                                                 || BULGARIAN_INTEGER
+        new Locale("cs")                                                 || CZECH_INTEGER
+        Locale.ENGLISH                                                   || ENGLISH_INTEGER
+        Locale.US                                                        || ENGLISH_INTEGER
+        Locale.FRENCH                                                    || FRENCH_INTEGER
+        new Locale("it")                                                 || ITALIAN_INTEGER
+        Locale.ITALIAN                                                   || ITALIAN_INTEGER
+        new Locale("de")                                                 || GERMAN_INTEGER
+        Locale.GERMANY                                                   || GERMAN_INTEGER
+        new Locale("kk")                                                 || KAZAKH_INTEGER
+        new Locale("lv")                                                 || LATVIAN_INTEGER
+        new Locale("pl")                                                 || POLISH_INTEGER
+        new Locale("ru")                                                 || RUSSIAN_INTEGER
+        new Locale.Builder().setLanguage("sr").setScript("Cyrl").build() || SERBIAN_CYRILLIC_INTEGER
+        new Locale("sr")                                                 || SERBIAN_INTEGER
+        new Locale.Builder().setLanguage("sr").setScript("Latn").build() || SERBIAN_INTEGER
+        new Locale("sk")                                                 || SLOVAK_INTEGER
+        new Locale("tr")                                                 || TURKISH_INTEGER
+        new Locale("uk")                                                 || UKRAINIAN_INTEGER
+    }
+
+    def "should return supplied default converter when locale is unknown"() {
+        given:
+        def defaultConverter = FRENCH_INTEGER
+        def unknownLocale = new Locale("zh")
+
+        expect:
+        getByLocaleOrDefault(unknownLocale, defaultConverter) == defaultConverter
+    }
+
+    def "should throw exception when null locale given"() {
+        when:
+        getByLocaleOrDefault(null, null)
 
         then:
         thrown(VerifyException)
     }
 
-    def "getByLocaleOrDefault for Brazilian Portuguese"() {
+    @Unroll
+    def "should return #converter for language code #languageCode"() {
         expect:
-        getByLocaleOrDefault(new Locale("pt-br"), null).asWords(1_234) == "mil duzentos e trinta e quatro"
+        getByLanguageCodeOrDefault(languageCode, null) == converter
+
+        where:
+        languageCode || converter
+        "pt-br"      || BRAZILIAN_PORTUGUESE_INTEGER
+        "pt"         || BRAZILIAN_PORTUGUESE_INTEGER
+        "bg"         || BULGARIAN_INTEGER
+        "cs"         || CZECH_INTEGER
+        "en"         || ENGLISH_INTEGER
+        "fr"         || FRENCH_INTEGER
+        "it"         || ITALIAN_INTEGER
+        "de"         || GERMAN_INTEGER
+        "kk"         || KAZAKH_INTEGER
+        "lv"         || LATVIAN_INTEGER
+        "pl"         || POLISH_INTEGER
+        "ru"         || RUSSIAN_INTEGER
+        "sr__#Cyrl"  || SERBIAN_CYRILLIC_INTEGER
+        "sr"         || SERBIAN_INTEGER
+        "sr__#Latn"  || SERBIAN_INTEGER
+        "sk"         || SLOVAK_INTEGER
+        "tr"         || TURKISH_INTEGER
+        "uk"         || UKRAINIAN_INTEGER
     }
 
-    def "getByLocaleOrDefault for Portuguese"() {
+    def "should return supplied default converter when languageCode is unknown"() {
+        given:
+        def defaultConverter = FRENCH_INTEGER
+        def unknownLanguageCode = "zh"
+
         expect:
-        getByLocaleOrDefault(new Locale("pt"), null).asWords(1_234) == "mil duzentos e trinta e quatro"
+        getByLanguageCodeOrDefault(unknownLanguageCode, defaultConverter) == defaultConverter
     }
 
-    def "getByLocaleOrDefault for English"() {
-        expect:
-        getByLocaleOrDefault(Locale.ENGLISH, null).asWords(1_234) == "one thousand two hundred thirty-four"
-    }
-
-    def "getByLocaleOrDefault for German"() {
-        expect:
-        getByLocaleOrDefault(new Locale("de"), null).asWords(1_234) == "eintausendzweihundertvierunddreißig"
-    }
-
-    def "getByLocaleOrDefault for Russian"() {
-        expect:
-        getByLocaleOrDefault(new Locale("ru"), null).asWords(1_234) == "одна тысяча двести тридцать четыре"
-    }
-
-    def "getByLocaleOrDefault for Bulgarian"() {
-        expect:
-        getByLocaleOrDefault(new Locale("bg"), null).asWords(1_234) == "хиляда двеста тридесет четири"
-    }
-
-    def "getByLocaleOrDefault for Italian"() {
-        expect:
-        getByLocaleOrDefault(new Locale("it"), null).asWords(1_234) == "milleduecentotrentaquattro"
-    }
-
-    def "getByLocaleOrDefault for Polish"() {
-        expect:
-        getByLocaleOrDefault(new Locale("pl"), null).asWords(1_234) == "jeden tysiąc dwieście trzydzieści cztery"
-    }
-
-    def "getByLocaleOrDefault for Czech"() {
-        expect:
-        getByLocaleOrDefault(new Locale("cs"), null).asWords(1_234) == "jeden tisíc dvě stě třicet čtyři"
-    }
-
-    def "getByLocaleOrDefault for Slovak"() {
-        expect:
-        getByLocaleOrDefault(new Locale("sk"), null).asWords(1_234) == "jeden tisíc dvesto tridsať štyri"
-    }
-
-    def "getByLocaleOrDefault for Latvian"() {
-        expect:
-        getByLocaleOrDefault(new Locale("lv"), null).asWords(1_234) == "viens tūkstotis divi simti trīsdesmit četri"
-    }
-
-    def "getByLocaleOrDefault for Kazakh"() {
-        expect:
-        getByLocaleOrDefault(new Locale("kk"), null).asWords(1_234) == "бір мың екі жүз отыз төрт"
-    }
-
-    def "getByLocaleOrDefault for Ukrainian"() {
-        expect:
-        getByLocaleOrDefault(new Locale("uk"), null).asWords(1_234) == "одна тисяча двісті тридцять чотири"
-    }
-
-    def "getByLocaleOrDefault for Serbian"() {
-        expect:
-        getByLocaleOrDefault(new Locale("sr"), null).asWords(1_234) == "jedna hiljada dvesta trideset četiri"
-    }
-
-    def "getByLocaleOrDefault for Serbian Latin"() {
-        expect:
-        getByLocaleOrDefault(new Locale.Builder().setLanguage("sr").setScript("Latn").build(), null).asWords(1_234) == "jedna hiljada dvesta trideset četiri"
-    }
-
-    def "getByLocaleOrDefault for Serbian Cyrillic"() {
-        expect:
-        getByLocaleOrDefault(new Locale.Builder().setLanguage("sr").setScript("Cyrl").build(), null).asWords(1_234) == "једна хиљада двеста тридесет четири"
-    }
-
-    def "getByLocaleOrDefault for French"() {
-        expect:
-        getByLocaleOrDefault(Locale.FRENCH, null).asWords(1_234) == "mille deux cent trente-quatre"
-    }
-
-    def "getByLocaleOrDefault for Turkish"() {
-        expect:
-        getByLocaleOrDefault(new Locale("tr"), null).asWords(1_234) == "Bin İki Yüz Otuz Dört"
-    }
-
-    def "getByLocaleOrDefault: should throw exception when null given"() {
+    def "should throw exception when null language code given"() {
         when:
-        getByLocaleOrDefault(null, null).asWords(null)
+        getByLanguageCodeOrDefault(null, null)
 
         then:
         thrown(VerifyException)
     }
 
-    def "getByLanguageCodeOrDefault: should throw exception when null language code given"() {
+    def "should throw exception when empty language code given"() {
         when:
-        getByLanguageCodeOrDefault(null, null).asWords(null)
+        getByLocaleOrDefault(new Locale(""), null)
 
         then:
         thrown(VerifyException)
     }
-
-    def "getByLocaleOrDefault: should throw exception when empty language code given"() {
-        when:
-        getByLocaleOrDefault(new Locale(""), null).asWords(null)
-
-        then:
-        thrown(VerifyException)
-    }
-
-    def "getByLocaleOrDefault: test for default converter"() {
-        expect:
-        getByLocaleOrDefault(new Locale("zh"), FRENCH_INTEGER) == FRENCH_INTEGER
-    }
-
 }

@@ -29,22 +29,22 @@ import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContaine
 
 public enum ValueConverters {
 
-    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getNumbersConverter(), Arrays.asList("pt", "pt-br")),
-    ENGLISH_INTEGER(englishContainer().getNumbersConverter(), "en"),
-    GERMAN_INTEGER(germanContainer().getNumbersConverter(), "de"),
-    RUSSIAN_INTEGER(russianContainer().getNumbersConverter(), "ru"),
-    ITALIAN_INTEGER(italianContainer().getNumbersConverter(), "it"),
-    POLISH_INTEGER(polishContainer().getNumbersConverter(), "pl"),
-    CZECH_INTEGER(czechContainer().getNumbersConverter(), "cs"),
-    SLOVAK_INTEGER(slovakContainer().getNumbersConverter(), "sk"),
-    LATVIAN_INTEGER(latvianContainer().getNumbersConverter(), "lv"),
-    KAZAKH_INTEGER(kazakhContainer().getNumbersConverter(), "kk"),
-    UKRAINIAN_INTEGER(ukrainianContainer().getNumbersConverter(), "uk"),
-    SERBIAN_INTEGER(serbianContainer().getNumbersConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
-    SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getNumbersConverter(), getLanguageCodeFor("sr", "Cyrl")),
-    BULGARIAN_INTEGER(bulgarianContainer().getNumbersConverter(), "bg"),
-    FRENCH_INTEGER(frenchContainer().getNumbersConverter(), "fr"),
-    TURKISH_INTEGER(turkishContainer().getNumbersConverter(), "tr");
+    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getIntegerConverter(), Arrays.asList("pt", "pt-br")),
+    ENGLISH_INTEGER(englishContainer().getIntegerConverter(), "en"),
+    GERMAN_INTEGER(germanContainer().getIntegerConverter(), "de"),
+    RUSSIAN_INTEGER(russianContainer().getIntegerConverter(), "ru"),
+    ITALIAN_INTEGER(italianContainer().getIntegerConverter(), "it"),
+    POLISH_INTEGER(polishContainer().getIntegerConverter(), "pl"),
+    CZECH_INTEGER(czechContainer().getIntegerConverter(), "cs"),
+    SLOVAK_INTEGER(slovakContainer().getIntegerConverter(), "sk"),
+    LATVIAN_INTEGER(latvianContainer().getIntegerConverter(), "lv"),
+    KAZAKH_INTEGER(kazakhContainer().getIntegerConverter(), "kk"),
+    UKRAINIAN_INTEGER(ukrainianContainer().getIntegerConverter(), "uk"),
+    SERBIAN_INTEGER(serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
+    SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
+    BULGARIAN_INTEGER(bulgarianContainer().getIntegerConverter(), "bg"),
+    FRENCH_INTEGER(frenchContainer().getIntegerConverter(), "fr"),
+    TURKISH_INTEGER(turkishContainer().getIntegerConverter(), "tr");
 
     private final IntegerToStringConverter converter;
     private final List<String> languageCodes;
@@ -77,14 +77,6 @@ public enum ValueConverters {
         return getByLanguageCodeOrDefault(languageCode, defaultConverter);
     }
 
-    private static boolean hasSpecifiedScript(Locale locale) {
-        return !Strings.isNullOrEmpty(locale.getScript());
-    }
-
-    private static String getLanguageCodeFor(String language, String script) {
-        return new Locale.Builder().setLanguage(language).setScript(script).build().toString();
-    }
-
     public static ValueConverters getByLanguageCodeOrDefault(String languageCode, ValueConverters defaultConverter) {
         verifyNotNull(languageCode);
         verify(!languageCode.isEmpty());
@@ -93,5 +85,13 @@ public enum ValueConverters {
                 .filter(it -> it.languageCodes.contains(languageCode))
                 .findFirst()
                 .orElse(defaultConverter);
+    }
+
+    private static boolean hasSpecifiedScript(Locale locale) {
+        return !Strings.isNullOrEmpty(locale.getScript());
+    }
+
+    private static String getLanguageCodeFor(String language, String script) {
+        return new Locale.Builder().setLanguage(language).setScript(script).build().toString();
     }
 }

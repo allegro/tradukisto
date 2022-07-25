@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.bulgarian
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContaine
 
 class BulgarianValuesTest extends Specification {
 
-    static converter = bulgarianContainer().getNumbersConverter()
+    static intConverter = bulgarianContainer().getIntegerConverter()
+    static longConverter = bulgarianContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Bulgarian"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -103,4 +105,26 @@ class BulgarianValuesTest extends Specification {
         2_147_483_647 | "два милиарда сто четиридесет седем милиона четиристотин осемдесет три хиляди шестстотин четиридесет седем"
     }
 
+    @Ignore("Needs Bulgarian long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Bulgarian"() {
+        expect:
+            longConverter.asWords(value) == words
+
+        where:
+            value                     | words
+            5_000_000_000             | ""
+
+            1_000_000_000_000         | ""
+            2_000_000_000_000         | ""
+            5_000_000_000_000         | ""
+
+            1_000_000_000_000_000     | ""
+            2_000_000_000_000_000     | ""
+            5_000_000_000_000_000     | ""
+
+            1_000_000_000_000_000_000 | ""
+            2_000_000_000_000_000_000 | ""
+            Long.MAX_VALUE            | ""
+    }
 }

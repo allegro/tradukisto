@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.italian
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.italianContainer
 
 class ItalianValuesTest extends Specification {
 
-    static converter = italianContainer().getNumbersConverter()
+    static intConverter = italianContainer().getIntegerConverter()
+    static longConverter = italianContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Italian"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value      | words
@@ -107,5 +109,28 @@ class ItalianValuesTest extends Specification {
         1000000000 | "unmiliardo"
         1000001234 | "unmiliardomilleduecentotrentaquattro"
         2147483647 | "duemiliardicentoquarantasettemilioniquattrocentoottantatremilaseicentoquarantasette"
+    }
+
+    @Ignore("Needs Italian long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Italian"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }
