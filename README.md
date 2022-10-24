@@ -75,7 +75,7 @@ MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
 String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
 assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
 
-String moneyAsWordsWithCurrency = converter.asWords(new BigDecimal("1234.56", "EUR"));
+String moneyAsWordsWithCurrency = converter.asWords(new BigDecimal("1234.56"), "EUR");
 assertEquals("one thousand two hundred thirty-four EUR 56/100", moneyAsWordsWithCurrency);
 ```
 
