@@ -11,6 +11,7 @@ import java.util.Locale;
 import static com.google.common.base.Verify.verify;
 import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
@@ -35,6 +36,7 @@ public enum ValueConverters {
     RUSSIAN_INTEGER(russianContainer().getIntegerConverter(), "ru"),
     ITALIAN_INTEGER(italianContainer().getIntegerConverter(), "it"),
     POLISH_INTEGER(polishContainer().getIntegerConverter(), "pl"),
+    CROATIAN_INTEGER(croatianContainer().getIntegerConverter(), "hr"),
     CZECH_INTEGER(czechContainer().getIntegerConverter(), "cs"),
     SLOVAK_INTEGER(slovakContainer().getIntegerConverter(), "sk"),
     LATVIAN_INTEGER(latvianContainer().getIntegerConverter(), "lv"),
