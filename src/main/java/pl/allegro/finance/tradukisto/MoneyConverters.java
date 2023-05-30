@@ -22,6 +22,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
 
 public enum MoneyConverters {
 
@@ -41,7 +42,8 @@ public enum MoneyConverters {
     SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
     SERBIAN_CYRILLIC_BANKING_MONEY_VALUE(serbianCyrillicContainer().getBankingMoneyConverter()),
     FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter()),
-    BULGARIAN_BANKING_MONEY_VALUE(bulgarianContainer().getBankingMoneyConverter());
+    BULGARIAN_BANKING_MONEY_VALUE(bulgarianContainer().getBankingMoneyConverter()),
+    DUTCH_BANKING_MONEY_VALUE(dutchContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 

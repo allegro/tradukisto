@@ -20,6 +20,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.getByLanguageCodeOrDefault
 import static pl.allegro.finance.tradukisto.ValueConverters.getByLocaleOrDefault
 
@@ -35,6 +36,7 @@ class ValueConvertersTest extends Specification {
         "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_INTEGER || "mil duzentos e trinta e quatro"
         "Bulgarian"            | BULGARIAN_INTEGER            || "хиляда двеста тридесет четири"
         "Czech"                | CZECH_INTEGER                || "jeden tisíc dvě stě třicet čtyři"
+        "Dutch"                | DUTCH_INTEGER                || "duizendtweehonderdvierendertig"
         "English"              | ENGLISH_INTEGER              || "one thousand two hundred thirty-four"
         "French"               | FRENCH_INTEGER               || "mille deux cent trente-quatre"
         "German"               | GERMAN_INTEGER               || "eintausendzweihundertvierunddreißig"
@@ -89,6 +91,7 @@ class ValueConvertersTest extends Specification {
         new Locale("sk")                                                 || SLOVAK_INTEGER
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
+        new Locale("nl")                                                 || DUTCH_INTEGER
     }
 
     def "should return supplied default converter when locale is unknown"() {
@@ -119,6 +122,7 @@ class ValueConvertersTest extends Specification {
         "pt"         || BRAZILIAN_PORTUGUESE_INTEGER
         "bg"         || BULGARIAN_INTEGER
         "cs"         || CZECH_INTEGER
+        "nl"         || DUTCH_INTEGER
         "en"         || ENGLISH_INTEGER
         "fr"         || FRENCH_INTEGER
         "it"         || ITALIAN_INTEGER

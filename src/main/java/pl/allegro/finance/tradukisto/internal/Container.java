@@ -8,6 +8,9 @@ import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianValue
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchValues;
 import pl.allegro.finance.tradukisto.internal.languages.english.AmericanEnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.french.FrenchNumberToWordsConverter;
@@ -140,6 +143,23 @@ public final class Container {
         IntegerToStringConverter converter = new GermanIntegerToWordsConverter(
                 new NumberToWordsConverter(germanThousandToWordsConverter, values.pluralForms()), values.exceptions(),
                 germanThousandToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
+    }
+
+    public static Container dutchContainer() {
+
+        DutchValues values = new DutchValues();
+
+        DutchThousandToWordsConverter dutchThousandToWordsConverter = new DutchThousandToWordsConverter(
+                values.baseNumbers());
+
+        IntegerToStringConverter converter = new DutchIntegerToWordsConverter(
+                new NumberToWordsConverter(dutchThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+                dutchThousandToWordsConverter);
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
                 converter, values.currency());
