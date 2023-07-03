@@ -44,7 +44,7 @@ Add `tradukisto` as a dependency:
 
 ```
 dependencies {
-    implementation("pl.allegro.finance:tradukisto:1.12.0")
+    implementation("pl.allegro.finance:tradukisto:1.12.1")
 }
 ```
 
