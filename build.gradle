@@ -40,8 +40,8 @@ dependencies {
 
 jacocoTestReport {
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml.required = true
+        csv.required = true
     }
 }
 
