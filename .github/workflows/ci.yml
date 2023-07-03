@@ -1,26 +1,28 @@
 name: Build
 
 on:
+  pull_request:
   push:
-    paths-ignore:
-      - 'README.md'
+    tags-ignore:
+      - 'v*'
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        java: [ '8', '11', '17' ]
+        java: ['8', '11', '17']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: gradle/wrapper-validation-action@v1
-
-      - name: Set up ${{ matrix.Java }}
-        uses: actions/setup-java@v2
+      - name: Set up ${{ matrix.java }}
+        uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java }}
@@ -39,3 +41,21 @@ jobs:
       - name: Upload coverage to Codecov
         if: matrix.Java == '17'
         uses: codecov/codecov-action@v1
+  
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' }}
+    needs: build
+  
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.5.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
