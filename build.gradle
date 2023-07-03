@@ -34,7 +34,7 @@ compileJava {
 }
 
 dependencies {
-    implementation "com.google.guava:guava:25.0-jre"
+    implementation "com.google.guava:guava:32.1.1-jre"
     testImplementation "org.spockframework:spock-core:2.3-groovy-4.0"
 }
 
