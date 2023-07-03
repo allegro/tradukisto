@@ -40,6 +40,8 @@ Supported languages
 * 🇷🇸 Serbian (Cyrillic)
 * 🇹🇷 Turkish
 
+Is your language missing from the list? We encourage you to contribute to our project. 
+
 Usage
 -----
 
