@@ -35,7 +35,7 @@ compileJava {
 
 dependencies {
     implementation "com.google.guava:guava:25.0-jre"
-    testImplementation "org.spockframework:spock-core:1.1-groovy-2.4"
+    testImplementation "org.spockframework:spock-core:2.3-groovy-4.0"
 }
 
 jacocoTestReport {
