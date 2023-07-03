@@ -177,6 +177,6 @@ Added long converters for:
   - English
   - Polish
 
-## 1.13.0 (2023-07-03)
+## 1.12.1 (2023-07-03)
 
 Upgraded `com.google.guava:guava` dependency version from `25.0-jre` to `32.1.1-jre`
