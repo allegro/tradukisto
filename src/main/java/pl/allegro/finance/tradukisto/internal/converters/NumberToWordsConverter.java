@@ -1,19 +1,18 @@
 package pl.allegro.finance.tradukisto.internal.converters;
 
-import com.google.common.base.Joiner;
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.LongToStringConverter;
 import pl.allegro.finance.tradukisto.internal.ToStringConverter;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Assert;
 import pl.allegro.finance.tradukisto.internal.support.NumberChunking;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.collect.Lists.reverse;
+import static java.util.Collections.reverse;
 
 public class NumberToWordsConverter implements IntegerToStringConverter, LongToStringConverter {
 
@@ -41,12 +40,19 @@ public class NumberToWordsConverter implements IntegerToStringConverter, LongToS
 
     @Override
     public String asWords(Long value) {
-        checkArgument(value >= 0, "can't convert negative numbers for value %d", value);
+        Assert.isTrue(value >= 0, () -> String.format("can't convert negative numbers for value %d", value));
 
         List<Integer> valueChunks = numberChunking.chunk(value);
-        List<PluralForms> formsToUse = reverse(pluralForms.subList(0, valueChunks.size()));
+        List<PluralForms> formsToUse = getRequiredFormsInReversedOrder(valueChunks.size());
+
 
         return joinValueChunksWithForms(valueChunks.iterator(), formsToUse.iterator());
+    }
+
+    protected List<PluralForms> getRequiredFormsInReversedOrder(int chunks) {
+        List<PluralForms> formsToUse = new ArrayList<>(pluralForms.subList(0, chunks));
+        reverse(formsToUse);
+        return formsToUse;
     }
 
     protected String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<PluralForms> formsToUse) {
@@ -66,10 +72,9 @@ public class NumberToWordsConverter implements IntegerToStringConverter, LongToS
     }
 
     protected String joinParts(List<String> result) {
-        if (result.size() == 0) {
-            return hundredsToWordsConverter.asWords(0, pluralForms.get(0).genderType());
-        }
-
-        return Joiner.on(" ").join(result).trim();
+        return result.isEmpty()
+                ? hundredsToWordsConverter.asWords(0, pluralForms.get(0).genderType())
+                : String.join(" ", result).trim();
     }
+
 }
