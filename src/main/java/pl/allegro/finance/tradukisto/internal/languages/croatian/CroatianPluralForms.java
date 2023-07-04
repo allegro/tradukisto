@@ -12,6 +12,10 @@ public class CroatianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
+    public CroatianPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+        this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
+    }
+
     public CroatianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
@@ -22,20 +26,18 @@ public class CroatianPluralForms implements PluralForms {
 
     @Override
     public String formFor(Integer value) {
-        if (useSingular(value)) {
+        if (value == 1) {
             return singularForm;
-        } else if (usePluralForm(value)) {
+        }
+        if (usePluralForm(value)) {
             return pluralForm;
         }
         return genitivePluralForm;
     }
 
-    private boolean useSingular(Integer value) {
-        return value == 1 || (value % 100 != 11 && value % 10 == 1);
-    }
-
     private boolean usePluralForm(Integer value) {
-        return Range.closed(2, 4).contains(value % 10) && !Range.closed(12, 14).contains(value % 100);
+        return Range.closed(2, 4).contains(value % 10)
+                && !Range.closed(12, 14).contains(value % 100);
     }
 
     @Override

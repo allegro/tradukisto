@@ -1,27 +1,47 @@
 package pl.allegro.finance.tradukisto.internal.languages.bulgarian;
 
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.SlavonicPluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
-public class BulgarianPluralForms extends SlavonicPluralForms {
+public class BulgarianPluralForms implements PluralForms {
 
     private final String singularForm;
+    private final String pluralForm;
+    private final String genitivePluralForm;
+
+    private final GenderType genderType;
+
+    public BulgarianPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+        this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
+    }
 
     public BulgarianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
-        super(singularForm, pluralForm, genitivePluralForm, genderType);
         this.singularForm = singularForm;
+        this.pluralForm = pluralForm;
+        this.genitivePluralForm = genitivePluralForm;
+
+        this.genderType = genderType;
     }
 
     @Override
     public String formFor(Integer value) {
-        if (useSingular(value)) {
+        if (value == 1) {
             return singularForm;
-        } else {
-            return super.formFor(value);
         }
+        if (usePluralForm(value)) {
+            return pluralForm;
+        }
+        return genitivePluralForm;
     }
 
-    private boolean useSingular(Integer value) {
-        return value == 1 || (value % 100 != 11 && value % 10 == 1);
+    private boolean usePluralForm(Integer value) {
+        return Range.closed(2, 4).contains(value % 10)
+                && !Range.closed(12, 14).contains(value % 100);
+    }
+
+    @Override
+    public GenderType genderType() {
+        return genderType;
     }
 }

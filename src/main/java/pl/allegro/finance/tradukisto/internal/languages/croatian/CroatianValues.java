@@ -4,6 +4,7 @@ import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SlavicPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,13 +60,13 @@ public class CroatianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new CroatianPluralForms("", "", "", GenderType.MASCULINE),
-                new CroatianPluralForms("tisuća", "tisuće", "tisuća", GenderType.FEMININE),
-                new CroatianPluralForms("milijun", "milijuna", "milijuna", GenderType.MASCULINE),
-                new CroatianPluralForms("milijarda", "milijarde", "milijardi", GenderType.FEMININE),
-                new CroatianPluralForms("bilijun", "bilijuna", "bilijuna", GenderType.MASCULINE),
-                new CroatianPluralForms("bilijarda", "bilijarde", "bilijardi", GenderType.FEMININE),
-                new CroatianPluralForms("trilijun", "trilijuna", "trilijuna", GenderType.MASCULINE));
+                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+                new SlavicPluralForms("tisuća", "tisuće", "tisuća", GenderType.FEMININE),
+                new SlavicPluralForms("milijun", "milijuna", "milijuna", GenderType.MASCULINE),
+                new SlavicPluralForms("milijarda", "milijarde", "milijardi", GenderType.FEMININE),
+                new SlavicPluralForms("bilijun", "bilijuna", "bilijuna", GenderType.MASCULINE),
+                new SlavicPluralForms("bilijarda", "bilijarde", "bilijardi", GenderType.FEMININE),
+                new SlavicPluralForms("trilijun", "trilijuna", "trilijuna", GenderType.MASCULINE));
     }
 
     @Override

@@ -1,10 +1,10 @@
-package pl.allegro.finance.tradukisto.internal.languages.ukrainian;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.support.Range;
 
-public class UkrainianPluralForms implements PluralForms {
+public class PolishPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
@@ -12,11 +12,11 @@ public class UkrainianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
-    public UkrainianPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+    public PolishPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
         this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
     }
 
-    public UkrainianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
+    public PolishPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genitivePluralForm = genitivePluralForm;

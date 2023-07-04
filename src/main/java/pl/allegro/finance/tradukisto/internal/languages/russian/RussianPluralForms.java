@@ -12,6 +12,10 @@ public class RussianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
+    public RussianPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+        this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
+    }
+
     public RussianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
@@ -22,17 +26,13 @@ public class RussianPluralForms implements PluralForms {
 
     @Override
     public String formFor(Integer value) {
-        if (useSingular(value)) {
+        if (value == 1) {
             return singularForm;
         }
         if (usePluralForm(value)) {
             return pluralForm;
         }
         return genitivePluralForm;
-    }
-
-    private boolean useSingular(Integer value) {
-        return value == 1 || (value % 100 != 11 && value % 10 == 1);
     }
 
     private boolean usePluralForm(Integer value) {

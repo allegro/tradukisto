@@ -4,6 +4,7 @@ import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SlavicPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,10 +60,10 @@ public class SerbianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SerbianPluralForms("", "", "", GenderType.MASCULINE),
-                new SerbianPluralForms("hiljada", "hiljade", "hiljada", GenderType.FEMININE),
-                new SerbianPluralForms("milion", "miliona", "miliona", GenderType.MASCULINE),
-                new SerbianPluralForms("milijarda", "milijarde", "milijardi", GenderType.FEMININE));
+                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+                new SlavicPluralForms("hiljada", "hiljade", "hiljada", GenderType.FEMININE),
+                new SlavicPluralForms("milion", "miliona", "miliona", GenderType.MASCULINE),
+                new SlavicPluralForms("milijarda", "milijarde", "milijardi", GenderType.FEMININE));
     }
 
     @Override

@@ -4,6 +4,7 @@ import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.SlavicPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -60,10 +61,10 @@ public class UkrainianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new UkrainianPluralForms("", "", "", GenderType.MASCULINE),
-                new UkrainianPluralForms("тисяча", "тисячі", "тисяч", GenderType.FEMININE),
-                new UkrainianPluralForms("мільйон", "мільйони", "мільйонів", GenderType.MASCULINE),
-                new UkrainianPluralForms("мільярд", "мільярди", "мільярдів", GenderType.MASCULINE));
+                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+                new SlavicPluralForms("тисяча", "тисячі", "тисяч", GenderType.FEMININE),
+                new SlavicPluralForms("мільйон", "мільйони", "мільйонів", GenderType.MASCULINE),
+                new SlavicPluralForms("мільярд", "мільярди", "мільярдів", GenderType.MASCULINE));
     }
 
     @Override
