@@ -1,16 +1,16 @@
 package pl.allegro.finance.tradukisto;
 
-import com.google.common.base.Strings;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.support.Assert;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
-import static com.google.common.base.Verify.verify;
-import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
@@ -25,7 +25,6 @@ import static pl.allegro.finance.tradukisto.internal.Container.serbianCyrillicCo
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
 
 public enum ValueConverters {
 
@@ -58,28 +57,19 @@ public enum ValueConverters {
         this.languageCodes = languageCodes;
     }
 
-    public String asWords(Integer value) {
-        verifyNotNull(value);
-
-        return converter.asWords(value);
-    }
-
     public static ValueConverters getByLocaleOrDefault(Locale locale, ValueConverters defaultConverter) {
-        verifyNotNull(locale);
+        Objects.requireNonNull(locale);
 
-        String languageCode;
-        if (hasSpecifiedScript(locale)) {
-            languageCode = getLanguageCodeFor(locale.getLanguage(), locale.getScript());
-        } else {
-            languageCode = locale.getLanguage();
-        }
+        String languageCode = hasSpecifiedScript(locale)
+                ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
+                : locale.getLanguage();
 
         return getByLanguageCodeOrDefault(languageCode, defaultConverter);
     }
 
     public static ValueConverters getByLanguageCodeOrDefault(String languageCode, ValueConverters defaultConverter) {
-        verifyNotNull(languageCode);
-        verify(!languageCode.isEmpty());
+        Objects.requireNonNull(languageCode);
+        Assert.isFalse(languageCode.isEmpty());
 
         return Arrays.stream(values())
                 .filter(it -> it.languageCodes.contains(languageCode))
@@ -88,10 +78,20 @@ public enum ValueConverters {
     }
 
     private static boolean hasSpecifiedScript(Locale locale) {
-        return !Strings.isNullOrEmpty(locale.getScript());
+        return !locale.getScript().isEmpty();
     }
 
     private static String getLanguageCodeFor(String language, String script) {
-        return new Locale.Builder().setLanguage(language).setScript(script).build().toString();
+        return new Locale.Builder()
+                .setLanguage(language)
+                .setScript(script)
+                .build()
+                .toString();
+    }
+
+    public String asWords(Integer value) {
+        Objects.requireNonNull(value);
+
+        return converter.asWords(value);
     }
 }

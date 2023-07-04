@@ -1,13 +1,12 @@
 package pl.allegro.finance.tradukisto.internal.languages.german;
 
+import static java.util.Collections.singletonMap;
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
-import com.google.common.collect.ImmutableMap;
 
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
@@ -59,7 +58,7 @@ public class GermanValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(1, "eins").build();
+        return singletonMap(1, "eins");
     }
 
     public List<PluralForms> pluralForms() {

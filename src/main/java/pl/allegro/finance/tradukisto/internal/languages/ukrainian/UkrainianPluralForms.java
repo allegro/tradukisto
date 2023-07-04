@@ -1,8 +1,8 @@
 package pl.allegro.finance.tradukisto.internal.languages.ukrainian;
 
-import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
 public class UkrainianPluralForms implements PluralForms {
 
@@ -24,7 +24,8 @@ public class UkrainianPluralForms implements PluralForms {
     public String formFor(Integer value) {
         if (useSingular(value)) {
             return singularForm;
-        } else if (usePluralForm(value)) {
+        }
+        if (usePluralForm(value)) {
             return pluralForm;
         }
         return genitivePluralForm;
@@ -35,7 +36,8 @@ public class UkrainianPluralForms implements PluralForms {
     }
 
     private boolean usePluralForm(Integer value) {
-        return Range.closed(2, 4).contains(value % 10) && !Range.closed(12, 14).contains(value % 100);
+        return Range.closed(2, 4).contains(value % 10)
+                && !Range.closed(12, 14).contains(value % 100);
     }
 
     @Override

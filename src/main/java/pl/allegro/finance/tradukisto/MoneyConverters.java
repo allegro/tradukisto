@@ -3,8 +3,8 @@ package pl.allegro.finance.tradukisto;
 import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
-import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.americanEnglishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
@@ -50,14 +50,14 @@ public enum MoneyConverters {
     }
 
     public String asWords(BigDecimal value) {
-        verifyNotNull(value);
+        Objects.requireNonNull(value);
 
         return converter.asWords(value);
     }
 
     public String asWords(BigDecimal value, String currencySymbol) {
-        verifyNotNull(value);
-        verifyNotNull(currencySymbol);
+        Objects.requireNonNull(value);
+        Objects.requireNonNull(currencySymbol);
 
         return converter.asWords(value, currencySymbol);
     }

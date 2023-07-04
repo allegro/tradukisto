@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages.french;
 
-import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
@@ -12,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableEntry;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableMapOf;
 
 public class FrenchValues implements BaseValues {
 
@@ -112,16 +113,17 @@ public class FrenchValues implements BaseValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder()
-                                .put(200, "deux cents")
-                                .put(300, "trois cents")
-                                .put(400, "quatre cents")
-                                .put(500, "cinq cents")
-                                .put(600, "six cents")
-                                .put(700, "sept cents")
-                                .put(800, "huit cents")
-                                .put(900, "neuf cents")
-                                .put(1000, "mille").build();
+        return unmodifiableMapOf(
+                unmodifiableEntry(200, "deux cents"),
+                unmodifiableEntry(300, "trois cents"),
+                unmodifiableEntry(400, "quatre cents"),
+                unmodifiableEntry(500, "cinq cents"),
+                unmodifiableEntry(600, "six cents"),
+                unmodifiableEntry(700, "sept cents"),
+                unmodifiableEntry(800, "huit cents"),
+                unmodifiableEntry(900, "neuf cents"),
+                unmodifiableEntry(1000, "mille")
+        );
     }
 }
 

@@ -1,17 +1,17 @@
 package pl.allegro.finance.tradukisto.internal.languages.italian;
 
-import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
+import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
-
-import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
-import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableEntry;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableMapOf;
 
 public class ItalianValues {
 
@@ -84,11 +84,11 @@ public class ItalianValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder()
-                .put(1, "uno")
-                .put(1000, "mille")
-                .put(1000000, "unmilione")
-                .put(1000000000, "unmiliardo")
-                .build();
+        return unmodifiableMapOf(
+                unmodifiableEntry(1, "uno"),
+                unmodifiableEntry(1000, "mille"),
+                unmodifiableEntry(1000000, "unmilione"),
+                unmodifiableEntry(1000000000, "unmiliardo")
+        );
     }
 }
