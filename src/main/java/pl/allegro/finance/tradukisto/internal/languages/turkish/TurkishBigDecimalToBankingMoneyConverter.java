@@ -2,10 +2,10 @@ package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
 import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
+import pl.allegro.finance.tradukisto.internal.support.Assert;
 
 import java.math.BigDecimal;
 
-import static com.google.common.base.Preconditions.checkArgument;
 import static java.lang.String.format;
 
 /**
@@ -48,18 +48,18 @@ public class TurkishBigDecimalToBankingMoneyConverter implements BigDecimalToStr
     }
 
     private void validate(BigDecimal value) {
-        checkArgument(value.scale() <= MAXIMAL_DECIMAL_PLACES_COUNT,
-                "can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value);
+        Assert.isTrue(value.scale() <= MAXIMAL_DECIMAL_PLACES_COUNT,
+                () -> String.format("can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value));
 
-        checkArgument(valueLessThanIntMax(value),
-                "can't transform numbers greater than Integer.MAX_VALUE for value %s", value);
+        Assert.isTrue(valueLessThanIntMax(value),
+                () -> String.format("can't transform numbers greater than Integer.MAX_VALUE for value %s", value));
 
-        checkArgument(valueGreaterThanOrEqualToZero(value),
-                "can't transform negative numbers for value %s", value);
+        Assert.isTrue(valueGreaterThanOrEqualToZero(value),
+                () -> String.format("can't transform negative numbers for value %s", value));
     }
 
     private boolean valueLessThanIntMax(BigDecimal value) {
-        return value.compareTo(new BigDecimal(Integer.MAX_VALUE).add(BigDecimal.ONE)) == -1;
+        return value.compareTo(new BigDecimal(Integer.MAX_VALUE).add(BigDecimal.ONE)) < 0;
     }
 
     private boolean valueGreaterThanOrEqualToZero(BigDecimal value) {

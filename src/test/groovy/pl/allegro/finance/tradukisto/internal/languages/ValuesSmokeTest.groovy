@@ -15,6 +15,17 @@ class ValuesSmokeTest extends Specification {
         }
 
         where:
-        converter << ValueConverters.values() + LongValueConverters.values()
+        converter << ValueConverters.values()
+    }
+
+    @Unroll
+    def "should convert any value in range of 0-999 using #converter long converter"() {
+        expect:
+        (0..999).each {
+            assert converter.asWords(it).length() > 0
+        }
+
+        where:
+        converter << LongValueConverters.values()
     }
 }

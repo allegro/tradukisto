@@ -2,7 +2,8 @@ package pl.allegro.finance.tradukisto;
 
 import pl.allegro.finance.tradukisto.internal.LongToStringConverter;
 
-import static com.google.common.base.Verify.verifyNotNull;
+import java.util.Objects;
+
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 
@@ -18,7 +19,7 @@ public enum LongValueConverters {
     }
 
     public String asWords(Long value) {
-        verifyNotNull(value);
+        Objects.requireNonNull(value);
 
         return converter.asWords(value);
     }
