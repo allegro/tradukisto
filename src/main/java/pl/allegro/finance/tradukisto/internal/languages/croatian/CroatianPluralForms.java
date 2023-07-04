@@ -1,8 +1,8 @@
 package pl.allegro.finance.tradukisto.internal.languages.croatian;
 
-import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
 public class CroatianPluralForms implements PluralForms {
 
