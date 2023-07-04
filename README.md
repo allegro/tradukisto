@@ -23,6 +23,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 
 * 🇧🇷🇵🇹 Brazilian Portuguese
 * 🇧🇬 Bulgarian
+* 🇭🇷 Croatian
 * 🇨🇿 Czech
 * 🇬🇧 English
 * 🇫🇷 French

@@ -1,14 +1,15 @@
 package pl.allegro.finance.tradukisto;
 
 import pl.allegro.finance.tradukisto.internal.LongToStringConverter;
-
 import java.util.Objects;
 
+import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 
 public enum LongValueConverters {
 
+    CROATIAN_LONG(croatianContainer().getLongConverter()),
     ENGLISH_LONG(englishContainer().getLongConverter()),
     POLISH_LONG(polishContainer().getLongConverter());
 
