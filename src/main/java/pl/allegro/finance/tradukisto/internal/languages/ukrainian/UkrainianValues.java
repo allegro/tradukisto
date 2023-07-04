@@ -40,7 +40,7 @@ public class UkrainianValues implements BaseValues {
                 .put(20, "двадцять")
                 .put(30, "тридцять")
                 .put(40, "сорок")
-                .put(50, "пятдесят")
+                .put(50, "п'ятдесят")
                 .put(60, "шістдесят")
                 .put(70, "сімдесят")
                 .put(80, "вісімдесят")
