@@ -114,6 +114,7 @@ class SerbianValuesTest extends Specification {
         22_437_219                | "dvadeset dva miliona četiristo trideset sedam hiljada dvesta devetnaest"
         23_437_219                | "dvadeset tri miliona četiristo trideset sedam hiljada dvesta devetnaest"
         100_000_000               | "sto miliona"
+        121_000_000               | "sto dvadeset jedan milion"
         121_451_789               | "sto dvadeset jedan milion četiristo pedeset jedna hiljada sedamsto osamdeset devet"
         123_456_789               | "sto dvadeset tri miliona četiristo pedeset šest hiljada sedamsto osamdeset devet"
 
