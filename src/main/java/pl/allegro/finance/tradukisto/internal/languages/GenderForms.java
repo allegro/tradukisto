@@ -1,10 +1,10 @@
 package pl.allegro.finance.tradukisto.internal.languages;
 
-import com.google.common.collect.ImmutableMap;
-
 import java.util.Map;
 
 import static java.lang.String.format;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableEntry;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableMapOf;
 
 public class GenderForms {
 
@@ -23,29 +23,29 @@ public class GenderForms {
     }
 
     public GenderForms(String masculineForm, String feminineForm, String neuterForm) {
-        this.forms = ImmutableMap.<GenderType, String>builder()
-                .put(GenderType.MASCULINE, masculineForm)
-                .put(GenderType.FEMININE, feminineForm)
-                .put(GenderType.NEUTER, neuterForm)
-                .build();
+        this.forms = unmodifiableMapOf(
+                unmodifiableEntry(GenderType.MASCULINE, masculineForm),
+                unmodifiableEntry(GenderType.FEMININE, feminineForm),
+                unmodifiableEntry(GenderType.NEUTER, neuterForm)
+        );
     }
 
     public GenderForms(String masculineForm, String feminineForm, String neuterForm, String nonApplicableForm) {
-        this.forms = ImmutableMap.<GenderType, String>builder()
-                .put(GenderType.MASCULINE, masculineForm)
-                .put(GenderType.FEMININE, feminineForm)
-                .put(GenderType.NEUTER, neuterForm)
-                .put(GenderType.NON_APPLICABLE, nonApplicableForm)
-                .build();
+        this.forms = unmodifiableMapOf(
+                unmodifiableEntry(GenderType.MASCULINE, masculineForm),
+                unmodifiableEntry(GenderType.FEMININE, feminineForm),
+                unmodifiableEntry(GenderType.NEUTER, neuterForm),
+                unmodifiableEntry(GenderType.NON_APPLICABLE, nonApplicableForm)
+        );
     }
 
     public GenderForms(String nonApplicableForm) {
-        this.forms = ImmutableMap.<GenderType, String>builder()
-                .put(GenderType.MASCULINE, nonApplicableForm)
-                .put(GenderType.FEMININE, nonApplicableForm)
-                .put(GenderType.NEUTER, nonApplicableForm)
-                .put(GenderType.NON_APPLICABLE, nonApplicableForm)
-                .build();
+        this.forms = unmodifiableMapOf(
+                unmodifiableEntry(GenderType.MASCULINE, nonApplicableForm),
+                unmodifiableEntry(GenderType.FEMININE, nonApplicableForm),
+                unmodifiableEntry(GenderType.NEUTER, nonApplicableForm),
+                unmodifiableEntry(GenderType.NON_APPLICABLE, nonApplicableForm)
+        );
     }
 
     public String formFor(GenderType gender) {

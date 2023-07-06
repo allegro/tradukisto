@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto
 
-import com.google.common.base.VerifyException
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -25,7 +24,7 @@ class LongValueConvertersTest extends Specification {
         converter.asWords(null)
 
         then:
-        thrown(VerifyException)
+        thrown(NullPointerException)
 
         where:
         converter << ValueConverters.values()

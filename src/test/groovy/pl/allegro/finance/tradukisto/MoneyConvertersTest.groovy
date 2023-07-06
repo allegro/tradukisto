@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto
 
-import com.google.common.base.VerifyException
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -57,7 +56,7 @@ class MoneyConvertersTest extends Specification {
         converter.asWords(null)
 
         then:
-        thrown(VerifyException)
+        thrown(NullPointerException)
 
         where:
         converter << MoneyConverters.values()
@@ -73,6 +72,6 @@ class MoneyConvertersTest extends Specification {
         POLISH_BANKING_MONEY_VALUE.asWords(1_234.56, null)
 
         then:
-        thrown(VerifyException)
+        thrown(NullPointerException)
     }
 }

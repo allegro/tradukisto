@@ -3,10 +3,11 @@ package pl.allegro.finance.tradukisto;
 import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
-import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.americanEnglishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
@@ -33,6 +34,7 @@ public enum MoneyConverters {
     RUSSIAN_BANKING_MONEY_VALUE(russianContainer().getBankingMoneyConverter()),
     POLISH_BANKING_MONEY_VALUE(polishContainer().getBankingMoneyConverter()),
     ITALIAN_BANKING_MONEY_VALUE(italianContainer().getBankingMoneyConverter()),
+    CROATIAN_BANKING_MONEY_VALUE(croatianContainer().getBankingMoneyConverter()),
     CZECH_BANKING_MONEY_VALUE(czechContainer().getBankingMoneyConverter()),
     SLOVAK_BANKING_MONEY_VALUE(slovakContainer().getBankingMoneyConverter()),
     LATVIAN_BANKING_MONEY_VALUE(latvianContainer().getBankingMoneyConverter()),
@@ -52,14 +54,14 @@ public enum MoneyConverters {
     }
 
     public String asWords(BigDecimal value) {
-        verifyNotNull(value);
+        Objects.requireNonNull(value);
 
         return converter.asWords(value);
     }
 
     public String asWords(BigDecimal value, String currencySymbol) {
-        verifyNotNull(value);
-        verifyNotNull(currencySymbol);
+        Objects.requireNonNull(value);
+        Objects.requireNonNull(currencySymbol);
 
         return converter.asWords(value, currencySymbol);
     }

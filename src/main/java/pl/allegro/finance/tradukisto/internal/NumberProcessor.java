@@ -3,8 +3,6 @@ package pl.allegro.finance.tradukisto.internal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.base.Joiner;
-
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 
 public class NumberProcessor {
@@ -39,11 +37,9 @@ public class NumberProcessor {
     }
 
     private String merge(List<String> result) {
-        if (result.isEmpty()) {
-            return smallNumbersConverter.asWords(0, GenderType.NON_APPLICABLE);
-        }
-
-        return Joiner.on(" ").join(result);
+        return result.isEmpty()
+                ? smallNumbersConverter.asWords(0, GenderType.NON_APPLICABLE)
+                : String.join(" ", result);
     }
 
 }

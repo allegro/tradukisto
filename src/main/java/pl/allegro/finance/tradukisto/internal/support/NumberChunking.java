@@ -1,26 +1,20 @@
 package pl.allegro.finance.tradukisto.internal.support;
 
-import com.google.common.math.IntMath;
-import com.google.common.math.LongMath;
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 public class NumberChunking {
 
-    private static final Integer CHUNK_SIZE = 3;
-    private static final Integer SPLIT_FACTOR = IntMath.pow(10, CHUNK_SIZE);
+    private static final int SPLIT_FACTOR = 1_000;
 
     public List<Integer> chunk(Long value) {
-        Deque<Integer> result = new ArrayDeque<>();
+        LinkedList<Integer> result = new LinkedList<>();
 
         while (value > 0) {
-            result.addFirst(LongMath.mod(value, SPLIT_FACTOR));
+            result.addFirst((int) (value % SPLIT_FACTOR));
             value /= SPLIT_FACTOR;
         }
 
-        return new ArrayList<>(result);
+        return result;
     }
 }

@@ -1,38 +1,21 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      forceVersion:
-        description: 'Force version'
-        required: false
-        default: ''
+  release:
+    types: [ created ]
 
 jobs:
-  release:
-
+  publish:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - uses: gradle/wrapper-validation-action@v1
-
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v2
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
           java-version: 8
-          cache: 'gradle'
-
-      - name: Release
-        run: ./gradlew release -Prelease.customPassword=${GITHUB_TOKEN} -Prelease.customUsername=${GITHUB_ACTOR} -Prelease.forceVersion=${FORCE_VERSION}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FORCE_VERSION: ${{ github.event.inputs.forceVersion }}
-
+          distribution: temurin
       - name: Publish to maven central
         run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
         env:

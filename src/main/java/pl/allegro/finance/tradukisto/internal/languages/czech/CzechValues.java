@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech;
 
-import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
@@ -10,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Collections.singletonMap;
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
@@ -77,6 +77,6 @@ public class CzechValues implements BaseValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(2, "dvě").build();
+        return singletonMap(2, "dvě");
     }
 }

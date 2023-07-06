@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto
 
-import com.google.common.base.VerifyException
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -57,7 +56,7 @@ class ValueConvertersTest extends Specification {
         converter.asWords(null)
 
         then:
-        thrown(VerifyException)
+        thrown(NullPointerException)
 
         where:
         converter << ValueConverters.values()
@@ -108,7 +107,7 @@ class ValueConvertersTest extends Specification {
         getByLocaleOrDefault(null, null)
 
         then:
-        thrown(VerifyException)
+        thrown(NullPointerException)
     }
 
     @Unroll
@@ -153,7 +152,7 @@ class ValueConvertersTest extends Specification {
         getByLanguageCodeOrDefault(null, null)
 
         then:
-        thrown(VerifyException)
+        thrown(NullPointerException)
     }
 
     def "should throw exception when empty language code given"() {
@@ -161,6 +160,6 @@ class ValueConvertersTest extends Specification {
         getByLocaleOrDefault(new Locale(""), null)
 
         then:
-        thrown(VerifyException)
+        thrown(IllegalArgumentException)
     }
 }
