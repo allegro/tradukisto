@@ -3,8 +3,6 @@ name: Build
 on:
   pull_request:
   push:
-    tags-ignore:
-      - 'v*'
 
 permissions:
   contents: write
@@ -41,19 +39,19 @@ jobs:
       - name: Upload coverage to Codecov
         if: matrix.Java == '17'
         uses: codecov/codecov-action@v3
-  
+
   dependabot:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' }}
     needs: build
-  
+
     steps:
       - name: Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1.6.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-      
+
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:
