@@ -1,10 +1,8 @@
-package pl.allegro.finance.tradukisto.internal.languages.russian;
+package pl.allegro.finance.tradukisto.internal.languages;
 
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
-import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.support.Range;
 
-public class RussianPluralForms implements PluralForms {
+public class SlavicPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
@@ -12,7 +10,7 @@ public class RussianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
-    public RussianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
+    public SlavicPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genitivePluralForm = genitivePluralForm;
