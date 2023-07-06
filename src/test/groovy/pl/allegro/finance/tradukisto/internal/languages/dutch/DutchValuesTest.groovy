@@ -53,6 +53,7 @@ class DutchValuesTest extends Specification {
         37         | "zevenendertig"
         43         | "drieënveertig"
         58         | "achtenvijftig"
+        62         | "tweeënzestig"
         69         | "negenenzestig"
         76         | "zesenzeventig"
         82         | "tweeëntachtig"
@@ -79,6 +80,7 @@ class DutchValuesTest extends Specification {
         999        | "negenhonderdnegenennegentig"
 
         1000       | "duizend"
+        1001       | "duizendéén"
         2000       | "tweeduizend"
         3000       | "drieduizend"
         4000       | "vierduizend"
@@ -89,6 +91,7 @@ class DutchValuesTest extends Specification {
         15000      | "vijftienduizend"
         21000      | "éénentwintigduizend"
         24190      | "vierentwintigduizendhonderdnegentig"
+        24191      | "vierentwintigduizendhonderdéénennegentig"
         653000     | "zeshonderddrieënvijftigduizend"
         123454     | "honderddrieëntwintigduizendvierhonderdvierenvijftig"
         700000     | "zevenhonderdduizend"

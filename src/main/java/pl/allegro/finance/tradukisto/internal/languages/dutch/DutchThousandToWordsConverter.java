@@ -1,6 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.dutch;
 
-import com.google.common.collect.Range;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;

@@ -2,14 +2,15 @@ package pl.allegro.finance.tradukisto.internal.languages.dutch;
 
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
-import com.google.common.collect.ImmutableMap;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+
+import static java.util.Collections.singletonMap;
+
 
 public class DutchValues {
 
@@ -56,9 +57,7 @@ public class DutchValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder()
-                .put(1000, "duizend")
-                .build();
+        return singletonMap(1000, "duizend");
     }
 
     public List<PluralForms> pluralForms() {
