@@ -113,6 +113,7 @@ class CroatianValuesTest extends Specification {
         22_437_219        | "dvadeset dva milijuna četiristo trideset sedam tisuća dvjesto devetnaest"
         23_437_219        | "dvadeset tri milijuna četiristo trideset sedam tisuća dvjesto devetnaest"
         100_000_000       | "sto milijuna"
+        121_000_000       | "sto dvadeset jedan milijun"
         121_451_789       | "sto dvadeset jedan milijun četiristo pedeset jedna tisuća sedamsto osamdeset devet"
         123_456_789       | "sto dvadeset tri milijuna četiristo pedeset šest tisuća sedamsto osamdeset devet"
 
