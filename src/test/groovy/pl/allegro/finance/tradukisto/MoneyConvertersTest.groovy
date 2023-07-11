@@ -20,6 +20,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.SERBIAN_CYRILLIC_BAN
 import static pl.allegro.finance.tradukisto.MoneyConverters.SLOVAK_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.TURKISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.UKRAINIAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.DUTCH_BANKING_MONEY_VALUE
 
 class MoneyConvertersTest extends Specification {
 
@@ -34,6 +35,7 @@ class MoneyConvertersTest extends Specification {
         "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE || "mil duzentos e trinta e quatro R\$ 56/100"
         "Bulgarian"            | BULGARIAN_BANKING_MONEY_VALUE            || "хиляда двеста тридесет четири лв 56/100"
         "Czech"                | CZECH_BANKING_MONEY_VALUE                || "jeden tisíc dvě stě třicet čtyři Kč 56/100"
+        "Dutch"                | DUTCH_BANKING_MONEY_VALUE                || "duizendtweehonderdvierendertig € 56/100"
         "English"              | ENGLISH_BANKING_MONEY_VALUE              || "one thousand two hundred thirty-four £ 56/100"
         "French"               | FRENCH_BANKING_MONEY_VALUE               || "mille deux cent trente-quatre € 56/100"
         "German"               | GERMAN_BANKING_MONEY_VALUE               || "eintausendzweihundertvierunddreißig € 56/100"
