@@ -96,6 +96,10 @@ publishing {
                         id.set("pawelkowalski92")
                         name.set("Paweł Kowalski")
                     }
+                    developer {
+                        id.set("bartlomiejgraczyk")
+                        name.set("Bartłomiej Graczyk")
+                    }
                 }
                 scm {
                     url.set("https://github.com/allegro/tradukisto")
