@@ -50,7 +50,7 @@ class MoneyConvertersTest extends Specification {
         "Russian"              | RUSSIAN_BANKING_MONEY_VALUE              || "одна тысяча двести тридцать четыре руб. 56/100"
         "Turkish"              | TURKISH_BANKING_MONEY_VALUE              || "BinİkiYüzOtuzDörtTL,ElliAltıKr."
         "Ukrainian"            | UKRAINIAN_BANKING_MONEY_VALUE            || "одна тисяча двісті тридцять чотири ₴ 56/100"
-        "Bengali"               | BANGALI_BANKING_MONEY_VALUE               || "এক হাজার দুইশত চৌত্রিশ ৳ ৫৬/১০০"
+        "Bengali"              | BANGALI_BANKING_MONEY_VALUE              || "এক হাজার দুইশত চৌত্রিশ ৳ ৫৬/১০০"
     }
 
     def "should throw exception when null given"() {
