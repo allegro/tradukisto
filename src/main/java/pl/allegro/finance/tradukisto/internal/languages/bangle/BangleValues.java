@@ -59,7 +59,7 @@ public class BangleValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlavicPluralForms(""),
+                new SlavicPluralForms("একশো"),
                 new SlavicPluralForms("এক হাজার"),
                 new SlavicPluralForms("দশ হাজার"),
                 new SlavicPluralForms("এক লক্ষ"),
