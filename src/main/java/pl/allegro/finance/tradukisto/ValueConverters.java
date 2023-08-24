@@ -24,6 +24,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.serbianCyrillicContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.spanishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
@@ -48,7 +49,8 @@ public enum ValueConverters {
     BULGARIAN_INTEGER(bulgarianContainer().getIntegerConverter(), "bg"),
     FRENCH_INTEGER(frenchContainer().getIntegerConverter(), "fr"),
     TURKISH_INTEGER(turkishContainer().getIntegerConverter(), "tr"),
-    DUTCH_INTEGER(dutchContainer().getIntegerConverter(), "nl");
+    DUTCH_INTEGER(dutchContainer().getIntegerConverter(), "nl"),
+    SPANISH_INTEGER(spanishContainer().getIntegerConverter(), "es");
 
     private final IntegerToStringConverter converter;
     private final List<String> languageCodes;

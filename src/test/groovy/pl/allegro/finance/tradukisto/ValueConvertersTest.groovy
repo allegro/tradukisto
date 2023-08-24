@@ -46,6 +46,7 @@ class ValueConvertersTest extends Specification {
         "Serbian Cyrillic"     | SERBIAN_CYRILLIC_INTEGER     || "једна хиљада двеста тридесет четири"
         "Serbian Latin"        | SERBIAN_INTEGER              || "jedna hiljada dvesta trideset četiri"
         "Slovak"               | SLOVAK_INTEGER               || "jeden tisíc dvesto tridsať štyri"
+        "Spanish"              | SPANISH_INTEGER              || "mil doscientos treinta y cuatro"
         "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
@@ -88,6 +89,7 @@ class ValueConvertersTest extends Specification {
         new Locale("sr")                                                 || SERBIAN_INTEGER
         new Locale.Builder().setLanguage("sr").setScript("Latn").build() || SERBIAN_INTEGER
         new Locale("sk")                                                 || SLOVAK_INTEGER
+        new Locale("es")                                                 || SPANISH_INTEGER
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
@@ -134,6 +136,7 @@ class ValueConvertersTest extends Specification {
         "sr"         || SERBIAN_INTEGER
         "sr__#Latn"  || SERBIAN_INTEGER
         "sk"         || SLOVAK_INTEGER
+        "es"         || SPANISH_INTEGER
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
     }

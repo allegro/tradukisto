@@ -46,6 +46,7 @@ class MoneyConvertersTest extends Specification {
         "Serbian Cyrillic"     | SERBIAN_CYRILLIC_BANKING_MONEY_VALUE     || "једна хиљада двеста тридесет четири РСД 56/100"
         "Serbian Latin"        | SERBIAN_BANKING_MONEY_VALUE              || "jedna hiljada dvesta trideset četiri RSD 56/100"
         "Slovak"               | SLOVAK_BANKING_MONEY_VALUE               || "jeden tisíc dvesto tridsať štyri € 56/100"
+        "Spanish"              | SPANISH_BANKING_MONEY_VALUE              || "mil doscientos treinta y cuatro \$ 56/100"
         "Russian"              | RUSSIAN_BANKING_MONEY_VALUE              || "одна тысяча двести тридцать четыре руб. 56/100"
         "Turkish"              | TURKISH_BANKING_MONEY_VALUE              || "BinİkiYüzOtuzDörtTL,ElliAltıKr."
         "Ukrainian"            | UKRAINIAN_BANKING_MONEY_VALUE            || "одна тисяча двісті тридцять чотири ₴ 56/100"
