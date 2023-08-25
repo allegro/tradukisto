@@ -20,7 +20,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER
-import static pl.allegro.finance.tradukisto.ValueConverters.BANGALI_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.BANGLA_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.getByLanguageCodeOrDefault
 import static pl.allegro.finance.tradukisto.ValueConverters.getByLocaleOrDefault
 
@@ -50,7 +50,7 @@ class ValueConvertersTest extends Specification {
         "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
-        "Bengali"              | BANGALI_INTEGER              || "এক হাজার দুইশত চৌত্রিশ"
+        "Bangla"               | BANGLA_INTEGER               || "এক হাজার দুইশত চৌত্রিশ"
     }
 
     def "should throw exception when null value given"() {
@@ -93,7 +93,7 @@ class ValueConvertersTest extends Specification {
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
-        new Locale("bd")                                                 || BANGALI_INTEGER
+        new Locale("bd")                                                 || BANGLA_INTEGER
     }
 
     def "should return supplied default converter when locale is unknown"() {
@@ -139,7 +139,7 @@ class ValueConvertersTest extends Specification {
         "sk"         || SLOVAK_INTEGER
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
-        "bd"         || BANGALI_INTEGER
+        "bd"         || BANGLA_INTEGER
     }
 
     def "should return supplied default converter when languageCode is unknown"() {

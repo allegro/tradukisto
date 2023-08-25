@@ -1,17 +1,17 @@
-package pl.allegro.finance.tradukisto.internal.languages.bangle
+package pl.allegro.finance.tradukisto.internal.languages.bangla
 
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static pl.allegro.finance.tradukisto.internal.Container.bangleContainer
+import static pl.allegro.finance.tradukisto.internal.Container.banglaContainer
 
-class BangleValuesTest extends Specification {
+class BanglaValuesTest extends Specification {
 
-    static intConverter = bangleContainer().getIntegerConverter()
-    static longConverter = bangleContainer().getLongConverter()
+    static intConverter = banglaContainer().getIntegerConverter()
+    static longConverter = banglaContainer().getLongConverter()
     
     @Unroll
-    def "should convert #value to '#words' in Croatian"() {
+    def "should convert #value to '#words' in Bangla"() {
         expect:
         intConverter.asWords(value) == words
 
@@ -122,7 +122,7 @@ class BangleValuesTest extends Specification {
     }
 
     @Unroll
-    def "should convert long #value to '#words' in Croatian"() {
+    def "should convert long #value to '#words' in Bangla"() {
         expect:
         longConverter.asWords(value) == words
 
