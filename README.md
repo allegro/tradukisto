@@ -34,12 +34,12 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇱🇻 Latvian
 * 🇵🇱 Polish
 * 🇷🇺 Russian
-* 🇸🇰 Slovak
-* 🇺🇦 Ukrainian
 * 🇷🇸 Serbian (Latin)
 * 🇷🇸 Serbian (Cyrillic)
-* 🇹🇷 Turkish
+* 🇸🇰 Slovak
 * 🇪🇸 Spanish
+* 🇹🇷 Turkish
+* 🇺🇦 Ukrainian
 
 Is your language missing from the list? We encourage you to contribute to our project. 
 
