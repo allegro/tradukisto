@@ -3,6 +3,7 @@ package pl.allegro.finance.tradukisto.internal.languages.spanish;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
@@ -18,19 +19,19 @@ public class SpanishIntegerToWordsConverterAdapter extends NumberToWordsConverte
 
     @Override
     protected String joinValueChunksWithForms(Iterator<Integer> chunks, Iterator<PluralForms> formsToUse) {
-        List<String> result = new ArrayList<>();
+        AtomicReference<List<String>> result = new AtomicReference<>(new ArrayList<>());
 
         while (chunks.hasNext() && formsToUse.hasNext()) {
             Integer currentChunkValue = chunks.next();
             PluralForms currentForms = formsToUse.next();
 
             if (currentChunkValue > 0) {
-                result.add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NON_APPLICABLE));
-                result.add(currentForms.formFor(currentChunkValue));
+                result.get().add(hundredsToWordsConverter.asWords(currentChunkValue, GenderType.NEUTER));
+                result.get().add(currentForms.formFor(currentChunkValue));
             }
         }
 
-        return joinParts(result);
+        return joinParts(result.get());
     }
 
 }

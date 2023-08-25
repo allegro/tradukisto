@@ -20,7 +20,7 @@ public class SpanishValues implements BaseValues {
     public Map<Integer, GenderForms> baseNumbers(){
         return baseNumbersBuilder()
                 .put(0, "cero")
-                .put(1, genderForms("uno", "una", "un", "un"))
+                .put(1, genderForms("uno", "una", "un"))
                 .put(2, "dos")
                 .put(3, "tres")
                 .put(4, "cuatro")
@@ -40,7 +40,7 @@ public class SpanishValues implements BaseValues {
                 .put(18, "dieciocho")
                 .put(19, "diecinueve")
                 .put(20, "veinte")
-                .put(21, genderForms("veintiuno", "veintiuna", "veintiun", "veintiun"))
+                .put(21, genderForms("veintiuno", "veintiuna", "veintiun"))
                 .put(22, "veintidós")
                 .put(23, "veintitrés")
                 .put(24, "veinticuatro")

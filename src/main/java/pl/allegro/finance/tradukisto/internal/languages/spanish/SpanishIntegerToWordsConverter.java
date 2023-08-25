@@ -34,7 +34,7 @@ public class SpanishIntegerToWordsConverter implements IntegerToStringConverter 
         numberProcessor = new NumberProcessor(bigNumbersConverter, smallNumbersConverter).process(bigNumber, smallNumber);
 
         if (value.toString().endsWith("1") && !value.toString().endsWith("11")) {
-            numberProcessor = numberProcessor + "o";
+            numberProcessor += "o";
         }
         if (Range.closed(1_000_000_000, 1_999_999_999).contains(value)) {
             if (value == 1_000_000_000) {
