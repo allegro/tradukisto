@@ -1,8 +1,8 @@
 package pl.allegro.finance.tradukisto.internal.languages.spanish;
 
+import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
-import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
@@ -15,13 +15,12 @@ import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.
 import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableEntry;
 import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableMapOf;
 
-public class SpanishValues {
+public class SpanishValues implements BaseValues {
 
-
-    public Map<Integer, GenderForms> baseNumbers() {
+    public Map<Integer, GenderForms> baseNumbers(){
         return baseNumbersBuilder()
                 .put(0, "cero")
-                .put(1, genderForms("uno", "una", "uno", "uno"))
+                .put(1, genderForms("uno", "una", "un", "un"))
                 .put(2, "dos")
                 .put(3, "tres")
                 .put(4, "cuatro")
@@ -41,7 +40,7 @@ public class SpanishValues {
                 .put(18, "dieciocho")
                 .put(19, "diecinueve")
                 .put(20, "veinte")
-                .put(21, genderForms("veintiuno", "veintiuna", "veintiuno", "veintiuno"))
+                .put(21, genderForms("veintiuno", "veintiuna", "veintiun", "veintiun"))
                 .put(22, "veintidós")
                 .put(23, "veintitrés")
                 .put(24, "veinticuatro")
@@ -57,46 +56,40 @@ public class SpanishValues {
                 .put(70, "setenta")
                 .put(80, "ochenta")
                 .put(90, "noventa")
-                .put(200, genderForms("doscientos", "doscientas", "doscientos", "doscientos"))
-                .put(300, genderForms("trescientos", "trescientas", "trescientos", "trescientos"))
-                .put(400, genderForms("cuatrocientos", "cuatrocientas", "cuatrocientos", "cuatrocientos"))
-                .put(500, genderForms("quinientos", "quinientas", "quinientos", "quinientos"))
-                .put(600, genderForms("seiscientos", "seiscientas", "seiscientos", "seiscientos"))
-                .put(700, genderForms("setecientos", "setecientas", "setecientos", "setecientos"))
-                .put(800, genderForms("ochocientos", "ochocientas", "ochocientos", "ochocientos"))
-                .put(900, genderForms("novecientos", "novecientas", "novecientos", "novecientos"))
-                .put(1000000, "un millón")
-                .put(1000000000, "mil millones")
+                .put(200, genderForms("doscientos", "doscientas", "doscientos"))
+                .put(300, genderForms("trescientos", "trescientas", "trescientos"))
+                .put(400, genderForms("cuatrocientos", "cuatrocientas", "cuatrocientos"))
+                .put(500, genderForms("quinientos", "quinientas", "quinientos"))
+                .put(600, genderForms("seiscientos", "seiscientas", "seiscientos"))
+                .put(700, genderForms("setecientos", "setecientas", "setecientos"))
+                .put(800, genderForms("ochocientos", "ochocientas", "ochocientos"))
+                .put(900, genderForms("novecientos", "novecientas", "novecientos"))
                 .build();
     }
 
-
-/*    public Map<Integer, MultiFormNumber> exceptions() {
-        return singletonMap(100, new MultiFormNumber("cien", "ciento"));
-    }*/
-/*    public char twoDigitsNumberSeparator() {
-        return ' ';
-    }*/
-
-
+    @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
                 new RegularPluralForms("millón", "millones"),
-                new RegularPluralForms("mil millones", "mil"));
+                new RegularPluralForms("mil millones", "mil millones")
+        );
 
     }
 
-
+    @Override
     public String currency() {
-        return "€";
+        return "$";
     }
 
+
+    @Override
+    public char twoDigitsNumberSeparator() {
+        return ' ';
+    }
 
     public Map<Integer, MultiFormNumber> exceptions() {
         return unmodifiableMapOf(
-                unmodifiableEntry(1, new MultiFormNumber("un", "uno")),
-                unmodifiableEntry(100, new MultiFormNumber("cien", "ciento")),
-                unmodifiableEntry(1000000000, new MultiFormNumber("mil millones", "mil millones"))
+                unmodifiableEntry(100, new MultiFormNumber("cien", "ciento"))
         );
 
     }

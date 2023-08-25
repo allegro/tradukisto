@@ -17,6 +17,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_CYRILLIC_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SPANISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER

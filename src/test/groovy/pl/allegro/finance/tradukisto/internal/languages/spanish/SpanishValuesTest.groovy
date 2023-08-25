@@ -110,9 +110,11 @@ class SpanishValuesTest extends Specification {
         322_089_890   | "trescientos veintidós millones ochenta y nueve mil ochocientos noventa"
 
         1_000_000_000 | "mil millones"
-        2_001_001_110 | "dos mil millones un millón mil ciento diez"
-        2_005_004_110 | "dos mil millones cinco millones cuatro mil ciento diez"
-        2_001_001_100 | "dos mil millones un millón mil cien"
+        1_500_000_000 | "mil quinientos millones"
+        2_000_000_000 | "dos mil millones"
+        2_001_001_100 | "dos mil un millones mil cien"
+        2_002_002_111 | "dos mil dos millones dos mil ciento once"
+        2_005_004_110 | "dos mil cinco millones cuatro mil ciento diez"
         2_147_483_647 | "dos mil ciento cuarenta y siete millones cuatrocientos ochenta y tres mil seiscientos cuarenta y siete"
     }
 
