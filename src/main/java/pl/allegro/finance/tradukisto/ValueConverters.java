@@ -9,25 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.italianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.serbianCyrillicContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.*;
 
 public enum ValueConverters {
 
@@ -48,7 +30,8 @@ public enum ValueConverters {
     BULGARIAN_INTEGER(bulgarianContainer().getIntegerConverter(), "bg"),
     FRENCH_INTEGER(frenchContainer().getIntegerConverter(), "fr"),
     TURKISH_INTEGER(turkishContainer().getIntegerConverter(), "tr"),
-    DUTCH_INTEGER(dutchContainer().getIntegerConverter(), "nl");
+    DUTCH_INTEGER(dutchContainer().getIntegerConverter(), "nl"),
+    HINDI_INTEGER(hindiContainer().getIntegerConverter(), "hi");
 
     private final IntegerToStringConverter converter;
     private final List<String> languageCodes;

@@ -19,6 +19,9 @@ import pl.allegro.finance.tradukisto.internal.languages.french.FrenchValues;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
+import pl.allegro.finance.tradukisto.internal.languages.hindi.HindiBigDecimalToBankingMoneyConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hindi.HindiValues;
+import pl.allegro.finance.tradukisto.internal.languages.hindi.IndianNumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianValues;
@@ -224,6 +227,22 @@ public final class Container {
     public static Container kazakhContainer() {
         KazakhValues kazakhValues = new KazakhValues();
         return new Container(kazakhValues);
+    }
+
+    public static Container hindiContainer(){
+        HindiValues hindiValues = new HindiValues();
+
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(hindiValues.baseNumbers(),
+                hindiValues.twoDigitsNumberSeparator());
+
+        IntegerToStringConverter integerToStringConverter = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
+
+        BigDecimalToStringConverter bigDecimalConverter = new HindiBigDecimalToBankingMoneyConverter(
+                integerToStringConverter,
+                hindiValues);
+        LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter,hindiValues.pluralForms());
+
+        return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
     }
 
     private final IntegerToStringConverter integerConverter;
