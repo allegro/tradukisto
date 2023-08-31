@@ -3,9 +3,9 @@ package pl.allegro.finance.tradukisto.internal.support;
 import java.util.LinkedList;
 import java.util.List;
 
-public class IndianNumberChunking extends NumberChunking{
+public class IndianNumberChunking extends NumberChunking {
 
-    private static final int INDAIN_SPLIT_FACTOR = 1_00;
+    private static final int INDIAN_SPLIT_FACTOR = 1_00;
 
     @Override
     public List<Integer> chunk(Long value) {
@@ -18,8 +18,8 @@ public class IndianNumberChunking extends NumberChunking{
                 value /= SPLIT_FACTOR;
                 splitCounter++;
             } else {
-                result.addFirst((int) (value % INDAIN_SPLIT_FACTOR));
-                value /= INDAIN_SPLIT_FACTOR;
+                result.addFirst((int) (value % INDIAN_SPLIT_FACTOR));
+                value /= INDIAN_SPLIT_FACTOR;
                 splitCounter++;
             }
 

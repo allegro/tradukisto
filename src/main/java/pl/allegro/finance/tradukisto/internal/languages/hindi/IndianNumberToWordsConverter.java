@@ -1,7 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.hindi;
 
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.support.Assert;
@@ -15,10 +14,6 @@ public class IndianNumberToWordsConverter extends NumberToWordsConverter {
     private final NumberChunking numberChunking = new IndianNumberChunking();
 
     public IndianNumberToWordsConverter(GenderAwareIntegerToStringConverter hundredsToWordsConverter, List<PluralForms> pluralForms) {
-        super(hundredsToWordsConverter, pluralForms);
-    }
-
-    public IndianNumberToWordsConverter(IntegerToStringConverter hundredsToWordsConverter, List<PluralForms> pluralForms) {
         super(hundredsToWordsConverter, pluralForms);
     }
 

@@ -229,7 +229,7 @@ public final class Container {
         return new Container(kazakhValues);
     }
 
-    public static Container hindiContainer(){
+    public static Container hindiContainer() {
         HindiValues hindiValues = new HindiValues();
 
         HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(hindiValues.baseNumbers(),
@@ -240,7 +240,7 @@ public final class Container {
         BigDecimalToStringConverter bigDecimalConverter = new HindiBigDecimalToBankingMoneyConverter(
                 integerToStringConverter,
                 hindiValues);
-        LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter,hindiValues.pluralForms());
+        LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
     }

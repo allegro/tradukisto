@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import static java.lang.String.format;
 
 /**
- * @author Dilaver Demirel
+ * @author Sourabh Girdhar
  */
 public class HindiBigDecimalToBankingMoneyConverter implements BigDecimalToStringConverter {
     private static final String SUBUNIT_SEPARATOR = ",";

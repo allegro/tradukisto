@@ -21,5 +21,15 @@ class LongValueConvertersTest extends Specification {
         "Hindi"   | HINDI_LONG   || "दस शंख"
     }
 
+    def "should throw exception when null given"() {
+        when:
+        converter.asWords(null)
+
+        then:
+        thrown(NullPointerException)
+
+        where:
+        converter << ValueConverters.values()
+    }
 
 }

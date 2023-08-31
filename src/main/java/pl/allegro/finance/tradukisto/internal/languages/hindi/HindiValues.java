@@ -26,6 +26,7 @@ public class HindiValues implements BaseValues {
                 .put(8, "आठ")
                 .put(9, "नौ")
                 .put(10, "दस")
+
                 .put(11, "ग्यारह")
                 .put(12, "बारह")
                 .put(13, "तेरह")
@@ -34,8 +35,9 @@ public class HindiValues implements BaseValues {
                 .put(16, "सोलह")
                 .put(17, "सत्रह")
                 .put(18, "आट्ठारह")
-                .put(19, "उन्निस")
+                .put(19, "उन्नीस")
                 .put(20, "बीस")
+
                 .put(21,"इक्कीस")
                 .put(22,"बाईस")
                 .put(23,"तेईस")
@@ -79,6 +81,7 @@ public class HindiValues implements BaseValues {
                 .put(58,"अट्ठावन")
                 .put(59,"उनसठ")
                 .put(60,"साठ")
+
                 .put(61,"इकसठ")
                 .put(62,"बासठ")
                 .put(63,"तिरसठ")
@@ -100,6 +103,7 @@ public class HindiValues implements BaseValues {
                 .put(78,"अठहत्तर")
                 .put(79,"उनासी")
                 .put(80,"असी")
+
                 .put(81,"इक्यासी")
                 .put(82,"बयासी")
                 .put(83,"तिरासी")
@@ -155,7 +159,7 @@ public class HindiValues implements BaseValues {
 
     @Override
     public char twoDigitsNumberSeparator() {
-        return 0;
+        return '\0';
     }
 
     public String paiseSymbol(){

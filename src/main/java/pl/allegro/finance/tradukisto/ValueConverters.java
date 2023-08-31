@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto;
 
+import pl.allegro.finance.tradukisto.internal.Container;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.support.Assert;
 
@@ -9,29 +10,27 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import static pl.allegro.finance.tradukisto.internal.Container.*;
-
 public enum ValueConverters {
 
-    BRAZILIAN_PORTUGUESE_INTEGER(brazilianPortugueseContainer().getIntegerConverter(), Arrays.asList("pt", "pt-br")),
-    ENGLISH_INTEGER(englishContainer().getIntegerConverter(), "en"),
-    GERMAN_INTEGER(germanContainer().getIntegerConverter(), "de"),
-    RUSSIAN_INTEGER(russianContainer().getIntegerConverter(), "ru"),
-    ITALIAN_INTEGER(italianContainer().getIntegerConverter(), "it"),
-    POLISH_INTEGER(polishContainer().getIntegerConverter(), "pl"),
-    CROATIAN_INTEGER(croatianContainer().getIntegerConverter(), "hr"),
-    CZECH_INTEGER(czechContainer().getIntegerConverter(), "cs"),
-    SLOVAK_INTEGER(slovakContainer().getIntegerConverter(), "sk"),
-    LATVIAN_INTEGER(latvianContainer().getIntegerConverter(), "lv"),
-    KAZAKH_INTEGER(kazakhContainer().getIntegerConverter(), "kk"),
-    UKRAINIAN_INTEGER(ukrainianContainer().getIntegerConverter(), "uk"),
-    SERBIAN_INTEGER(serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
-    SERBIAN_CYRILLIC_INTEGER(serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
-    BULGARIAN_INTEGER(bulgarianContainer().getIntegerConverter(), "bg"),
-    FRENCH_INTEGER(frenchContainer().getIntegerConverter(), "fr"),
-    TURKISH_INTEGER(turkishContainer().getIntegerConverter(), "tr"),
-    DUTCH_INTEGER(dutchContainer().getIntegerConverter(), "nl"),
-    HINDI_INTEGER(hindiContainer().getIntegerConverter(), "hi");
+    BRAZILIAN_PORTUGUESE_INTEGER(Container.brazilianPortugueseContainer().getIntegerConverter(), Arrays.asList("pt", "pt-br")),
+    ENGLISH_INTEGER(Container.englishContainer().getIntegerConverter(), "en"),
+    GERMAN_INTEGER(Container.germanContainer().getIntegerConverter(), "de"),
+    RUSSIAN_INTEGER(Container.russianContainer().getIntegerConverter(), "ru"),
+    ITALIAN_INTEGER(Container.italianContainer().getIntegerConverter(), "it"),
+    POLISH_INTEGER(Container.polishContainer().getIntegerConverter(), "pl"),
+    CROATIAN_INTEGER(Container.croatianContainer().getIntegerConverter(), "hr"),
+    CZECH_INTEGER(Container.czechContainer().getIntegerConverter(), "cs"),
+    SLOVAK_INTEGER(Container.slovakContainer().getIntegerConverter(), "sk"),
+    LATVIAN_INTEGER(Container.latvianContainer().getIntegerConverter(), "lv"),
+    KAZAKH_INTEGER(Container.kazakhContainer().getIntegerConverter(), "kk"),
+    UKRAINIAN_INTEGER(Container.ukrainianContainer().getIntegerConverter(), "uk"),
+    SERBIAN_INTEGER(Container.serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
+    SERBIAN_CYRILLIC_INTEGER(Container.serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
+    BULGARIAN_INTEGER(Container.bulgarianContainer().getIntegerConverter(), "bg"),
+    FRENCH_INTEGER(Container.frenchContainer().getIntegerConverter(), "fr"),
+    TURKISH_INTEGER(Container.turkishContainer().getIntegerConverter(), "tr"),
+    DUTCH_INTEGER(Container.dutchContainer().getIntegerConverter(), "nl"),
+    HINDI_INTEGER(Container.hindiContainer().getIntegerConverter(), "hi");
 
     private final IntegerToStringConverter converter;
     private final List<String> languageCodes;
