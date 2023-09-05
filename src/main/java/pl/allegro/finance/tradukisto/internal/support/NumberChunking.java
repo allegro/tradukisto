@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NumberChunking {
 
-    private static final int SPLIT_FACTOR = 1_000;
+    static final int SPLIT_FACTOR = 1_000;
 
     public List<Integer> chunk(Long value) {
         LinkedList<Integer> result = new LinkedList<>();

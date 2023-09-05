@@ -44,5 +44,6 @@ public class HundredsToWordsConverter implements GenderAwareIntegerToStringConve
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
         return format("%s %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
+
     }
 }
