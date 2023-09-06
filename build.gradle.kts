@@ -128,6 +128,6 @@ if (System.getenv("GPG_KEY_ID") != null) {
             System.getenv("GPG_PRIVATE_KEY"),
             System.getenv("GPG_PRIVATE_KEY_PASSWORD")
         )
-        sign(tasks["publishing.publications"])
+        sign(publishing.publications["sonatype"])
     }
 }
