@@ -113,13 +113,12 @@ publishing {
 
 nexusPublishing {
     this.repositories {
-        register("sonatype") {
+        sonatype {
             username.set(System.getenv("SONATYPE_USERNAME"))
             password.set(System.getenv("SONATYPE_PASSWORD"))
         }
     }
 }
-
 
 if (System.getenv("GPG_KEY_ID") != null) {
     signing {
