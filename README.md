@@ -39,7 +39,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇷🇸 Serbian (Latin)
 * 🇷🇸 Serbian (Cyrillic)
 * 🇹🇷 Turkish
-* ![image](https://github.com/girdharsourabh/tradukisto/assets/5089894/7351341f-1640-4e42-a1b4-5af993c60962) Hindi
+* 🇮🇳 Hindi
 
 
 Is your language missing from the list? We encourage you to contribute to our project. 
