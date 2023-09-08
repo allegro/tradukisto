@@ -1,6 +1,7 @@
 package pl.allegro.finance.tradukisto;
 
 import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
+import pl.allegro.finance.tradukisto.internal.Container;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -24,7 +25,6 @@ import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
-
 public enum MoneyConverters {
 
     BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE(brazilianPortugueseContainer().getBankingMoneyConverter()),
@@ -45,7 +45,8 @@ public enum MoneyConverters {
     SERBIAN_CYRILLIC_BANKING_MONEY_VALUE(serbianCyrillicContainer().getBankingMoneyConverter()),
     FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter()),
     BULGARIAN_BANKING_MONEY_VALUE(bulgarianContainer().getBankingMoneyConverter()),
-    DUTCH_BANKING_MONEY_VALUE(dutchContainer().getBankingMoneyConverter());
+    DUTCH_BANKING_MONEY_VALUE(dutchContainer().getBankingMoneyConverter()),
+    HINDI_BANKING_MONEY_VALUE(Container.hindiContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 
