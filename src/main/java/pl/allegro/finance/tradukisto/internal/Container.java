@@ -265,6 +265,7 @@ public final class Container {
     }
 
     public static Container banglaContainer() {
+        TurkishValues values = new BanglaValues();
         return new Container(new BanglaValues());
     }
 }
