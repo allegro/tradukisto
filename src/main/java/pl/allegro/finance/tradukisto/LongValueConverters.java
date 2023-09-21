@@ -7,7 +7,6 @@ import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.hindiContainer;
-import static pl.allegro.finance.tradukisto.internal.Container.sloveneContainer;
 
 public enum LongValueConverters {
 
