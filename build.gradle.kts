@@ -1,4 +1,3 @@
-import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
@@ -52,7 +51,7 @@ tasks.jacocoTestReport {
 tasks.test {
     useJUnitPlatform()
     testLogging {
-        events = setOf(PASSED, SKIPPED, FAILED)
+        events = setOf(SKIPPED, FAILED)
     }
 }
 
