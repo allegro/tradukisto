@@ -139,6 +139,6 @@ class SloveneValuesTest extends Specification {
         2_000_000_000_000_000_000 | "dve trilijoni" // ?
         3_000_000_000_000_000_000 | "tri trilijoni" // ?
         5_000_000_000_000_000_000 | "pet trilijoni" // ?
-        Long.MAX_VALUE            | "devet trilijoni dvjesto triindvajset bilijarda tristo dvainsedemdeset bilijonov šestintrideset milijardi osamsto štiriinpedeset milijonov sedamsto petinsedemdeset tisoč sedeminosemsto"// ?
+        Long.MAX_VALUE            | "devet trilijoni dvjesto triindvajset bilijarda tristo dvainsedemdeset bilijonov šestintrideset milijardi osamsto štiriinpedeset milijonov sedamsto petinsedemdeset tisoč sedeminosemsto"// ? 9,223,372,036,854,775,807
     }
 }
