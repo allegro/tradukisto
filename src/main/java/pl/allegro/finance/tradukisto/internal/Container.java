@@ -37,6 +37,8 @@ import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianCyrillicV
 import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneValues;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
@@ -85,6 +87,20 @@ public final class Container {
 
     public static Container croatianContainer() {
         return new Container(new CroatianValues());
+    }
+
+    public static Container sloveneContainer() {
+        SloveneValues values = new SloveneValues();
+
+        SloveneThousandToWordsConverter sloveneThousandToWordsConverter = new SloveneThousandToWordsConverter(
+                values.baseNumbers());
+
+        IntegerToStringConverter converter = new NumberToWordsConverter(sloveneThousandToWordsConverter, values.pluralForms());
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
 
     public static Container czechContainer() {

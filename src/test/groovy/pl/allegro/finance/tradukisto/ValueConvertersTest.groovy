@@ -18,6 +18,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_CYRILLIC_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SLOVENE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER
@@ -47,6 +48,7 @@ class ValueConvertersTest extends Specification {
         "Serbian Cyrillic"     | SERBIAN_CYRILLIC_INTEGER     || "једна хиљада двеста тридесет четири"
         "Serbian Latin"        | SERBIAN_INTEGER              || "jedna hiljada dvesta trideset četiri"
         "Slovak"               | SLOVAK_INTEGER               || "jeden tisíc dvesto tridsať štyri"
+        "Slovene"              | SLOVENE_INTEGER              || "ena tisoč dvesto štiriintrideset"
         "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
@@ -90,6 +92,7 @@ class ValueConvertersTest extends Specification {
         new Locale("sr")                                                 || SERBIAN_INTEGER
         new Locale.Builder().setLanguage("sr").setScript("Latn").build() || SERBIAN_INTEGER
         new Locale("sk")                                                 || SLOVAK_INTEGER
+        new Locale("sl")                                                 || SLOVENE_INTEGER
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
@@ -137,6 +140,7 @@ class ValueConvertersTest extends Specification {
         "sr"         || SERBIAN_INTEGER
         "sr__#Latn"  || SERBIAN_INTEGER
         "sk"         || SLOVAK_INTEGER
+        "sl"         || SLOVENE_INTEGER
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
         "hi"         || HINDI_INTEGER
