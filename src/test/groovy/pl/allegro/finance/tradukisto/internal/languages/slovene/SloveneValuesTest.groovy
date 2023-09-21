@@ -123,18 +123,22 @@ class SloveneValuesTest extends Specification {
 
         where:
         value                     | words
-        5_000_000_000             | "pet milijardi"
+        5_000_000_000             | "pet milijard"
 
-        1_000_000_000_000         | "jedan bilijun"
-        2_000_000_000_000         | "dva bilijuna"
-        5_000_000_000_000         | "pet bilijuna"
+        1_000_000_000_000         | "ena bilijon"
+        2_000_000_000_000         | "dva bilijona"
+        3_000_000_000_000         | "tri bilijoni"
+        5_000_000_000_000         | "pet bilijonov"
 
-        1_000_000_000_000_000     | "jedna bilijarda"
-        2_000_000_000_000_000     | "dvije bilijarde"
-        5_000_000_000_000_000     | "pet bilijardi"
+        1_000_000_000_000_000     | "ena bilijarda" // ?
+        2_000_000_000_000_000     | "dve bilijarda" // ?
+        3_000_000_000_000_000     | "tri bilijarda" // ?
+        5_000_000_000_000_000     | "pet bilijarda" // ?
 
-        1_000_000_000_000_000_000 | "jedan trilijun"
-        2_000_000_000_000_000_000 | "dva trilijuna"
-        Long.MAX_VALUE            | "devet trilijuna dvjesto dvadeset tri bilijarde tristo sedamdeset dva bilijuna trideset šest milijardi osamsto pedeset četiri milijona sedamsto sedamdeset pet tisuća osamsto sedam"
+        1_000_000_000_000_000_000 | "ena trilijon" // ?
+        2_000_000_000_000_000_000 | "dve trilijoni" // ?
+        3_000_000_000_000_000_000 | "tri trilijoni" // ?
+        5_000_000_000_000_000_000 | "pet trilijoni" // ?
+        Long.MAX_VALUE            | "devet trilijoni dvjesto triindvajset bilijarda tristo dvainsedemdeset bilijonov šestintrideset milijardi osamsto štiriinpedeset milijonov sedamsto petinsedemdeset tisoč sedeminosemsto"// ?
     }
 }
