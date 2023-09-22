@@ -74,7 +74,7 @@ class SloveneValuesTest extends Specification {
         782               | "sedemsto dvainosemdeset"
         895               | "osemsto petindevetdeset"
         999               | "devetsto devetindevetdeset"
-        1_000             | "ena tisoč"
+        1_000             | "tisoč"
         2_000             | "dva tisoč"
         3_000             | "tri tisoč"
         4_000             | "štiri tisoč"
@@ -96,10 +96,10 @@ class SloveneValuesTest extends Specification {
         653_000           | "šeststo triinpetdeset tisoč"
         123_454           | "sto triindvajset tisoč štiristo štiriinpetdeset"
         999_999           | "devetsto devetindevetdeset tisoč devetsto devetindevetdeset"
-        1_000_000         | "ena milijon"
+        1_000_000         | "en milijon"
         2_000_000         | "dva milijona"
-        3_000_000         | "tri milijone"
-        4_000_000         | "štiri milijone"
+        3_000_000         | "trije milijone"
+        4_000_000         | "štirije milijone"
         5_000_000         | "pet milijonov"
         6_000_000         | "šest milijonov"
         11_437_219        | "enajst milijonov štiristo sedemintrideset tisoč dvesto devetnajst"
@@ -123,22 +123,32 @@ class SloveneValuesTest extends Specification {
 
         where:
         value                     | words
+        1_000_000_000             | "ena milijarda"
+        2_000_000_000             | "dve milijardi"
+        3_000_000_000             | "tri milijarde"
+        4_000_000_000             | "štiri milijarde"
         5_000_000_000             | "pet milijard"
+        14_000_000_000            | "štirinajst milijard"
 
-        1_000_000_000_000         | "ena bilijon"
+        1_000_000_000_000         | "en bilijon"
         2_000_000_000_000         | "dva bilijona"
-        3_000_000_000_000         | "tri bilijoni"
+        3_000_000_000_000         | "trije bilijoni"
+        4_000_000_000_000         | "štirije bilijoni"
         5_000_000_000_000         | "pet bilijonov"
+        14_000_000_000_000        | "štirinajst bilijonov"
 
-        1_000_000_000_000_000     | "ena bilijarda" // ?
-        2_000_000_000_000_000     | "dve bilijarda" // ?
-        3_000_000_000_000_000     | "tri bilijarda" // ?
-        5_000_000_000_000_000     | "pet bilijarda" // ?
+        1_000_000_000_000_000     | "ena bilijarda"
+        2_000_000_000_000_000     | "dve bilijardi"
+        3_000_000_000_000_000     | "tri bilijarde"
+        4_000_000_000_000_000     | "štiri bilijarde"
+        5_000_000_000_000_000     | "pet bilijard"
+        14_000_000_000_000_000    | "štirinajst bilijard"
 
-        1_000_000_000_000_000_000 | "ena trilijon" // ?
-        2_000_000_000_000_000_000 | "dve trilijoni" // ?
-        3_000_000_000_000_000_000 | "tri trilijoni" // ?
-        5_000_000_000_000_000_000 | "pet trilijoni" // ?
-        Long.MAX_VALUE            | "devet trilijoni dvjesto triindvajset bilijarda tristo dvainsedemdeset bilijonov šestintrideset milijardi osamsto štiriinpedeset milijonov sedamsto petinsedemdeset tisoč sedeminosemsto"// ? 9,223,372,036,854,775,807
+        1_000_000_000_000_000_000 | "en trilijon"
+        2_000_000_000_000_000_000 | "dva trilijona"
+        3_000_000_000_000_000_000 | "trije trilijoni"
+        4_000_000_000_000_000_000 | "štirije trilijoni"
+        5_000_000_000_000_000_000 | "pet trilijonov"
+        Long.MAX_VALUE            | "devet trilijonov dvjesto triindvajset bilijard tristo dvainsedemdeset bilijonov šestintrideset milijardi osamsto štiriinpedeset milijonov sedamsto petinsedemdeset tisoč sedeminosemsto"
     }
 }
