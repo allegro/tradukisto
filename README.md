@@ -45,45 +45,12 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 Is your language missing from the list? We encourage you to contribute to our project. 
 
 ## Usage
+See article on our [Wiki](https://github.com/allegro/tradukisto/wiki/Getting-Started-with-Tradukisto!) 
 
-Add `tradukisto` as a dependency:
 
-```
-dependencies {
-    implementation("pl.allegro.finance:tradukisto:1.12.1")
-}
-```
-
-and use it:
-
-```java
-ValueConverters intConverter = ValueConverters.ENGLISH_INTEGER;
-String valueAsWords = intConverter.asWords(1_234);
-
-assertEquals("one thousand two hundred thirty-four", valueAsWords);
-```
-
-```java
-LongValueConverters longConverter = LongValueConverters.ENGLISH_LONG;
-String valueAsWords = converter.asWords(1_000_000_000_000_000_000);
-
-assertEquals("one quintillion", valueAsWords);
-```
-
-```java
-MoneyConverters converter = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
-
-String moneyAsWords = converter.asWords(new BigDecimal("1234.56"));
-assertEquals("one thousand two hundred thirty-four £ 56/100", moneyAsWords);
-
-String moneyAsWordsWithCurrency = converter.asWords(new BigDecimal("1234.56", "EUR"));
-assertEquals("one thousand two hundred thirty-four EUR 56/100", moneyAsWordsWithCurrency);
-```
-
-Tradukisto can handle only values with no more than two digits after the decimal point. Otherwise, `IllegalArgumentException` will be thrown. 
-For that reason, you should either construct `BigDecimal` object based on the `String` value as shown 
-in the example above or use [setScale](http://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html#setScale(int,%20java.math.RoundingMode))
-method to ensure that the given value has appropriate precision.
+## Contributing 
+If you are first-time contributor, articles ["Create your first Pull Request"](https://github.com/allegro/tradukisto/wiki/Create-your-first-Pull-Request) and ["How to implement new language?
+"](https://github.com/allegro/tradukisto/wiki/How-to-implement-new-language%3F) may be helpful.
 
 ## Changelog
 Each release is documented in the [release notes](https://github.com/allegro/tradukisto/releases).
