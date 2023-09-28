@@ -19,6 +19,7 @@ import pl.allegro.finance.tradukisto.internal.languages.french.FrenchValues;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.german.GermanValues;
+import pl.allegro.finance.tradukisto.internal.languages.greek.GreekValues;
 import pl.allegro.finance.tradukisto.internal.languages.hindi.HindiBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.hindi.HindiValues;
 import pl.allegro.finance.tradukisto.internal.languages.hindi.IndianNumberToWordsConverter;
@@ -59,6 +60,10 @@ public final class Container {
 
     public static Container serbianCyrillicContainer() {
         return new Container(new SerbianCyrillicValues());
+    }
+
+    public static Container greekContainer() {
+        return new Container(new GreekValues());
     }
 
     public static Container bulgarianContainer() {
