@@ -35,6 +35,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇵🇱 Polish
 * 🇷🇺 Russian
 * 🇸🇰 Slovak
+* 🇸🇪 Swedish
 * 🇺🇦 Ukrainian
 * 🇷🇸 Serbian (Latin)
 * 🇷🇸 Serbian (Cyrillic)
