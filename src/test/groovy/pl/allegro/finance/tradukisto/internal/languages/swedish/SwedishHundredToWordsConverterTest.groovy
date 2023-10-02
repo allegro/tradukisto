@@ -6,7 +6,7 @@ import spock.lang.Specification
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForm
 import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms
 
-class SwedishThousandToWordsConverterTest extends Specification {
+class SwedishHundredToWordsConverterTest extends Specification {
 
     def "should convert a single value from the list of base values"() {
         given:
