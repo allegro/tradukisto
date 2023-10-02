@@ -9,11 +9,11 @@ import java.util.Map;
 
 import static java.lang.String.format;
 
-public class SwedishThousandToWordsConverter implements GenderAwareIntegerToStringConverter {
+public class SwedishHundredToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> swedishBaseValues;
 
-    public SwedishThousandToWordsConverter(Map<Integer, GenderForms> swedishBaseValues) {
+    public SwedishHundredToWordsConverter(Map<Integer, GenderForms> swedishBaseValues) {
         this.swedishBaseValues = swedishBaseValues;
     }
 
@@ -25,8 +25,6 @@ public class SwedishThousandToWordsConverter implements GenderAwareIntegerToStri
             return twoDigitsNumberAsString(value, swedishGenderType);
         } else if (Range.closed(101, 999).contains(value)) {
             return threeDigitsNumberAsString(value, swedishGenderType);
-        } else if (Range.closed(1000, 999999).contains(value)) {
-            return thousandsAsString(value, swedishGenderType);
         }
         throw new IllegalArgumentException(format("Can't convert %d", value));
     }
@@ -41,14 +39,5 @@ public class SwedishThousandToWordsConverter implements GenderAwareIntegerToStri
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
         return format("%s och %s", asWords(hundreds, genderType), asWords(tensWithUnits, genderType));
-    }
-
-    private String thousandsAsString(Integer value, GenderType genderType) {
-        Integer thousands = value / 1000;
-        Integer other = value % 1000;
-
-        if (other == 0)
-            return format("%s tusen", asWords(thousands, genderType));
-        return format("%s tusen %s", asWords(thousands, genderType), asWords(other, genderType));
     }
 }

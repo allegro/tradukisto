@@ -37,9 +37,7 @@ import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianCyrillicV
 import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
-import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishIntegerToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishLongToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishHundredToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishValues;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerToWordsConverter;
@@ -250,23 +248,20 @@ public final class Container {
     }
 
     public static Container swedishContainer() {
-        SwedishValues swedishValues = new SwedishValues();
-        SwedishThousandToWordsConverter swedishThousandToWordsConverter = new SwedishThousandToWordsConverter(
-                swedishValues.baseNumbers());
+        SwedishValues swedishBaseValues = new SwedishValues();
 
-        IntegerToStringConverter integerToStringConverter = new SwedishIntegerToWordsConverter(
-                new NumberToWordsConverter(swedishThousandToWordsConverter, swedishValues.pluralForms()),
-                swedishThousandToWordsConverter);
+        SwedishHundredToWordsConverter swedishHundredsToStringConverter =
+                new SwedishHundredToWordsConverter(swedishBaseValues.baseNumbers());
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                integerToStringConverter,
-                swedishValues.currency());
+        NumberToWordsConverter swedishNumberToWordsConverter = new NumberToWordsConverter(
+                swedishHundredsToStringConverter,
+                swedishBaseValues.pluralForms());
 
-        NumberToWordsConverter longValueConverters = new SwedishLongToWordsConverter(
-                swedishThousandToWordsConverter,
-                swedishValues.pluralForms());
+        BigDecimalToStringConverter swedishBigDecimalConverter = new BigDecimalToBankingMoneyConverter(
+                swedishNumberToWordsConverter,
+                swedishBaseValues.currency());
 
-        return new Container(integerToStringConverter, longValueConverters, bigDecimalBankingMoneyValueConverter);
+        return new Container(swedishNumberToWordsConverter, swedishNumberToWordsConverter, swedishBigDecimalConverter);
     }
 
     private final IntegerToStringConverter integerConverter;

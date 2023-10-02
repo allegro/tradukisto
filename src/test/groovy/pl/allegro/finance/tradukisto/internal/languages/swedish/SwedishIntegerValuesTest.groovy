@@ -1,18 +1,18 @@
 package pl.allegro.finance.tradukisto.internal.languages.swedish
 
-import spock.lang.Specification;
-import spock.lang.Unroll;
+import spock.lang.Specification
+import spock.lang.Unroll
 
-import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer
 
 class SwedishIntegerValuesTest extends Specification {
 
-    static intConverter = swedishContainer().getIntegerConverter();
+    static intConverter = swedishContainer().getIntegerConverter()
 
     @Unroll
-    def "should convert #value to '#words' in Swedish"() {
+    def "should convert Integer #value to '#words' in Swedish"() {
         expect:
-        intConverter.asWords(value) == words;
+        intConverter.asWords(value) == words
 
         where:
         value      | words
@@ -147,6 +147,6 @@ class SwedishIntegerValuesTest extends Specification {
 
         1000000000 | "en miljard"
         2000000000 | "två miljarder"
-        2147000000 | "två miljarder ett hundra och fyrtiosju miljoner" // maximum Integer value
+        2147483647 | "två miljarder ett hundra och fyrtiosju miljoner fyra hundra och åttiotre tusen sex hundra och fyrtiosju"
     }
 }
