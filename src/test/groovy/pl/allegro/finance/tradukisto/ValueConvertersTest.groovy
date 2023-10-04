@@ -9,6 +9,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.HINDI_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
@@ -51,6 +52,7 @@ class ValueConvertersTest extends Specification {
         "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
+        "Hindi"                | HINDI_INTEGER                || "एक हजार दो सौ चौंतीस"
     }
 
     def "should throw exception when null value given"() {
@@ -94,6 +96,7 @@ class ValueConvertersTest extends Specification {
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
+        new Locale("hi")                                                 || HINDI_INTEGER
     }
 
     def "should return supplied default converter when locale is unknown"() {
@@ -140,6 +143,7 @@ class ValueConvertersTest extends Specification {
         "es"         || SPANISH_INTEGER
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
+        "hi"         || HINDI_INTEGER
     }
 
     def "should return supplied default converter when languageCode is unknown"() {

@@ -10,6 +10,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.CZECH_BANKING_MONEY_
 import static pl.allegro.finance.tradukisto.MoneyConverters.ENGLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.FRENCH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.GERMAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.HINDI_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ITALIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.KAZAKH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.LATVIAN_BANKING_MONEY_VALUE
@@ -51,6 +52,7 @@ class MoneyConvertersTest extends Specification {
         "Russian"              | RUSSIAN_BANKING_MONEY_VALUE              || "одна тысяча двести тридцать четыре руб. 56/100"
         "Turkish"              | TURKISH_BANKING_MONEY_VALUE              || "BinİkiYüzOtuzDörtTL,ElliAltıKr."
         "Ukrainian"            | UKRAINIAN_BANKING_MONEY_VALUE            || "одна тисяча двісті тридцять чотири ₴ 56/100"
+        "Hindi"                | HINDI_BANKING_MONEY_VALUE                || "एक हजार दो सौ चौंतीस ₹,छप्पन p"
     }
 
     def "should throw exception when null given"() {

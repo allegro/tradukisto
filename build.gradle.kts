@@ -1,4 +1,3 @@
-import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
@@ -52,7 +51,7 @@ tasks.jacocoTestReport {
 tasks.test {
     useJUnitPlatform()
     testLogging {
-        events = setOf(PASSED, SKIPPED, FAILED)
+        events = setOf(SKIPPED, FAILED)
     }
 }
 
@@ -113,13 +112,12 @@ publishing {
 
 nexusPublishing {
     this.repositories {
-        register("sonatype") {
+        sonatype {
             username.set(System.getenv("SONATYPE_USERNAME"))
             password.set(System.getenv("SONATYPE_PASSWORD"))
         }
     }
 }
-
 
 if (System.getenv("GPG_KEY_ID") != null) {
     signing {
@@ -128,6 +126,6 @@ if (System.getenv("GPG_KEY_ID") != null) {
             System.getenv("GPG_PRIVATE_KEY"),
             System.getenv("GPG_PRIVATE_KEY_PASSWORD")
         )
-        sign(tasks["publishing.publications"])
+        sign(publishing.publications)
     }
 }
