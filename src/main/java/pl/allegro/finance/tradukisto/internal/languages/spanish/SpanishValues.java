@@ -17,7 +17,8 @@ import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifi
 
 public class SpanishValues implements BaseValues {
 
-    public Map<Integer, GenderForms> baseNumbers(){
+    @Override
+    public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
                 .put(0, "cero")
                 .put(1, genderForms("uno", "una", "un"))
@@ -78,7 +79,7 @@ public class SpanishValues implements BaseValues {
 
     @Override
     public String currency() {
-        return "$";
+        return "€";
     }
 
 
@@ -89,7 +90,8 @@ public class SpanishValues implements BaseValues {
 
     public Map<Integer, MultiFormNumber> exceptions() {
         return unmodifiableMapOf(
-                unmodifiableEntry(100, new MultiFormNumber("cien", "ciento"))
+                unmodifiableEntry(100, new MultiFormNumber("cien", "ciento")),
+                unmodifiableEntry(100000000, new MultiFormNumber("cien millones", "ciento millones"))
         );
 
     }

@@ -104,8 +104,13 @@ class SpanishValuesTest extends Specification {
         1_000_000     | "un millón"
         2_000_000     | "dos millones"
         5_000_000     | "cinco millones"
+        7_000_000     | "siete millones"
+        12_011_121    | "doce millones once mil ciento veintiuno"
+        15_080_000    | "quince millones ochenta mil"
         23_437_219    | "veintitrés millones cuatrocientos treinta y siete mil doscientos diecinueve"
         100_000_000   | "cien millones"
+        111_111_111   | "ciento once millones ciento once mil ciento once"
+        401_000_000   | "cuatrocientos un millones"
         123_456_789   | "ciento veintitrés millones cuatrocientos cincuenta y seis mil setecientos ochenta y nueve"
         322_089_890   | "trescientos veintidós millones ochenta y nueve mil ochocientos noventa"
 

@@ -1,14 +1,14 @@
 package pl.allegro.finance.tradukisto.internal.languages.spanish;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class SpanishIntegerToWordsConverterAdapter extends NumberToWordsConverter {
 
