@@ -41,6 +41,8 @@ import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerTo
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
+import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishHundredToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishValues;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
@@ -248,7 +250,7 @@ public final class Container {
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
     }
-
+  
     public static Container spanishContainer() {
         SpanishValues values = new SpanishValues();
 
@@ -263,6 +265,23 @@ public final class Container {
                 converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
+    }
+  
+    public static Container swedishContainer() {
+        SwedishValues swedishBaseValues = new SwedishValues();
+
+        SwedishHundredToWordsConverter swedishHundredsToStringConverter =
+                new SwedishHundredToWordsConverter(swedishBaseValues.baseNumbers());
+
+        NumberToWordsConverter swedishNumberToWordsConverter = new NumberToWordsConverter(
+                swedishHundredsToStringConverter,
+                swedishBaseValues.pluralForms());
+
+        BigDecimalToStringConverter swedishBigDecimalConverter = new BigDecimalToBankingMoneyConverter(
+                swedishNumberToWordsConverter,
+                swedishBaseValues.currency());
+
+        return new Container(swedishNumberToWordsConverter, swedishNumberToWordsConverter, swedishBigDecimalConverter);
     }
 
     private final IntegerToStringConverter integerConverter;
