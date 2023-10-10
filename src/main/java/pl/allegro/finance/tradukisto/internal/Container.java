@@ -37,6 +37,8 @@ import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianCyrillicV
 import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishHundredToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishValues;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
@@ -243,6 +245,23 @@ public final class Container {
         LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
+    }
+
+    public static Container swedishContainer() {
+        SwedishValues swedishBaseValues = new SwedishValues();
+
+        SwedishHundredToWordsConverter swedishHundredsToStringConverter =
+                new SwedishHundredToWordsConverter(swedishBaseValues.baseNumbers());
+
+        NumberToWordsConverter swedishNumberToWordsConverter = new NumberToWordsConverter(
+                swedishHundredsToStringConverter,
+                swedishBaseValues.pluralForms());
+
+        BigDecimalToStringConverter swedishBigDecimalConverter = new BigDecimalToBankingMoneyConverter(
+                swedishNumberToWordsConverter,
+                swedishBaseValues.currency());
+
+        return new Container(swedishNumberToWordsConverter, swedishNumberToWordsConverter, swedishBigDecimalConverter);
     }
 
     private final IntegerToStringConverter integerConverter;

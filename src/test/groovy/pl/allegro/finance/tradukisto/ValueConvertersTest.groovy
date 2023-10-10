@@ -18,6 +18,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_CYRILLIC_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SWEDISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER
@@ -48,6 +49,7 @@ class ValueConvertersTest extends Specification {
         "Serbian Latin"        | SERBIAN_INTEGER              || "jedna hiljada dvesta trideset četiri"
         "Slovak"               | SLOVAK_INTEGER               || "jeden tisíc dvesto tridsať štyri"
         "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
+        "Swedish"              | SWEDISH_INTEGER              || "ett tusen två hundra och trettiofyra"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
         "Hindi"                | HINDI_INTEGER                || "एक हजार दो सौ चौंतीस"
@@ -94,6 +96,7 @@ class ValueConvertersTest extends Specification {
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
         new Locale("hi")                                                 || HINDI_INTEGER
+        new Locale("sv")                                                 || SWEDISH_INTEGER
     }
 
     def "should return supplied default converter when locale is unknown"() {
@@ -140,6 +143,7 @@ class ValueConvertersTest extends Specification {
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
         "hi"         || HINDI_INTEGER
+        "sv"         || SWEDISH_INTEGER
     }
 
     def "should return supplied default converter when languageCode is unknown"() {
