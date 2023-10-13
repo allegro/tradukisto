@@ -29,19 +29,19 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇬🇧 English
 * 🇫🇷 French
 * 🇩🇪 German
+* 🇮🇳 Hindi
 * 🇮🇹 Italian
 * 🇰🇿 Kazakh
 * 🇱🇻 Latvian
 * 🇵🇱 Polish
 * 🇷🇺 Russian
-* 🇸🇰 Slovak
-* 🇸🇪 Swedish
-* 🇺🇦 Ukrainian
-* 🇷🇸 Serbian (Latin)
 * 🇷🇸 Serbian (Cyrillic)
+* 🇷🇸 Serbian (Latin)
+* 🇸🇰 Slovak
+* 🇪🇸 Spanish
+* 🇸🇪 Swedish
 * 🇹🇷 Turkish
-* 🇮🇳 Hindi
-
+* 🇺🇦 Ukrainian
 
 Is your language missing from the list? We encourage you to contribute to our project. 
 

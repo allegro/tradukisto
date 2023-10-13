@@ -37,6 +37,10 @@ import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianCyrillicV
 import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
 import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishHundredToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishValues;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishBigDecimalToBankingMoneyConverter;
@@ -246,7 +250,23 @@ public final class Container {
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
     }
+  
+    public static Container spanishContainer() {
+        SpanishValues values = new SpanishValues();
 
+        SpanishThousandToWordsConverter spanishThousandToWordsConverter = new SpanishThousandToWordsConverter(
+                values.baseNumbers(), values.exceptions());
+
+        IntegerToStringConverter converter = new SpanishIntegerToWordsConverter(
+                new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
+                values.exceptions(), spanishThousandToWordsConverter);
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
+    }
+  
     public static Container swedishContainer() {
         SwedishValues swedishBaseValues = new SwedishValues();
 
