@@ -60,7 +60,7 @@ public class SloveneValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlovenePluralForms("", "", "", "", GenderType.NEUTER),
+                new SlovenePluralForms("", "", "", "", GenderType.FEMININE),
                 new SlovenePluralForms("tisoč", "tisoč", "tisoč", "tisoč", GenderType.NEUTER),
                 new SlovenePluralForms("milijon", "milijona", "milijone", "milijonov", GenderType.MASCULINE),
                 new SlovenePluralForms("milijarda", "milijardi", "milijarde", "milijard", GenderType.FEMININE));

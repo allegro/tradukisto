@@ -23,7 +23,7 @@ public class SloveneThousandToWordsConverter implements GenderAwareIntegerToStri
             return baseValues.get(value).formFor(genderType);
         }
         if (Range.closed(21, 99).contains(value)) {
-            return twoDigitsNumberAsString(value, genderType);
+            return twoDigitsNumberAsString(value);
         }
         if (Range.closed(101, 999).contains(value)) {
             return threeDigitsNumberAsString(value, genderType);
@@ -31,10 +31,10 @@ public class SloveneThousandToWordsConverter implements GenderAwareIntegerToStri
         throw new IllegalArgumentException(format("Can't convert %d", value));
     }
 
-    private String twoDigitsNumberAsString(Integer value, GenderType genderType) {
+    private String twoDigitsNumberAsString(Integer value) {
         Integer units = value % 10;
         Integer tens = value - units;
-        return format("%sin%s", asWords(units, genderType), asWords(tens, genderType));
+        return format("%sin%s", asWords(units, GenderType.FEMININE), asWords(tens, GenderType.FEMININE));
     }
 
     private String threeDigitsNumberAsString(Integer value, GenderType genderType) {
