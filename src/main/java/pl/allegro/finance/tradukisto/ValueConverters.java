@@ -30,8 +30,10 @@ public enum ValueConverters {
     FRENCH_INTEGER(Container.frenchContainer().getIntegerConverter(), "fr"),
     TURKISH_INTEGER(Container.turkishContainer().getIntegerConverter(), "tr"),
     DUTCH_INTEGER(Container.dutchContainer().getIntegerConverter(), "nl"),
+    SLOVENE_INTEGER(Container.sloveneContainer().getIntegerConverter(), "sl"),
+    SPANISH_INTEGER(Container.spanishContainer().getIntegerConverter(), "es"),
     HINDI_INTEGER(Container.hindiContainer().getIntegerConverter(), "hi"),
-    SLOVENE_INTEGER(Container.sloveneContainer().getIntegerConverter(), "sl");
+    SWEDISH_INTEGER(Container.swedishContainer().getIntegerConverter(), "sv");
 
     private final IntegerToStringConverter converter;
     private final List<String> languageCodes;
