@@ -1,17 +1,16 @@
 package pl.allegro.finance.tradukisto.internal.languages.portuguese;
 
-import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
-import com.google.common.collect.ImmutableMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.Collections.singletonMap;
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 public class BrazilianPortugueseValues  {
 
@@ -57,9 +56,7 @@ public class BrazilianPortugueseValues  {
     }
 
     public Map<Integer, MultiFormNumber> exceptions() {
-        return ImmutableMap.<Integer, MultiFormNumber>builder()
-                .put(100, new MultiFormNumber("cem", "cento"))
-                .build();
+        return singletonMap(100, new MultiFormNumber("cem", "cento"));
     }
 
     public List<PluralForms> pluralForms() {

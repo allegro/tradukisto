@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.support
 
-import pl.allegro.finance.tradukisto.internal.support.NumberChunking
 import spock.lang.Specification
 
 class NumberChunkingTest extends Specification {
@@ -12,13 +11,14 @@ class NumberChunkingTest extends Specification {
         splitter.chunk(value) == chunks
 
         where:
-        value     | chunks
-        0         | []
-        123       | [123]
-        1234      | [1, 234]
-        123000789 | [123, 0, 789]
-        123456789 | [123, 456, 789]
-        123000000 | [123, 0, 0]
-        12300000  | [12, 300, 0]
+        value          | chunks
+        0              | []
+        123            | [123]
+        1234           | [1, 234]
+        123000789      | [123, 0, 789]
+        123456789      | [123, 456, 789]
+        123000000      | [123, 0, 0]
+        12300000       | [12, 300, 0]
+        Long.MAX_VALUE | [9, 223, 372, 36, 854, 775, 807]
     }
 }

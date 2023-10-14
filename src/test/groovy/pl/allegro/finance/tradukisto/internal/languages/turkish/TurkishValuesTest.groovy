@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer
 
 class TurkishValuesTest extends Specification {
 
-    static converter = turkishContainer().getNumbersConverter()
+    static intConverter = turkishContainer().getIntegerConverter()
+    static longConverter = turkishContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Turkish"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -102,5 +104,28 @@ class TurkishValuesTest extends Specification {
 
         1_000_000_000 | "Bir Milyar"
         2_147_483_647 | "İki Milyar Yüz Kırk Yedi Milyon Dört Yüz Seksen Üç Bin Altı Yüz Kırk Yedi"
+    }
+
+    @Ignore("Needs Turkish long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Turkish"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

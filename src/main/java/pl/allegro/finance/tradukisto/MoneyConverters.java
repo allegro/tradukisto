@@ -1,12 +1,14 @@
 package pl.allegro.finance.tradukisto;
 
 import pl.allegro.finance.tradukisto.internal.BigDecimalToStringConverter;
+import pl.allegro.finance.tradukisto.internal.Container;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
-import static com.google.common.base.Verify.verifyNotNull;
 import static pl.allegro.finance.tradukisto.internal.Container.americanEnglishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
@@ -17,10 +19,15 @@ import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.persianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.serbianCyrillicContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.spanishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
 
 public enum MoneyConverters {
 
@@ -31,6 +38,7 @@ public enum MoneyConverters {
     RUSSIAN_BANKING_MONEY_VALUE(russianContainer().getBankingMoneyConverter()),
     POLISH_BANKING_MONEY_VALUE(polishContainer().getBankingMoneyConverter()),
     ITALIAN_BANKING_MONEY_VALUE(italianContainer().getBankingMoneyConverter()),
+    CROATIAN_BANKING_MONEY_VALUE(croatianContainer().getBankingMoneyConverter()),
     CZECH_BANKING_MONEY_VALUE(czechContainer().getBankingMoneyConverter()),
     PERSIAN_BANKING_MONEY_VALUE(persianContainer().getBankingMoneyConverter()),
     SLOVAK_BANKING_MONEY_VALUE(slovakContainer().getBankingMoneyConverter()),
@@ -39,7 +47,13 @@ public enum MoneyConverters {
     UKRAINIAN_BANKING_MONEY_VALUE(ukrainianContainer().getBankingMoneyConverter()),
     TURKISH_BANKING_MONEY_VALUE(turkishContainer().getBankingMoneyConverter()),
     SERBIAN_BANKING_MONEY_VALUE(serbianContainer().getBankingMoneyConverter()),
-    FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter());
+    SERBIAN_CYRILLIC_BANKING_MONEY_VALUE(serbianCyrillicContainer().getBankingMoneyConverter()),
+    FRENCH_BANKING_MONEY_VALUE(frenchContainer().getBankingMoneyConverter()),
+    BULGARIAN_BANKING_MONEY_VALUE(bulgarianContainer().getBankingMoneyConverter()),
+    DUTCH_BANKING_MONEY_VALUE(dutchContainer().getBankingMoneyConverter()),
+    SPANISH_BANKING_MONEY_VALUE(spanishContainer().getBankingMoneyConverter()),
+    HINDI_BANKING_MONEY_VALUE(Container.hindiContainer().getBankingMoneyConverter()),
+    SWEDISH_BANKING_MONEY_VALUE(swedishContainer().getBankingMoneyConverter());
 
     private final BigDecimalToStringConverter converter;
 
@@ -48,8 +62,15 @@ public enum MoneyConverters {
     }
 
     public String asWords(BigDecimal value) {
-        verifyNotNull(value);
+        Objects.requireNonNull(value);
 
         return converter.asWords(value);
+    }
+
+    public String asWords(BigDecimal value, String currencySymbol) {
+        Objects.requireNonNull(value);
+        Objects.requireNonNull(currencySymbol);
+
+        return converter.asWords(value, currencySymbol);
     }
 }

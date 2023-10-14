@@ -1,15 +1,14 @@
 package pl.allegro.finance.tradukisto.internal.languages.portuguese;
 
-import static java.lang.String.format;
-
-import java.util.Map;
-
-import com.google.common.collect.Range;
-
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.MultiFormNumber;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
+import pl.allegro.finance.tradukisto.internal.support.Range;
+
+import java.util.Map;
+
+import static java.lang.String.format;
 
 public class PortugueseThousandToWordsConverter implements IntegerToStringConverter {
 
@@ -22,7 +21,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private final GenderType genderType = GenderType.NON_APPLICABLE;
 
     public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
-            Map<Integer, MultiFormNumber> exceptions) {
+                                              Map<Integer, MultiFormNumber> exceptions) {
         this.baseValues = baseValues;
         this.exceptions = exceptions;
     }
@@ -35,16 +34,19 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private String asWords(Integer value, boolean hasNextNumber) {
         if (baseValues.containsKey(value)) {
             return baseValues.get(value).formFor(genderType);
-        } else if (exceptions.containsKey(value)) {
-            if (hasNextNumber) {
-                return exceptions.get(value).getRegularForm();
-            }
-            return exceptions.get(value).getAloneForm();
-        } else if (Range.closed(21, 99).contains(value)) {
+        }
+        if (exceptions.containsKey(value)) {
+            return hasNextNumber
+                    ? exceptions.get(value).getRegularForm()
+                    : exceptions.get(value).getAloneForm();
+        }
+        if (Range.closed(21, 99).contains(value)) {
             return twoDigitsNumberAsString(value);
-        } else if (Range.closed(101, 999).contains(value)) {
+        }
+        if (Range.closed(101, 999).contains(value)) {
             return threeDigitsNumberAsString(value);
-        } else if (Range.closed(1000, 999999).contains(value)) {
+        }
+        if (Range.closed(1000, 999999).contains(value)) {
             return thousandsAsString(value);
         }
 
@@ -60,8 +62,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private String threeDigitsNumberAsString(Integer value) {
         Integer tensWithUnits = value % 100;
         Integer hundreds = value - tensWithUnits;
-        boolean hasNextNumber = tensWithUnits != 0;
-        return format("%s e %s", asWords(hundreds, hasNextNumber), asWords(tensWithUnits));
+        return format("%s e %s", asWords(hundreds, true), asWords(tensWithUnits));
     }
 
     private String thousandsAsString(Integer value) {
@@ -77,7 +78,7 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
 
     private String getThousandsAsWords(Integer thousands, Integer other) {
         if (nothingComesAfter(other)) {
-             return format("%s mil", asWords(thousands));
+            return format("%s mil", asWords(thousands));
         }
         if (other == HUNDRED) {
             return format("%s mil e %s", asWords(thousands, HAS_NOT_NEXT_VALUE), asWords(other, HAS_NOT_NEXT_VALUE));

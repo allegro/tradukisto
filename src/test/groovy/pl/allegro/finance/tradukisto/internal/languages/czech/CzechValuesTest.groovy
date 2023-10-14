@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.czechContainer
 
 class CzechValuesTest extends Specification {
 
-    static converter = czechContainer().getNumbersConverter()
+    static intConverter = czechContainer().getIntegerConverter()
+    static longConverter = czechContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Czech"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -101,5 +103,28 @@ class CzechValuesTest extends Specification {
 
         1_000_000_000 | "jedna miliarda"
         2_147_483_647 | "dvě miliardy sto čtyřicet sedm milionů čtyři sta osmdesát tři tisíc šest set čtyřicet sedm"
+    }
+
+    @Ignore("Needs Czech long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Czech"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

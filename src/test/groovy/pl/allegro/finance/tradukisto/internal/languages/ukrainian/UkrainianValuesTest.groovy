@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.ukrainian
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContaine
 
 class UkrainianValuesTest extends Specification {
 
-    static converter = ukrainianContainer().getNumbersConverter()
+    static intConverter = ukrainianContainer().getIntegerConverter()
+    static longConverter = ukrainianContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Ukrainian"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -39,7 +41,7 @@ class UkrainianValuesTest extends Specification {
         20            | "двадцять"
         30            | "тридцять"
         40            | "сорок"
-        50            | "пятдесят"
+        50            | "п'ятдесят"
         60            | "шістдесят"
         70            | "сімдесят"
         80            | "вісімдесят"
@@ -49,7 +51,7 @@ class UkrainianValuesTest extends Specification {
 
 
         43            | "сорок три"
-        58            | "пятдесят вісім"
+        58            | "п'ятдесят вісім"
         69            | "шістдесят дев'ять"
         76            | "сімдесят шість"
         82            | "вісімдесят два"
@@ -78,11 +80,11 @@ class UkrainianValuesTest extends Specification {
         7_634         | "сім тисяч шістсот тридцять чотири"
         21_000        | "двадцять одна тисяча"
         24_190        | "двадцять чотири тисячі сто дев'яносто"
-        51_000        | "пятдесят одна тисяча"
+        51_000        | "п'ятдесят одна тисяча"
         101_000       | "сто одна тисяча"
         481_000       | "чотириста вісімдесят одна тисяча"
-        653_000       | "шістсот пятдесят три тисячі"
-        123_454       | "сто двадцять три тисячі чотириста пятдесят чотири"
+        653_000       | "шістсот п'ятдесят три тисячі"
+        123_454       | "сто двадцять три тисячі чотириста п'ятдесят чотири"
         700_000       | "сімсот тисяч"
         999_999       | "дев'ятсот дев'яносто дев'ять тисяч дев'ятсот дев'яносто дев'ять"
         1_000_000     | "один мільйон"
@@ -90,9 +92,32 @@ class UkrainianValuesTest extends Specification {
         5_000_000     | "п'ять мільйонів"
         23_437_219    | "двадцять три мільйони чотириста тридцять сім тисяч двісті дев'ятнадцять"
         100_000_000   | "сто мільйонів"
-        123_456_789   | "сто двадцять три мільйони чотириста пятдесят шість тисяч сімсот вісімдесят дев'ять"
+        121_000_000   | "сто двадцять один мільйон"
+        123_456_789   | "сто двадцять три мільйони чотириста п'ятдесят шість тисяч сімсот вісімдесят дев'ять"
         1_000_000_000 | "один мільярд"
         2_147_483_647 | "два мільярди сто сорок сім мільйонів чотириста вісімдесят три тисячі шістсот сорок сім"
     }
 
+    @Ignore("Needs Ukrainian long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Ukrainian"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
+    }
 }

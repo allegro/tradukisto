@@ -1,8 +1,8 @@
 package pl.allegro.finance.tradukisto.internal.languages.czech;
 
-import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
 public class CzechPluralForms implements PluralForms {
 
@@ -28,7 +28,8 @@ public class CzechPluralForms implements PluralForms {
     public String formFor(Integer value) {
         if (value == 1) {
             return singularForm;
-        } else if (Range.closed(2, 4).contains(value)) {
+        }
+        if (Range.closed(2, 4).contains(value)) {
             return pluralForm;
         }
 

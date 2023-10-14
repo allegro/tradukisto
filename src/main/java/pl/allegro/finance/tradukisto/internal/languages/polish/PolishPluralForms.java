@@ -1,10 +1,10 @@
-package pl.allegro.finance.tradukisto.internal.languages.russian;
+package pl.allegro.finance.tradukisto.internal.languages.polish;
 
-import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
-public class RussianPluralForms implements PluralForms {
+public class PolishPluralForms implements PluralForms {
 
     private final String singularForm;
     private final String pluralForm;
@@ -12,7 +12,11 @@ public class RussianPluralForms implements PluralForms {
 
     private final GenderType genderType;
 
-    public RussianPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
+    public PolishPluralForms(String singularForm, String pluralForm, String genitivePluralForm) {
+        this(singularForm, pluralForm, genitivePluralForm, GenderType.NON_APPLICABLE);
+    }
+
+    public PolishPluralForms(String singularForm, String pluralForm, String genitivePluralForm, GenderType genderType) {
         this.singularForm = singularForm;
         this.pluralForm = pluralForm;
         this.genitivePluralForm = genitivePluralForm;
@@ -22,20 +26,18 @@ public class RussianPluralForms implements PluralForms {
 
     @Override
     public String formFor(Integer value) {
-        if (useSingular(value)) {
+        if (value == 1) {
             return singularForm;
-        } else if (usePluralForm(value)) {
+        }
+        if (usePluralForm(value)) {
             return pluralForm;
         }
         return genitivePluralForm;
     }
 
-    private boolean useSingular(Integer value) {
-        return value == 1 || (value % 100 != 11 && value % 10 == 1);
-    }
-
     private boolean usePluralForm(Integer value) {
-        return Range.closed(2, 4).contains(value % 10) && !Range.closed(12, 14).contains(value % 100);
+        return Range.closed(2, 4).contains(value % 10)
+                && !Range.closed(12, 14).contains(value % 100);
     }
 
     @Override

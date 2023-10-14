@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.french
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer
 
 class FrenchValuesTest extends Specification {
 
-    static converter = frenchContainer().getNumbersConverter()
+    static intConverter = frenchContainer().getIntegerConverter()
+    static longConverter = frenchContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in French"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value         | words
@@ -47,24 +49,30 @@ class FrenchValuesTest extends Specification {
         80            | "quatre-vingts"
         90            | "quatre-vingt-dix"
 
-        21            | "vingt-un"
+        21            | "vingt-et-un"
+        22            | "vingt-deux"
+        31            | "trente-et-un"
+        32            | "trente-deux"
         37            | "trente-sept"
+        41            | "quarante-et-un"
         43            | "quarante-trois"
+        51            | "cinquante-et-un"
         58            | "cinquante-huit"
+        61            | "soixante-et-un"
         69            | "soixante-neuf"
         76            | "soixante-seize"
         82            | "quatre-vingt-deux"
         95            | "quatre-vingt-quinze"
 
         100           | "cent"
-        200           | "deux cent"
-        300           | "trois cent"
-        400           | "quatre cent"
-        500           | "cinq cent"
-        600           | "six cent"
-        700           | "sept cent"
-        800           | "huit cent"
-        900           | "neuf cent"
+        200           | "deux cents"
+        300           | "trois cents"
+        400           | "quatre cents"
+        500           | "cinq cents"
+        600           | "six cents"
+        700           | "sept cents"
+        800           | "huit cents"
+        900           | "neuf cents"
 
         111           | "cent onze"
         272           | "deux cent soixante-douze"
@@ -84,11 +92,11 @@ class FrenchValuesTest extends Specification {
         7_634         | "sept mille six cent trente-quatre"
         11_000        | "onze mille"
         15_000        | "quinze mille"
-        21_000        | "vingt-un mille"
+        21_000        | "vingt-et-un mille"
         24_190        | "vingt-quatre mille cent quatre-vingt-dix"
         653_000       | "six cent cinquante-trois mille"
         123_454       | "cent vingt-trois mille quatre cent cinquante-quatre"
-        700_000       | "sept cent mille"
+        700_000       | "sept cents mille"
         999_999       | "neuf cent quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf"
 
         1_000_000     | "un million"
@@ -102,5 +110,28 @@ class FrenchValuesTest extends Specification {
         1_000_000_000 | "un milliard"
         2_147_483_647 | "deux milliards cent quarante-sept millions quatre cent quatre-vingt-trois mille six cent " +
                 "quarante-sept"
+    }
+
+    @Ignore("Needs French long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in French"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

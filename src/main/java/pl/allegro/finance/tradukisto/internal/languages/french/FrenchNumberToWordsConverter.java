@@ -1,20 +1,20 @@
 package pl.allegro.finance.tradukisto.internal.languages.french;
 
-import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter;
-import pl.allegro.finance.tradukisto.internal.converters.IntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
 import java.util.List;
 import java.util.Map;
 
 import static java.lang.String.format;
 
-public class FrenchIntegerToWordsConverter extends IntegerToWordsConverter {
+public class FrenchNumberToWordsConverter extends NumberToWordsConverter {
 
     private final Map<Integer, String> exceptions;
 
-    public FrenchIntegerToWordsConverter(
+    public FrenchNumberToWordsConverter(
             IntegerToStringConverter integerToStringConverter,
             Map<Integer, String> exceptions,
             List<PluralForms> pluralForms

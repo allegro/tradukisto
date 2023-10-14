@@ -1,8 +1,8 @@
 package pl.allegro.finance.tradukisto.internal.languages.turkish;
 
-import com.google.common.collect.Range;
 import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverter;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
+import pl.allegro.finance.tradukisto.internal.support.Range;
 
 import static java.lang.String.format;
 
@@ -26,15 +26,20 @@ public class TurkishSmallNumbersToWordsConverter implements GenderAwareIntegerTo
     public String asWords(Integer value, GenderType genderType) {
         if (turkishValues.baseNumbers().containsKey(value)) {
             return turkishValues.baseNumbers().get(value).formFor(genderType);
-        } else if (Range.closed(21, 99).contains(value)) {
+        }
+        if (Range.closed(21, 99).contains(value)) {
             return twoDigitsNumberAsString(value, genderType);
-        } else if (Range.closed(101, 999).contains(value)) {
+        }
+        if (Range.closed(101, 999).contains(value)) {
             return threeDigitsNumberAsString(value, genderType);
-        } else if (value == 1000) {
+        }
+        if (value == 1000) {
             return "Bin";
-        } else if (Range.closed(1001, 1999).contains(value)) {
+        }
+        if (Range.closed(1001, 1999).contains(value)) {
             return oneThousandsAsString(value, genderType);
-        } else if (Range.closed(2000, 999999).contains(value)) {
+        }
+        if (Range.closed(2000, 999999).contains(value)) {
             return greaterThanOneThousandsAsString(value, genderType);
         }
 

@@ -1,19 +1,18 @@
 package pl.allegro.finance.tradukisto.internal.languages.slovak;
 
-import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
-import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-import com.google.common.collect.ImmutableMap;
-
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechPluralForms;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.Collections.singletonMap;
+import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.genderForms;
+import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 public class SlovakValues implements BaseValues {
 
@@ -79,6 +78,6 @@ public class SlovakValues implements BaseValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(2, "dve").build();
+        return singletonMap(2, "dve");
     }
 }

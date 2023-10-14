@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.portuguese
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -7,12 +8,13 @@ import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugue
 
 class BrazilianPortugueseValuesTest extends Specification {
 
-    static converter = brazilianPortugueseContainer().getNumbersConverter()
+    static intConverter = brazilianPortugueseContainer().getIntegerConverter()
+    static longConverter = brazilianPortugueseContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Brazilian Portuguese"() {
         expect:
-        converter.asWords(value) == words
+        intConverter.asWords(value) == words
 
         where:
         value      | words
@@ -108,5 +110,28 @@ class BrazilianPortugueseValuesTest extends Specification {
         2001001110 | "dois bilhões um milhão mil cento e dez"
         2001001100 | "dois bilhões um milhão mil e cem"
         2147483647 | "dois bilhões cento e quarenta e sete milhões quatrocentos e oitenta e três mil seiscentos e quarenta e sete"
+    }
+
+    @Ignore("Needs Brazilian Portuguese long converter and values for trillion, quadrillion, quintillion")
+    @Unroll
+    def "should convert long #value to '#words' in Brazilian Portuguese"() {
+        expect:
+        longConverter.asWords(value) == words
+
+        where:
+        value                     | words
+        5_000_000_000             | ""
+
+        1_000_000_000_000         | ""
+        2_000_000_000_000         | ""
+        5_000_000_000_000         | ""
+
+        1_000_000_000_000_000     | ""
+        2_000_000_000_000_000     | ""
+        5_000_000_000_000_000     | ""
+
+        1_000_000_000_000_000_000 | ""
+        2_000_000_000_000_000_000 | ""
+        Long.MAX_VALUE            | ""
     }
 }

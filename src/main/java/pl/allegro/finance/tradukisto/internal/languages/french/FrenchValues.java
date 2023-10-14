@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages.french;
 
-import com.google.common.collect.ImmutableMap;
 import pl.allegro.finance.tradukisto.internal.BaseValues;
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
 import pl.allegro.finance.tradukisto.internal.languages.GenderType;
@@ -12,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableEntry;
+import static pl.allegro.finance.tradukisto.internal.support.MapSupport.unmodifiableMapOf;
 
 public class FrenchValues implements BaseValues {
 
@@ -39,10 +40,15 @@ public class FrenchValues implements BaseValues {
                 .put(18, "dix-huit")
                 .put(19, "dix-neuf")
                 .put(20, "vingt")
+                .put(21, "vingt-et-un")
                 .put(30, "trente")
+                .put(31, "trente-et-un")
                 .put(40, "quarante")
+                .put(41, "quarante-et-un")
                 .put(50, "cinquante")
+                .put(51, "cinquante-et-un")
                 .put(60, "soixante")
+                .put(61, "soixante-et-un")
                 .put(70, "soixante-dix")
                 .put(71, "soixante-et-onze")
                 .put(72, "soixante-douze")
@@ -107,7 +113,17 @@ public class FrenchValues implements BaseValues {
     }
 
     public Map<Integer, String> exceptions() {
-        return ImmutableMap.<Integer, String>builder().put(1000, "mille").build();
+        return unmodifiableMapOf(
+                unmodifiableEntry(200, "deux cents"),
+                unmodifiableEntry(300, "trois cents"),
+                unmodifiableEntry(400, "quatre cents"),
+                unmodifiableEntry(500, "cinq cents"),
+                unmodifiableEntry(600, "six cents"),
+                unmodifiableEntry(700, "sept cents"),
+                unmodifiableEntry(800, "huit cents"),
+                unmodifiableEntry(900, "neuf cents"),
+                unmodifiableEntry(1000, "mille")
+        );
     }
 }
 

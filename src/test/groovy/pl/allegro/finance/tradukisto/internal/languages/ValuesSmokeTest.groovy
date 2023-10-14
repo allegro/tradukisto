@@ -1,5 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages
 
+import pl.allegro.finance.tradukisto.LongValueConverters
 import pl.allegro.finance.tradukisto.ValueConverters
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -15,5 +16,16 @@ class ValuesSmokeTest extends Specification {
 
         where:
         converter << ValueConverters.values()
+    }
+
+    @Unroll
+    def "should convert any value in range of 0-999 using #converter long converter"() {
+        expect:
+        (0..999).each {
+            assert converter.asWords(it).length() > 0
+        }
+
+        where:
+        converter << LongValueConverters.values()
     }
 }

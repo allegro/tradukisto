@@ -3,10 +3,10 @@ import pl.allegro.finance.tradukisto.internal.GenderAwareIntegerToStringConverte
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues
 import spock.lang.Specification
 
-class IntegerToWordsConverterTest extends Specification {
+class NumberToWordsConverterTest extends Specification {
 
     def hundredsToWordsConverter = Stub(GenderAwareIntegerToStringConverter)
-    def converter = new IntegerToWordsConverter(hundredsToWordsConverter, new EnglishValues().pluralForms())
+    def converter = new NumberToWordsConverter(hundredsToWordsConverter, new EnglishValues().pluralForms())
 
     def setup() {
         hundredsToWordsConverter.asWords(0, _) >> "zero"
@@ -36,6 +36,14 @@ class IntegerToWordsConverterTest extends Specification {
 
         when:
         converter.asWords(1002004)
+
+        then:
+        thrown(IllegalArgumentException)
+    }
+
+    def "should throw IllegalArgumentException when value is negative"() {
+        when:
+        converter.asWords(-1)
 
         then:
         thrown(IllegalArgumentException)
