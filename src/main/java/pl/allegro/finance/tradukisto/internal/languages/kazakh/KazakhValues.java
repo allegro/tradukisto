@@ -58,10 +58,10 @@ public class KazakhValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new KazakhPluralForms(""),
-                new KazakhPluralForms("мың"),
-                new KazakhPluralForms("миллион"),
-                new KazakhPluralForms("миллиард")
+            new KazakhPluralForms(""),
+            new KazakhPluralForms("мың"),
+            new KazakhPluralForms("миллион"),
+            new KazakhPluralForms("миллиард")
         );
     }
 

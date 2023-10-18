@@ -62,8 +62,9 @@ public class DutchValues {
 
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new DutchPluralForms("miljoen"),
-                new DutchPluralForms("miljard"));
+            new DutchPluralForms("miljoen"),
+            new DutchPluralForms("miljard")
+        );
     }
 
     public String currency() {

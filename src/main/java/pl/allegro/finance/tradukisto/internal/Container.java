@@ -70,17 +70,17 @@ public final class Container {
     public static Container bulgarianContainer() {
         BulgarianValues bulgarianValues = new BulgarianValues();
 
-        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(bulgarianValues.baseNumbers(),
-                bulgarianValues.twoDigitsNumberSeparator());
+        HundredsToWordsConverter hundredsToStringConverter =
+            new HundredsToWordsConverter(bulgarianValues.baseNumbers(), bulgarianValues.twoDigitsNumberSeparator());
 
         IntegerToStringConverter integerToStringConverter = new BulgarianIntegerToWordsConverter(
-                hundredsToStringConverter,
-                bulgarianValues.pluralForms(),
-                bulgarianValues.oneThousandException());
+            hundredsToStringConverter,
+            bulgarianValues.pluralForms(),
+            bulgarianValues.oneThousandException()
+        );
 
-        BigDecimalToStringConverter bigDecimalConverter = new BigDecimalToBankingMoneyConverter(
-                integerToStringConverter,
-                bulgarianValues.currency());
+        BigDecimalToStringConverter bigDecimalConverter =
+            new BigDecimalToBankingMoneyConverter(integerToStringConverter, bulgarianValues.currency());
 
         return new Container(integerToStringConverter, null, bigDecimalConverter);
     }
@@ -99,12 +99,12 @@ public final class Container {
         Container containerForSmallNumbers = new Container(new CzechValuesForSmallNumbers());
 
         IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(
-                containerForBigNumbers.getIntegerConverter(), containerForSmallNumbers.getIntegerConverter(),
-                czechValues.exceptions()
+            containerForBigNumbers.getIntegerConverter(),
+            containerForSmallNumbers.getIntegerConverter(),
+            czechValues.exceptions()
         );
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                integerConverter,
-                czechValues.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(integerConverter, czechValues.currency());
 
         return new Container(integerConverter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -114,10 +114,13 @@ public final class Container {
         Container containerForBigNumbers = new Container(slovakValues);
         Container containerForSmallNumbers = new Container(new SlovakValuesForSmallNumbers());
 
-        IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(containerForBigNumbers.getIntegerConverter(),
-                containerForSmallNumbers.getIntegerConverter(), slovakValues.exceptions());
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(integerConverter,
-                slovakValues.currency());
+        IntegerToStringConverter integerConverter = new CzechIntegerToWordsConverter(
+            containerForBigNumbers.getIntegerConverter(),
+            containerForSmallNumbers.getIntegerConverter(),
+            slovakValues.exceptions()
+        );
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(integerConverter, slovakValues.currency());
 
         return new Container(integerConverter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -135,14 +138,14 @@ public final class Container {
         FrenchValues values = new FrenchValues();
 
         HundredsToWordsConverter hundredsToWordsConverter =
-                new HundredsToWordsConverter(values.baseNumbers(), values.twoDigitsNumberSeparator());
+            new HundredsToWordsConverter(values.baseNumbers(), values.twoDigitsNumberSeparator());
         NumberToWordsConverter frenchNumberToWordsConverter =
-                new NumberToWordsConverter(hundredsToWordsConverter, values.pluralForms());
+            new NumberToWordsConverter(hundredsToWordsConverter, values.pluralForms());
         IntegerToStringConverter converter =
-                new FrenchNumberToWordsConverter(frenchNumberToWordsConverter, values.exceptions(), values.pluralForms());
+            new FrenchNumberToWordsConverter(frenchNumberToWordsConverter, values.exceptions(), values.pluralForms());
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
-                new BigDecimalToBankingMoneyConverter(converter, values.currency());
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -151,15 +154,16 @@ public final class Container {
 
         GermanValues values = new GermanValues();
 
-        GermanThousandToWordsConverter germanThousandToWordsConverter = new GermanThousandToWordsConverter(
-                values.baseNumbers());
+        GermanThousandToWordsConverter germanThousandToWordsConverter =
+            new GermanThousandToWordsConverter(values.baseNumbers());
 
         IntegerToStringConverter converter = new GermanIntegerToWordsConverter(
-                new NumberToWordsConverter(germanThousandToWordsConverter, values.pluralForms()), values.exceptions(),
-                germanThousandToWordsConverter);
+            new NumberToWordsConverter(germanThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+            germanThousandToWordsConverter
+        );
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -168,15 +172,16 @@ public final class Container {
 
         DutchValues values = new DutchValues();
 
-        DutchThousandToWordsConverter dutchThousandToWordsConverter = new DutchThousandToWordsConverter(
-                values.baseNumbers());
+        DutchThousandToWordsConverter dutchThousandToWordsConverter =
+            new DutchThousandToWordsConverter(values.baseNumbers());
 
         IntegerToStringConverter converter = new DutchIntegerToWordsConverter(
-                new NumberToWordsConverter(dutchThousandToWordsConverter, values.pluralForms()), values.exceptions(),
-                dutchThousandToWordsConverter);
+            new NumberToWordsConverter(dutchThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+            dutchThousandToWordsConverter
+        );
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -184,15 +189,16 @@ public final class Container {
     public static Container italianContainer() {
         ItalianValues values = new ItalianValues();
 
-        ItalianThousandToWordsConverter italianThousandToWordsConverter = new ItalianThousandToWordsConverter(
-                values.baseNumbers());
+        ItalianThousandToWordsConverter italianThousandToWordsConverter =
+            new ItalianThousandToWordsConverter(values.baseNumbers());
 
         IntegerToStringConverter converter = new ItalianIntegerToWordsConverter(
-                new NumberToWordsConverter(italianThousandToWordsConverter, values.pluralForms()), values.exceptions(),
-                italianThousandToWordsConverter);
+            new NumberToWordsConverter(italianThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+            italianThousandToWordsConverter
+        );
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -205,14 +211,17 @@ public final class Container {
         BrazilianPortugueseValues values = new BrazilianPortugueseValues();
 
         PortugueseThousandToWordsConverter portugueseThousandToWordsConverter = new PortugueseThousandToWordsConverter(
-                values.baseNumbers(), values.exceptions());
+            values.baseNumbers(),
+            values.exceptions()
+        );
 
         IntegerToStringConverter converter = new PortugueseIntegerToWordsConverter(
-                new PortugueseNumberToWordsConverterAdapter(portugueseThousandToWordsConverter, values.pluralForms()), values.exceptions(),
-                portugueseThousandToWordsConverter);
+            new PortugueseNumberToWordsConverterAdapter(portugueseThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+            portugueseThousandToWordsConverter
+        );
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -223,9 +232,9 @@ public final class Container {
         TurkishSmallNumbersToWordsConverter smallNumbersConverter = new TurkishSmallNumbersToWordsConverter(values);
         NumberToWordsConverter bigNumbersConverter = new NumberToWordsConverter(smallNumbersConverter, values.pluralForms());
         IntegerToStringConverter converter =
-                new TurkishIntegerToWordsConverter(bigNumbersConverter, smallNumbersConverter);
+            new TurkishIntegerToWordsConverter(bigNumbersConverter, smallNumbersConverter);
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
-                new TurkishBigDecimalToBankingMoneyConverter(converter, values);
+            new TurkishBigDecimalToBankingMoneyConverter(converter, values);
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -238,14 +247,18 @@ public final class Container {
     public static Container hindiContainer() {
         HindiValues hindiValues = new HindiValues();
 
-        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(hindiValues.baseNumbers(),
-                hindiValues.twoDigitsNumberSeparator());
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(
+            hindiValues.baseNumbers(),
+            hindiValues.twoDigitsNumberSeparator()
+        );
 
-        IntegerToStringConverter integerToStringConverter = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
+        IntegerToStringConverter integerToStringConverter = new IndianNumberToWordsConverter(
+            hundredsToStringConverter,
+            hindiValues.pluralForms()
+        );
 
-        BigDecimalToStringConverter bigDecimalConverter = new HindiBigDecimalToBankingMoneyConverter(
-                integerToStringConverter,
-                hindiValues);
+        BigDecimalToStringConverter bigDecimalConverter =
+            new HindiBigDecimalToBankingMoneyConverter(integerToStringConverter, hindiValues);
         LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
@@ -255,14 +268,20 @@ public final class Container {
         SpanishValues values = new SpanishValues();
 
         SpanishThousandToWordsConverter spanishThousandToWordsConverter = new SpanishThousandToWordsConverter(
-                values.baseNumbers(), values.exceptions());
+            values.baseNumbers(),
+            values.exceptions()
+        );
 
         IntegerToStringConverter converter = new SpanishIntegerToWordsConverter(
-                new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
-                values.exceptions(), spanishThousandToWordsConverter);
+            new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
+            values.exceptions(),
+            spanishThousandToWordsConverter
+        );
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+            converter,
+            values.currency()
+        );
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -271,15 +290,15 @@ public final class Container {
         SwedishValues swedishBaseValues = new SwedishValues();
 
         SwedishHundredToWordsConverter swedishHundredsToStringConverter =
-                new SwedishHundredToWordsConverter(swedishBaseValues.baseNumbers());
+            new SwedishHundredToWordsConverter(swedishBaseValues.baseNumbers());
 
         NumberToWordsConverter swedishNumberToWordsConverter = new NumberToWordsConverter(
-                swedishHundredsToStringConverter,
-                swedishBaseValues.pluralForms());
+            swedishHundredsToStringConverter,
+            swedishBaseValues.pluralForms());
 
         BigDecimalToStringConverter swedishBigDecimalConverter = new BigDecimalToBankingMoneyConverter(
-                swedishNumberToWordsConverter,
-                swedishBaseValues.currency());
+            swedishNumberToWordsConverter,
+            swedishBaseValues.currency());
 
         return new Container(swedishNumberToWordsConverter, swedishNumberToWordsConverter, swedishBigDecimalConverter);
     }
@@ -289,21 +308,27 @@ public final class Container {
     private final BigDecimalToStringConverter bigDecimalConverter;
 
     private Container(BaseValues baseValues) {
-        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(baseValues.baseNumbers(),
-                baseValues.twoDigitsNumberSeparator());
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(
+            baseValues.baseNumbers(),
+            baseValues.twoDigitsNumberSeparator()
+        );
 
         NumberToWordsConverter numberToWordsConverter = new NumberToWordsConverter(
-                hundredsToStringConverter,
-                baseValues.pluralForms());
+            hundredsToStringConverter,
+            baseValues.pluralForms()
+        );
         integerConverter = numberToWordsConverter;
         longConverter = numberToWordsConverter;
         bigDecimalConverter = new BigDecimalToBankingMoneyConverter(
-                integerConverter,
-                baseValues.currency());
+            integerConverter,
+            baseValues.currency());
     }
 
-    private Container(IntegerToStringConverter integerConverter,
-                      LongToStringConverter longConverter, BigDecimalToStringConverter bigDecimalConverter) {
+    private Container(
+        IntegerToStringConverter integerConverter,
+        LongToStringConverter longConverter,
+        BigDecimalToStringConverter bigDecimalConverter
+    ) {
         this.integerConverter = integerConverter;
         this.longConverter = longConverter;
         this.bigDecimalConverter = bigDecimalConverter;
