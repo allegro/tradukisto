@@ -1,6 +1,5 @@
 package pl.allegro.finance.tradukisto.internal.languages
 
-import pl.allegro.finance.tradukisto.internal.Container
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
 import pl.allegro.finance.tradukisto.internal.LongToStringConverter
 import spock.lang.Specification
@@ -8,11 +7,13 @@ import spock.lang.Unroll
 
 abstract class AbstractValuesTest extends Specification {
     abstract ValuesTestData testData
+    abstract IntegerToStringConverter intConverter
+    abstract LongToStringConverter longConverter
 
     @Unroll
     def "should convert integer #input to #output"() {
         expect:
-        getTestData().intConverter.asWords(input) == output
+        intConverter.asWords(input) == output
 
         where:
         input << getTestData().getIntWords().keySet()
@@ -22,7 +23,7 @@ abstract class AbstractValuesTest extends Specification {
     @Unroll
     def "should convert long #input to #output"() {
         expect:
-        getTestData().longConverter.asWords(input) == output
+        longConverter.asWords(input) == output
 
         where:
         input << getTestData().getLongWords().keySet()
@@ -59,12 +60,8 @@ abstract class AbstractValuesTest extends Specification {
     static class ValuesTestData {
         HashMap<Integer, String> intWords
         HashMap<Long, String> longWords
-        IntegerToStringConverter intConverter
-        LongToStringConverter longConverter
 
-        ValuesTestData(Container container, HashMap<Integer, String> intWords, HashMap<Long, String> longWords) {
-            this.intConverter = container.integerConverter
-            this.longConverter = container.longConverter
+        ValuesTestData(HashMap<Integer, String> intWords, HashMap<Long, String> longWords) {
             this.intWords = prepareIntegerInput(intWords) // fulfills dataset with required data if was not specified, allows adding new entries
             this.longWords = prepareLongInput(longWords)
         }

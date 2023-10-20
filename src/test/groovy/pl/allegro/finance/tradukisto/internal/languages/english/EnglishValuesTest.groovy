@@ -6,10 +6,14 @@ import static pl.allegro.finance.tradukisto.internal.Container.englishContainer
 
 class EnglishValuesTest extends AbstractValuesTest {
 
+    def setup() {
+        intConverter = englishContainer().integerConverter
+        longConverter = englishContainer().longConverter
+    }
+
     @Override
     ValuesTestData getTestData() {
         testData = new ValuesTestData(
-                englishContainer(),
                 intWords,
                 longWords
         )
