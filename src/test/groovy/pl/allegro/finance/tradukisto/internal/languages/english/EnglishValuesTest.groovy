@@ -21,7 +21,7 @@ class EnglishValuesTest extends AbstractValuesTest {
             2            : "two",
             3            : "three",
             4            : "four",
-//            5            : "five", // commented
+            5            : "five", // if you comment it - this one test will fail
             6            : "six",
             7            : "seven",
             8            : "eight",
@@ -65,7 +65,6 @@ class EnglishValuesTest extends AbstractValuesTest {
             700          : "seven hundred",
             800          : "eight hundred",
             900          : "nine hundred",
-            2137         : "some new value",
 
             111          : "one hundred eleven",
             272          : "two hundred seventy-two",
@@ -82,6 +81,7 @@ class EnglishValuesTest extends AbstractValuesTest {
             3_000        : "three thousand",
             4_000        : "four thousand",
             5_000        : "five thousand",
+            2_137        : "two thousand one hundred thirty-seven", // not required, but added to extend test data, passes
             7_634        : "seven thousand six hundred thirty-four",
             11_000       : "eleven thousand",
             15_000       : "fifteen thousand",
