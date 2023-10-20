@@ -58,15 +58,15 @@ abstract class AbstractValuesTest extends Specification {
     ]
 
     static class ValuesTestData {
-        HashMap<Integer, String> intWords
-        HashMap<Long, String> longWords
+        HashMap<String, String> intWords
+        HashMap<String, String> longWords
 
         ValuesTestData(HashMap<Integer, String> intWords, HashMap<Long, String> longWords) {
-            this.intWords = prepareIntegerInput(intWords) // fulfills dataset with required data if was not specified, allows adding new entries
+            this.intWords = prepareIntegerInput(intWords) // fills dataset with required data if was not specified, allows adding new entries
             this.longWords = prepareLongInput(longWords)
         }
 
-        private static prepareIntegerInput(HashMap<String, String> intWords) {
+        private static prepareIntegerInput(HashMap<Integer, String> intWords) {
             requiredIntNumbers.stream()
                   .forEach {
                       intWords.putIfAbsent(it, "⚠️Please specify expected output")  // todo: how to handle if someone removes required input? throw exception or push fake data as here?
@@ -74,7 +74,7 @@ abstract class AbstractValuesTest extends Specification {
             return intWords.sort{ it.key }
         }
 
-        private static prepareLongInput(HashMap<String, String> longWords) {
+        private static prepareLongInput(HashMap<Long, String> longWords) {
             requiredLongNumbers.stream()
                     .forEach {
                         longWords.putIfAbsent(it, "⚠️Please specify expected output")  // todo: how to handle if someone removes required input? throw exception or push fake data as here?
