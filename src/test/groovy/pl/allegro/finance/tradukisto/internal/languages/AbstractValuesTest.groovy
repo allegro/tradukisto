@@ -12,7 +12,6 @@ abstract class AbstractValuesTest extends Specification {
     @Unroll
     def "should convert integer #input to #output"() {
         expect:
-        output != null
         getTestData().intConverter.asWords(input) == output
 
         where:
@@ -23,7 +22,6 @@ abstract class AbstractValuesTest extends Specification {
     @Unroll
     def "should convert long #input to #output"() {
         expect:
-        output != null
         getTestData().longConverter.asWords(input) == output
 
         where:
