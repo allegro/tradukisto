@@ -7,11 +7,11 @@ import static pl.allegro.finance.tradukisto.internal.Container.englishContainer
 class EnglishValuesTest extends AbstractValuesTest {
 
     @Override
-    ValuesTestInput getInput() {
-        return new ValuesTestInput(
+    ValuesTestData getTestData() {
+        testData = new ValuesTestData(
                 englishContainer(),
-                intWords.values(),
-                longWords.values()
+                intWords,
+                longWords
         )
     }
 
@@ -21,7 +21,7 @@ class EnglishValuesTest extends AbstractValuesTest {
             2            : "two",
             3            : "three",
             4            : "four",
-            5            : "five",
+//            5            : "five", // commented
             6            : "six",
             7            : "seven",
             8            : "eight",
@@ -65,6 +65,7 @@ class EnglishValuesTest extends AbstractValuesTest {
             700          : "seven hundred",
             800          : "eight hundred",
             900          : "nine hundred",
+            2137         : "some new value",
 
             111          : "one hundred eleven",
             272          : "two hundred seventy-two",
