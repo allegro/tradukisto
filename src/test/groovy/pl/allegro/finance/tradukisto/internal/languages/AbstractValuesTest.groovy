@@ -1,36 +1,36 @@
 package pl.allegro.finance.tradukisto.internal.languages
 
-import pl.allegro.finance.tradukisto.internal.Container
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
 import pl.allegro.finance.tradukisto.internal.LongToStringConverter
 import spock.lang.Specification
 import spock.lang.Unroll
 
 abstract class AbstractValuesTest extends Specification {
-
-    abstract ValuesTestInput input
+    abstract ValuesTestData testData
+    abstract IntegerToStringConverter intConverter
+    abstract LongToStringConverter longConverter
 
     @Unroll
-    def "should convert #value to '#words'"() {
+    def "should convert integer #input to #output"() {
         expect:
-        getInput().getIntConverter().asWords(value) == words
+        intConverter.asWords(input) == output
 
         where:
-        value << intNumbers
-        words << getInput().intWords
+        input << getTestData().getIntWords().keySet()
+        output << getTestData().getIntWords().values()
     }
 
     @Unroll
-    def "should convert long #value to '#words'"() {
+    def "should convert long #input to #output"() {
         expect:
-        getInput().getLongConverter().asWords(value) == words
+        longConverter.asWords(input) == output
 
         where:
-        value << longNumbers
-        words << getInput().longWords
+        input << getTestData().getLongWords().keySet()
+        output << getTestData().getLongWords().values()
     }
 
-    private static intNumbers = [
+    private static requiredIntNumbers = [
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
             11, 12, 13, 14, 15, 16, 17, 18, 19,
             10, 20, 30, 40, 50, 60, 70, 80, 90,
@@ -44,7 +44,7 @@ abstract class AbstractValuesTest extends Specification {
             1_000_000_000, 2_147_483_647,
     ]
 
-    private static longNumbers = [
+    private static requiredLongNumbers = [
             5_000_000_000,
             1_000_000_000_000,
             2_000_000_000_000,
@@ -57,17 +57,29 @@ abstract class AbstractValuesTest extends Specification {
             Long.MAX_VALUE
     ]
 
-    static class ValuesTestInput {
-        IntegerToStringConverter intConverter
-        LongToStringConverter longConverter
-        Collection<String> intWords
-        Collection<String> longWords
+    static class ValuesTestData {
+        Map<Integer, String> intWords
+        Map<Long, String> longWords
 
-        ValuesTestInput(Container container, Collection<String> intWords, Collection<String> longWords) {
-            this.intConverter = container.getIntegerConverter()
-            this.longConverter = container.getLongConverter()
-            this.intWords = intWords
-            this.longWords = longWords
+        ValuesTestData(Map<Integer, String> intWords, Map<Long, String> longWords) {
+            this.intWords = prepareIntegerInput(intWords) // fills dataset with required data if was not specified, allows adding new entries
+            this.longWords = prepareLongInput(longWords)
+        }
+
+        private static prepareIntegerInput(Map<Integer, String> intWords) {
+            requiredIntNumbers.stream()
+                  .forEach {
+                      intWords.putIfAbsent(it, "⚠️Please specify expected output")  // todo: how to handle if someone removes required input? throw exception or push fake data as here?
+                  }
+            return intWords.sort{ it.key }
+        }
+
+        private static prepareLongInput(Map<Long, String> longWords) {
+            requiredLongNumbers.stream()
+                    .forEach {
+                        longWords.putIfAbsent(it, "⚠️Please specify expected output")  // todo: how to handle if someone removes required input? throw exception or push fake data as here?
+                    }
+            return longWords.sort{ it.key }
         }
     }
 }
