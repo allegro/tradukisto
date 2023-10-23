@@ -62,14 +62,14 @@ abstract class AbstractValuesTest extends Specification {
         Map<Long, String> longWords
 
         ValuesTestData(Map<Integer, String> intWords, Map<Long, String> longWords) {
-            this.intWords = prepareIntegerInput(intWords) // fills dataset with required data if was not specified, allows adding new entries
+            this.intWords = prepareIntegerInput(intWords)
             this.longWords = prepareLongInput(longWords)
         }
 
         private static prepareIntegerInput(Map<Integer, String> intWords) {
             requiredIntNumbers.stream()
                   .forEach {
-                      intWords.putIfAbsent(it, "⚠️Please specify expected output")  // todo: how to handle if someone removes required input? throw exception or push fake data as here?
+                      intWords.putIfAbsent(it, "⚠️Please specify expected output")
                   }
             return intWords.sort{ it.key }
         }
@@ -77,7 +77,7 @@ abstract class AbstractValuesTest extends Specification {
         private static prepareLongInput(Map<Long, String> longWords) {
             requiredLongNumbers.stream()
                     .forEach {
-                        longWords.putIfAbsent(it, "⚠️Please specify expected output")  // todo: how to handle if someone removes required input? throw exception or push fake data as here?
+                        longWords.putIfAbsent(it, "⚠️Please specify expected output")
                     }
             return longWords.sort{ it.key }
         }
