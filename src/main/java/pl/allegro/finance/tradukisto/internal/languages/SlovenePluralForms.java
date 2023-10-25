@@ -20,27 +20,27 @@ public class SlovenePluralForms implements PluralForms {
 
     @Override
     public String formFor(Integer value) {
-        if (useSingular(value)) {
+        if (shouldUseSingularForm(value)) {
             return singularForm;
         }
-        if (useDual(value)) {
+        if (shouldUseDualForm(value)) {
             return dualForm;
         }
-        if (usePluralForm(value)) {
+        if (shouldUsePluralForm(value)) {
             return pluralForm;
         }
         return genitivePluralForm;
     }
 
-    private boolean useSingular(Integer value) {
+    private boolean shouldUseSingularForm(Integer value) {
         return value == 1 || value % 100 == 1;
     }
 
-    private boolean useDual(Integer value) {
+    private boolean shouldUseDualForm(Integer value) {
         return value == 2 || value % 100 == 2;
     }
 
-    private boolean usePluralForm(Integer value) {
+    private boolean shouldUsePluralForm(Integer value) {
         return Range.closed(3, 4).contains(value % 100);
     }
 
