@@ -14,12 +14,12 @@ class EnglishValuesTest extends AbstractValuesTest {
     @Override
     ValuesTestData getTestData() {
         testData = new ValuesTestData(
-                intWords,
-                longWords
+                integerTranslations,
+                longTranslations
         )
     }
 
-    private static intWords = [
+    private static integerTranslations = [
             0            : "zero",
             1            : "one",
             2            : "two",
@@ -108,7 +108,7 @@ class EnglishValuesTest extends AbstractValuesTest {
                     "forty-seven"
     ]
 
-    private static longWords = [
+    private static longTranslations = [
             5_000_000_000            : "five billion",
 
             1_000_000_000_000        : "one trillion",

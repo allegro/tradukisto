@@ -10,27 +10,7 @@ abstract class AbstractValuesTest extends Specification {
     abstract IntegerToStringConverter intConverter
     abstract LongToStringConverter longConverter
 
-    @Unroll
-    def "should convert integer #input to #output"() {
-        expect:
-        intConverter.asWords(input) == output
-
-        where:
-        input << getTestData().getIntWords().keySet()
-        output << getTestData().getIntWords().values()
-    }
-
-    @Unroll
-    def "should convert long #input to #output"() {
-        expect:
-        longConverter.asWords(input) == output
-
-        where:
-        input << getTestData().getLongWords().keySet()
-        output << getTestData().getLongWords().values()
-    }
-
-    private static requiredIntNumbers = [
+    private static final OBLIGATORY_INT_VALUES = [
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
             11, 12, 13, 14, 15, 16, 17, 18, 19,
             10, 20, 30, 40, 50, 60, 70, 80, 90,
@@ -44,7 +24,7 @@ abstract class AbstractValuesTest extends Specification {
             1_000_000_000, 2_147_483_647,
     ]
 
-    private static requiredLongNumbers = [
+    private static final OBLIGATORY_LONG_VALUES = [
             5_000_000_000,
             1_000_000_000_000,
             2_000_000_000_000,
@@ -57,29 +37,57 @@ abstract class AbstractValuesTest extends Specification {
             Long.MAX_VALUE
     ]
 
-    static class ValuesTestData {
-        Map<Integer, String> intWords
-        Map<Long, String> longWords
+    @Unroll
+    def "should convert integer #input to #output"() {
+        expect:
+        intConverter.asWords(input) == output
 
-        ValuesTestData(Map<Integer, String> intWords, Map<Long, String> longWords) {
-            this.intWords = prepareIntegerInput(intWords)
-            this.longWords = prepareLongInput(longWords)
+        where:
+        input << getTestData().getIntegerTranslations().keySet()
+        output << getTestData().getIntegerTranslations().values()
+    }
+
+    @Unroll
+    def "should convert long #input to #output"() {
+        expect:
+        longConverter.asWords(input) == output
+
+        where:
+        input << getTestData().getLongTranslations().keySet()
+        output << getTestData().getLongTranslations().values()
+    }
+
+    static class ValuesTestData {
+        private final Map<Integer, String> integerTranslations
+        private final Map<Long, String> longTranslations
+
+        ValuesTestData(Map<Integer, String> integerTranslations, Map<Long, String> longTranslations) {
+            this.integerTranslations = prepareIntegerInput(integerTranslations)
+            this.longTranslations = prepareLongInput(longTranslations)
+        }
+
+        Map<Integer, String> getIntegerTranslations() {
+            return integerTranslations
+        }
+
+        Map<Long, String> getLongTranslations() {
+            return longTranslations
         }
 
         private static prepareIntegerInput(Map<Integer, String> intWords) {
-            requiredIntNumbers.stream()
-                  .forEach {
-                      intWords.putIfAbsent(it, "⚠️Please specify expected output")
-                  }
-            return intWords.sort{ it.key }
+            OBLIGATORY_INT_VALUES.stream()
+                    .forEach {
+                        intWords.putIfAbsent(it, "⚠️Please specify expected output")
+                    }
+            return intWords.sort { it.key }
         }
 
         private static prepareLongInput(Map<Long, String> longWords) {
-            requiredLongNumbers.stream()
+            OBLIGATORY_LONG_VALUES.stream()
                     .forEach {
                         longWords.putIfAbsent(it, "⚠️Please specify expected output")
                     }
-            return longWords.sort{ it.key }
+            return longWords.sort { it.key }
         }
     }
 }
