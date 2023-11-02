@@ -21,14 +21,18 @@ public class NumberToWordsConverter implements IntegerToStringConverter, LongToS
     protected final GenderAwareIntegerToStringConverter hundredsToWordsConverter;
     private final List<PluralForms> pluralForms;
 
-    public NumberToWordsConverter(GenderAwareIntegerToStringConverter hundredsToWordsConverter,
-                                  List<PluralForms> pluralForms) {
+    public NumberToWordsConverter(
+        GenderAwareIntegerToStringConverter hundredsToWordsConverter,
+        List<PluralForms> pluralForms
+    ) {
         this.hundredsToWordsConverter = hundredsToWordsConverter;
         this.pluralForms = pluralForms;
     }
 
-    public NumberToWordsConverter(final IntegerToStringConverter hundredsToWordsConverter,
-                                  List<PluralForms> pluralForms) {
+    public NumberToWordsConverter(
+        final IntegerToStringConverter hundredsToWordsConverter,
+        List<PluralForms> pluralForms
+    ) {
         this.hundredsToWordsConverter = ToStringConverter.toGenderAwareInteger(hundredsToWordsConverter);
         this.pluralForms = pluralForms;
     }

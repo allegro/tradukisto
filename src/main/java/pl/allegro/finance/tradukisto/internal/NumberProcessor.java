@@ -10,14 +10,18 @@ public class NumberProcessor {
     private final IntegerToStringConverter bigNumbersConverter;
     private final GenderAwareIntegerToStringConverter smallNumbersConverter;
 
-    public NumberProcessor(IntegerToStringConverter bigNumbersConverter,
-            IntegerToStringConverter smallNumbersConverter) {
+    public NumberProcessor(
+        IntegerToStringConverter bigNumbersConverter,
+        IntegerToStringConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.smallNumbersConverter = ToStringConverter.toGenderAwareInteger(smallNumbersConverter);
     }
 
-    public NumberProcessor(IntegerToStringConverter bigNumbersConverter,
-            GenderAwareIntegerToStringConverter smallNumbersConverter) {
+    public NumberProcessor(
+        IntegerToStringConverter bigNumbersConverter,
+        GenderAwareIntegerToStringConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.smallNumbersConverter = smallNumbersConverter;
     }

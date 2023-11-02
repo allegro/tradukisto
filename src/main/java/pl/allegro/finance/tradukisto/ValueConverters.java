@@ -51,8 +51,8 @@ public enum ValueConverters {
         Objects.requireNonNull(locale);
 
         String languageCode = hasSpecifiedScript(locale)
-                ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
-                : locale.getLanguage();
+            ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
+            : locale.getLanguage();
 
         return getByLanguageCodeOrDefault(languageCode, defaultConverter);
     }

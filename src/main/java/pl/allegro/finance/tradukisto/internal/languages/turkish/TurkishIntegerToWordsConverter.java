@@ -11,8 +11,10 @@ public class TurkishIntegerToWordsConverter implements IntegerToStringConverter 
     private final IntegerToStringConverter bigNumbersConverter;
     private final TurkishSmallNumbersToWordsConverter smallNumbersConverter;
 
-    public TurkishIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                          TurkishSmallNumbersToWordsConverter smallNumbersConverter) {
+    public TurkishIntegerToWordsConverter(
+        IntegerToStringConverter bigNumbersConverter,
+        TurkishSmallNumbersToWordsConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.smallNumbersConverter = smallNumbersConverter;
     }
