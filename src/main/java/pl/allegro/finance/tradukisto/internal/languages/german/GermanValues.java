@@ -63,8 +63,9 @@ public class GermanValues {
 
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new RegularPluralForms("Million", "Millionen", GenderType.FEMININE),
-                new RegularPluralForms("Milliarde", "Milliarden", GenderType.FEMININE));
+            new RegularPluralForms("Million", "Millionen", GenderType.FEMININE),
+            new RegularPluralForms("Milliarde", "Milliarden", GenderType.FEMININE)
+        );
     }
 
     public String currency() {

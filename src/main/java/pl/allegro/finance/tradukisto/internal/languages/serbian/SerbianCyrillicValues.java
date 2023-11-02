@@ -60,10 +60,11 @@ public class SerbianCyrillicValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
-                new SlavicPluralForms("хиљада", "хиљаде", "хиљада", GenderType.FEMININE),
-                new SlavicPluralForms("милион", "милиона", "милиона", GenderType.MASCULINE),
-                new SlavicPluralForms("милијарда", "милијарде", "милијарди", GenderType.FEMININE));
+            new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+            new SlavicPluralForms("хиљада", "хиљаде", "хиљада", GenderType.FEMININE),
+            new SlavicPluralForms("милион", "милиона", "милиона", GenderType.MASCULINE),
+            new SlavicPluralForms("милијарда", "милијарде", "милијарди", GenderType.FEMININE)
+        );
     }
 
     @Override

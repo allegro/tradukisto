@@ -71,8 +71,8 @@ public class SpanishValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new RegularPluralForms("millón", "millones"),
-                new RegularPluralForms("mil millones", "mil millones")
+            new RegularPluralForms("millón", "millones"),
+            new RegularPluralForms("mil millones", "mil millones")
         );
 
     }

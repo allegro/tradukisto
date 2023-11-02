@@ -12,8 +12,10 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class SpanishIntegerToWordsConverterAdapter extends NumberToWordsConverter {
 
-    public SpanishIntegerToWordsConverterAdapter(IntegerToStringConverter hundredsToWordsConverter,
-                                                 List<PluralForms> pluralForms) {
+    public SpanishIntegerToWordsConverterAdapter(
+        IntegerToStringConverter hundredsToWordsConverter,
+        List<PluralForms> pluralForms
+    ) {
         super(hundredsToWordsConverter, pluralForms);
     }
 

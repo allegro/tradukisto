@@ -62,13 +62,14 @@ public class SwedishValues {
     public List<PluralForms> pluralForms() {
         // Note: in Swedish there are common and neuter gender types. In this case, common is equivalent to feminine
         return Arrays.asList(
-                new RegularPluralForms("", "", GenderType.NON_APPLICABLE),
-                new RegularPluralForms("tusen", "tusen", GenderType.NEUTER), // thousand
-                new RegularPluralForms("miljon", "miljoner", GenderType.FEMININE), // million
-                new RegularPluralForms("miljard", "miljarder", GenderType.FEMININE), // billion
-                new RegularPluralForms("biljon", "biljoner", GenderType.FEMININE), // trillion
-                new RegularPluralForms("biljard", "biljarder", GenderType.FEMININE), // quadrillion
-                new RegularPluralForms("triljon", "triljoner", GenderType.FEMININE)); // quintillion
+            new RegularPluralForms("", "", GenderType.NON_APPLICABLE),
+            new RegularPluralForms("tusen", "tusen", GenderType.NEUTER), // thousand
+            new RegularPluralForms("miljon", "miljoner", GenderType.FEMININE), // million
+            new RegularPluralForms("miljard", "miljarder", GenderType.FEMININE), // billion
+            new RegularPluralForms("biljon", "biljoner", GenderType.FEMININE), // trillion
+            new RegularPluralForms("biljard", "biljarder", GenderType.FEMININE), // quadrillion
+            new RegularPluralForms("triljon", "triljoner", GenderType.FEMININE) // quintillion
+        );
     }
 
     public String currency() {

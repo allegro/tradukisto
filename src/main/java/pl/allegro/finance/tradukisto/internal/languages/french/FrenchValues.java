@@ -95,10 +95,10 @@ public class FrenchValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new RegularPluralForms("", "", GenderType.MASCULINE),
-                new RegularPluralForms("mille", "mille" , GenderType.MASCULINE),
-                new RegularPluralForms("million", "millions", GenderType.MASCULINE),
-                new RegularPluralForms("milliard", "milliards", GenderType.MASCULINE)
+            new RegularPluralForms("", "", GenderType.MASCULINE),
+            new RegularPluralForms("mille", "mille", GenderType.MASCULINE),
+            new RegularPluralForms("million", "millions", GenderType.MASCULINE),
+            new RegularPluralForms("milliard", "milliards", GenderType.MASCULINE)
         );
     }
 

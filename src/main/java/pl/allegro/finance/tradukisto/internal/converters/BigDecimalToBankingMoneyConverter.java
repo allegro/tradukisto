@@ -38,13 +38,13 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
 
     private void validate(BigDecimal value) {
         Assert.isTrue(value.scale() <= MAXIMAL_DECIMAL_PLACES_COUNT,
-                () -> String.format("can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value));
+            () -> String.format("can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value));
 
         Assert.isTrue(valueLessThatIntMax(value),
-                () -> String.format("can't transform numbers greater than Integer.MAX_VALUE for value %s", value));
+            () -> String.format("can't transform numbers greater than Integer.MAX_VALUE for value %s", value));
 
         Assert.isTrue(valueGreaterThanOrEqualToZero(value),
-                () -> String.format("can't transform negative numbers for value %s", value));
+            () -> String.format("can't transform negative numbers for value %s", value));
     }
 
     private boolean valueLessThatIntMax(BigDecimal value) {

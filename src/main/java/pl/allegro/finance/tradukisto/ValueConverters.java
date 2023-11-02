@@ -30,6 +30,7 @@ public enum ValueConverters {
     FRENCH_INTEGER(Container.frenchContainer().getIntegerConverter(), "fr"),
     TURKISH_INTEGER(Container.turkishContainer().getIntegerConverter(), "tr"),
     DUTCH_INTEGER(Container.dutchContainer().getIntegerConverter(), "nl"),
+    SLOVENE_INTEGER(Container.sloveneContainer().getIntegerConverter(), "sl"),
     SPANISH_INTEGER(Container.spanishContainer().getIntegerConverter(), "es"),
     HINDI_INTEGER(Container.hindiContainer().getIntegerConverter(), "hi"),
     SWEDISH_INTEGER(Container.swedishContainer().getIntegerConverter(), "sv");
@@ -50,8 +51,8 @@ public enum ValueConverters {
         Objects.requireNonNull(locale);
 
         String languageCode = hasSpecifiedScript(locale)
-                ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
-                : locale.getLanguage();
+            ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
+            : locale.getLanguage();
 
         return getByLanguageCodeOrDefault(languageCode, defaultConverter);
     }

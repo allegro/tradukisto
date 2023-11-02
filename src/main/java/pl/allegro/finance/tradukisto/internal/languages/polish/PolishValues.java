@@ -58,13 +58,14 @@ public class PolishValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new PolishPluralForms("", "", ""),
-                new PolishPluralForms("tysiąc", "tysiące", "tysięcy"),
-                new PolishPluralForms("milion", "miliony", "milionów"),
-                new PolishPluralForms("miliard", "miliardy", "miliardów"),
-                new PolishPluralForms("bilion", "biliony", "bilionów"),
-                new PolishPluralForms("biliard", "biliardy", "biliardów"),
-                new PolishPluralForms("trylion", "tryliony", "trylionów"));
+            new PolishPluralForms("", "", ""),
+            new PolishPluralForms("tysiąc", "tysiące", "tysięcy"),
+            new PolishPluralForms("milion", "miliony", "milionów"),
+            new PolishPluralForms("miliard", "miliardy", "miliardów"),
+            new PolishPluralForms("bilion", "biliony", "bilionów"),
+            new PolishPluralForms("biliard", "biliardy", "biliardów"),
+            new PolishPluralForms("trylion", "tryliony", "trylionów")
+        );
     }
 
     @Override

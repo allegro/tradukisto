@@ -30,11 +30,8 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: 'gradle'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
       - name: Test with Gradle
-        run: ./gradlew --no-daemon --continue check
+        run: ./gradlew --continue check
 
       - name: Jacoco
         if: matrix.Java == '17'

@@ -60,10 +60,11 @@ public class BulgarianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
-                new SlavicPluralForms("хиляди", "хиляди", "хиляди", GenderType.FEMININE),
-                new SlavicPluralForms("милион", "милиона", "милиона", GenderType.MASCULINE),
-                new SlavicPluralForms("милиард", "милиарда", "милиарда", GenderType.MASCULINE));
+            new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+            new SlavicPluralForms("хиляди", "хиляди", "хиляди", GenderType.FEMININE),
+            new SlavicPluralForms("милион", "милиона", "милиона", GenderType.MASCULINE),
+            new SlavicPluralForms("милиард", "милиарда", "милиарда", GenderType.MASCULINE)
+        );
     }
 
     @Override
