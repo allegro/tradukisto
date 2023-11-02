@@ -37,6 +37,8 @@ import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianCyrillicV
 import pl.allegro.finance.tradukisto.internal.languages.serbian.SerbianValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
+import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneValues;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
@@ -91,6 +93,20 @@ public final class Container {
 
     public static Container croatianContainer() {
         return new Container(new CroatianValues());
+    }
+
+    public static Container sloveneContainer() {
+        SloveneValues values = new SloveneValues();
+
+        SloveneThousandToWordsConverter sloveneThousandToWordsConverter = new SloveneThousandToWordsConverter(
+                values.baseNumbers());
+
+        IntegerToStringConverter converter = new NumberToWordsConverter(sloveneThousandToWordsConverter, values.pluralForms());
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+                converter, values.currency());
+
+        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
 
     public static Container czechContainer() {
@@ -250,7 +266,7 @@ public final class Container {
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
     }
-  
+
     public static Container spanishContainer() {
         SpanishValues values = new SpanishValues();
 
@@ -266,7 +282,7 @@ public final class Container {
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
-  
+
     public static Container swedishContainer() {
         SwedishValues swedishBaseValues = new SwedishValues();
 

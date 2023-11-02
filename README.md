@@ -38,6 +38,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇷🇸 Serbian (Cyrillic)
 * 🇷🇸 Serbian (Latin)
 * 🇸🇰 Slovak
+* 🇸🇮 Slovene / Slovenian
 * 🇪🇸 Spanish
 * 🇸🇪 Swedish
 * 🇹🇷 Turkish
