@@ -12,9 +12,11 @@ public class ItalianIntegerToWordsConverter implements IntegerToStringConverter 
     private final Map<Integer, String> exceptions;
     private final GenderAwareIntegerToStringConverter smallNumbersConverter;
 
-    public ItalianIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                         Map<Integer, String> exceptions,
-                                         GenderAwareIntegerToStringConverter smallNumbersConverter) {
+    public ItalianIntegerToWordsConverter(
+        IntegerToStringConverter bigNumbersConverter,
+        Map<Integer, String> exceptions,
+        GenderAwareIntegerToStringConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.exceptions = exceptions;
         this.smallNumbersConverter = smallNumbersConverter;

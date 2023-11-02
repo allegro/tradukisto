@@ -61,9 +61,10 @@ public class CzechValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new CzechPluralForms("tisíc", "tisíce", "tisíc", GenderType.MASCULINE),
-                new CzechPluralForms("milion", "miliony", "milionů", GenderType.MASCULINE),
-                new CzechPluralForms("miliarda", "miliardy", "miliard", GenderType.FEMININE));
+            new CzechPluralForms("tisíc", "tisíce", "tisíc", GenderType.MASCULINE),
+            new CzechPluralForms("milion", "miliony", "milionů", GenderType.MASCULINE),
+            new CzechPluralForms("miliarda", "miliardy", "miliard", GenderType.FEMININE)
+        );
     }
 
     @Override

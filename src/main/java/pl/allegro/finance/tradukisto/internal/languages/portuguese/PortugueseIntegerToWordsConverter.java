@@ -12,9 +12,11 @@ public class PortugueseIntegerToWordsConverter implements IntegerToStringConvert
     private final Map<Integer, MultiFormNumber> exceptions;
     private final IntegerToStringConverter smallNumbersConverter;
 
-    public PortugueseIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                         Map<Integer, MultiFormNumber> exceptions,
-                                         IntegerToStringConverter smallNumbersConverter) {
+    public PortugueseIntegerToWordsConverter(
+        IntegerToStringConverter bigNumbersConverter,
+        Map<Integer, MultiFormNumber> exceptions,
+        IntegerToStringConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.exceptions = exceptions;
         this.smallNumbersConverter = smallNumbersConverter;

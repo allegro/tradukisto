@@ -16,7 +16,11 @@ public class BulgarianIntegerToWordsConverter extends NumberToWordsConverter {
     private static final int ONE_THOUSAND = 1000;
     private static final int TWO_THOUSAND = 2000;
 
-    public BulgarianIntegerToWordsConverter(HundredsToWordsConverter hundredsToStringConverter, List<PluralForms> pluralForms, String oneThousand) {
+    public BulgarianIntegerToWordsConverter(
+        HundredsToWordsConverter hundredsToStringConverter,
+        List<PluralForms> pluralForms,
+        String oneThousand
+    ) {
         super(hundredsToStringConverter, pluralForms);
         this.oneThousand = oneThousand;
     }
