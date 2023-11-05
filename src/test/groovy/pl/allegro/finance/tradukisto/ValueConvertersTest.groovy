@@ -11,6 +11,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.HINDI_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.JAPANESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
@@ -44,6 +45,7 @@ class ValueConvertersTest extends Specification {
         "French"               | FRENCH_INTEGER               || "mille deux cent trente-quatre"
         "German"               | GERMAN_INTEGER               || "eintausendzweihundertvierunddreißig"
         "Italian"              | ITALIAN_INTEGER              || "milleduecentotrentaquattro"
+        "Japanese"             | JAPANESE_INTEGER             || "千二百三十四"
         "Kazakh"               | KAZAKH_INTEGER               || "бір мың екі жүз отыз төрт"
         "Latvian"              | LATVIAN_INTEGER              || "viens tūkstotis divi simti trīsdesmit četri"
         "Polish"               | POLISH_INTEGER               || "jeden tysiąc dwieście trzydzieści cztery"
@@ -103,6 +105,8 @@ class ValueConvertersTest extends Specification {
         new Locale("nl")                                                 || DUTCH_INTEGER
         new Locale("hi")                                                 || HINDI_INTEGER
         new Locale("sv")                                                 || SWEDISH_INTEGER
+        new Locale("ja")                                                 || JAPANESE_INTEGER
+        Locale.JAPANESE                                                  || JAPANESE_INTEGER
     }
 
     def "should return supplied default converter when locale is unknown"() {
@@ -152,6 +156,7 @@ class ValueConvertersTest extends Specification {
         "uk"         || UKRAINIAN_INTEGER
         "hi"         || HINDI_INTEGER
         "sv"         || SWEDISH_INTEGER
+        "ja"         || JAPANESE_INTEGER
     }
 
     def "should return supplied default converter when languageCode is unknown"() {
