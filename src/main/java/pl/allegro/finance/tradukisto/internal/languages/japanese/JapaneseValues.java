@@ -68,7 +68,7 @@ public class JapaneseValues implements BaseValues {
 
     @Override
     public String currency() {
-        return "\\";
+        return "円";
     }
 
     @Override
