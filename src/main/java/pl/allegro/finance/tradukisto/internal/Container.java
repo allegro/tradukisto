@@ -334,12 +334,17 @@ public final class Container {
             japaneseValues.pluralForms()
         );
 
+        LongToStringConverter longToStringConverter = new JapaneseNumberToWordsConverter(
+            japaneseThousandToWordsConverter,
+            japaneseValues.pluralForms()
+        );
+
         BigDecimalToBankingMoneyConverter bigDecimalToBankingMoneyConverter = new BigDecimalToBankingMoneyConverter(
             integerToStringConverter,
             japaneseValues.currency()
         );
 
-        return new Container(integerToStringConverter, null, bigDecimalToBankingMoneyConverter);
+        return new Container(integerToStringConverter, longToStringConverter, bigDecimalToBankingMoneyConverter);
     }
 
     private final IntegerToStringConverter integerConverter;

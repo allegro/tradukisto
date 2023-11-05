@@ -105,7 +105,6 @@ class JapaneseValuesTest extends Specification {
         2_147_483_647 | "二十一億四千七百四十八万三千六百四十七"
     }
 
-    @Ignore("Needs Japanese long converter and values for trillion, quadrillion, quintillion")
     @Unroll
     def "should convert long #value to '#words' in Japanese"() {
         expect:
