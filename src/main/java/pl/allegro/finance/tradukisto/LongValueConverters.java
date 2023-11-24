@@ -8,6 +8,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.hindiContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.japaneseKanjiContainer;
 
 public enum LongValueConverters {
 
@@ -15,7 +16,8 @@ public enum LongValueConverters {
     ENGLISH_LONG(englishContainer().getLongConverter()),
     POLISH_LONG(polishContainer().getLongConverter()),
     HINDI_LONG(hindiContainer().getLongConverter()),
-    SWEDISH_LONG(swedishContainer().getLongConverter());
+    SWEDISH_LONG(swedishContainer().getLongConverter()),
+    JAPANESE_KANJI_LONG(japaneseKanjiContainer().getLongConverter());
 
     private final LongToStringConverter converter;
 

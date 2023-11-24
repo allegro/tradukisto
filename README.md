@@ -31,6 +31,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇩🇪 German
 * 🇮🇳 Hindi
 * 🇮🇹 Italian
+* 🇯🇵 Japanese (KANJI)
 * 🇰🇿 Kazakh
 * 🇱🇻 Latvian
 * 🇵🇱 Polish
