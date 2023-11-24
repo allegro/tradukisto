@@ -322,7 +322,7 @@ public final class Container {
         return new Container(swedishNumberToWordsConverter, swedishNumberToWordsConverter, swedishBigDecimalConverter);
     }
 
-    public static Container japaneseContainer() {
+    public static Container japaneseKanjiContainer() {
         JapaneseValues japaneseValues = new JapaneseValues();
 
         JapaneseThousandToWordsConverter japaneseThousandToWordsConverter = new JapaneseThousandToWordsConverter(

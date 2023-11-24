@@ -4,12 +4,12 @@ import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static pl.allegro.finance.tradukisto.internal.Container.japaneseContainer
+import static pl.allegro.finance.tradukisto.internal.Container.japaneseKanjiContainer
 
 class JapaneseValuesTest extends Specification {
 
-    static intConverter = japaneseContainer().getIntegerConverter()
-    static longConverter = japaneseContainer().getLongConverter()
+    static intConverter = japaneseKanjiContainer().getIntegerConverter()
+    static longConverter = japaneseKanjiContainer().getLongConverter()
 
     @Unroll
     def "should convert #value to '#words' in Japanese"() {
