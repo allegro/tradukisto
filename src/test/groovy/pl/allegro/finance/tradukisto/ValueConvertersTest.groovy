@@ -25,6 +25,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.SLOVENE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.BANGLA_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.getByLanguageCodeOrDefault
 import static pl.allegro.finance.tradukisto.ValueConverters.getByLocaleOrDefault
 
@@ -58,6 +59,7 @@ class ValueConvertersTest extends Specification {
         "Swedish"              | SWEDISH_INTEGER              || "ett tusen två hundra och trettiofyra"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
         "Ukrainian"            | UKRAINIAN_INTEGER            || "одна тисяча двісті тридцять чотири"
+        "Bangla"               | BANGLA_INTEGER               || "এক হাজার দুইশত চৌত্রিশ"
         "Hindi"                | HINDI_INTEGER                || "एक हजार दो सौ चौंतीस"
     }
 
@@ -103,6 +105,7 @@ class ValueConvertersTest extends Specification {
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
+        new Locale("bd")                                                 || BANGLA_INTEGER
         new Locale("hi")                                                 || HINDI_INTEGER
         new Locale("sv")                                                 || SWEDISH_INTEGER
         new Locale("ja")                                                 || JAPANESE_INTEGER
@@ -154,6 +157,7 @@ class ValueConvertersTest extends Specification {
         "es"         || SPANISH_INTEGER
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
+        "bd"         || BANGLA_INTEGER
         "hi"         || HINDI_INTEGER
         "sv"         || SWEDISH_INTEGER
         "ja"         || JAPANESE_INTEGER
