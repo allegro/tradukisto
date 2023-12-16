@@ -14,6 +14,7 @@ class EnglishLongValuesTest extends AbstractLongValuesTest {
     LongValuesTestData getTestData() {
         testData = new LongValuesTestData(longTranslations)
     }
+
     private static longTranslations = [
             5_000_000_000            : "five billion",
 
