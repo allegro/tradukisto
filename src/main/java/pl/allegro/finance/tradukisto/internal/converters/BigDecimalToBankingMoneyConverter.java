@@ -36,7 +36,7 @@ public class BigDecimalToBankingMoneyConverter implements BigDecimalToStringConv
         return format(FORMAT, converter.asWords(units), currencySymbol, subunits);
     }
 
-    private void validate(BigDecimal value) {
+    protected void validate(BigDecimal value) {
         Assert.isTrue(value.scale() <= MAXIMAL_DECIMAL_PLACES_COUNT,
             () -> String.format("can't transform more than %s decimal places for value %s", MAXIMAL_DECIMAL_PLACES_COUNT, value));
 

@@ -42,6 +42,7 @@ import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneValues;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
@@ -297,7 +298,7 @@ public final class Container {
             spanishThousandToWordsConverter
         );
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new SpanishBigDecimalToBankingMoneyConverter(
             converter,
             values.currency()
         );
