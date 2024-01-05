@@ -300,14 +300,8 @@ public final class Container {
             spanishThousandToWordsConverter
         );
 
-        IntegerToStringConverter converterForMoney = new SpanishIntegerToWordsConverter(
-                new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
-                Collections.singletonMap(1,new MultiFormNumber("un", "xd")),
-                spanishThousandToWordsConverter
-        );
-
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new SpanishBigDecimalToBankingMoneyConverter(
-                converterForMoney,
+            converter,
             values.currency()
         );
 
