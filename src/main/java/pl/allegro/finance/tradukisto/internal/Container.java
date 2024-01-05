@@ -42,6 +42,7 @@ import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValues;
 import pl.allegro.finance.tradukisto.internal.languages.slovak.SlovakValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneValues;
+import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
@@ -53,6 +54,8 @@ import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerTo
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishValues;
 import pl.allegro.finance.tradukisto.internal.languages.ukrainian.UkrainianValues;
+
+import java.util.Collections;
 
 public final class Container {
 
@@ -297,8 +300,14 @@ public final class Container {
             spanishThousandToWordsConverter
         );
 
-        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-            converter,
+        IntegerToStringConverter converterForMoney = new SpanishIntegerToWordsConverter(
+                new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
+                Collections.singletonMap(1,new MultiFormNumber("un", "xd")),
+                spanishThousandToWordsConverter
+        );
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new SpanishBigDecimalToBankingMoneyConverter(
+                converterForMoney,
             values.currency()
         );
 

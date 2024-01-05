@@ -90,6 +90,7 @@ public class SpanishValues implements BaseValues {
 
     public Map<Integer, MultiFormNumber> exceptions() {
         return unmodifiableMapOf(
+                unmodifiableEntry(1, new MultiFormNumber("uno", "un")),
                 unmodifiableEntry(100, new MultiFormNumber("cien", "ciento")),
                 unmodifiableEntry(100000000, new MultiFormNumber("cien millones", "ciento millones"))
         );
