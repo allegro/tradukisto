@@ -60,6 +60,7 @@ class SwedishLongValuesTest extends AbstractLongValuesTest {
             7000000000000000000: "sju triljoner",
             8000000000000000000: "åtta triljoner",
             9000000000000000000: "nio triljoner",
-            9223272036854775807: "nio triljoner två hundra och tjugotre biljarder två hundra och sjuttiotvå biljoner trettiosex miljarder åtta hundra och femtiofyra miljoner sju hundra och sjuttiofem tusen åtta hundra och sju"
+            9223272036854775807: "nio triljoner två hundra och tjugotre biljarder två hundra och sjuttiotvå biljoner trettiosex miljarder åtta hundra och femtiofyra miljoner sju hundra och sjuttiofem tusen åtta hundra och sju",
+            9223372036854775807: "nio triljoner två hundra och tjugotre biljarder tre hundra och sjuttiotvå biljoner trettiosex miljarder åtta hundra och femtiofyra miljoner sju hundra och sjuttiofem tusen åtta hundra och sju"
     ]
 }

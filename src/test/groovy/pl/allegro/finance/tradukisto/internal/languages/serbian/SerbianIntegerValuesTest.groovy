@@ -115,7 +115,7 @@ class SerbianIntegerValuesTest extends AbstractIntegerValuesTest {
             121_000_000        : "sto dvadeset jedan milion",
             121_451_789        : "sto dvadeset jedan milion četiristo pedeset jedna hiljada sedamsto osamdeset devet",
             123_456_789        : "sto dvadeset tri miliona četiristo pedeset šest hiljada sedamsto osamdeset devet",
-
+            322_089_890        : "trista dvadeset dva miliona osamdeset devet hiljada osamsto devedeset",
             1_000_000_000      : "jedna milijarda",
             2_141_123_731      : "dve milijarde sto četrdeset jedan milion sto dvadeset tri hiljade sedamsto trideset jedan",
             (Integer.MAX_VALUE): "dve milijarde sto četrdeset sedam miliona četiristo osamdeset tri hiljade šeststo četrdeset sedam"

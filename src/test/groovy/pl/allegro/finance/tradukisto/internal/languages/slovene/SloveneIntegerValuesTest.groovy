@@ -108,6 +108,7 @@ class SloveneIntegerValuesTest extends AbstractIntegerValuesTest {
             121_000_000        : "sto enaindvajset milijonov",
             121_451_789        : "sto enaindvajset milijonov štiristo enainpetdeset tisoč sedemsto devetinosemdeset",
             123_456_789        : "sto triindvajset milijonov štiristo šestinpetdeset tisoč sedemsto devetinosemdeset",
+            322_089_890        : "tristo dveindvajset milijonov devetinosemdeset tisoč osemsto devetdeset",
             1_000_000_000      : "ena milijarda",
             2_141_123_731      : "dve milijardi sto enainštirideset milijonov sto triindvajset tisoč sedemsto enaintrideset",
             (Integer.MAX_VALUE): "dve milijardi sto sedeminštirideset milijonov štiristo triinosemdeset tisoč šeststo sedeminštirideset"

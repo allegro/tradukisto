@@ -78,8 +78,13 @@ class PolishIntegerValuesTest extends AbstractIntegerValuesTest {
 
             1_000              : "jeden tysiąc",
             2_000              : "dwa tysiące",
+            3_000              : "trzy tysiące",
+            4_000              : "cztery tysiące",
             5_000              : "pięć tysięcy",
             7_634              : "siedem tysięcy sześćset trzydzieści cztery",
+            11_000             : "jedenaście tysięcy",
+            15_000             : "piętnaście tysięcy",
+            21_000             : "dwadzieścia jeden tysięcy",
             24_190             : "dwadzieścia cztery tysiące sto dziewięćdziesiąt",
             653_000            : "sześćset pięćdziesiąt trzy tysiące",
             123_454            : "sto dwadzieścia trzy tysiące czterysta pięćdziesiąt cztery",
@@ -93,6 +98,7 @@ class PolishIntegerValuesTest extends AbstractIntegerValuesTest {
             100_000_000        : "sto milionów",
             123_456_789        : "sto dwadzieścia trzy miliony czterysta pięćdziesiąt sześć tysięcy siedemset " +
                     "osiemdziesiąt dziewięć",
+            322_089_890        : "trzysta dwadzieścia dwa miliony osiemdziesiąt dziewięć tysięcy osiemset dziewięćdziesiąt",
 
             1_000_000_000      : "jeden miliard",
             (Integer.MAX_VALUE): "dwa miliardy sto czterdzieści siedem milionów czterysta osiemdziesiąt trzy tysiące " +

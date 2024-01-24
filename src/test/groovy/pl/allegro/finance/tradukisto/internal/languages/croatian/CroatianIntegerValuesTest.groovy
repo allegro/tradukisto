@@ -115,6 +115,7 @@ class CroatianIntegerValuesTest extends AbstractIntegerValuesTest {
             121_000_000        : "sto dvadeset jedan milijun",
             121_451_789        : "sto dvadeset jedan milijun četiristo pedeset jedna tisuća sedamsto osamdeset devet",
             123_456_789        : "sto dvadeset tri milijuna četiristo pedeset šest tisuća sedamsto osamdeset devet",
+            322_089_890        : "tristo dvadeset dva milijuna osamdeset devet tisuća osamsto devedeset",
 
             1_000_000_000      : "jedna milijarda",
             2_141_123_731      : "dvije milijarde sto četrdeset jedan milijun sto dvadeset tri tisuće sedamsto trideset jedan",
