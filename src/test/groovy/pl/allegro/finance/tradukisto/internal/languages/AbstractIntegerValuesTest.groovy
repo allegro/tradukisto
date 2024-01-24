@@ -1,14 +1,12 @@
 package pl.allegro.finance.tradukisto.internal.languages
 
 import pl.allegro.finance.tradukisto.internal.IntegerToStringConverter
-import pl.allegro.finance.tradukisto.internal.LongToStringConverter
 import spock.lang.Specification
 import spock.lang.Unroll
 
-abstract class AbstractValuesTest extends Specification {
-    abstract ValuesTestData testData
+abstract class AbstractIntegerValuesTest extends Specification {
+    abstract IntegerValuesTestData testData
     abstract IntegerToStringConverter intConverter
-    abstract LongToStringConverter longConverter
 
     private static final OBLIGATORY_INT_VALUES = [
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -24,19 +22,6 @@ abstract class AbstractValuesTest extends Specification {
             1_000_000_000, 2_147_483_647,
     ]
 
-    private static final OBLIGATORY_LONG_VALUES = [
-            5_000_000_000,
-            1_000_000_000_000,
-            2_000_000_000_000,
-            5_000_000_000_000,
-            1_000_000_000_000_000,
-            2_000_000_000_000_000,
-            5_000_000_000_000_000,
-            1_000_000_000_000_000_000,
-            2_000_000_000_000_000_000,
-            Long.MAX_VALUE
-    ]
-
     @Unroll
     def "should convert integer #input to #output"() {
         expect:
@@ -47,31 +32,15 @@ abstract class AbstractValuesTest extends Specification {
         output << getTestData().getIntegerTranslations().values()
     }
 
-    @Unroll
-    def "should convert long #input to #output"() {
-        expect:
-        longConverter.asWords(input) == output
-
-        where:
-        input << getTestData().getLongTranslations().keySet()
-        output << getTestData().getLongTranslations().values()
-    }
-
-    static class ValuesTestData {
+    static class IntegerValuesTestData {
         private final Map<Integer, String> integerTranslations
-        private final Map<Long, String> longTranslations
 
-        ValuesTestData(Map<Integer, String> integerTranslations, Map<Long, String> longTranslations) {
+        IntegerValuesTestData(Map<Integer, String> integerTranslations) {
             this.integerTranslations = prepareIntegerInput(integerTranslations)
-            this.longTranslations = prepareLongInput(longTranslations)
         }
 
         Map<Integer, String> getIntegerTranslations() {
             return integerTranslations
-        }
-
-        Map<Long, String> getLongTranslations() {
-            return longTranslations
         }
 
         private static prepareIntegerInput(Map<Integer, String> intWords) {
@@ -80,14 +49,6 @@ abstract class AbstractValuesTest extends Specification {
                         intWords.putIfAbsent(it, "⚠️Please specify expected output")
                     }
             return intWords.sort { it.key }
-        }
-
-        private static prepareLongInput(Map<Long, String> longWords) {
-            OBLIGATORY_LONG_VALUES.stream()
-                    .forEach {
-                        longWords.putIfAbsent(it, "⚠️Please specify expected output")
-                    }
-            return longWords.sort { it.key }
         }
     }
 }
