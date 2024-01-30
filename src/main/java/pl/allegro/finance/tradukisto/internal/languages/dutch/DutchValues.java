@@ -62,6 +62,7 @@ public class DutchValues {
 
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
+            new DutchPluralForms(""),
             new DutchPluralForms("miljoen"),
             new DutchPluralForms("miljard")
         );

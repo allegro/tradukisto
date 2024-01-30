@@ -56,6 +56,7 @@ public class TurkishValues implements BaseValues {
 
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
+            new TurkishPluralForms(""),
             new TurkishPluralForms("Milyon"),
             new TurkishPluralForms("Milyar")
         );

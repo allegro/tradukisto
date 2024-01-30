@@ -75,6 +75,7 @@ public class ItalianValues {
 
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
+            new RegularPluralForms("", "", GenderType.MASCULINE),
             new RegularPluralForms("milione", "milioni", GenderType.MASCULINE),
             new RegularPluralForms("miliardo", "miliardi", GenderType.MASCULINE)
         );

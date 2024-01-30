@@ -61,6 +61,7 @@ public class BrazilianPortugueseValues  {
 
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
+            new RegularPluralForms("", ""),
             new RegularPluralForms("milhão", "milhões"),
             new RegularPluralForms("bilhão", "bilhões")
         );
