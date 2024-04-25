@@ -21,6 +21,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 
 ## Supported languages
 
+* 🇧🇩 Bangla
 * 🇧🇷🇵🇹 Brazilian Portuguese
 * 🇧🇬 Bulgarian
 * 🇭🇷 Croatian
@@ -44,6 +45,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇸🇪 Swedish
 * 🇹🇷 Turkish
 * 🇺🇦 Ukrainian
+
 
 Is your language missing from the list? We encourage you to contribute to our project. 
 

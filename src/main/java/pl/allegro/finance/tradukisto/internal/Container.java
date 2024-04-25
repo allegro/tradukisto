@@ -54,6 +54,7 @@ import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerTo
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishValues;
 import pl.allegro.finance.tradukisto.internal.languages.ukrainian.UkrainianValues;
+import pl.allegro.finance.tradukisto.internal.languages.bangla.BanglaValues;
 
 public final class Container {
 
@@ -389,5 +390,10 @@ public final class Container {
 
     public BigDecimalToStringConverter getBankingMoneyConverter() {
         return bigDecimalConverter;
+    }
+
+    public static Container banglaContainer() {
+        TurkishValues values = new BanglaValues();
+        return new Container(new BanglaValues());
     }
 }
