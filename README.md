@@ -4,6 +4,7 @@ Tradukisto
 [![Build](https://github.com/allegro/tradukisto/actions/workflows/ci.yml/badge.svg)](https://github.com/allegro/tradukisto/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/allegro/tradukisto/branch/master/graph/badge.svg?token=YO4NcWxDCI)](https://codecov.io/gh/allegro/tradukisto)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.finance/tradukisto)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fallegro%2Ftradukisto.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fallegro%2Ftradukisto?ref=badge_shield)
 
 ## Introduction
 
@@ -57,3 +58,7 @@ If you are first-time contributor, articles ["Create your first Pull Request"](h
 
 ## Changelog
 Each release is documented in the [release notes](https://github.com/allegro/tradukisto/releases).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fallegro%2Ftradukisto.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fallegro%2Ftradukisto?ref=badge_large)
