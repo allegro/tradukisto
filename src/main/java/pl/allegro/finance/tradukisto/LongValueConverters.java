@@ -3,7 +3,13 @@ package pl.allegro.finance.tradukisto;
 import pl.allegro.finance.tradukisto.internal.LongToStringConverter;
 import java.util.Objects;
 
-import static pl.allegro.finance.tradukisto.internal.Container.*;
+import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.hindiContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.japaneseKanjiContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.chineseHanZiContainer;
 
 public enum LongValueConverters {
 
