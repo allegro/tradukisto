@@ -6,6 +6,7 @@ import spock.lang.Unroll
 import static pl.allegro.finance.tradukisto.MoneyConverters.AMERICAN_ENGLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.BULGARIAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.CHINESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.CZECH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ENGLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.FRENCH_BANKING_MONEY_VALUE
@@ -39,6 +40,7 @@ class MoneyConvertersTest extends Specification {
         "American English"     | AMERICAN_ENGLISH_BANKING_MONEY_VALUE     || "one thousand two hundred thirty-four \$ 56/100"
         "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE || "mil duzentos e trinta e quatro R\$ 56/100"
         "Bulgarian"            | BULGARIAN_BANKING_MONEY_VALUE            || "хиляда двеста тридесет четири лв 56/100"
+        "Chinese"              | CHINESE_BANKING_MONEY_VALUE              || "一千二百三十四 元 56/100"
         "Czech"                | CZECH_BANKING_MONEY_VALUE                || "jeden tisíc dvě stě třicet čtyři Kč 56/100"
         "Dutch"                | DUTCH_BANKING_MONEY_VALUE                || "duizendtweehonderdvierendertig € 56/100"
         "English"              | ENGLISH_BANKING_MONEY_VALUE              || "one thousand two hundred thirty-four £ 56/100"

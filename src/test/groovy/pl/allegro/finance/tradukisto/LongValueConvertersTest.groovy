@@ -8,6 +8,7 @@ import static pl.allegro.finance.tradukisto.LongValueConverters.HINDI_LONG
 import static pl.allegro.finance.tradukisto.LongValueConverters.POLISH_LONG
 import static pl.allegro.finance.tradukisto.LongValueConverters.SWEDISH_LONG
 import static pl.allegro.finance.tradukisto.LongValueConverters.JAPANESE_KANJI_LONG
+import static pl.allegro.finance.tradukisto.LongValueConverters.CHINESE_HANZI_LONG
 
 class LongValueConvertersTest extends Specification {
 
@@ -23,6 +24,7 @@ class LongValueConvertersTest extends Specification {
         "Hindi"   | HINDI_LONG   || "दस शंख"
         "Swedish" | SWEDISH_LONG || "en triljon"
         "Japanese"| JAPANESE_KANJI_LONG || "百京"
+        "Chinese" | CHINESE_HANZI_LONG || "一百京"
     }
 
     def "should throw exception when null given"() {
