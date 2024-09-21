@@ -3,8 +3,10 @@ package pl.allegro.finance.tradukisto
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import static pl.allegro.finance.tradukisto.MoneyConverters.CHINESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.ValueConverters.BRAZILIAN_PORTUGUESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.BULGARIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.CHINESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
@@ -39,6 +41,7 @@ class ValueConvertersTest extends Specification {
         language               | converter                    || number
         "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_INTEGER || "mil duzentos e trinta e quatro"
         "Bulgarian"            | BULGARIAN_INTEGER            || "хиляда двеста тридесет четири"
+        "Chinese"              | CHINESE_INTEGER              || "一千二百三十四"
         "Czech"                | CZECH_INTEGER                || "jeden tisíc dvě stě třicet čtyři"
         "Dutch"                | DUTCH_INTEGER                || "duizendtweehonderdvierendertig"
         "English"              | ENGLISH_INTEGER              || "one thousand two hundred thirty-four"

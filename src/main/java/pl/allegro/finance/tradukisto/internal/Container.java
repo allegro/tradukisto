@@ -5,6 +5,9 @@ import pl.allegro.finance.tradukisto.internal.converters.HundredsToWordsConverte
 import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianValues;
+import pl.allegro.finance.tradukisto.internal.languages.chinese.ChineseValues;
+import pl.allegro.finance.tradukisto.internal.languages.chinese.ChineseThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.chinese.ChineseNumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.croatian.CroatianValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
@@ -343,6 +346,30 @@ public final class Container {
         BigDecimalToBankingMoneyConverter bigDecimalToBankingMoneyConverter = new BigDecimalToBankingMoneyConverter(
             integerToStringConverter,
             japaneseValues.currency()
+        );
+
+        return new Container(integerToStringConverter, longToStringConverter, bigDecimalToBankingMoneyConverter);
+    }
+    public static Container chineseHanZiContainer() {
+        ChineseValues chineseValues = new ChineseValues();
+
+        ChineseThousandToWordsConverter chineseThousandToWordsConverter = new ChineseThousandToWordsConverter(
+                chineseValues.baseNumbers()
+        );
+
+        IntegerToStringConverter integerToStringConverter = new ChineseNumberToWordsConverter(
+                chineseThousandToWordsConverter,
+                chineseValues.pluralForms()
+        );
+
+        LongToStringConverter longToStringConverter = new ChineseNumberToWordsConverter(
+                chineseThousandToWordsConverter,
+                chineseValues.pluralForms()
+        );
+
+        BigDecimalToBankingMoneyConverter bigDecimalToBankingMoneyConverter = new BigDecimalToBankingMoneyConverter(
+                integerToStringConverter,
+                chineseValues.currency()
         );
 
         return new Container(integerToStringConverter, longToStringConverter, bigDecimalToBankingMoneyConverter);
