@@ -30,6 +30,7 @@ import pl.allegro.finance.tradukisto.internal.languages.japanese.JapaneseThousan
 import pl.allegro.finance.tradukisto.internal.languages.japanese.JapaneseValues;
 import pl.allegro.finance.tradukisto.internal.languages.kazakh.KazakhValues;
 import pl.allegro.finance.tradukisto.internal.languages.latvian.LatvianValues;
+import pl.allegro.finance.tradukisto.internal.languages.persian.PersianValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.PortugueseIntegerToWordsConverter;
@@ -245,6 +246,22 @@ public final class Container {
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
+    
+    public static Container persianContainer()
+    {
+        PersianValues persianValues = new PersianValues();
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(persianValues.baseNumbers(),
+                persianValues.twoDigitsNumberSeparator());
+
+        pl.allegro.finance.tradukisto.internal.languages.persian.IntegerToWordsConverter integerConverter = 
+                new pl.allegro.finance.tradukisto.internal.languages.persian.IntegerToWordsConverter(
+                hundredsToStringConverter, persianValues.pluralForms());
+
+        return new Container(integerConverter,
+                new pl.allegro.finance.tradukisto.internal.languages.persian.BigDecimalToBankingMoneyConverter(integerConverter,
+                        persianValues.currency()));
+    }
+
 
     public static Container turkishContainer() {
         TurkishValues values = new TurkishValues();
