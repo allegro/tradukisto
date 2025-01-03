@@ -93,7 +93,7 @@ class ValueConvertersTest extends Specification {
         new Locale("de")                                                 || GERMAN_INTEGER
         Locale.GERMANY                                                   || GERMAN_INTEGER
         new Locale("kk")                                                 || KAZAKH_INTEGER
-        new Locale("kg")                                                 || KYRGYZ_INTEGER
+        new Locale("ky")                                                 || KYRGYZ_INTEGER
         new Locale("lv")                                                 || LATVIAN_INTEGER
         new Locale("pl")                                                 || POLISH_INTEGER
         new Locale("ru")                                                 || RUSSIAN_INTEGER
@@ -146,7 +146,7 @@ class ValueConvertersTest extends Specification {
         "it"         || ITALIAN_INTEGER
         "de"         || GERMAN_INTEGER
         "kk"         || KAZAKH_INTEGER
-        "kg"         || KYRGYZ_INTEGER
+        "ky"         || KYRGYZ_INTEGER
         "lv"         || LATVIAN_INTEGER
         "pl"         || POLISH_INTEGER
         "ru"         || RUSSIAN_INTEGER

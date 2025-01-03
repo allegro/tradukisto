@@ -6,7 +6,30 @@ import pl.allegro.finance.tradukisto.internal.Container;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import static pl.allegro.finance.tradukisto.internal.Container.*;
+import static pl.allegro.finance.tradukisto.internal.Container.americanEnglishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.brazilianPortugueseContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.czechContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.frenchContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.germanContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.italianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.japaneseKanjiContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.kazakhContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.latvianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.serbianCyrillicContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.serbianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.slovakContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.sloveneContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.spanishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.turkishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.kyrgyzContainer;
 
 public enum MoneyConverters {
 
