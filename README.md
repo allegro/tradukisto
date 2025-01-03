@@ -33,6 +33,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇮🇹 Italian
 * 🇯🇵 Japanese (KANJI)
 * 🇰🇿 Kazakh
+* 🇰🇬 Kyrgyz
 * 🇱🇻 Latvian
 * 🇵🇱 Polish
 * 🇷🇺 Russian
