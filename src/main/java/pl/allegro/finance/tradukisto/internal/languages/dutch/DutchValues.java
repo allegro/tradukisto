@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import pl.allegro.finance.tradukisto.internal.languages.GenderForms;
+import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
+import pl.allegro.finance.tradukisto.internal.languages.RegularPluralForms;
 
 import static java.util.Collections.singletonMap;
 
@@ -63,7 +65,10 @@ public class DutchValues {
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
             new DutchPluralForms("miljoen"),
-            new DutchPluralForms("miljard")
+            new DutchPluralForms("miljard"),
+            new DutchPluralForms("biljoen"),
+            new DutchPluralForms("biljard"),
+            new DutchPluralForms("triljoen")
         );
     }
 

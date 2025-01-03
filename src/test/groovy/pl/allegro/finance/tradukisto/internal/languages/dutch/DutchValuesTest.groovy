@@ -1,6 +1,6 @@
 package pl.allegro.finance.tradukisto.internal.languages.dutch
 
-import spock.lang.Ignore
+
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -109,7 +109,6 @@ class DutchValuesTest extends Specification {
         2147483647 | "twee miljard honderdzevenenveertig miljoen vierhonderddrieëntachtigduizendzeshonderdzevenenveertig"
     }
 
-    @Ignore("Needs Dutch long converter and values for trillion, quadrillion, quintillion")
     @Unroll
     def "should convert long #value to '#words' in Dutch"() {
         expect:
@@ -117,18 +116,20 @@ class DutchValuesTest extends Specification {
 
         where:
         value                     | words
-        5_000_000_000             | ""
+        5_000_000_000             | "vijf miljard"
 
-        1_000_000_000_000         | ""
-        2_000_000_000_000         | ""
-        5_000_000_000_000         | ""
+        1_000_000_000_000         | "één biljoen"
+        2_000_000_000_000         | "twee biljoen"
+        5_000_000_000_000         | "vijf biljoen"
 
-        1_000_000_000_000_000     | ""
-        2_000_000_000_000_000     | ""
-        5_000_000_000_000_000     | ""
+        1_000_000_000_000_000     | "één biljard"
+        2_000_000_000_000_000     | "twee biljard"
+        5_000_000_000_000_000     | "vijf biljard"
 
-        1_000_000_000_000_000_000 | ""
-        2_000_000_000_000_000_000 | ""
-        Long.MAX_VALUE            | ""
+        1_000_000_000_000_000_000 | "één triljoen"
+        2_000_000_000_000_000_000 | "twee triljoen"
+        Long.MAX_VALUE            | "negen triljoen tweehonderddrieëntwintig biljard " +
+                "driehonderdtweeënzeventig biljoen zesendertig miljard " +
+                "achthonderdvierenvijftig miljoen zevenhonderdvijfenzeventigduizendachthonderdzeven"
     }
 }

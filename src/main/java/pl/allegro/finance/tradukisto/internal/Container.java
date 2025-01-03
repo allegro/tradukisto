@@ -10,6 +10,7 @@ import pl.allegro.finance.tradukisto.internal.languages.czech.CzechIntegerToWord
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValues;
 import pl.allegro.finance.tradukisto.internal.languages.czech.CzechValuesForSmallNumbers;
 import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchLongToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchValues;
 import pl.allegro.finance.tradukisto.internal.languages.english.AmericanEnglishValues;
@@ -104,12 +105,12 @@ public final class Container {
         SloveneValues values = new SloveneValues();
 
         SloveneThousandToWordsConverter sloveneThousandToWordsConverter = new SloveneThousandToWordsConverter(
-                values.baseNumbers());
+            values.baseNumbers());
 
         IntegerToStringConverter converter = new NumberToWordsConverter(sloveneThousandToWordsConverter, values.pluralForms());
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
-                converter, values.currency());
+            converter, values.currency());
 
         return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
@@ -190,21 +191,26 @@ public final class Container {
     }
 
     public static Container dutchContainer() {
-
         DutchValues values = new DutchValues();
 
         DutchThousandToWordsConverter dutchThousandToWordsConverter =
             new DutchThousandToWordsConverter(values.baseNumbers());
 
         IntegerToStringConverter converter = new DutchIntegerToWordsConverter(
-            new NumberToWordsConverter(dutchThousandToWordsConverter, values.pluralForms()), values.exceptions(),
+            new NumberToWordsConverter(dutchThousandToWordsConverter, values.pluralForms()),
+            values.exceptions(),
             dutchThousandToWordsConverter
+        );
+
+        LongToStringConverter dutchLongToWordsConverter = new DutchLongToWordsConverter(
+            dutchThousandToWordsConverter,
+            values.pluralForms()
         );
 
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
             new BigDecimalToBankingMoneyConverter(converter, values.currency());
 
-        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
+        return new Container(converter, dutchLongToWordsConverter, bigDecimalBankingMoneyValueConverter);
     }
 
     public static Container italianContainer() {
