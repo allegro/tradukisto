@@ -30,6 +30,7 @@ import pl.allegro.finance.tradukisto.internal.languages.japanese.JapaneseNumberT
 import pl.allegro.finance.tradukisto.internal.languages.japanese.JapaneseThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.japanese.JapaneseValues;
 import pl.allegro.finance.tradukisto.internal.languages.kazakh.KazakhValues;
+import pl.allegro.finance.tradukisto.internal.languages.kyrgyz.KyrgyzValues;
 import pl.allegro.finance.tradukisto.internal.languages.latvian.LatvianValues;
 import pl.allegro.finance.tradukisto.internal.languages.polish.PolishValues;
 import pl.allegro.finance.tradukisto.internal.languages.portuguese.BrazilianPortugueseValues;
@@ -268,6 +269,11 @@ public final class Container {
     public static Container kazakhContainer() {
         KazakhValues kazakhValues = new KazakhValues();
         return new Container(kazakhValues);
+    }
+
+    public static Container kyrgyzContainer() {
+        KyrgyzValues kyrgyzValues = new KyrgyzValues();
+        return new Container(kyrgyzValues);
     }
 
     public static Container hindiContainer() {
