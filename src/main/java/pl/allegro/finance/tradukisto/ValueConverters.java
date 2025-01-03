@@ -23,7 +23,7 @@ public enum ValueConverters {
     SLOVAK_INTEGER(Container.slovakContainer().getIntegerConverter(), "sk"),
     LATVIAN_INTEGER(Container.latvianContainer().getIntegerConverter(), "lv"),
     KAZAKH_INTEGER(Container.kazakhContainer().getIntegerConverter(), "kk"),
-    KYRGYZ_INTEGER(Container.kyrgyzContainer().getIntegerConverter(), "kg"),
+    KYRGYZ_INTEGER(Container.kyrgyzContainer().getIntegerConverter(), "ky"),
     UKRAINIAN_INTEGER(Container.ukrainianContainer().getIntegerConverter(), "uk"),
     SERBIAN_INTEGER(Container.serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
     SERBIAN_CYRILLIC_INTEGER(Container.serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
