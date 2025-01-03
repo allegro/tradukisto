@@ -8,7 +8,6 @@ import static pl.allegro.finance.tradukisto.internal.Container.spanishContainer
 class SpanishValuesTest extends Specification {
     static moneyConverter = spanishContainer().getBankingMoneyConverter()
     
-
     @Unroll
     def "should convert money #value to '#words' in Spanish"() {
         expect:
