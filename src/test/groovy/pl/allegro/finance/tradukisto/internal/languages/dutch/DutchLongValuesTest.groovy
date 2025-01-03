@@ -3,7 +3,6 @@ package pl.allegro.finance.tradukisto.internal.languages.dutch
 import pl.allegro.finance.tradukisto.internal.languages.AbstractLongValuesTest
 
 import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer
-import static pl.allegro.finance.tradukisto.internal.Container.polishContainer
 
 class DutchLongValuesTest extends AbstractLongValuesTest {
 
