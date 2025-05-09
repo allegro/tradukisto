@@ -14,8 +14,8 @@ plugins {
     id("checkstyle")
     id("maven-publish")
     id("signing")
-    id("pl.allegro.tech.build.axion-release") version "1.13.3"
-    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
+    id("pl.allegro.tech.build.axion-release") version "1.18.18"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 dependencies {
