@@ -12,7 +12,9 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.FRENCH_BANKING_MONEY
 import static pl.allegro.finance.tradukisto.MoneyConverters.GERMAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.HINDI_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.ITALIAN_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.JAPANESE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.KAZAKH_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.KYRGYZ_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.LATVIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.POLISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.RUSSIAN_BANKING_MONEY_VALUE
@@ -21,6 +23,7 @@ import static pl.allegro.finance.tradukisto.MoneyConverters.SERBIAN_CYRILLIC_BAN
 import static pl.allegro.finance.tradukisto.MoneyConverters.SLOVAK_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.SPANISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.SWEDISH_BANKING_MONEY_VALUE
+import static pl.allegro.finance.tradukisto.MoneyConverters.SLOVENE_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.TURKISH_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.UKRAINIAN_BANKING_MONEY_VALUE
 import static pl.allegro.finance.tradukisto.MoneyConverters.DUTCH_BANKING_MONEY_VALUE
@@ -43,12 +46,15 @@ class MoneyConvertersTest extends Specification {
         "French"               | FRENCH_BANKING_MONEY_VALUE               || "mille deux cent trente-quatre € 56/100"
         "German"               | GERMAN_BANKING_MONEY_VALUE               || "eintausendzweihundertvierunddreißig € 56/100"
         "Italian"              | ITALIAN_BANKING_MONEY_VALUE              || "milleduecentotrentaquattro € 56/100"
+        "Japanese"             | JAPANESE_BANKING_MONEY_VALUE             || "千二百三十四 円 56/100"
         "Kazakh"               | KAZAKH_BANKING_MONEY_VALUE               || "бір мың екі жүз отыз төрт KZT 56/100"
+        "Kyrgyz"               | KYRGYZ_BANKING_MONEY_VALUE               || "бир миң эки жүз отуз төрт сом 56/100"
         "Latvian"              | LATVIAN_BANKING_MONEY_VALUE              || "viens tūkstotis divi simti trīsdesmit četri EUR 56/100"
         "Polish"               | POLISH_BANKING_MONEY_VALUE               || "jeden tysiąc dwieście trzydzieści cztery PLN 56/100"
         "Serbian Cyrillic"     | SERBIAN_CYRILLIC_BANKING_MONEY_VALUE     || "једна хиљада двеста тридесет четири РСД 56/100"
         "Serbian Latin"        | SERBIAN_BANKING_MONEY_VALUE              || "jedna hiljada dvesta trideset četiri RSD 56/100"
         "Slovak"               | SLOVAK_BANKING_MONEY_VALUE               || "jeden tisíc dvesto tridsať štyri € 56/100"
+        "Slovene"              | SLOVENE_BANKING_MONEY_VALUE              || "ena tisoč dvesto štiriintrideset € 56/100"
         "Spanish"              | SPANISH_BANKING_MONEY_VALUE              || "mil doscientos treinta y cuatro € 56/100"
         "Russian"              | RUSSIAN_BANKING_MONEY_VALUE              || "одна тысяча двести тридцать четыре руб. 56/100"
         "Swedish"              | SWEDISH_BANKING_MONEY_VALUE              || "ett tusen två hundra och trettiofyra kr 56/100"

@@ -61,10 +61,11 @@ public class UkrainianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
-                new SlavicPluralForms("тисяча", "тисячі", "тисяч", GenderType.FEMININE),
-                new SlavicPluralForms("мільйон", "мільйони", "мільйонів", GenderType.MASCULINE),
-                new SlavicPluralForms("мільярд", "мільярди", "мільярдів", GenderType.MASCULINE));
+            new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+            new SlavicPluralForms("тисяча", "тисячі", "тисяч", GenderType.FEMININE),
+            new SlavicPluralForms("мільйон", "мільйони", "мільйонів", GenderType.MASCULINE),
+            new SlavicPluralForms("мільярд", "мільярди", "мільярдів", GenderType.MASCULINE)
+        );
     }
 
     @Override

@@ -23,6 +23,7 @@ public enum ValueConverters {
     SLOVAK_INTEGER(Container.slovakContainer().getIntegerConverter(), "sk"),
     LATVIAN_INTEGER(Container.latvianContainer().getIntegerConverter(), "lv"),
     KAZAKH_INTEGER(Container.kazakhContainer().getIntegerConverter(), "kk"),
+    KYRGYZ_INTEGER(Container.kyrgyzContainer().getIntegerConverter(), "ky"),
     UKRAINIAN_INTEGER(Container.ukrainianContainer().getIntegerConverter(), "uk"),
     SERBIAN_INTEGER(Container.serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
     SERBIAN_CYRILLIC_INTEGER(Container.serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
@@ -30,9 +31,11 @@ public enum ValueConverters {
     FRENCH_INTEGER(Container.frenchContainer().getIntegerConverter(), "fr"),
     TURKISH_INTEGER(Container.turkishContainer().getIntegerConverter(), "tr"),
     DUTCH_INTEGER(Container.dutchContainer().getIntegerConverter(), "nl"),
+    SLOVENE_INTEGER(Container.sloveneContainer().getIntegerConverter(), "sl"),
     SPANISH_INTEGER(Container.spanishContainer().getIntegerConverter(), "es"),
     HINDI_INTEGER(Container.hindiContainer().getIntegerConverter(), "hi"),
-    SWEDISH_INTEGER(Container.swedishContainer().getIntegerConverter(), "sv");
+    SWEDISH_INTEGER(Container.swedishContainer().getIntegerConverter(), "sv"),
+    JAPANESE_INTEGER(Container.japaneseKanjiContainer().getIntegerConverter(), "ja");
 
     private final IntegerToStringConverter converter;
     private final List<String> languageCodes;
@@ -50,8 +53,8 @@ public enum ValueConverters {
         Objects.requireNonNull(locale);
 
         String languageCode = hasSpecifiedScript(locale)
-                ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
-                : locale.getLanguage();
+            ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
+            : locale.getLanguage();
 
         return getByLanguageCodeOrDefault(languageCode, defaultConverter);
     }

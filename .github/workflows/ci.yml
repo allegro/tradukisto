@@ -17,24 +17,21 @@ jobs:
 
     strategy:
       matrix:
-        java: ['8', '11', '17']
+        java: ['11', '17']
 
     name: Run tests for Java ${{ matrix.java }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Java ${{ matrix.java }}
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java }}
           cache: 'gradle'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
       - name: Test with Gradle
-        run: ./gradlew --no-daemon --continue check
+        run: ./gradlew --continue check
 
       - name: Jacoco
         if: matrix.Java == '17'

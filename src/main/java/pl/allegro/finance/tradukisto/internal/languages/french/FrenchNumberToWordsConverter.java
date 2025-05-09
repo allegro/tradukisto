@@ -15,11 +15,10 @@ public class FrenchNumberToWordsConverter extends NumberToWordsConverter {
     private final Map<Integer, String> exceptions;
 
     public FrenchNumberToWordsConverter(
-            IntegerToStringConverter integerToStringConverter,
-            Map<Integer, String> exceptions,
-            List<PluralForms> pluralForms
+        IntegerToStringConverter integerToStringConverter,
+        Map<Integer, String> exceptions,
+        List<PluralForms> pluralForms
     ) {
-
         super(integerToStringConverter, pluralForms);
         this.exceptions = exceptions;
     }

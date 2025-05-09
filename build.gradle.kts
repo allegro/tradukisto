@@ -11,6 +11,7 @@ plugins {
     id("java")
     id("groovy")
     id("jacoco")
+    id("checkstyle")
     id("maven-publish")
     id("signing")
     id("pl.allegro.tech.build.axion-release") version "1.15.4"
@@ -32,7 +33,7 @@ java {
     withSourcesJar()
     withJavadocJar()
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 

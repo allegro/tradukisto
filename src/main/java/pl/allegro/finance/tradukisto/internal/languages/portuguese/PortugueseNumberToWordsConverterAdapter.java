@@ -11,9 +11,11 @@ import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 
 public class PortugueseNumberToWordsConverterAdapter extends NumberToWordsConverter {
 
-    public PortugueseNumberToWordsConverterAdapter(IntegerToStringConverter hundredsToWordsConverter,
-                                                   List<PluralForms> pluralForms) {
-         super(hundredsToWordsConverter, pluralForms);
+    public PortugueseNumberToWordsConverterAdapter(
+        IntegerToStringConverter hundredsToWordsConverter,
+        List<PluralForms> pluralForms
+    ) {
+        super(hundredsToWordsConverter, pluralForms);
     }
 
     @Override

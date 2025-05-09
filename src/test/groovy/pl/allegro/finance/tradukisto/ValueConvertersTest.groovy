@@ -11,7 +11,9 @@ import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.HINDI_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.JAPANESE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.KAZAKH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.KYRGYZ_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.LATVIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.POLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.RUSSIAN_INTEGER
@@ -20,6 +22,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.SERBIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SLOVAK_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SPANISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.SWEDISH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.SLOVENE_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.TURKISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.UKRAINIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.DUTCH_INTEGER
@@ -43,13 +46,16 @@ class ValueConvertersTest extends Specification {
         "French"               | FRENCH_INTEGER               || "mille deux cent trente-quatre"
         "German"               | GERMAN_INTEGER               || "eintausendzweihundertvierunddreißig"
         "Italian"              | ITALIAN_INTEGER              || "milleduecentotrentaquattro"
+        "Japanese"             | JAPANESE_INTEGER             || "千二百三十四"
         "Kazakh"               | KAZAKH_INTEGER               || "бір мың екі жүз отыз төрт"
+        "Kyrgyz"               | KYRGYZ_INTEGER               || "бир миң эки жүз отуз төрт"
         "Latvian"              | LATVIAN_INTEGER              || "viens tūkstotis divi simti trīsdesmit četri"
         "Polish"               | POLISH_INTEGER               || "jeden tysiąc dwieście trzydzieści cztery"
         "Serbian Cyrillic"     | SERBIAN_CYRILLIC_INTEGER     || "једна хиљада двеста тридесет четири"
         "Serbian Latin"        | SERBIAN_INTEGER              || "jedna hiljada dvesta trideset četiri"
         "Slovak"               | SLOVAK_INTEGER               || "jeden tisíc dvesto tridsať štyri"
         "Spanish"              | SPANISH_INTEGER              || "mil doscientos treinta y cuatro"
+        "Slovene"              | SLOVENE_INTEGER              || "ena tisoč dvesto štiriintrideset"
         "Russian"              | RUSSIAN_INTEGER              || "одна тысяча двести тридцать четыре"
         "Swedish"              | SWEDISH_INTEGER              || "ett tusen två hundra och trettiofyra"
         "Turkish"              | TURKISH_INTEGER              || "Bin İki Yüz Otuz Dört"
@@ -87,6 +93,7 @@ class ValueConvertersTest extends Specification {
         new Locale("de")                                                 || GERMAN_INTEGER
         Locale.GERMANY                                                   || GERMAN_INTEGER
         new Locale("kk")                                                 || KAZAKH_INTEGER
+        new Locale("ky")                                                 || KYRGYZ_INTEGER
         new Locale("lv")                                                 || LATVIAN_INTEGER
         new Locale("pl")                                                 || POLISH_INTEGER
         new Locale("ru")                                                 || RUSSIAN_INTEGER
@@ -94,12 +101,15 @@ class ValueConvertersTest extends Specification {
         new Locale("sr")                                                 || SERBIAN_INTEGER
         new Locale.Builder().setLanguage("sr").setScript("Latn").build() || SERBIAN_INTEGER
         new Locale("sk")                                                 || SLOVAK_INTEGER
+        new Locale("sl")                                                 || SLOVENE_INTEGER
         new Locale("es")                                                 || SPANISH_INTEGER
         new Locale("tr")                                                 || TURKISH_INTEGER
         new Locale("uk")                                                 || UKRAINIAN_INTEGER
         new Locale("nl")                                                 || DUTCH_INTEGER
         new Locale("hi")                                                 || HINDI_INTEGER
         new Locale("sv")                                                 || SWEDISH_INTEGER
+        new Locale("ja")                                                 || JAPANESE_INTEGER
+        Locale.JAPANESE                                                  || JAPANESE_INTEGER
     }
 
     def "should return supplied default converter when locale is unknown"() {
@@ -136,6 +146,7 @@ class ValueConvertersTest extends Specification {
         "it"         || ITALIAN_INTEGER
         "de"         || GERMAN_INTEGER
         "kk"         || KAZAKH_INTEGER
+        "ky"         || KYRGYZ_INTEGER
         "lv"         || LATVIAN_INTEGER
         "pl"         || POLISH_INTEGER
         "ru"         || RUSSIAN_INTEGER
@@ -143,11 +154,13 @@ class ValueConvertersTest extends Specification {
         "sr"         || SERBIAN_INTEGER
         "sr__#Latn"  || SERBIAN_INTEGER
         "sk"         || SLOVAK_INTEGER
+        "sl"         || SLOVENE_INTEGER
         "es"         || SPANISH_INTEGER
         "tr"         || TURKISH_INTEGER
         "uk"         || UKRAINIAN_INTEGER
         "hi"         || HINDI_INTEGER
         "sv"         || SWEDISH_INTEGER
+        "ja"         || JAPANESE_INTEGER
     }
 
     def "should return supplied default converter when languageCode is unknown"() {

@@ -11,9 +11,11 @@ public class CzechIntegerToWordsConverter implements IntegerToStringConverter {
     private final IntegerToStringConverter smallNumbersConverter;
     private final Map<Integer, String> exceptions;
 
-    public CzechIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                        IntegerToStringConverter smallNumbersConverter,
-                                        Map<Integer, String> exceptions) {
+    public CzechIntegerToWordsConverter(
+        IntegerToStringConverter bigNumbersConverter,
+        IntegerToStringConverter smallNumbersConverter,
+        Map<Integer, String> exceptions
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.smallNumbersConverter = smallNumbersConverter;
         this.exceptions = exceptions;

@@ -8,6 +8,7 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import java.util.Map;
 
 import static java.lang.String.format;
+
 public class DutchThousandToWordsConverter implements GenderAwareIntegerToStringConverter {
 
     private final Map<Integer, GenderForms> baseValues;

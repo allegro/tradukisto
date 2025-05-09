@@ -61,10 +61,14 @@ public class RussianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
-                new SlavicPluralForms("тысяча", "тысячи", "тысяч", GenderType.FEMININE),
-                new SlavicPluralForms("миллион", "миллиона", "миллионов", GenderType.MASCULINE),
-                new SlavicPluralForms("миллиард", "миллиарда", "миллиардов", GenderType.MASCULINE));
+            new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+            new SlavicPluralForms("тысяча", "тысячи", "тысяч", GenderType.FEMININE),
+            new SlavicPluralForms("миллион", "миллиона", "миллионов", GenderType.MASCULINE),
+            new SlavicPluralForms("миллиард", "миллиарда", "миллиардов", GenderType.MASCULINE),
+            new SlavicPluralForms("триллион", "триллиона", "триллионов", GenderType.MASCULINE),
+            new SlavicPluralForms("квадриллион", "квадриллиона", "квадриллионов", GenderType.MASCULINE),
+            new SlavicPluralForms("квинтиллион", "квинтиллиона", "квинтиллионов", GenderType.MASCULINE)
+        );
     }
 
     @Override

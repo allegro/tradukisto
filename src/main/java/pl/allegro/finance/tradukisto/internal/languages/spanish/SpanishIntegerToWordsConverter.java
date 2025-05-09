@@ -12,9 +12,11 @@ public class SpanishIntegerToWordsConverter implements IntegerToStringConverter 
     private final Map<Integer, MultiFormNumber> exceptions;
     private final IntegerToStringConverter smallNumbersConverter;
 
-    public SpanishIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                          Map<Integer, MultiFormNumber> exceptions,
-                                          IntegerToStringConverter smallNumbersConverter) {
+    public SpanishIntegerToWordsConverter(
+        IntegerToStringConverter bigNumbersConverter,
+        Map<Integer, MultiFormNumber> exceptions,
+        IntegerToStringConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.exceptions = exceptions;
         this.smallNumbersConverter = smallNumbersConverter;

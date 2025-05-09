@@ -12,9 +12,11 @@ public class GermanIntegerToWordsConverter implements IntegerToStringConverter {
     private final Map<Integer, String> exceptions;
     private final GenderAwareIntegerToStringConverter smallNumbersConverter;
 
-    public GermanIntegerToWordsConverter(IntegerToStringConverter bigNumbersConverter,
-                                         Map<Integer, String> exceptions,
-                                         GenderAwareIntegerToStringConverter smallNumbersConverter) {
+    public GermanIntegerToWordsConverter(
+        IntegerToStringConverter bigNumbersConverter,
+        Map<Integer, String> exceptions,
+        GenderAwareIntegerToStringConverter smallNumbersConverter
+    ) {
         this.bigNumbersConverter = bigNumbersConverter;
         this.exceptions = exceptions;
         this.smallNumbersConverter = smallNumbersConverter;

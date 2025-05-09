@@ -60,13 +60,14 @@ public class CroatianValues implements BaseValues {
     @Override
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
-                new SlavicPluralForms("", "", "", GenderType.MASCULINE),
-                new SlavicPluralForms("tisuća", "tisuće", "tisuća", GenderType.FEMININE),
-                new SlavicPluralForms("milijun", "milijuna", "milijuna", GenderType.MASCULINE),
-                new SlavicPluralForms("milijarda", "milijarde", "milijardi", GenderType.FEMININE),
-                new SlavicPluralForms("bilijun", "bilijuna", "bilijuna", GenderType.MASCULINE),
-                new SlavicPluralForms("bilijarda", "bilijarde", "bilijardi", GenderType.FEMININE),
-                new SlavicPluralForms("trilijun", "trilijuna", "trilijuna", GenderType.MASCULINE));
+            new SlavicPluralForms("", "", "", GenderType.MASCULINE),
+            new SlavicPluralForms("tisuća", "tisuće", "tisuća", GenderType.FEMININE),
+            new SlavicPluralForms("milijun", "milijuna", "milijuna", GenderType.MASCULINE),
+            new SlavicPluralForms("milijarda", "milijarde", "milijardi", GenderType.FEMININE),
+            new SlavicPluralForms("bilijun", "bilijuna", "bilijuna", GenderType.MASCULINE),
+            new SlavicPluralForms("bilijarda", "bilijarde", "bilijardi", GenderType.FEMININE),
+            new SlavicPluralForms("trilijun", "trilijuna", "trilijuna", GenderType.MASCULINE)
+        );
     }
 
     @Override

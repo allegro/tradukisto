@@ -20,8 +20,10 @@ public class PortugueseThousandToWordsConverter implements IntegerToStringConver
     private final Map<Integer, MultiFormNumber> exceptions;
     private final GenderType genderType = GenderType.NON_APPLICABLE;
 
-    public PortugueseThousandToWordsConverter(Map<Integer, GenderForms> baseValues,
-                                              Map<Integer, MultiFormNumber> exceptions) {
+    public PortugueseThousandToWordsConverter(
+        Map<Integer, GenderForms> baseValues,
+        Map<Integer, MultiFormNumber> exceptions
+    ) {
         this.baseValues = baseValues;
         this.exceptions = exceptions;
     }
