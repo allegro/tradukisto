@@ -160,7 +160,7 @@ public class HindiValues implements BaseValues {
 
     @Override
     public char twoDigitsNumberSeparator() {
-        return '\0';
+        return '\u200C';
     }
 
     public String paiseSymbol() {

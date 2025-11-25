@@ -61,6 +61,9 @@ import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerTo
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishValues;
 import pl.allegro.finance.tradukisto.internal.languages.ukrainian.UkrainianValues;
+import pl.allegro.finance.tradukisto.internal.languages.urdu.PakistaniNumberToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.urdu.UrduBigDecimalToBankingMoneyConverter;
+import pl.allegro.finance.tradukisto.internal.languages.urdu.UrduValues;
 
 public final class Container {
 
@@ -314,6 +317,26 @@ public final class Container {
         BigDecimalToStringConverter bigDecimalConverter =
             new HindiBigDecimalToBankingMoneyConverter(integerToStringConverter, hindiValues);
         LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
+
+        return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
+    }
+
+    public static Container urduContainer() {
+        UrduValues urduValues = new UrduValues();
+
+        HundredsToWordsConverter hundredsToStringConverter = new HundredsToWordsConverter(
+            urduValues.baseNumbers(),
+            urduValues.twoDigitsNumberSeparator()
+        );
+
+        IntegerToStringConverter integerToStringConverter = new PakistaniNumberToWordsConverter(
+            hundredsToStringConverter,
+            urduValues.pluralForms()
+        );
+
+        BigDecimalToStringConverter bigDecimalConverter =
+            new UrduBigDecimalToBankingMoneyConverter(integerToStringConverter, urduValues);
+        LongToStringConverter longValueConverters = new PakistaniNumberToWordsConverter(hundredsToStringConverter, urduValues.pluralForms());
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
     }

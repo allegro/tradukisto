@@ -21,6 +21,7 @@ public enum LongValueConverters {
     RUSSIAN_LONG(russianContainer().getLongConverter()),
     POLISH_LONG(polishContainer().getLongConverter()),
     HINDI_LONG(hindiContainer().getLongConverter()),
+    URDU_LONG(hindiContainer().getLongConverter()),
     SWEDISH_LONG(swedishContainer().getLongConverter()),
     JAPANESE_KANJI_LONG(japaneseKanjiContainer().getLongConverter()),
     DUTCH_LONG(dutchContainer().getLongConverter());
