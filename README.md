@@ -21,6 +21,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 
 ## Supported languages
 
+* 🇦🇿 Azerbaijani
 * 🇧🇷🇵🇹 Brazilian Portuguese
 * 🇧🇬 Bulgarian
 * 🇭🇷 Croatian
