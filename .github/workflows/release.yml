@@ -9,7 +9,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set up JDK 17
@@ -17,6 +17,7 @@ jobs:
         with:
           java-version: 17
           distribution: temurin
+      - uses: gradle/actions/setup-gradle@v5
       - name: Publish to maven central
         run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
         env:
