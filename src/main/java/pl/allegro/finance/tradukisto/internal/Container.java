@@ -28,6 +28,10 @@ import pl.allegro.finance.tradukisto.internal.languages.greek.GreekValuesForSmal
 import pl.allegro.finance.tradukisto.internal.languages.hindi.HindiBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.hindi.HindiValues;
 import pl.allegro.finance.tradukisto.internal.languages.hindi.IndianNumberToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hungarian.HungarianIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hungarian.HungarianNumberToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hungarian.HungarianThousandToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.hungarian.HungarianValues;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.italian.ItalianValues;
@@ -316,6 +320,23 @@ public final class Container {
         LongToStringConverter longValueConverters = new IndianNumberToWordsConverter(hundredsToStringConverter, hindiValues.pluralForms());
 
         return new Container(integerToStringConverter, longValueConverters, bigDecimalConverter);
+    }
+
+    public static Container hungarianContainer() {
+        HungarianValues values = new HungarianValues();
+
+        HungarianThousandToWordsConverter hungarianThousandToWordsConverter =
+            new HungarianThousandToWordsConverter(values.baseNumbers());
+
+        IntegerToStringConverter converter = new HungarianIntegerToWordsConverter(
+            new HungarianNumberToWordsConverter(hungarianThousandToWordsConverter, values.pluralForms()),
+            hungarianThousandToWordsConverter
+        );
+
+        BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter =
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
+
+        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
     }
 
     public static Container spanishContainer() {
