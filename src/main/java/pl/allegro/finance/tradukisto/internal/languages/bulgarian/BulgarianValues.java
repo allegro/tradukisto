@@ -6,6 +6,8 @@ import pl.allegro.finance.tradukisto.internal.languages.GenderType;
 import pl.allegro.finance.tradukisto.internal.languages.PluralForms;
 import pl.allegro.finance.tradukisto.internal.languages.SlavicPluralForms;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,12 @@ import static pl.allegro.finance.tradukisto.internal.languages.GenderForms.gende
 import static pl.allegro.finance.tradukisto.internal.support.BaseNumbersBuilder.baseNumbersBuilder;
 
 public class BulgarianValues implements BaseValues {
+    // todo: clean it after 01.02.2026
+    private static final LocalDate EURO_START_DATE = LocalDate.of(2026, 2, 1);
+    private static final ZoneId BULGARIA_ZONE = ZoneId.of("Europe/Sofia");
+    private static final String LV_CURRENCY = "лв";
+    private static final String EURO_CURRENCY = "€";
+
     @Override
     public Map<Integer, GenderForms> baseNumbers() {
         return baseNumbersBuilder()
@@ -69,8 +77,10 @@ public class BulgarianValues implements BaseValues {
 
     @Override
     public String currency() {
-        return "лв";
-    }
+        return LocalDate.now(BULGARIA_ZONE).isBefore(EURO_START_DATE)
+                ? LV_CURRENCY
+                : EURO_CURRENCY;
+}
 
     @Override
     public char twoDigitsNumberSeparator() {
