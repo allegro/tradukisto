@@ -12,6 +12,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.japaneseKanjiCont
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.russianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.swedishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.uzbekContainer;
 
 public enum LongValueConverters {
 
@@ -23,7 +24,8 @@ public enum LongValueConverters {
     HINDI_LONG(hindiContainer().getLongConverter()),
     SWEDISH_LONG(swedishContainer().getLongConverter()),
     JAPANESE_KANJI_LONG(japaneseKanjiContainer().getLongConverter()),
-    DUTCH_LONG(dutchContainer().getLongConverter());
+    DUTCH_LONG(dutchContainer().getLongConverter()),
+    UZBEK_LONG(uzbekContainer().getLongConverter());
 
     private final LongToStringConverter converter;
 
