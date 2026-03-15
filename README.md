@@ -48,6 +48,7 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 * 🇸🇪 Swedish
 * 🇹🇷 Turkish
 * 🇺🇦 Ukrainian
+* 🇺🇿 Uzbek
 
 Is your language missing from the list? We encourage you to contribute to our project. 
 
