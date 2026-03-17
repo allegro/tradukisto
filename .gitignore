@@ -7,3 +7,4 @@
 # intellij
 .idea
 *.iml
+.aider*
