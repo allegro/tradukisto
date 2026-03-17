@@ -41,7 +41,7 @@ class MoneyConvertersTest extends Specification {
         "Azerbaijani"          | AZERBAIJANI_BANKING_MONEY_VALUE          || "bir min iki yüz otuz dörd AZN 56/100"
         "American English"     | AMERICAN_ENGLISH_BANKING_MONEY_VALUE     || "one thousand two hundred thirty-four \$ 56/100"
         "Brazilian Portuguese" | BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE || "mil duzentos e trinta e quatro R\$ 56/100"
-        "Bulgarian"            | BULGARIAN_BANKING_MONEY_VALUE            || "хиляда двеста тридесет четири лв 56/100"
+        "Bulgarian"            | BULGARIAN_BANKING_MONEY_VALUE            || "хиляда двеста тридесет четири € 56/100"
         "Czech"                | CZECH_BANKING_MONEY_VALUE                || "jeden tisíc dvě stě třicet čtyři Kč 56/100"
         "Dutch"                | DUTCH_BANKING_MONEY_VALUE                || "duizendtweehonderdvierendertig € 56/100"
         "English"              | ENGLISH_BANKING_MONEY_VALUE              || "one thousand two hundred thirty-four £ 56/100"
