@@ -65,6 +65,8 @@ import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishIntegerTo
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishSmallNumbersToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.turkish.TurkishValues;
 import pl.allegro.finance.tradukisto.internal.languages.ukrainian.UkrainianValues;
+import pl.allegro.finance.tradukisto.internal.languages.uzbek.UzbekCyrillicValues;
+import pl.allegro.finance.tradukisto.internal.languages.uzbek.UzbekValues;
 
 public final class Container {
 
@@ -401,6 +403,14 @@ public final class Container {
         );
 
         return new Container(integerToStringConverter, longToStringConverter, bigDecimalToBankingMoneyConverter);
+    }
+
+    public static Container uzbekContainer() {
+        return new Container(new UzbekValues());
+    }
+
+    public static Container uzbekCyrillicContainer() {
+        return new Container(new UzbekCyrillicValues());
     }
 
     public static Container azerbaijaniContainer() {
