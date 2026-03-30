@@ -30,7 +30,7 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: 'gradle'
 
-      - uses: gradle/actions/setup-gradle@v5
+      - uses: gradle/actions/setup-gradle@v6
       - name: Test with Gradle
         run: ./gradlew --continue check
 
