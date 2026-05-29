@@ -3,6 +3,8 @@ package pl.allegro.finance.tradukisto.internal;
 import pl.allegro.finance.tradukisto.internal.converters.BigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.converters.HundredsToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.converters.NumberToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.arabic.ArabicHundredsToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.arabic.ArabicValues;
 import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianIntegerToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.azerbaijani.AzerbaijaniValues;
 import pl.allegro.finance.tradukisto.internal.languages.bulgarian.BulgarianValues;
@@ -405,6 +407,23 @@ public final class Container {
 
     public static Container azerbaijaniContainer() {
         return new Container(new AzerbaijaniValues());
+    }
+
+    public static Container arabicContainer() {
+        ArabicValues values = new ArabicValues();
+
+        ArabicHundredsToWordsConverter arabicHundredsToWordsConverter =
+            new ArabicHundredsToWordsConverter(values.baseNumbers());
+
+        NumberToWordsConverter converter = new NumberToWordsConverter(
+            arabicHundredsToWordsConverter,
+            values.pluralForms()
+        );
+
+        BigDecimalToStringConverter bigDecimalConverter =
+            new BigDecimalToBankingMoneyConverter(converter, values.currency());
+
+        return new Container(converter, null, bigDecimalConverter);
     }
 
     private final IntegerToStringConverter integerConverter;
