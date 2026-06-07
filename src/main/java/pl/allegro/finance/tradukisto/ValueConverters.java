@@ -36,6 +36,7 @@ public enum ValueConverters {
     SPANISH_INTEGER(Container.spanishContainer().getIntegerConverter(), "es"),
     HINDI_INTEGER(Container.hindiContainer().getIntegerConverter(), "hi"),
     HUNGARIAN_INTEGER(Container.hungarianContainer().getIntegerConverter(), "hu"),
+    URDU_INTEGER(Container.urduContainer().getIntegerConverter(), "ur"),
     SWEDISH_INTEGER(Container.swedishContainer().getIntegerConverter(), "sv"),
     JAPANESE_INTEGER(Container.japaneseKanjiContainer().getIntegerConverter(), "ja");
 

@@ -58,6 +58,7 @@ public enum MoneyConverters {
     DUTCH_BANKING_MONEY_VALUE(dutchContainer().getBankingMoneyConverter()),
     SPANISH_BANKING_MONEY_VALUE(spanishContainer().getBankingMoneyConverter()),
     HINDI_BANKING_MONEY_VALUE(Container.hindiContainer().getBankingMoneyConverter()),
+    URDU_BANKING_MONEY_VALUE(Container.urduContainer().getBankingMoneyConverter()),
     SWEDISH_BANKING_MONEY_VALUE(swedishContainer().getBankingMoneyConverter()),
     JAPANESE_BANKING_MONEY_VALUE(japaneseKanjiContainer().getBankingMoneyConverter());
 
