@@ -31,10 +31,12 @@ import static pl.allegro.finance.tradukisto.internal.Container.ukrainianContaine
 import static pl.allegro.finance.tradukisto.internal.Container.bulgarianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.kyrgyzContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.finnishContainer;
 
 public enum MoneyConverters {
 
     AZERBAIJANI_BANKING_MONEY_VALUE(azerbaijaniContainer().getBankingMoneyConverter()),
+    FINNISH_BANKING_MONEY_VALUE(finnishContainer().getBankingMoneyConverter()),
     BRAZILIAN_PORTUGUESE_BANKING_MONEY_VALUE(brazilianPortugueseContainer().getBankingMoneyConverter()),
     ENGLISH_BANKING_MONEY_VALUE(englishContainer().getBankingMoneyConverter()),
     AMERICAN_ENGLISH_BANKING_MONEY_VALUE(americanEnglishContainer().getBankingMoneyConverter()),

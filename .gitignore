@@ -7,3 +7,6 @@
 # intellij
 .idea
 *.iml
+
+# vscode java
+/bin

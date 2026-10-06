@@ -1,5 +1,4 @@
-Tradukisto
-==========
+# Tradukisto
 
 [![Build](https://github.com/allegro/tradukisto/actions/workflows/ci.yml/badge.svg)](https://github.com/allegro/tradukisto/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/allegro/tradukisto/branch/master/graph/badge.svg?token=YO4NcWxDCI)](https://codecov.io/gh/allegro/tradukisto)
@@ -15,49 +14,52 @@ With Tradukisto, you can now transform numbers into their word equivalents easy 
 
 ## Features
 
-* Converts `Integer` to `String` with numerical representation support.
-* Converts `Long` to `String` with numerical representation support.
-* Converts `BigDecimal` to `String` with money representation support.
+- Converts `Integer` to `String` with numerical representation support.
+- Converts `Long` to `String` with numerical representation support.
+- Converts `BigDecimal` to `String` with money representation support.
 
 ## Supported languages
 
-* 🇦🇿 Azerbaijani
-* 🇧🇷🇵🇹 Brazilian Portuguese
-* 🇧🇬 Bulgarian
-* 🇭🇷 Croatian
-* 🇨🇿 Czech
-* 🇳🇱 Dutch
-* 🇬🇧 English
-* 🇫🇷 French
-* 🇩🇪 German
-* 🇬🇷 Greek
-* 🇮🇳 Hindi
-* 🇭🇺 Hungarian
-* 🇮🇹 Italian
-* 🇯🇵 Japanese (KANJI)
-* 🇰🇿 Kazakh
-* 🇰🇬 Kyrgyz
-* 🇱🇻 Latvian
-* 🇵🇱 Polish
-* 🇷🇺 Russian
-* 🇷🇸 Serbian (Cyrillic)
-* 🇷🇸 Serbian (Latin)
-* 🇸🇰 Slovak
-* 🇸🇮 Slovene / Slovenian
-* 🇪🇸 Spanish
-* 🇸🇪 Swedish
-* 🇹🇷 Turkish
-* 🇺🇦 Ukrainian
+- 🇦🇿 Azerbaijani
+- 🇧🇷🇵🇹 Brazilian Portuguese
+- 🇧🇬 Bulgarian
+- 🇭🇷 Croatian
+- 🇨🇿 Czech
+- 🇳🇱 Dutch
+- 🇬🇧 English
+- 🇫🇮 Finnish
+- 🇫🇷 French
+- 🇩🇪 German
+- 🇬🇷 Greek
+- 🇮🇳 Hindi
+- 🇭🇺 Hungarian
+- 🇮🇹 Italian
+- 🇯🇵 Japanese (KANJI)
+- 🇰🇿 Kazakh
+- 🇰🇬 Kyrgyz
+- 🇱🇻 Latvian
+- 🇵🇱 Polish
+- 🇷🇺 Russian
+- 🇷🇸 Serbian (Cyrillic)
+- 🇷🇸 Serbian (Latin)
+- 🇸🇰 Slovak
+- 🇸🇮 Slovene / Slovenian
+- 🇪🇸 Spanish
+- 🇸🇪 Swedish
+- 🇹🇷 Turkish
+- 🇺🇦 Ukrainian
 
-Is your language missing from the list? We encourage you to contribute to our project. 
+Is your language missing from the list? We encourage you to contribute to our project.
 
 ## Usage
-See article on our [Wiki](https://github.com/allegro/tradukisto/wiki/Getting-Started-with-Tradukisto!) 
 
+See article on our [Wiki](https://github.com/allegro/tradukisto/wiki/Getting-Started-with-Tradukisto!)
 
-## Contributing 
+## Contributing
+
 If you are first-time contributor, articles ["Create your first Pull Request"](https://github.com/allegro/tradukisto/wiki/Create-your-first-Pull-Request) and ["How to implement new language?
 "](https://github.com/allegro/tradukisto/wiki/How-to-implement-new-language%3F) may be helpful.
 
 ## Changelog
+
 Each release is documented in the [release notes](https://github.com/allegro/tradukisto/releases).

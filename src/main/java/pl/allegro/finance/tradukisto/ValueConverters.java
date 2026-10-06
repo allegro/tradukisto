@@ -13,7 +13,8 @@ import java.util.Objects;
 public enum ValueConverters {
 
     AZERBAIJANI_INTEGER(Container.azerbaijaniContainer().getIntegerConverter(), "az"),
-    BRAZILIAN_PORTUGUESE_INTEGER(Container.brazilianPortugueseContainer().getIntegerConverter(), Arrays.asList("pt", "pt-br")),
+    BRAZILIAN_PORTUGUESE_INTEGER(Container.brazilianPortugueseContainer().getIntegerConverter(),
+            Arrays.asList("pt", "pt-br")),
     ENGLISH_INTEGER(Container.englishContainer().getIntegerConverter(), "en"),
     GERMAN_INTEGER(Container.germanContainer().getIntegerConverter(), "de"),
     RUSSIAN_INTEGER(Container.russianContainer().getIntegerConverter(), "ru"),
@@ -26,8 +27,10 @@ public enum ValueConverters {
     KAZAKH_INTEGER(Container.kazakhContainer().getIntegerConverter(), "kk"),
     KYRGYZ_INTEGER(Container.kyrgyzContainer().getIntegerConverter(), "ky"),
     UKRAINIAN_INTEGER(Container.ukrainianContainer().getIntegerConverter(), "uk"),
-    SERBIAN_INTEGER(Container.serbianContainer().getIntegerConverter(), Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
-    SERBIAN_CYRILLIC_INTEGER(Container.serbianCyrillicContainer().getIntegerConverter(), getLanguageCodeFor("sr", "Cyrl")),
+    SERBIAN_INTEGER(Container.serbianContainer().getIntegerConverter(),
+            Arrays.asList("sr", getLanguageCodeFor("sr", "Latn"))),
+    SERBIAN_CYRILLIC_INTEGER(Container.serbianCyrillicContainer().getIntegerConverter(),
+            getLanguageCodeFor("sr", "Cyrl")),
     BULGARIAN_INTEGER(Container.bulgarianContainer().getIntegerConverter(), "bg"),
     FRENCH_INTEGER(Container.frenchContainer().getIntegerConverter(), "fr"),
     TURKISH_INTEGER(Container.turkishContainer().getIntegerConverter(), "tr"),
@@ -36,6 +39,7 @@ public enum ValueConverters {
     SPANISH_INTEGER(Container.spanishContainer().getIntegerConverter(), "es"),
     HINDI_INTEGER(Container.hindiContainer().getIntegerConverter(), "hi"),
     HUNGARIAN_INTEGER(Container.hungarianContainer().getIntegerConverter(), "hu"),
+    FINNISH_INTEGER(Container.finnishContainer().getIntegerConverter(), "fi"),
     SWEDISH_INTEGER(Container.swedishContainer().getIntegerConverter(), "sv"),
     JAPANESE_INTEGER(Container.japaneseKanjiContainer().getIntegerConverter(), "ja");
 
@@ -55,8 +59,8 @@ public enum ValueConverters {
         Objects.requireNonNull(locale);
 
         String languageCode = hasSpecifiedScript(locale)
-            ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
-            : locale.getLanguage();
+                ? getLanguageCodeFor(locale.getLanguage(), locale.getScript())
+                : locale.getLanguage();
 
         return getByLanguageCodeOrDefault(languageCode, defaultConverter);
     }

@@ -7,6 +7,7 @@ import static pl.allegro.finance.tradukisto.internal.Container.azerbaijaniContai
 import static pl.allegro.finance.tradukisto.internal.Container.croatianContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.dutchContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.englishContainer;
+import static pl.allegro.finance.tradukisto.internal.Container.finnishContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.hindiContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.japaneseKanjiContainer;
 import static pl.allegro.finance.tradukisto.internal.Container.polishContainer;
@@ -18,6 +19,7 @@ public enum LongValueConverters {
     AZERBAIJANI_LONG(azerbaijaniContainer().getLongConverter()),
     CROATIAN_LONG(croatianContainer().getLongConverter()),
     ENGLISH_LONG(englishContainer().getLongConverter()),
+    FINNISH_LONG(finnishContainer().getLongConverter()),
     RUSSIAN_LONG(russianContainer().getLongConverter()),
     POLISH_LONG(polishContainer().getLongConverter()),
     HINDI_LONG(hindiContainer().getLongConverter()),

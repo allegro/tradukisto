@@ -9,6 +9,7 @@ import static pl.allegro.finance.tradukisto.ValueConverters.BULGARIAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.CZECH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ENGLISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.FRENCH_INTEGER
+import static pl.allegro.finance.tradukisto.ValueConverters.FINNISH_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.GERMAN_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.HINDI_INTEGER
 import static pl.allegro.finance.tradukisto.ValueConverters.ITALIAN_INTEGER
@@ -46,6 +47,7 @@ class ValueConvertersTest extends Specification {
         "Dutch"                | DUTCH_INTEGER                || "duizendtweehonderdvierendertig"
         "English"              | ENGLISH_INTEGER              || "one thousand two hundred thirty-four"
         "French"               | FRENCH_INTEGER               || "mille deux cent trente-quatre"
+        "Finnish"              | FINNISH_INTEGER              || "tuhat kaksisataakolmekymmentäneljä"
         "German"               | GERMAN_INTEGER               || "eintausendzweihundertvierunddreißig"
         "Italian"              | ITALIAN_INTEGER              || "milleduecentotrentaquattro"
         "Japanese"             | JAPANESE_INTEGER             || "千二百三十四"
