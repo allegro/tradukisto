@@ -16,6 +16,8 @@ class SpanishValuesTest extends Specification {
         where:
         value   | words
         51      | "cincuenta y un € 00/100"
+        21      | "veintiún € 00/100"
+        121     | "ciento veintiún € 00/100"
         111.12  | "ciento once € 12/100"
         112.12  | "ciento doce € 12/100"
         123.29  | "ciento veintitrés € 29/100"

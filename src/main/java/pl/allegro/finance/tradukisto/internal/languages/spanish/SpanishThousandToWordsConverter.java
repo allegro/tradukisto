@@ -90,12 +90,12 @@ public class SpanishThousandToWordsConverter implements IntegerToStringConverter
 
     private String getThousandsAsWords(Integer thousands, Integer other) {
         if (nothingComesAfter(other)) {
-            return format(MIL, asWords(thousands));
+            return format(MIL, asWords(thousands, HAS_NOT_NEXT_VALUE));
         }
         if (other == HUNDRED) {
             return format(S_MIL_S, asWords(thousands, HAS_NOT_NEXT_VALUE), asWords(other, HAS_NOT_NEXT_VALUE));
         }
-        return format(S_MIL_S, asWords(thousands), asWords(other, HAS_NEXT_VALUE));
+        return format(S_MIL_S, asWords(thousands, HAS_NOT_NEXT_VALUE), asWords(other, HAS_NEXT_VALUE));
     }
 
     private String getOneThousandAsWords(Integer other) {
