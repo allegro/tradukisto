@@ -55,7 +55,6 @@ import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneThousandT
 import pl.allegro.finance.tradukisto.internal.languages.slovene.SloveneValues;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishBigDecimalToBankingMoneyConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverter;
-import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishIntegerToWordsConverterAdapter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.spanish.SpanishValues;
 import pl.allegro.finance.tradukisto.internal.languages.swedish.SwedishHundredToWordsConverter;
@@ -348,7 +347,6 @@ public final class Container {
         );
 
         IntegerToStringConverter converter = new SpanishIntegerToWordsConverter(
-            new SpanishIntegerToWordsConverterAdapter(spanishThousandToWordsConverter, values.pluralForms()),
             values.exceptions(),
             spanishThousandToWordsConverter
         );

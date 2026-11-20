@@ -27,8 +27,10 @@ public class SpanishBigDecimalToBankingMoneyConverter extends BigDecimalToBankin
         // bugfix - ugly hack for ending with "1" :( numerals + nouns needs to have specific gender form
         // for example "51 euros" - it is needed to use "cincuenta y un" instead of "cincuenta y uno"
         // converter itself does not have context if it is formatting for "standalone" form or with noun
-        if (words.endsWith("uno")) {
-            words = words.replaceAll("uno$","un");
+        if (words.endsWith("veintiuno")) {
+            words = words.replaceAll("veintiuno$", "veintiún");
+        } else if (words.endsWith("uno")) {
+            words = words.replaceAll("uno$", "un");
         }
         return format(FORMAT, words, currencySymbol, subunits);
     }

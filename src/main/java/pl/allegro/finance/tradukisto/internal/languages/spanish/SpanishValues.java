@@ -41,7 +41,7 @@ public class SpanishValues implements BaseValues {
                 .put(18, "dieciocho")
                 .put(19, "diecinueve")
                 .put(20, "veinte")
-                .put(21, genderForms("veintiuno", "veintiuna", "veintiun"))
+                .put(21, genderForms("veintiuno", "veintiuna", "veintiún"))
                 .put(22, "veintidós")
                 .put(23, "veintitrés")
                 .put(24, "veinticuatro")
